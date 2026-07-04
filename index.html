@@ -1,3 +1,10 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#EAEEF1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D1013" media="(prefers-color-scheme: dark)">
 <title>Блок 1 · возвратный мезоцикл</title>
 <style>
   :root{
@@ -27,17 +34,18 @@
     --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 30px rgba(0,0,0,.35);
   }
   *{box-sizing:border-box}
-  html{-webkit-text-size-adjust:100%}
-  body{margin:0;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.55;
+  html{-webkit-text-size-adjust:100%;scroll-padding-top:82px}
+  body{min-width:280px;min-height:100dvh;margin:0;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.55;
     font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
   .mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-variant-numeric:tabular-nums}
-  .wrap{max-width:860px;margin:0 auto;padding:0 16px}
+  .wrap{width:100%;max-width:860px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
   h1{font-size:clamp(1.5rem,5vw,2.1rem);font-weight:800;letter-spacing:-.03em;margin:0 0 6px;text-wrap:balance}
   h2{font-size:1.15rem;font-weight:800;letter-spacing:-.01em;margin:32px 0 12px;display:flex;align-items:center;gap:10px}
   h2::before{content:"";width:22px;height:3px;background:var(--accent);border-radius:2px}
   p{margin:0 0 12px;color:var(--ink-2)}
   .eyebrow{font:600 .68rem/1 ui-monospace,Menlo,monospace;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
   header{padding:34px 0 8px}
+  header .wrap{padding-right:max(64px,env(safe-area-inset-right))}
   .meta{font:600 .74rem/1.5 ui-monospace,Menlo,monospace;color:var(--ink-3)}
   .meta b{color:var(--accent)}
 
@@ -45,27 +53,33 @@
     backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:12px 0;margin:18px 0 6px}
   .picker .inner{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
   .picker label{font:600 .68rem/1 ui-monospace,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
-  .weekbtns{display:flex;gap:6px}
-  .weekbtns button{font-family:ui-monospace,Menlo,monospace;min-width:82px;height:38px;padding:0 8px;border:1px solid var(--line);background:var(--surface);
+  .weekbtns{display:flex;gap:6px;min-width:0}
+  .weekbtns button{touch-action:manipulation;font-family:ui-monospace,Menlo,monospace;min-width:82px;min-height:44px;padding:4px 8px;border:1px solid var(--line);background:var(--surface);
     color:var(--ink-2);border-radius:9px;cursor:pointer;font-size:.8rem;font-weight:700;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.1}
   .weekbtns button small{font-size:.56rem;font-weight:600;color:var(--ink-3);letter-spacing:.04em}
   .weekbtns button:hover{border-color:var(--accent);color:var(--accent)}
   .weekbtns button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
   .weekbtns button[aria-pressed="true"] small{color:rgba(255,255,255,.85)}
   .weekbtns button.dl[aria-pressed="true"]{background:var(--warn);border-color:var(--warn)}
-  @media(max-width:560px){.weekbtns button{min-width:0;flex:1;height:44px}.weekbtns{flex:1}}
+  @media(max-width:560px){
+    .picker{padding:9px 0;margin-top:12px}
+    .picker .inner{align-items:stretch;gap:7px}
+    .picker label{width:100%}
+    .weekbtns{width:100%}
+    .weekbtns button{min-width:0;flex:1;padding-inline:3px}
+  }
 
   .cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:6px}
   @media(max-width:680px){.cards{grid-template-columns:1fr}}
   .wcard{background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
-  .whead{padding:13px 16px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,var(--surface-2),var(--surface));display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+  .whead{padding:13px 16px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,var(--surface-2),var(--surface));display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
   .whead .dn{font:600 .62rem/1 ui-monospace,Menlo,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
   .whead .tn{font-size:1.05rem;font-weight:800;letter-spacing:-.02em;margin-top:2px}
   .whead .rir{font:600 .62rem/1.3 ui-monospace,Menlo,monospace;color:var(--ink-3);text-align:right}
   .whead .rir b{color:var(--ink-2)}
-  .ex{display:grid;grid-template-columns:1fr auto;gap:1px 12px;padding:10px 16px;border-bottom:1px solid var(--line);align-items:center}
+  .ex{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;padding:10px 16px;border-bottom:1px solid var(--line);align-items:center}
   .ex:last-child{border-bottom:0}
-  .ex .en{font-size:.9rem;font-weight:600}
+  .ex .en{min-width:0;font-size:.9rem;font-weight:600;overflow-wrap:anywhere}
   .ex .load{grid-row:1/2;grid-column:2;text-align:right;white-space:nowrap}
   .ex .kg{font-family:ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums;font-size:1.14rem;font-weight:700;color:var(--accent);line-height:1}
   .ex .kg small{font-size:.62rem;color:var(--ink-3);font-weight:600}
@@ -87,11 +101,38 @@
   .callout{border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;padding:12px 16px;background:var(--surface);font-size:.88rem}
   .callout.warn{border-left-color:var(--warn)}
   .callout b{color:var(--ink)}
-  .themebtn{position:fixed;top:12px;right:12px;z-index:20;width:36px;height:36px;border-radius:9px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);cursor:pointer;box-shadow:var(--shadow);font-size:1rem}
+  .themebtn{touch-action:manipulation;position:fixed;top:max(10px,env(safe-area-inset-top));right:max(10px,env(safe-area-inset-right));z-index:20;width:44px;height:44px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);cursor:pointer;box-shadow:var(--shadow);font-size:1rem}
   .themebtn:hover{color:var(--accent);border-color:var(--accent)}
   :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
-  footer{padding:28px 0 56px;color:var(--ink-3);font-size:.8rem;border-top:1px solid var(--line);margin-top:34px}
+  footer{padding:28px 0 max(56px,env(safe-area-inset-bottom));color:var(--ink-3);font-size:.8rem;border-top:1px solid var(--line);margin-top:34px}
+  @media(max-width:420px){
+    body{font-size:15px}
+    .wrap{padding-left:max(12px,env(safe-area-inset-left));padding-right:max(12px,env(safe-area-inset-right))}
+    header{padding-top:24px}
+    h1{font-size:1.55rem}
+    h2{font-size:1.05rem;margin-top:26px}
+    .meta{font-size:.68rem;overflow-wrap:anywhere}
+    .cards,.grid2{gap:12px}
+    .wcard{border-radius:12px}
+    .whead{padding:12px}
+    .whead .tn{font-size:1rem}
+    .ex{grid-template-columns:minmax(0,1fr) auto;padding:12px;gap:5px 10px}
+    .ex .en{grid-column:1/-1}
+    .ex .load{grid-row:2;grid-column:1;text-align:left}
+    .ex .sr{grid-row:2;grid-column:2}
+    .ex .rirline{grid-row:3}
+    .card{padding:14px}
+    .callout{padding:12px 13px}
+  }
+  @media(max-width:340px){
+    .weekbtns{gap:4px}
+    .weekbtns button{font-size:.75rem}
+    .weekbtns button small{font-size:.5rem;letter-spacing:0}
+    .whead{gap:8px}
+  }
 </style>
+</head>
+<body>
 
 <button class="themebtn" id="themebtn" aria-label="Тема">◐</button>
 
@@ -226,3 +267,5 @@
     });
 })();
 </script>
+</body>
+</html>
