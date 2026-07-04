@@ -1,0 +1,636 @@
+<title>Цикл 8 → Новая программа</title>
+<style>
+  :root{
+    --bg:#EAEEF1; --surface:#FFFFFF; --surface-2:#F3F6F8; --surface-3:#E9EEF1;
+    --ink:#14171B; --ink-2:#48535D; --ink-3:#7B8892;
+    --line:#D6DDE2; --line-2:#C3CCD3;
+    --accent:#B0311D; --accent-2:#8C2616;
+    --good:#2E7D51; --good-bg:rgba(46,125,81,.12);
+    --warn:#B07715; --warn-bg:rgba(176,119,21,.14);
+    --over:#B0311D; --over-bg:rgba(176,49,29,.12);
+    --steel:#5C6B77; --steel-bg:rgba(92,107,119,.12);
+    --band:rgba(46,125,81,.10);
+    --shadow:0 1px 2px rgba(20,23,27,.06),0 6px 20px rgba(20,23,27,.06);
+    --maxw:1000px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#0D1013; --surface:#161A1E; --surface-2:#1D2329; --surface-3:#232A31;
+      --ink:#ECF1F4; --ink-2:#A7B2BB; --ink-3:#6C7883;
+      --line:#282F36; --line-2:#333C44;
+      --accent:#E0563C; --accent-2:#EE7259;
+      --good:#4FB07C; --good-bg:rgba(79,176,124,.14);
+      --warn:#D6A03E; --warn-bg:rgba(214,160,62,.16);
+      --over:#E0563C; --over-bg:rgba(224,86,60,.15);
+      --steel:#8493A0; --steel-bg:rgba(132,147,160,.14);
+      --band:rgba(79,176,124,.10);
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 30px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="light"]{
+    --bg:#EAEEF1; --surface:#FFFFFF; --surface-2:#F3F6F8; --surface-3:#E9EEF1;
+    --ink:#14171B; --ink-2:#48535D; --ink-3:#7B8892;
+    --line:#D6DDE2; --line-2:#C3CCD3;
+    --accent:#B0311D; --accent-2:#8C2616;
+    --good:#2E7D51; --good-bg:rgba(46,125,81,.12);
+    --warn:#B07715; --warn-bg:rgba(176,119,21,.14);
+    --over:#B0311D; --over-bg:rgba(176,49,29,.12);
+    --steel:#5C6B77; --steel-bg:rgba(92,107,119,.12);
+    --band:rgba(46,125,81,.10);
+    --shadow:0 1px 2px rgba(20,23,27,.06),0 6px 20px rgba(20,23,27,.06);
+  }
+  :root[data-theme="dark"]{
+    --bg:#0D1013; --surface:#161A1E; --surface-2:#1D2329; --surface-3:#232A31;
+    --ink:#ECF1F4; --ink-2:#A7B2BB; --ink-3:#6C7883;
+    --line:#282F36; --line-2:#333C44;
+    --accent:#E0563C; --accent-2:#EE7259;
+    --good:#4FB07C; --good-bg:rgba(79,176,124,.14);
+    --warn:#D6A03E; --warn-bg:rgba(214,160,62,.16);
+    --over:#E0563C; --over-bg:rgba(224,86,60,.15);
+    --steel:#8493A0; --steel-bg:rgba(132,147,160,.14);
+    --band:rgba(79,176,124,.10);
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 30px rgba(0,0,0,.35);
+  }
+
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  .mono{font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;font-variant-numeric:tabular-nums}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+  section{padding:46px 0;border-top:1px solid var(--line)}
+  h2{font-size:clamp(1.4rem,3.2vw,2rem);font-weight:800;letter-spacing:-.02em;margin:0 0 6px;text-wrap:balance}
+  h3{font-size:1.06rem;font-weight:700;letter-spacing:-.01em;margin:0 0 4px}
+  p{margin:0 0 14px;max-width:66ch;color:var(--ink-2)}
+  p strong,li strong{color:var(--ink);font-weight:650}
+  a{color:var(--accent);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--accent) 35%,transparent)}
+  a:hover{border-bottom-color:var(--accent)}
+  .eyebrow{font:600 .72rem/1 ui-monospace,Menlo,monospace;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin:0 0 14px}
+  .lede{font-size:1.05rem;color:var(--ink-2);max-width:64ch}
+  .kicker{font:600 .7rem/1 ui-monospace,Menlo,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);margin:0 0 18px;display:flex;align-items:center;gap:10px}
+  .kicker::before{content:"";width:26px;height:2px;background:var(--accent);display:inline-block}
+
+  /* ---------- masthead ---------- */
+  header.top{padding:56px 0 40px;position:relative;overflow:hidden}
+  .brandline{font:600 .72rem/1 ui-monospace,Menlo,monospace;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-3);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+  .brandline b{color:var(--accent)}
+  h1{font-size:clamp(2.1rem,7vw,4.1rem);line-height:.98;font-weight:800;letter-spacing:-.035em;margin:0 0 18px;text-wrap:balance}
+  h1 .fade{color:var(--ink-3)}
+  h1 .hit{color:var(--accent)}
+  .statstrip{display:flex;flex-wrap:wrap;gap:0;margin-top:30px;border:1px solid var(--line);border-radius:12px;background:var(--surface);box-shadow:var(--shadow);overflow:hidden}
+  .stat{flex:1 1 130px;padding:14px 16px;border-right:1px solid var(--line)}
+  .stat:last-child{border-right:0}
+  .stat .l{font:600 .64rem/1 ui-monospace,Menlo,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+  .stat .v{font-family:ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums;font-size:1.5rem;font-weight:600;letter-spacing:-.02em;margin-top:5px}
+  .stat .v small{font-size:.8rem;color:var(--ink-3);font-weight:500}
+  .stat.goal .v{color:var(--accent)}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:760px){.grid2,.grid3{grid-template-columns:1fr}}
+
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;box-shadow:var(--shadow)}
+  .card.tight{padding:16px 18px}
+
+  /* ---------- tables ---------- */
+  .tbl-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface);box-shadow:var(--shadow)}
+  table{border-collapse:collapse;width:100%;font-size:.9rem}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+  thead th{font:600 .66rem/1.2 ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);background:var(--surface-2)}
+  tbody tr:last-child td{border-bottom:0}
+  td.num,th.num{text-align:right;font-family:ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+  tr.sum td{font-weight:700;background:var(--surface-2)}
+  .daytag{font:600 .62rem/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+
+  /* ---------- pills / status ---------- */
+  .pill{display:inline-flex;align-items:center;gap:6px;font:600 .7rem/1 ui-monospace,Menlo,monospace;letter-spacing:.03em;padding:4px 9px;border-radius:999px;white-space:nowrap}
+  .pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+  .pill.ok{color:var(--good);background:var(--good-bg)}
+  .pill.warn{color:var(--warn);background:var(--warn-bg)}
+  .pill.over{color:var(--over);background:var(--over-bg)}
+  .pill.zero{color:var(--steel);background:var(--steel-bg)}
+  .tag{display:inline-block;font:600 .6rem/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border-radius:5px;background:var(--surface-3);color:var(--ink-2)}
+  .tag.acc{background:var(--over-bg);color:var(--accent)}
+
+  /* ---------- meter (sets vs band) ---------- */
+  .meterhead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:6px}
+  .meter{position:relative;height:12px;border-radius:6px;background:var(--surface-3);overflow:hidden}
+  .meter .band{position:absolute;top:0;bottom:0;background:var(--band);border-left:1px dashed color-mix(in srgb,var(--good) 55%,transparent);border-right:1px dashed color-mix(in srgb,var(--good) 55%,transparent)}
+  .meter .fill{position:absolute;top:0;bottom:0;left:0;border-radius:6px}
+
+  /* ---------- callouts ---------- */
+  .callout{border-left:3px solid var(--accent);background:var(--surface);border:1px solid var(--line);border-left-width:3px;border-radius:10px;padding:14px 16px}
+  .callout h4{margin:0 0 4px;font-size:.95rem;font-weight:700}
+  .callout p{margin:0;font-size:.9rem}
+  .num-badge{font-family:ui-monospace,Menlo,monospace;font-weight:600}
+
+  ul.clean{margin:0 0 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px}
+  ul.clean li{position:relative;padding-left:22px;color:var(--ink-2);font-size:.94rem}
+  ul.clean li::before{content:"";position:absolute;left:2px;top:.62em;width:7px;height:7px;border-radius:2px;background:var(--accent);transform:rotate(45deg)}
+  ul.clean li b{color:var(--ink)}
+
+  /* ---------- workout cards ---------- */
+  .wcard{background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+  .wcard .whead{padding:15px 18px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,var(--surface-2),var(--surface))}
+  .wcard .whead .dn{font:600 .64rem/1 ui-monospace,Menlo,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+  .wcard .whead .tn{font-size:1.18rem;font-weight:800;letter-spacing:-.02em;margin-top:3px}
+  .wcard .whead .fo{font:500 .75rem/1.3 ui-monospace,Menlo,monospace;color:var(--ink-3);margin-top:3px}
+  .ex{display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding:11px 18px;border-bottom:1px solid var(--line);align-items:baseline}
+  .ex:last-child{border-bottom:0}
+  .ex .en{font-size:.92rem;font-weight:600;color:var(--ink)}
+  .ex .em{font-family:ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums;font-size:.82rem;color:var(--accent);font-weight:600;white-space:nowrap;text-align:right}
+  .ex .et{grid-column:1/-1;font-size:.78rem;color:var(--ink-3);margin-top:-1px}
+  .ex.primary{background:var(--over-bg)}
+  .ex.primary .en::after{content:"база";font:600 .56rem/1 ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);border-radius:4px;padding:2px 4px;margin-left:8px;vertical-align:middle}
+
+  /* ---------- roadmap ---------- */
+  .road{display:flex;flex-direction:column;gap:0;counter-reset:step;border-left:2px solid var(--line);margin-left:8px}
+  .road .rstep{position:relative;padding:0 0 22px 26px}
+  .road .rstep:last-child{padding-bottom:0}
+  .road .rstep::before{counter-increment:step;content:counter(step);position:absolute;left:-15px;top:0;width:26px;height:26px;border-radius:50%;background:var(--surface);border:2px solid var(--accent);color:var(--accent);font:700 .8rem/22px ui-monospace,Menlo,monospace;text-align:center}
+  .road .rstep h4{margin:0 0 3px;font-size:.98rem}
+  .road .rstep p{margin:0;font-size:.88rem}
+
+  figure{margin:0}
+  figcaption{font:500 .74rem/1.4 ui-monospace,Menlo,monospace;color:var(--ink-3);margin-top:8px}
+  .chart-title{font-size:.95rem;font-weight:700;margin-bottom:2px}
+  .chart-sub{font-size:.82rem;color:var(--ink-3);margin-bottom:12px}
+
+  .legend{display:flex;flex-wrap:wrap;gap:14px;font:500 .78rem/1 ui-monospace,Menlo,monospace;color:var(--ink-2);margin-top:10px}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .legend i{width:11px;height:11px;border-radius:3px;display:inline-block}
+
+  .note{font-size:.82rem;color:var(--ink-3)}
+  .disc{font-size:.8rem;color:var(--ink-3);border-top:1px solid var(--line);padding-top:20px}
+  footer{padding:34px 0 60px}
+  .src{font-size:.82rem;color:var(--ink-2);display:flex;flex-direction:column;gap:6px}
+
+  .themebtn{position:fixed;top:14px;right:14px;z-index:20;width:38px;height:38px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);cursor:pointer;box-shadow:var(--shadow);font-size:1rem;display:flex;align-items:center;justify-content:center}
+  .themebtn:hover{color:var(--accent);border-color:var(--accent)}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+
+  svg text{font-family:ui-monospace,Menlo,monospace}
+  @media (prefers-reduced-motion:no-preference){
+    .reveal{opacity:0;transform:translateY(10px);animation:rise .6s cubic-bezier(.2,.7,.3,1) forwards}
+    @keyframes rise{to{opacity:1;transform:none}}
+  }
+</style>
+
+<button class="themebtn" id="themebtn" aria-label="Переключить тему">◐</button>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brandline">
+      <span>Тренировочный аудит · <b>Cycle 8 ББ</b></span>
+      <span>Разбор → Оценка → Программа</span>
+    </div>
+    <h1><span class="fade">Старый цикл</span> разобран.<br>Вот <span class="hit">новая программа</span> под тебя.</h1>
+    <p class="lede">Полный разбор массонаборного цикла Д. Бондаренко, оценка по свежим мета-данным (где норма, где перебор и недобор) и пересобранная под твои цели схема тренировок «через день».</p>
+    <div class="statstrip mono">
+      <div class="stat"><div class="l">Рост</div><div class="v">183<small> см</small></div></div>
+      <div class="stat"><div class="l">Вес</div><div class="v">85<small> кг</small></div></div>
+      <div class="stat"><div class="l">Жир</div><div class="v">25–26<small> %</small></div></div>
+      <div class="stat"><div class="l">Жим сейчас</div><div class="v">~100<small> кг</small></div></div>
+      <div class="stat goal"><div class="l">Цель жим</div><div class="v">150<small> кг</small></div></div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ 1. КАК УСТРОЕН СТАРЫЙ ПЛАН ============ -->
+<section id="old">
+  <div class="wrap">
+    <p class="kicker">01 · Что это за план</p>
+    <h2>Саморасчётный цикл на +1% в неделю</h2>
+    <p>Программа — это <strong>12 недельных микроциклов</strong>, по 3 тренировки (Пн / Ср / Пт) и 6 упражнений в каждой. Тип нагрузки «Лёгкая / Средняя / Тяжёлая» волнообразно чередуется по неделям, а весь прогресс держится на одном параметре.</p>
+
+    <div class="grid2" style="margin:22px 0 6px">
+      <div class="card">
+        <h3>Двигатель прогрессии — ячейка <span class="mono" style="color:var(--accent)">Y38 = 1%</span></h3>
+        <p style="font-size:.92rem">Для каждого упражнения хранится опорный максимум <b class="mono">ПМ</b> (расчётный 1ПМ). Каждый новый микроцикл он пересчитывается:</p>
+        <div class="card tight mono" style="background:var(--surface-2);font-size:.86rem;text-align:center;margin-bottom:12px">
+          ПМ<sub>нов</sub> = ПМ<sub>пред</sub> + ПМ<sub>пред</sub> × <span style="color:var(--accent)">0.01</span>
+        </div>
+        <p style="font-size:.92rem;margin:0">Рабочий вес каждого подхода = <b class="mono">ОКРУГЛ(ПМ × план&nbsp;%)</b> до шага блинов. То есть база растёт ровно на 1% в неделю, а фактические веса — это её процент.</p>
+      </div>
+      <figure class="card">
+        <div class="chart-title">Рост опорного ПМ, +1%/нед</div>
+        <div class="chart-sub">пример: жим стоя, 12 микроциклов</div>
+        <div id="pmChart"></div>
+        <figcaption>60.0 → 66.9 кг за цикл = <b>+11.6%</b>. Тот же множитель применяется ко всем 18 упражнениям.</figcaption>
+      </figure>
+    </div>
+
+    <p class="kicker" style="margin-top:34px">Сплит: одна мышца — один день в неделю</p>
+    <div class="grid3">
+      <div class="card">
+        <div class="daytag">Пн — Плечи + Квадрицепс</div>
+        <ul class="clean" style="margin-top:10px">
+          <li>Жим стоя</li><li>Подъём гантели перед собой</li><li>Разведение в тренажёре</li>
+          <li>Присед</li><li>Жим платформы</li><li>Разгибания ног</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="daytag">Ср — Грудь + Трицепс</div>
+        <ul class="clean" style="margin-top:10px">
+          <li>Жим лёжа</li><li>Жим гантелей 30°</li><li>Кроссовер</li>
+          <li>Французский жим</li><li>Трицепс на блоке</li><li>Разгибания из-за головы</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="daytag">Пт — Задняя цепь + Спина + Бицепс</div>
+        <ul class="clean" style="margin-top:10px">
+          <li>Тяга на прямых ногах</li><li>Наклоны</li><li>Тяга горизонт. блока</li>
+          <li>Тяга верхн. блока</li><li>Бицепс стоя</li><li>Молотковые сгибания</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. НАГРУЗКА ПО МЫШЦАМ ============ -->
+<section id="load">
+  <div class="wrap">
+    <p class="kicker">02 · Нагрузка по группам мышц</p>
+    <h2>Куда уходил тоннаж</h2>
+    <p>За весь цикл поднято <strong>357 т</strong> суммарного веса (вес × повторы × подходы). Вот как он распределился по мышцам за ~3 месяца и как колебался общий недельный объём.</p>
+
+    <div class="grid2" style="margin:22px 0">
+      <figure class="card">
+        <div class="chart-title">Тоннаж за цикл, по группам</div>
+        <div class="chart-sub">суммарно за 12 недель, тонны</div>
+        <div id="tonBars"></div>
+      </figure>
+      <figure class="card">
+        <div class="chart-title">Общий тоннаж по неделям</div>
+        <div class="chart-sub">волна нагрузки, тонны за микроцикл</div>
+        <div id="waveChart"></div>
+        <figcaption>Объём «гуляет» 26–35 т (недельная волна Л/С/Т), но опорная база при этом растёт линейно.</figcaption>
+      </figure>
+    </div>
+
+    <div class="tbl-scroll">
+      <table class="mono">
+        <thead><tr>
+          <th>МЦ</th><th class="num">Грудь</th><th class="num">Спина</th><th class="num">Плечи</th>
+          <th class="num">Бицепс</th><th class="num">Трицепс</th><th class="num">Квадры</th><th class="num">Зад.цепь</th><th class="num">Итого</th>
+        </tr></thead>
+        <tbody id="weekTbody"></tbody>
+      </table>
+    </div>
+    <p class="note" style="margin-top:8px">Значения тоннажа (кг) — из фактических кэш-значений Excel. «Разведение в тренажёре» учтено в плечах (средние/задние дельты).</p>
+  </div>
+</section>
+
+<!-- ============ 3. АУДИТ ============ -->
+<section id="audit">
+  <div class="wrap">
+    <p class="kicker">03 · Оценка по свежим данным</p>
+    <h2>Где норма, а где перекос</h2>
+    <p>Тоннаж красив, но гипертрофию точнее описывает <strong>число рабочих подходов на мышцу в неделю</strong>. Продуктивный ориентир по мета-данным — примерно <strong>10–20 подходов</strong>. Вот средние за цикл против этого коридора:</p>
+
+    <div class="card" style="margin:22px 0;padding:8px 20px 20px">
+      <div id="setMeters"></div>
+      <div class="legend">
+        <span><i style="background:var(--band);border:1px dashed var(--good)"></i>коридор 10–20 подх./нед</span>
+        <span><span class="pill ok" style="padding:2px 8px">норма</span></span>
+        <span><span class="pill warn" style="padding:2px 8px">нижняя граница</span></span>
+        <span><span class="pill over" style="padding:2px 8px">недобор / перебор</span></span>
+      </div>
+    </div>
+
+    <div class="grid2" style="margin-top:26px">
+      <div>
+        <h3>Главный перекос — жим ≫ тяга</h3>
+        <p style="font-size:.94rem">«Жимового» объёма (грудь + плечи + трицепс) почти в 2 раза больше «тягового» (спина + бицепс). Спина недогружена — это бьёт по осанке, здоровью плеч и общему балансу телосложения.</p>
+        <div id="pushPull" class="card tight" style="margin-top:6px"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div class="callout"><h4>❶ Частота 1×/нед</h4><p>Каждая мышца тренируется только в один день. При равном объёме <b>2×/нед даёт больше роста</b>, чем 1× — объём чище распределяется по двум сессиям.</p></div>
+        <div class="callout"><h4>❷ Нет силовой работы</h4><p>Все подходы 8–12 повторов. Под цель «жим 150» нужна тяжёлая практика в <b>3–6 повторах</b> — этого в плане нет.</p></div>
+        <div class="callout"><h4>❸ Дыры в объёме</h4><p>Спина <b class="num-badge">8.0</b> и бицепс <b class="num-badge">8.2</b> — по нижней границе, а <b>икры отсутствуют вовсе</b>. Трицепс же перегружен: 11 прямых подходов + весь косвенный объём от жимов.</p></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:24px;background:var(--surface-2)">
+      <h3>На чём это основано <span class="tag acc">research 2024–25</span></h3>
+      <ul class="clean" style="margin-top:12px">
+        <li><b>Объём.</b> Рост продолжается с добавлением подходов, но с убывающей отдачей; рабочий коридор ~10–20 подх./мышца/нед <span class="note">— Pelland et al., мета-регрессия, Sports Medicine (2024/25).</span></li>
+        <li><b>Частота.</b> 2×/нед превосходит 1× при равном объёме; выше 2× разница минимальна <span class="note">— Schoenfeld et al. (2016); Stronger by Science.</span></li>
+        <li><b>Повторы и близость к отказу.</b> Мышца растёт в диапазоне 5–30 повт. при работе близко к отказу (1–3 повтора в запасе); чистая сила требует более тяжёлых 1–6 повт.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. НОВАЯ ПРОГРАММА ============ -->
+<section id="program">
+  <div class="wrap">
+    <p class="kicker">04 · Новая программа</p>
+    <h2>Верх / Низ, через день — каждая мышца 2×/нед</h2>
+    <p>Схема закрывает все дыры аудита и ложится на твой график «через день». Ротация: <strong>Верх A → Низ A → Верх B → Низ B</strong> и по кругу. ~4 сессии в неделю, 6–7 упражнений за 60–90 мин, ~2 упражнения на большие мышцы и 1 на малые — без перегруза.</p>
+
+    <div class="card tight" style="margin:18px 0 26px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;background:var(--surface-2)">
+      <span class="tag">Правило нагрузки</span>
+      <span class="note" style="color:var(--ink-2)"><b class="mono" style="color:var(--ink)">База</b> 3–6 повт · 2–3 в запасе (прогрессия веса) &nbsp;·&nbsp; <b class="mono" style="color:var(--ink)">Вторичные</b> 6–10 · 1–2 в запасе &nbsp;·&nbsp; <b class="mono" style="color:var(--ink)">Изоляция</b> 10–20 · 0–2 в запасе &nbsp;·&nbsp; не в отказ каждый подход</span>
+    </div>
+
+    <div class="grid2">
+      <!-- ВЕРХ A -->
+      <div class="wcard">
+        <div class="whead"><div class="dn">День A · Верх</div><div class="tn">Жим-акцент · сила</div><div class="fo">грудь · спина · плечи · руки</div></div>
+        <div class="ex primary"><span class="en">Жим лёжа</span><span class="em">4 × 3–5</span><span class="et">главный силовой стимул под цель 150 кг</span></div>
+        <div class="ex"><span class="en">Жим на наклонной (штанга/гант.)</span><span class="em">3 × 6–10</span><span class="et">верх груди — твоё отстающее звено</span></div>
+        <div class="ex"><span class="en">Горизонтальная тяга в тренажёре</span><span class="em">3 × 8–12</span><span class="et">толщина спины</span></div>
+        <div class="ex"><span class="en">Вертикальная тяга (верхний блок)</span><span class="em">3 × 8–12</span><span class="et">ширина спины</span></div>
+        <div class="ex"><span class="en">Махи гантелями в стороны</span><span class="em">3 × 12–20</span><span class="et">средние дельты — ширина плеч</span></div>
+        <div class="ex"><span class="en">Разгибание на трицепс (блок)</span><span class="em">2–3 × 10–15</span></div>
+        <div class="ex"><span class="en">Сгибание на бицепс (штанга)</span><span class="em">2–3 × 8–12</span></div>
+      </div>
+      <!-- НИЗ A -->
+      <div class="wcard">
+        <div class="whead"><div class="dn">День A · Низ</div><div class="tn">Присед-акцент</div><div class="fo">квадры · задняя цепь · икры · кор</div></div>
+        <div class="ex primary"><span class="en">Глубокий присед, пятки на подставке</span><span class="em">4 × 5–8</span><span class="et">квадры + кровоток в тазовой области</span></div>
+        <div class="ex"><span class="en">Румынская тяга</span><span class="em">3 × 6–10</span><span class="et">бицепс бедра / ягодицы</span></div>
+        <div class="ex"><span class="en">Жим платформы</span><span class="em">3 × 10–15</span><span class="et">добивочный объём на квадры</span></div>
+        <div class="ex"><span class="en">Сгибание ног</span><span class="em">3 × 10–15</span></div>
+        <div class="ex"><span class="en">Подъём на носки стоя</span><span class="em">3–4 × 10–15</span><span class="et">икры — их не было в старом плане</span></div>
+        <div class="ex"><span class="en">Пресс (на выбор)</span><span class="em">2–3 подх.</span></div>
+      </div>
+      <!-- ВЕРХ B -->
+      <div class="wcard">
+        <div class="whead"><div class="dn">День B · Верх</div><div class="tn">Объём · верх груди</div><div class="fo">грудь · спина · плечи · руки</div></div>
+        <div class="ex primary"><span class="en">Жим на наклонной (приоритет)</span><span class="em">4 × 6–10</span><span class="et">подтягиваем отстающий верх груди</span></div>
+        <div class="ex"><span class="en">Жим лёжа / гантелей</span><span class="em">3 × 6–10</span><span class="et">объёмный жим, легче дня A</span></div>
+        <div class="ex"><span class="en">Вертикальная тяга (другой хват)</span><span class="em">3 × 8–12</span></div>
+        <div class="ex"><span class="en">Горизонтальная тяга в тренажёре</span><span class="em">3 × 8–12</span></div>
+        <div class="ex"><span class="en">Махи гантелями в стороны</span><span class="em">3 × 12–20</span><span class="et">ещё объём на ширину плеч</span></div>
+        <div class="ex"><span class="en">Молотковые сгибания</span><span class="em">2–3 × 10–15</span></div>
+        <div class="ex"><span class="en">Разгибания из-за головы</span><span class="em">2–3 × 10–15</span><span class="et">длинная головка трицепса</span></div>
+      </div>
+      <!-- НИЗ B -->
+      <div class="wcard">
+        <div class="whead"><div class="dn">День B · Низ</div><div class="tn">Тяга-акцент</div><div class="fo">задняя цепь · квадры · икры · кор</div></div>
+        <div class="ex primary"><span class="en">Румынская тяга</span><span class="em">4 × 6–8</span><span class="et">главная база на заднюю цепь</span></div>
+        <div class="ex"><span class="en">Глубокий присед, пятки на подставке</span><span class="em">3 × 6–10</span></div>
+        <div class="ex"><span class="en">Разгибания ног</span><span class="em">3 × 12–15</span></div>
+        <div class="ex"><span class="en">Сгибание ног</span><span class="em">3 × 10–15</span></div>
+        <div class="ex"><span class="en">Подъём на носки сидя</span><span class="em">3–4 × 12–20</span></div>
+        <div class="ex"><span class="en">Пресс (на выбор)</span><span class="em">2–3 подх.</span></div>
+      </div>
+    </div>
+
+    <!-- volume compare + starting weights -->
+    <div class="grid2" style="margin-top:26px">
+      <figure class="card">
+        <div class="chart-title">Объём/нед: было → стало</div>
+        <div class="chart-sub">рабочих подходов на мышцу</div>
+        <div id="cmpChart"></div>
+        <div class="legend">
+          <span><i style="background:var(--steel)"></i>старый план</span>
+          <span><i style="background:var(--accent)"></i>новая программа</span>
+        </div>
+      </figure>
+      <div class="card">
+        <h3>С каких весов стартовать</h3>
+        <p style="font-size:.9rem">Отталкиваемся от твоих цифр после перерыва: жим 100 кг с запасом, присед 60×8 с запасом (присед сильно детренирован — начинаем консервативно).</p>
+        <div class="tbl-scroll" style="box-shadow:none">
+          <table class="mono">
+            <thead><tr><th>Упражнение</th><th class="num">Рабочий старт</th></tr></thead>
+            <tbody>
+              <tr><td>Жим лёжа (база 3–5)</td><td class="num">тройки 90–95</td></tr>
+              <tr><td>Жим лёжа (объём 6–10)</td><td class="num">80–85 кг</td></tr>
+              <tr><td>Жим на наклонной</td><td class="num">50–60 кг</td></tr>
+              <tr><td>Глубокий присед (др. ROM)</td><td class="num">50–60 кг</td></tr>
+              <tr><td>Румынская тяга</td><td class="num">60–70 кг</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note" style="margin-top:10px"><b>Прогрессия — двойная:</b> добираешь верх диапазона повторов во всех подходах → в следующий раз +2.5 кг и снова с низа диапазона.</p>
+      </div>
+    </div>
+
+    <!-- roadmap 150 -->
+    <div class="card" style="margin-top:26px">
+      <h3 style="font-size:1.15rem">Дорожная карта к жиму 150 кг</h3>
+      <p style="font-size:.92rem">Сейчас 1ПМ ≈ 105–110 кг (~1.2× веса тела). 150 кг — это ~1.75× веса тела: <strong>реалистично за 1.5–2.5 года</strong> при системной работе. Порядок движения:</p>
+      <div class="road" style="margin-top:16px">
+        <div class="rstep"><h4>Два жимовых стимула в неделю</h4><p>Тяжёлый жим (день A) + объёмный жим/наклонная (день B) = частота 2×/нед вместо 1×.</p></div>
+        <div class="rstep"><h4>Прогрессивная перегрузка</h4><p>Двойная прогрессия на базе, дневник весов. Медленно, но неизменно вверх — это и есть главный драйвер.</p></div>
+        <div class="rstep"><h4>Блоковая периодизация</h4><p>Чередуй ~6–8 нед объёмных блоков (6–10 повт) с силовыми (3–5 повт). Разгрузка каждые ~6–8 недель.</p></div>
+        <div class="rstep"><h4>Подтяни слабые звенья</h4><p>Верх груди и трицепс лимитируют жим — они уже приоритет в программе. Плюс сильная спина = устойчивый «мост».</p></div>
+        <div class="rstep"><h4>Рекомпозиция тела</h4><p>25–26% жира — многовато. Лёгкий дефицит/рекомп улучшит и телосложение, и относительную силу. Белок ~1.6–2 г/кг, сон 7–9 ч — фундамент под весь прогресс.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="disc">
+      <p style="margin-bottom:14px"><b style="color:var(--ink)">Источники и оговорка.</b> Ориентиры основаны на публичных мета-анализах; это не медицинская рекомендация. Веса и объём подстраивай по самочувствию, технике и восстановлению; при болях — стоп и консультация специалиста.</p>
+      <div class="src">
+        <a href="https://sportrxiv.org/index.php/server/preprint/view/460">Pelland J.C. et al. — The Resistance Training Dose-Response (мета-регрессия объёма и частоты), SportRxiv / Sports Medicine 2024–25</a>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/30558493/">Schoenfeld B. et al. — How many times per week should a muscle be trained? (мета-анализ частоты)</a>
+        <a href="https://www.strongerbyscience.com/frequency-muscle/">Stronger by Science — Training Frequency for Muscle Growth</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  // ---------- theme toggle ----------
+  var btn=document.getElementById('themebtn');
+  btn.addEventListener('click',function(){
+    var cur=document.documentElement.getAttribute('data-theme');
+    var next = cur==='dark' ? 'light' : cur==='light' ? 'dark'
+      : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'light':'dark');
+    document.documentElement.setAttribute('data-theme',next);
+    render();
+  });
+  function cssv(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim();}
+  var NS="http://www.w3.org/2000/svg";
+  function el(t,a){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);return e;}
+  function svg(w,h){return el("svg",{viewBox:"0 0 "+w+" "+h,width:"100%",height:h,preserveAspectRatio:"xMidYMid meet",role:"img"});}
+  function mount(id,node){var c=document.getElementById(id);c.innerHTML="";c.appendChild(node);}
+
+  // ---------- data ----------
+  var PM=[60.0,60.6,61.21,61.82,62.44,63.06,63.69,64.33,64.97,65.62,66.28,66.94];
+  var WAVE=[27217,27894,28678,26190,26180,29308,30859,29980,34675,35367,31936,28818];
+  var TON=[["Квадры",76275],["Грудь",72464],["Зад.цепь",60530],["Спина",59570],["Плечи",37878],["Бицепс",25946],["Трицепс",24440]];
+  var WEEKS=[ // грудь,спина,плечи,бицепс,трицепс,квадры,задцепь,итого
+    [5600,3720,2878,2508,2056,5850,4605,27217],
+    [5488,4450,2976,2034,2212,5694,5040,27894],
+    [5497,4570,2830,2358,2176,5633,5615,28678],
+    [5494,4800,2128,1744,1356,6322,4345,26190],
+    [5972,3410,3014,1957,1908,5790,4130,26180],
+    [6838,5950,2450,1822,1728,6230,4290,29308],
+    [5166,6100,2860,1995,1568,7465,5705,30859],
+    [6188,5160,4024,2598,2232,6478,3300,29980],
+    [6554,5795,3831,2408,2268,7264,6555,34675],
+    [6850,5760,3966,2030,2944,7782,6035,35367],
+    [6087,5235,3468,2680,2312,6695,5460,31936],
+    [6730,4620,3454,1812,1680,5072,5450,28818]
+  ];
+  // muscle, sets/wk, status
+  var SETS=[["Грудь",13.2,"ok"],["Квадры",12.9,"ok"],["Плечи",11.9,"warn"],["Трицепс",11.3,"over"],
+            ["Задняя цепь",8.3,"warn"],["Бицепс",8.2,"warn"],["Спина",8.0,"over"],["Икры",0,"over"]];
+  var CMP=[["Грудь",13,14],["Спина",8,12],["Квадры",13,13],["Зад.цепь",8,13],["Плечи-ширина",4,6],["Бицепс",8,5],["Трицепс",11,5],["Икры",0,7]];
+
+  function render(){
+    var ink=cssv('--ink'),ink2=cssv('--ink-2'),ink3=cssv('--ink-3'),acc=cssv('--accent'),
+        line=cssv('--line'),steel=cssv('--steel'),good=cssv('--good'),warn=cssv('--warn'),over=cssv('--over'),
+        surf3=cssv('--surface-3');
+    var stc={ok:good,warn:warn,over:over};
+
+    // ===== PM line chart =====
+    (function(){
+      var W=460,H=180,pl=42,pr=14,pt=16,pb=26;
+      var s=svg(W,H); var min=59,max=68;
+      function X(i){return pl+(W-pl-pr)*i/(PM.length-1);}
+      function Y(v){return pt+(H-pt-pb)*(1-(v-min)/(max-min));}
+      [60,62,64,66].forEach(function(g){
+        s.appendChild(el("line",{x1:pl,y1:Y(g),x2:W-pr,y2:Y(g),stroke:line,"stroke-width":1}));
+        var t=el("text",{x:pl-8,y:Y(g)+3,"text-anchor":"end","font-size":10,fill:ink3});t.textContent=g;s.appendChild(t);
+      });
+      var d="",da="";
+      PM.forEach(function(v,i){var x=X(i),y=Y(v);d+=(i?"L":"M")+x+" "+y+" ";});
+      da="M"+X(0)+" "+Y(min)+" ";PM.forEach(function(v,i){da+="L"+X(i)+" "+Y(v)+" ";});da+="L"+X(PM.length-1)+" "+Y(min)+" Z";
+      var g=el("linearGradient",{id:"pmg",x1:0,y1:0,x2:0,y2:1});
+      g.appendChild(el("stop",{offset:"0%","stop-color":acc,"stop-opacity":.22}));
+      g.appendChild(el("stop",{offset:"100%","stop-color":acc,"stop-opacity":0}));
+      var defs=el("defs",{});defs.appendChild(g);s.appendChild(defs);
+      s.appendChild(el("path",{d:da,fill:"url(#pmg)"}));
+      s.appendChild(el("path",{d:d,fill:"none",stroke:acc,"stroke-width":2.4,"stroke-linejoin":"round","stroke-linecap":"round"}));
+      s.appendChild(el("circle",{cx:X(PM.length-1),cy:Y(PM[PM.length-1]),r:4,fill:acc,stroke:cssv('--surface'),"stroke-width":2}));
+      var lbl=el("text",{x:X(PM.length-1)-4,y:Y(PM[PM.length-1])-9,"text-anchor":"end","font-size":11,"font-weight":700,fill:acc});lbl.textContent="66.9";s.appendChild(lbl);
+      var lbl0=el("text",{x:X(0)+2,y:Y(PM[0])-9,"font-size":11,fill:ink2});lbl0.textContent="60.0";s.appendChild(lbl0);
+      [0,3,6,9,11].forEach(function(i){var t=el("text",{x:X(i),y:H-8,"text-anchor":"middle","font-size":9,fill:ink3});t.textContent="МЦ"+(i+1);s.appendChild(t);});
+      mount("pmChart",s);
+    })();
+
+    // ===== tonnage horizontal bars =====
+    (function(){
+      var W=460,rowH=30,H=TON.length*rowH+14,lblW=88,pr=44,max=TON[0][1];
+      var s=svg(W,H);
+      TON.forEach(function(d,i){
+        var y=8+i*rowH;
+        var t=el("text",{x:0,y:y+rowH/2,"text-anchor":"start","font-size":11.5,fill:ink2,"font-weight":600});
+        t.setAttribute("dominant-baseline","central");t.textContent=d[0];s.appendChild(t);
+        s.appendChild(el("rect",{x:lblW,y:y+3,width:W-lblW-pr,height:rowH-12,rx:4,fill:surf3}));
+        var w=(W-lblW-pr)*d[1]/max;
+        var isLeg=(d[0]==="Квадры"||d[0]==="Зад.цепь");
+        s.appendChild(el("rect",{x:lblW,y:y+3,width:w,height:rowH-12,rx:4,fill:i<1?acc:steel,opacity:i===0?1:.72}));
+        var v=el("text",{x:lblW+w+6,y:y+rowH/2,"font-size":11,fill:ink3,"font-weight":600});
+        v.setAttribute("dominant-baseline","central");v.setAttribute("class","mono");v.textContent=(d[1]/1000).toFixed(0)+"т";s.appendChild(v);
+      });
+      mount("tonBars",s);
+    })();
+
+    // ===== wave chart =====
+    (function(){
+      var W=460,H=180,pl=34,pr=14,pt=16,pb=26,min=24000,max=36000;
+      var s=svg(W,H);
+      function X(i){return pl+(W-pl-pr)*i/(WAVE.length-1);}
+      function Y(v){return pt+(H-pt-pb)*(1-(v-min)/(max-min));}
+      [26,30,34].forEach(function(g){var yv=g*1000;
+        s.appendChild(el("line",{x1:pl,y1:Y(yv),x2:W-pr,y2:Y(yv),stroke:line,"stroke-width":1}));
+        var t=el("text",{x:pl-6,y:Y(yv)+3,"text-anchor":"end","font-size":10,fill:ink3});t.textContent=g;s.appendChild(t);});
+      var d="";WAVE.forEach(function(v,i){d+=(i?"L":"M")+X(i)+" "+Y(v)+" ";});
+      s.appendChild(el("path",{d:d,fill:"none",stroke:steel,"stroke-width":2,"stroke-linejoin":"round"}));
+      WAVE.forEach(function(v,i){s.appendChild(el("circle",{cx:X(i),cy:Y(v),r:2.6,fill:cssv('--surface'),stroke:steel,"stroke-width":1.6}));});
+      // peak
+      var pk=WAVE.indexOf(Math.max.apply(null,WAVE));
+      s.appendChild(el("circle",{cx:X(pk),cy:Y(WAVE[pk]),r:4,fill:acc}));
+      var pl2=el("text",{x:X(pk),y:Y(WAVE[pk])-9,"text-anchor":"middle","font-size":10,"font-weight":700,fill:acc});pl2.textContent="35т";s.appendChild(pl2);
+      [0,3,6,9,11].forEach(function(i){var t=el("text",{x:X(i),y:H-8,"text-anchor":"middle","font-size":9,fill:ink3});t.textContent=(i+1);s.appendChild(t);});
+      mount("waveChart",s);
+    })();
+
+    // ===== week table =====
+    (function(){
+      var tb=document.getElementById("weekTbody");tb.innerHTML="";
+      WEEKS.forEach(function(r,i){
+        var tr=document.createElement("tr");
+        var cells=[(i+1),r[0],r[1],r[2],r[3],r[4],r[5],r[6],r[7]];
+        cells.forEach(function(c,j){var td=document.createElement("td");
+          if(j>0)td.className="num";td.textContent=(j===0?"МЦ "+c:c.toLocaleString("ru-RU"));
+          if(j===8)td.style.fontWeight=700;tr.appendChild(td);});
+        tb.appendChild(tr);
+      });
+    })();
+
+    // ===== set meters =====
+    (function(){
+      var host=document.getElementById("setMeters");host.innerHTML="";
+      var scale=22; // max sets on axis
+      SETS.forEach(function(d){
+        var wrap=document.createElement("div");wrap.style.margin="15px 0";
+        var head=document.createElement("div");head.className="meterhead";
+        head.innerHTML='<span style="font-weight:650;font-size:.92rem">'+d[0]+'</span>'+
+          '<span class="mono" style="font-size:.82rem;color:var(--ink-3)"><b style="color:var(--ink);font-size:.95rem">'+
+          (d[1]?d[1].toFixed(1):"0")+'</b> подх./нед</span>';
+        wrap.appendChild(head);
+        var m=document.createElement("div");m.className="meter";
+        var band=document.createElement("div");band.className="band";
+        band.style.left=(10/scale*100)+"%";band.style.width=((20-10)/scale*100)+"%";
+        m.appendChild(band);
+        var f=document.createElement("div");f.className="fill";
+        f.style.width=Math.max(d[1]/scale*100,d[1]?2:0)+"%";
+        f.style.background=stc[d[2]];f.style.opacity=d[2]==="ok"?.9:.85;
+        m.appendChild(f);wrap.appendChild(m);
+        host.appendChild(wrap);
+      });
+    })();
+
+    // ===== push/pull =====
+    (function(){
+      var host=document.getElementById("pushPull");host.innerHTML="";
+      var rows=[["Жим (грудь+плечи+трицепс)",36,over],["Тяга (спина+бицепс)",16,steel]];
+      var W=440,H=96,pl=0,barH=22,max=40;
+      var s=svg(W,H);
+      rows.forEach(function(r,i){
+        var y=10+i*46;
+        var t=el("text",{x:0,y:y-4,"font-size":11.5,fill:ink2,"font-weight":600});t.textContent=r[0];s.appendChild(t);
+        s.appendChild(el("rect",{x:0,y:y,width:W,height:barH,rx:5,fill:surf3}));
+        s.appendChild(el("rect",{x:0,y:y,width:W*r[1]/max,height:barH,rx:5,fill:r[2],opacity:i?.7:1}));
+        var v=el("text",{x:W*r[1]/max-8,y:y+barH/2,"text-anchor":"end","font-size":12,"font-weight":700,fill:"#fff"});
+        v.setAttribute("dominant-baseline","central");v.setAttribute("class","mono");v.textContent=r[1];s.appendChild(v);
+      });
+      mount("pushPull",s);
+    })();
+
+    // ===== compare chart (grouped bars) =====
+    (function(){
+      var W=460,rowH=34,H=CMP.length*rowH+10,lblW=110,pr=30,max=15;
+      var s=svg(W,H);
+      CMP.forEach(function(d,i){
+        var y=6+i*rowH;
+        var t=el("text",{x:0,y:y+rowH/2,"font-size":11,fill:ink2,"font-weight":600});
+        t.setAttribute("dominant-baseline","central");t.textContent=d[0];s.appendChild(t);
+        var trackW=W-lblW-pr, bh=10;
+        // old
+        s.appendChild(el("rect",{x:lblW,y:y+rowH/2-bh-2,width:Math.max(trackW*d[1]/max,d[1]?2:0),height:bh,rx:3,fill:steel,opacity:.7}));
+        // new
+        s.appendChild(el("rect",{x:lblW,y:y+rowH/2+2,width:Math.max(trackW*d[2]/max,d[2]?2:0),height:bh,rx:3,fill:acc}));
+        var vo=el("text",{x:lblW+trackW*d[1]/max+5,y:y+rowH/2-bh/2-2,"font-size":9.5,fill:ink3});vo.setAttribute("dominant-baseline","central");vo.setAttribute("class","mono");vo.textContent=d[1];s.appendChild(vo);
+        var vn=el("text",{x:lblW+trackW*d[2]/max+5,y:y+rowH/2+bh/2+2,"font-size":9.5,fill:acc,"font-weight":700});vn.setAttribute("dominant-baseline","central");vn.setAttribute("class","mono");vn.textContent=d[2];s.appendChild(vn);
+      });
+      mount("cmpChart",s);
+    })();
+  }
+
+  render();
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',render);
+
+  // reveal on scroll
+  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('reveal');obs.unobserve(e.target);}});},{threshold:.08});
+    document.querySelectorAll('section .wrap > *').forEach(function(n){obs.observe(n);});
+  }
+})();
+</script>
