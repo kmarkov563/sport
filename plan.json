@@ -1,887 +1,594 @@
 {
+  "schemaVersion": 2,
   "meta": {
-    "eyebrow": "Блок 1 · Мезоцикл 3+1 · Верх / Низ",
-    "title": "4 недели · веса по дням",
-    "subtitle": "183·85·жир 25–26%  |  жим <b>~100</b> → цель <b>150</b>  |  ротация: Верх A → Низ A → Верх B → Низ B, через день"
+    "eyebrow": "Блок 1 · Возвратный мезоцикл · Верх / Низ",
+    "title": "4 микроцикла · 32 дня",
+    "subtitle": "183·85·жир 25–26% | жим ~100 → долгосрочная цель 150 | Верх A → Низ A → Верх B → Низ B, через день"
   },
-  "weeks": [
+  "schedule": {
+    "kind": "every_other_day",
+    "cadenceDays": 2,
+    "rotationDays": 8,
+    "averageSessionsPerWeek": 3.5,
+    "muscleFrequencyPerWeek": 1.75,
+    "rotation": [
+      "upper-a",
+      "lower-a",
+      "upper-b",
+      "lower-b"
+    ]
+  },
+  "block": {
+    "microcycles": [
+      {
+        "number": 1,
+        "label": "Микроцикл 1",
+        "phase": "калибровка",
+        "baseRir": "2–3",
+        "isolationLastSetRir": "1–2"
+      },
+      {
+        "number": 2,
+        "label": "Микроцикл 2",
+        "phase": "рост",
+        "baseRir": "2–3",
+        "isolationLastSetRir": "1–2"
+      },
+      {
+        "number": 3,
+        "label": "Микроцикл 3",
+        "phase": "пик",
+        "baseRir": "1–2",
+        "isolationLastSetRir": "0–1"
+      },
+      {
+        "number": 4,
+        "label": "Микроцикл 4",
+        "phase": "разгрузка",
+        "baseRir": "3–4",
+        "isolationLastSetRir": "3–4",
+        "deload": true
+      }
+    ],
+    "volume": {
+      "counting": "Прямые рабочие подходы; частота и недельное среднее рассчитаны для графика через день.",
+      "perRotation8Days": {
+        "chest": 14,
+        "back": 12,
+        "quadriceps": 13,
+        "posteriorChain": 13,
+        "lateralDelts": 6,
+        "biceps": 6,
+        "triceps": 6,
+        "calves": 6
+      },
+      "averagePer7Days": {
+        "chest": 12.25,
+        "back": 10.5,
+        "quadriceps": 11.38,
+        "posteriorChain": 11.38,
+        "lateralDelts": 5.25,
+        "biceps": 5.25,
+        "triceps": 5.25,
+        "calves": 5.25
+      }
+    }
+  },
+  "progressionRules": {
+    "barbell": {
+      "label": "двойная прогрессия · штанга",
+      "incrementKg": 2.5,
+      "rule": "Повышай вес только когда все подходы выполнены по верхней границе повторов с целевым RIR и чистой техникой."
+    },
+    "machine": {
+      "label": "двойная прогрессия · тренажёр",
+      "incrementKg": "минимальный доступный шаг",
+      "rule": "Сначала доведи все подходы до верхней границы повторов, затем добавь минимальный доступный вес."
+    },
+    "legPress": {
+      "label": "двойная прогрессия · жим ногами",
+      "incrementKg": 10,
+      "rule": "Добавляй 10 кг только после выполнения верхней границы повторов во всех подходах с целевым RIR."
+    },
+    "dumbbellIsolation": {
+      "label": "двойная прогрессия · гантели",
+      "incrementKg": "минимальный доступный шаг",
+      "rule": "Сначала наращивай повторы. Вес повышай только после верхней границы во всех подходах; после повышения вернись к нижней границе."
+    },
+    "bodyweight": {
+      "label": "повторы / время",
+      "rule": "Добавляй повторения или время при сохранении техники; затем усложняй вариант."
+    },
+    "failureFallback": {
+      "rule": "Если не достигнута нижняя граница повторов, получен RIR 0 или ухудшилась техника, на следующем выполнении снизь вес на 5–10%."
+    }
+  },
+  "deload": {
+    "firstBlock": "Микроцикл 4 сохраняется как плановая разгрузка после возвращения с перерыва.",
+    "futureBlocks": "В следующих блоках разгружайся по состоянию, а не автоматически.",
+    "triggers": [
+      "Падение результата в двух последовательных тренировках при обычном сне и питании.",
+      "Систематический недобор нижней границы повторов или RIR на 2+ ниже цели.",
+      "Сохраняющийся суставной дискомфорт или заметное ухудшение техники.",
+      "Плохой сон, энергия и восстановление в трёх последовательных тренировках."
+    ],
+    "method": "Сократи рабочие подходы примерно вдвое и снизь вес на 5–10%; сохрани движения и лёгкую технику."
+  },
+  "assessment": {
+    "afterBlock": "Не выполнять обязательный настоящий 1ПМ. Оценить e1RM по синглу RPE 8 либо подходу на 3–5 повторов с запасом.",
+    "benchGoal": "150 кг — долгосрочная цель; текущий блок восстанавливает технику, переносимость объёма и стабильные рабочие веса."
+  },
+  "nutrition": {
+    "strategy": "Рекомпозиция на поддержании или небольшом дефиците, пока сила восстанавливается и талия не растёт.",
+    "proteinGramsPerKg": "1.6–2.2",
+    "proteinTargetGrams": "135–185",
+    "tracking": [
+      "Средняя масса тела за 7 дней.",
+      "Талия один раз в неделю в одинаковых условиях.",
+      "Не повышать калорийность, пока рабочие веса растут при стабильной или медленно снижающейся талии."
+    ]
+  },
+  "sessions": [
     {
-      "label": "Нед 1",
-      "phase": "ввод",
-      "rir": "≈3 в запасе",
-      "days": [
+      "id": "upper-a",
+      "name": "Верх A",
+      "focus": "Жим · сила",
+      "warmup": "5–10 минут общей разминки. Перед рабочим жимом 3–5 постепенно утяжеляющихся подводящих подходов; они не считаются рабочими.",
+      "exercises": [
         {
-          "dn": "День A · Верх",
-          "tn": "Жим-акцент · сила",
-          "ex": [
-            {
-              "n": "Жим лёжа (тяжёлый)",
-              "p": 1,
-              "sets": 4,
-              "weight": 80,
-              "reps": 5
-            },
-            {
-              "n": "Жим на наклонной",
-              "sets": 3,
-              "weight": 50,
-              "reps": 8
-            },
-            {
-              "n": "Горизонт. тяга (тренажёр)",
-              "est": 1,
-              "sets": 3,
-              "weight": 45,
-              "reps": 10
-            },
-            {
-              "n": "Вертик. тяга (верх. блок)",
-              "est": 1,
-              "sets": 3,
-              "weight": 50,
-              "reps": 10
-            },
-            {
-              "n": "Махи гантелями в стороны",
-              "est": 1,
-              "unit": " ×2",
-              "sets": 3,
-              "weight": 10,
-              "reps": 12
-            },
-            {
-              "n": "Разгибание на трицепс (блок)",
-              "est": 1,
-              "sets": 3,
-              "weight": 25,
-              "reps": 12
-            },
-            {
-              "n": "Сгибание на бицепс (штанга)",
-              "est": 1,
-              "sets": 3,
-              "weight": 27.5,
-              "reps": 10
-            }
-          ]
+          "id": "bench-top-single",
+          "name": "Жим лёжа · технический сингл",
+          "role": "primary",
+          "optional": true,
+          "fromMicrocycle": 2,
+          "estimated": true,
+          "sets": 1,
+          "reps": "1",
+          "startWeightKg": 90,
+          "targetRir": "2–3 (RPE 7–8)",
+          "restSeconds": 240,
+          "progressionKey": "barbell",
+          "deload": null,
+          "note": "Не выполнять без страховки или надёжных ограничителей. Это не проверка максимума."
         },
         {
-          "dn": "День A · Низ",
-          "tn": "Присед-акцент",
-          "ex": [
-            {
-              "n": "Глубокий присед, пятки на подставке",
-              "p": 1,
-              "sets": 4,
-              "weight": 55,
-              "reps": 6
-            },
-            {
-              "n": "Румынская тяга",
-              "sets": 3,
-              "weight": 65,
-              "reps": 8
-            },
-            {
-              "n": "Жим платформы (ногами)",
-              "est": 1,
-              "sets": 3,
-              "weight": 120,
-              "reps": 12
-            },
-            {
-              "n": "Сгибание ног",
-              "est": 1,
-              "sets": 3,
-              "weight": 35,
-              "reps": 12
-            },
-            {
-              "n": "Подъём на носки стоя",
-              "est": 1,
-              "sets": 3,
-              "weight": 60,
-              "reps": 12
-            },
-            {
-              "n": "Пресс (планка/скручивания)",
-              "bw": 1,
-              "sets": "2–3"
-            }
-          ]
+          "id": "bench-strength",
+          "name": "Жим лёжа",
+          "role": "primary",
+          "sets": 4,
+          "reps": "4–6",
+          "startWeightKg": 80,
+          "targetRir": "2–3",
+          "restSeconds": 240,
+          "progressionKey": "barbell",
+          "deload": {
+            "sets": 2,
+            "reps": "5",
+            "weightKg": 70
+          }
         },
         {
-          "dn": "День B · Верх",
-          "tn": "Объём · верх груди",
-          "ex": [
-            {
-              "n": "Жим на наклонной (приоритет)",
-              "p": 1,
-              "sets": 4,
-              "weight": 50,
-              "reps": 8
-            },
-            {
-              "n": "Жим лёжа (объёмный)",
-              "sets": 3,
-              "weight": 72.5,
-              "reps": 8
-            },
-            {
-              "n": "Вертик. тяга (другой хват)",
-              "est": 1,
-              "sets": 3,
-              "weight": 50,
-              "reps": 10
-            },
-            {
-              "n": "Горизонт. тяга (тренажёр)",
-              "est": 1,
-              "sets": 3,
-              "weight": 45,
-              "reps": 10
-            },
-            {
-              "n": "Махи гантелями в стороны",
-              "est": 1,
-              "unit": " ×2",
-              "sets": 3,
-              "weight": 10,
-              "reps": 12
-            },
-            {
-              "n": "Молотковые сгибания",
-              "est": 1,
-              "unit": " ×2",
-              "sets": 3,
-              "weight": 12,
-              "reps": 10
-            },
-            {
-              "n": "Разгибания из-за головы",
-              "est": 1,
-              "sets": 3,
-              "weight": 20,
-              "reps": 12
-            }
-          ]
+          "id": "machine-row-a",
+          "name": "Горизонтальная тяга в тренажёре",
+          "estimated": true,
+          "sets": 3,
+          "reps": "8–12",
+          "startWeightKg": 45,
+          "targetRir": "2–3",
+          "restSeconds": 150,
+          "progressionKey": "machine",
+          "deload": {
+            "sets": 2,
+            "reps": "10",
+            "weightKg": 45
+          }
         },
         {
-          "dn": "День B · Низ",
-          "tn": "Тяга-акцент",
-          "ex": [
-            {
-              "n": "Румынская тяга (приоритет)",
-              "p": 1,
-              "sets": 4,
-              "weight": 65,
-              "reps": 8
-            },
-            {
-              "n": "Глубокий присед, пятки на подставке",
-              "sets": 3,
-              "weight": 55,
-              "reps": 8
-            },
-            {
-              "n": "Разгибания ног",
-              "est": 1,
-              "sets": 3,
-              "weight": 35,
-              "reps": 12
-            },
-            {
-              "n": "Сгибание ног",
-              "est": 1,
-              "sets": 3,
-              "weight": 35,
-              "reps": 12
-            },
-            {
-              "n": "Подъём на носки сидя",
-              "est": 1,
-              "sets": 3,
-              "weight": 40,
-              "reps": 15
-            },
-            {
-              "n": "Пресс",
-              "bw": 1,
-              "sets": "2–3"
-            }
-          ]
+          "id": "incline-press-a",
+          "name": "Жим на наклонной",
+          "sets": 3,
+          "reps": "6–10",
+          "startWeightKg": 50,
+          "targetRir": "2–3",
+          "restSeconds": 180,
+          "progressionKey": "barbell",
+          "deload": {
+            "sets": 2,
+            "reps": "8",
+            "weightKg": 45
+          }
+        },
+        {
+          "id": "lat-pulldown-a",
+          "name": "Вертикальная тяга верхнего блока",
+          "estimated": true,
+          "sets": 3,
+          "reps": "8–12",
+          "startWeightKg": 50,
+          "targetRir": "2–3",
+          "restSeconds": 150,
+          "progressionKey": "machine",
+          "deload": {
+            "sets": 2,
+            "reps": "10",
+            "weightKg": 50
+          }
+        },
+        {
+          "id": "lateral-raise-a",
+          "name": "Махи гантелями в стороны",
+          "perHand": true,
+          "estimated": true,
+          "unitSuffix": " ×2",
+          "sets": 3,
+          "reps": "12–20",
+          "startWeightKg": 10,
+          "targetRir": "1–2; в микроцикле 3 последний подход 0–1",
+          "restSeconds": 90,
+          "progressionKey": "dumbbellIsolation",
+          "deload": {
+            "sets": 2,
+            "reps": "12",
+            "weightKg": 10
+          }
+        },
+        {
+          "id": "triceps-pushdown",
+          "name": "Разгибание на трицепс в блоке",
+          "estimated": true,
+          "sets": 3,
+          "reps": "8–15",
+          "startWeightKg": 25,
+          "targetRir": "1–2; в микроцикле 3 последний подход 0–1",
+          "restSeconds": 90,
+          "progressionKey": "machine",
+          "deload": {
+            "sets": 2,
+            "reps": "12",
+            "weightKg": 25
+          }
+        },
+        {
+          "id": "barbell-curl",
+          "name": "Сгибание на бицепс со штангой",
+          "estimated": true,
+          "sets": 3,
+          "reps": "8–15",
+          "startWeightKg": 27.5,
+          "targetRir": "1–2; в микроцикле 3 последний подход 0–1",
+          "restSeconds": 90,
+          "progressionKey": "barbell",
+          "deload": {
+            "sets": 2,
+            "reps": "10",
+            "weightKg": 27.5
+          }
         }
       ]
     },
     {
-      "label": "Нед 2",
-      "phase": "рост",
-      "rir": "≈2 в запасе",
-      "days": [
+      "id": "lower-a",
+      "name": "Низ A",
+      "focus": "Присед · акцент",
+      "warmup": "5–10 минут общей разминки. Перед приседом 3–5 подводящих подходов, перед румынской тягой 1–3.",
+      "exercises": [
         {
-          "dn": "День A · Верх",
-          "tn": "Жим-акцент · сила",
-          "ex": [
-            {
-              "n": "Жим лёжа (тяжёлый)",
-              "p": 1,
-              "sets": 4,
-              "weight": 82.5,
-              "reps": 5,
-              "wUp": 1
-            },
-            {
-              "n": "Жим на наклонной",
-              "sets": 3,
-              "weight": 52.5,
-              "reps": 8,
-              "wUp": 1
-            },
-            {
-              "n": "Горизонт. тяга (тренажёр)",
-              "est": 1,
-              "sets": 3,
-              "weight": 47.5,
-              "reps": 10,
-              "wUp": 1
-            },
-            {
-              "n": "Вертик. тяга (верх. блок)",
-              "est": 1,
-              "sets": 3,
-              "weight": 52.5,
-              "reps": 10,
-              "wUp": 1
-            },
-            {
-              "n": "Махи гантелями в стороны",
-              "est": 1,
-              "unit": " ×2",
-              "sets": 3,
-              "weight": 10,
-              "reps": 15,
-              "rUp": 1
-            },
-            {
-              "n": "Разгибание на трицепс (блок)",
-              "est": 1,
-              "sets": 3,
-              "weight": 27.5,
-              "reps": 12,
-              "wUp": 1
-            },
-            {
-              "n": "Сгибание на бицепс (штанга)",
-              "est": 1,
-              "sets": 3,
-              "weight": 30,
-              "reps": 10,
-              "wUp": 1
-            }
-          ]
+          "id": "deep-squat-a",
+          "name": "Глубокий присед, пятки на подставке",
+          "role": "primary",
+          "sets": 4,
+          "reps": "4–6",
+          "startWeightKg": 55,
+          "targetRir": "2–3",
+          "restSeconds": 240,
+          "progressionKey": "barbell",
+          "deload": {
+            "sets": 2,
+            "reps": "6",
+            "weightKg": 50
+          }
         },
         {
-          "dn": "День A · Низ",
-          "tn": "Присед-акцент",
-          "ex": [
-            {
-              "n": "Глубокий присед, пятки на подставке",
-              "p": 1,
-              "sets": 4,
-              "weight": 57.5,
-              "reps": 6,
-              "wUp": 1
-            },
-            {
-              "n": "Румынская тяга",
-              "sets": 3,
-              "weight": 67.5,
-              "reps": 8,
-              "wUp": 1
-            },
-            {
-              "n": "Жим платформы (ногами)",
-              "est": 1,
-              "sets": 3,
-              "weight": 130,
-              "reps": 12,
-              "wUp": 1
-            },
-            {
-              "n": "Сгибание ног",
-              "est": 1,
-              "sets": 3,
-              "weight": 37.5,
-              "reps": 12,
-              "wUp": 1
-            },
-            {
-              "n": "Подъём на носки стоя",
-              "est": 1,
-              "sets": 3,
-              "weight": 65,
-              "reps": 12,
-              "wUp": 1
-            },
-            {
-              "n": "Пресс (планка/скручивания)",
-              "bw": 1,
-              "sets": "2–3"
-            }
-          ]
+          "id": "rdl-a",
+          "name": "Румынская тяга",
+          "sets": 3,
+          "reps": "6–10",
+          "startWeightKg": 65,
+          "targetRir": "2–3",
+          "restSeconds": 180,
+          "progressionKey": "barbell",
+          "deload": {
+            "sets": 2,
+            "reps": "8",
+            "weightKg": 60
+          }
         },
         {
-          "dn": "День B · Верх",
-          "tn": "Объём · верх груди",
-          "ex": [
-            {
-              "n": "Жим на наклонной (приоритет)",
-              "p": 1,
-              "sets": 4,
-              "weight": 52.5,
-              "reps": 8,
-              "wUp": 1
-            },
-            {
-              "n": "Жим лёжа (объёмный)",
-              "sets": 3,
-              "weight": 75,
-              "reps": 8,
-              "wUp": 1
-            },
-            {
-              "n": "Вертик. тяга (другой хват)",
-              "est": 1,
-              "sets": 3,
-              "weight": 52.5,
-              "reps": 10,
-              "wUp": 1
-            },
-            {
-              "n": "Горизонт. тяга (тренажёр)",
-              "est": 1,
-              "sets": 3,
-              "weight": 47.5,
-              "reps": 10,
-              "wUp": 1
-            },
-            {
-              "n": "Махи гантелями в стороны",
-              "est": 1,
-              "unit": " ×2",
-              "sets": 3,
-              "weight": 10,
-              "reps": 15,
-              "rUp": 1
-            },
-            {
-              "n": "Молотковые сгибания",
-              "est": 1,
-              "unit": " ×2",
-              "sets": 3,
-              "weight": 12,
-              "reps": 12,
-              "rUp": 1
-            },
-            {
-              "n": "Разгибания из-за головы",
-              "est": 1,
-              "sets": 3,
-              "weight": 22.5,
-              "reps": 12,
-              "wUp": 1
-            }
-          ]
+          "id": "leg-press",
+          "name": "Жим платформы ногами",
+          "estimated": true,
+          "sets": 3,
+          "reps": "8–15",
+          "startWeightKg": 120,
+          "targetRir": "2–3",
+          "restSeconds": 180,
+          "progressionKey": "legPress",
+          "deload": {
+            "sets": 2,
+            "reps": "12",
+            "weightKg": 120
+          }
         },
         {
-          "dn": "День B · Низ",
-          "tn": "Тяга-акцент",
-          "ex": [
-            {
-              "n": "Румынская тяга (приоритет)",
-              "p": 1,
-              "sets": 4,
-              "weight": 67.5,
-              "reps": 8,
-              "wUp": 1
-            },
-            {
-              "n": "Глубокий присед, пятки на подставке",
-              "sets": 3,
-              "weight": 57.5,
-              "reps": 8,
-              "wUp": 1
-            },
-            {
-              "n": "Разгибания ног",
-              "est": 1,
-              "sets": 3,
-              "weight": 37.5,
-              "reps": 12,
-              "wUp": 1
-            },
-            {
-              "n": "Сгибание ног",
-              "est": 1,
-              "sets": 3,
-              "weight": 37.5,
-              "reps": 12,
-              "wUp": 1
-            },
-            {
-              "n": "Подъём на носки сидя",
-              "est": 1,
-              "sets": 3,
-              "weight": 45,
-              "reps": 15,
-              "wUp": 1
-            },
-            {
-              "n": "Пресс",
-              "bw": 1,
-              "sets": "2–3"
-            }
-          ]
+          "id": "leg-curl-a",
+          "name": "Сгибание ног",
+          "estimated": true,
+          "sets": 3,
+          "reps": "8–15",
+          "startWeightKg": 35,
+          "targetRir": "1–2",
+          "restSeconds": 120,
+          "progressionKey": "machine",
+          "deload": {
+            "sets": 2,
+            "reps": "12",
+            "weightKg": 35
+          }
+        },
+        {
+          "id": "standing-calf-raise",
+          "name": "Подъём на носки стоя",
+          "estimated": true,
+          "sets": 3,
+          "reps": "12–20",
+          "startWeightKg": 60,
+          "targetRir": "1–2",
+          "restSeconds": 90,
+          "progressionKey": "machine",
+          "deload": {
+            "sets": 2,
+            "reps": "12",
+            "weightKg": 60
+          }
+        },
+        {
+          "id": "abs-a",
+          "name": "Пресс: планка или скручивания",
+          "sets": "2–3",
+          "reps": "повторы / время",
+          "targetRir": "2–3",
+          "restSeconds": 60,
+          "progressionKey": "bodyweight",
+          "bodyweight": true,
+          "deload": {
+            "sets": 2,
+            "reps": "лёгкий вариант"
+          }
         }
       ]
     },
     {
-      "label": "Нед 3",
-      "phase": "пик",
-      "rir": "≈1 в запасе",
-      "days": [
+      "id": "upper-b",
+      "name": "Верх B",
+      "focus": "Объём · верх груди",
+      "warmup": "5–10 минут общей разминки. Перед наклонным жимом 3–5 подводящих подходов; перед жимом с паузой достаточно 1–2.",
+      "exercises": [
         {
-          "dn": "День A · Верх",
-          "tn": "Жим-акцент · сила",
-          "ex": [
-            {
-              "n": "Жим лёжа (тяжёлый)",
-              "p": 1,
-              "sets": 4,
-              "weight": 85,
-              "reps": 5,
-              "wUp": 1
-            },
-            {
-              "n": "Жим на наклонной",
-              "sets": 3,
-              "weight": 55,
-              "reps": 8,
-              "wUp": 1
-            },
-            {
-              "n": "Горизонт. тяга (тренажёр)",
-              "est": 1,
-              "sets": 3,
-              "weight": 50,
-              "reps": 10,
-              "wUp": 1
-            },
-            {
-              "n": "Вертик. тяга (верх. блок)",
-              "est": 1,
-              "sets": 3,
-              "weight": 55,
-              "reps": 10,
-              "wUp": 1
-            },
-            {
-              "n": "Махи гантелями в стороны",
-              "est": 1,
-              "unit": " ×2",
-              "sets": 3,
-              "weight": 10,
-              "reps": 18,
-              "rUp": 1
-            },
-            {
-              "n": "Разгибание на трицепс (блок)",
-              "est": 1,
-              "sets": 3,
-              "weight": 30,
-              "reps": 12,
-              "wUp": 1
-            },
-            {
-              "n": "Сгибание на бицепс (штанга)",
-              "est": 1,
-              "sets": 3,
-              "weight": 32.5,
-              "reps": 10,
-              "wUp": 1
-            }
-          ]
+          "id": "incline-press-b",
+          "name": "Жим на наклонной",
+          "role": "primary",
+          "sets": 4,
+          "reps": "6–10",
+          "startWeightKg": 50,
+          "targetRir": "2–3",
+          "restSeconds": 180,
+          "progressionKey": "barbell",
+          "deload": {
+            "sets": 2,
+            "reps": "8",
+            "weightKg": 45
+          }
         },
         {
-          "dn": "День A · Низ",
-          "tn": "Присед-акцент",
-          "ex": [
-            {
-              "n": "Глубокий присед, пятки на подставке",
-              "p": 1,
-              "sets": 4,
-              "weight": 60,
-              "reps": 6,
-              "wUp": 1
-            },
-            {
-              "n": "Румынская тяга",
-              "sets": 3,
-              "weight": 70,
-              "reps": 8,
-              "wUp": 1
-            },
-            {
-              "n": "Жим платформы (ногами)",
-              "est": 1,
-              "sets": 3,
-              "weight": 140,
-              "reps": 12,
-              "wUp": 1
-            },
-            {
-              "n": "Сгибание ног",
-              "est": 1,
-              "sets": 3,
-              "weight": 40,
-              "reps": 12,
-              "wUp": 1
-            },
-            {
-              "n": "Подъём на носки стоя",
-              "est": 1,
-              "sets": 3,
-              "weight": 70,
-              "reps": 12,
-              "wUp": 1
-            },
-            {
-              "n": "Пресс (планка/скручивания)",
-              "bw": 1,
-              "sets": "2–3"
-            }
-          ]
+          "id": "lat-pulldown-b",
+          "name": "Вертикальная тяга, другой хват",
+          "estimated": true,
+          "sets": 3,
+          "reps": "8–12",
+          "startWeightKg": 50,
+          "targetRir": "2–3",
+          "restSeconds": 150,
+          "progressionKey": "machine",
+          "deload": {
+            "sets": 2,
+            "reps": "10",
+            "weightKg": 50
+          }
         },
         {
-          "dn": "День B · Верх",
-          "tn": "Объём · верх груди",
-          "ex": [
-            {
-              "n": "Жим на наклонной (приоритет)",
-              "p": 1,
-              "sets": 4,
-              "weight": 55,
-              "reps": 8,
-              "wUp": 1
-            },
-            {
-              "n": "Жим лёжа (объёмный)",
-              "sets": 3,
-              "weight": 77.5,
-              "reps": 8,
-              "wUp": 1
-            },
-            {
-              "n": "Вертик. тяга (другой хват)",
-              "est": 1,
-              "sets": 3,
-              "weight": 55,
-              "reps": 10,
-              "wUp": 1
-            },
-            {
-              "n": "Горизонт. тяга (тренажёр)",
-              "est": 1,
-              "sets": 3,
-              "weight": 50,
-              "reps": 10,
-              "wUp": 1
-            },
-            {
-              "n": "Махи гантелями в стороны",
-              "est": 1,
-              "unit": " ×2",
-              "sets": 3,
-              "weight": 10,
-              "reps": 18,
-              "rUp": 1
-            },
-            {
-              "n": "Молотковые сгибания",
-              "est": 1,
-              "unit": " ×2",
-              "sets": 3,
-              "weight": 12,
-              "reps": 14,
-              "rUp": 1
-            },
-            {
-              "n": "Разгибания из-за головы",
-              "est": 1,
-              "sets": 3,
-              "weight": 25,
-              "reps": 12,
-              "wUp": 1
-            }
-          ]
+          "id": "bench-volume-paused",
+          "name": "Жим лёжа с паузой",
+          "sets": 3,
+          "reps": "6–8",
+          "startWeightKg": 72.5,
+          "targetRir": "2–3",
+          "restSeconds": 180,
+          "progressionKey": "barbell",
+          "deload": {
+            "sets": 2,
+            "reps": "8",
+            "weightKg": 65
+          }
         },
         {
-          "dn": "День B · Низ",
-          "tn": "Тяга-акцент",
-          "ex": [
-            {
-              "n": "Румынская тяга (приоритет)",
-              "p": 1,
-              "sets": 4,
-              "weight": 70,
-              "reps": 8,
-              "wUp": 1
-            },
-            {
-              "n": "Глубокий присед, пятки на подставке",
-              "sets": 3,
-              "weight": 60,
-              "reps": 8,
-              "wUp": 1
-            },
-            {
-              "n": "Разгибания ног",
-              "est": 1,
-              "sets": 3,
-              "weight": 40,
-              "reps": 12,
-              "wUp": 1
-            },
-            {
-              "n": "Сгибание ног",
-              "est": 1,
-              "sets": 3,
-              "weight": 40,
-              "reps": 12,
-              "wUp": 1
-            },
-            {
-              "n": "Подъём на носки сидя",
-              "est": 1,
-              "sets": 3,
-              "weight": 50,
-              "reps": 15,
-              "wUp": 1
-            },
-            {
-              "n": "Пресс",
-              "bw": 1,
-              "sets": "2–3"
-            }
-          ]
+          "id": "machine-row-b",
+          "name": "Горизонтальная тяга в тренажёре",
+          "estimated": true,
+          "sets": 3,
+          "reps": "8–12",
+          "startWeightKg": 45,
+          "targetRir": "2–3",
+          "restSeconds": 150,
+          "progressionKey": "machine",
+          "deload": {
+            "sets": 2,
+            "reps": "10",
+            "weightKg": 45
+          }
+        },
+        {
+          "id": "lateral-raise-b",
+          "name": "Махи гантелями в стороны",
+          "perHand": true,
+          "estimated": true,
+          "unitSuffix": " ×2",
+          "sets": 3,
+          "reps": "12–20",
+          "startWeightKg": 10,
+          "targetRir": "1–2; в микроцикле 3 последний подход 0–1",
+          "restSeconds": 90,
+          "progressionKey": "dumbbellIsolation",
+          "deload": {
+            "sets": 2,
+            "reps": "12",
+            "weightKg": 10
+          }
+        },
+        {
+          "id": "hammer-curl",
+          "name": "Молотковые сгибания",
+          "perHand": true,
+          "estimated": true,
+          "unitSuffix": " ×2",
+          "sets": 3,
+          "reps": "8–15",
+          "startWeightKg": 12,
+          "targetRir": "1–2; в микроцикле 3 последний подход 0–1",
+          "restSeconds": 90,
+          "progressionKey": "dumbbellIsolation",
+          "deload": {
+            "sets": 2,
+            "reps": "10",
+            "weightKg": 12
+          }
+        },
+        {
+          "id": "overhead-triceps-extension",
+          "name": "Разгибание на трицепс из-за головы",
+          "estimated": true,
+          "sets": 3,
+          "reps": "8–15",
+          "startWeightKg": 20,
+          "targetRir": "1–2; в микроцикле 3 последний подход 0–1",
+          "restSeconds": 90,
+          "progressionKey": "machine",
+          "deload": {
+            "sets": 2,
+            "reps": "12",
+            "weightKg": 20
+          }
         }
       ]
     },
     {
-      "label": "Нед 4",
-      "phase": "разгрузка",
-      "rir": "разгрузка ≈3–4",
-      "days": [
+      "id": "lower-b",
+      "name": "Низ B",
+      "focus": "Румынская тяга · акцент",
+      "warmup": "5–10 минут общей разминки. Перед румынской тягой 3–5 подводящих подходов. Вторичный присед выполняется технически, без отказа.",
+      "exercises": [
         {
-          "dn": "День A · Верх",
-          "tn": "Жим-акцент · сила",
-          "ex": [
-            {
-              "n": "Жим лёжа (тяжёлый)",
-              "p": 1,
-              "sets": 2,
-              "weight": 70,
-              "reps": 5
-            },
-            {
-              "n": "Жим на наклонной",
-              "sets": 2,
-              "weight": 45,
-              "reps": 8
-            },
-            {
-              "n": "Горизонт. тяга (тренажёр)",
-              "est": 1,
-              "sets": 2,
-              "weight": 45,
-              "reps": 10
-            },
-            {
-              "n": "Вертик. тяга (верх. блок)",
-              "est": 1,
-              "sets": 2,
-              "weight": 50,
-              "reps": 10
-            },
-            {
-              "n": "Махи гантелями в стороны",
-              "est": 1,
-              "unit": " ×2",
-              "sets": 2,
-              "weight": 10,
-              "reps": 12
-            },
-            {
-              "n": "Разгибание на трицепс (блок)",
-              "est": 1,
-              "sets": 2,
-              "weight": 25,
-              "reps": 12
-            },
-            {
-              "n": "Сгибание на бицепс (штанга)",
-              "est": 1,
-              "sets": 2,
-              "weight": 27.5,
-              "reps": 10
-            }
-          ]
+          "id": "rdl-b",
+          "name": "Румынская тяга",
+          "role": "primary",
+          "sets": 4,
+          "reps": "6–10",
+          "startWeightKg": 65,
+          "targetRir": "2–3",
+          "restSeconds": 210,
+          "progressionKey": "barbell",
+          "deload": {
+            "sets": 2,
+            "reps": "8",
+            "weightKg": 60
+          }
         },
         {
-          "dn": "День A · Низ",
-          "tn": "Присед-акцент",
-          "ex": [
-            {
-              "n": "Глубокий присед, пятки на подставке",
-              "p": 1,
-              "sets": 2,
-              "weight": 50,
-              "reps": 6
-            },
-            {
-              "n": "Румынская тяга",
-              "sets": 2,
-              "weight": 60,
-              "reps": 8
-            },
-            {
-              "n": "Жим платформы (ногами)",
-              "est": 1,
-              "sets": 2,
-              "weight": 120,
-              "reps": 12
-            },
-            {
-              "n": "Сгибание ног",
-              "est": 1,
-              "sets": 2,
-              "weight": 35,
-              "reps": 12
-            },
-            {
-              "n": "Подъём на носки стоя",
-              "est": 1,
-              "sets": 2,
-              "weight": 60,
-              "reps": 12
-            },
-            {
-              "n": "Пресс (планка/скручивания)",
-              "bw": 1,
-              "sets": "2–3"
-            }
-          ]
+          "id": "deep-squat-b",
+          "name": "Глубокий присед, пятки на подставке",
+          "sets": 3,
+          "reps": "6–10",
+          "startWeightKg": 55,
+          "targetRir": "3",
+          "restSeconds": 180,
+          "progressionKey": "barbell",
+          "deload": {
+            "sets": 2,
+            "reps": "8",
+            "weightKg": 50
+          },
+          "note": "После румынской тяги приоритет — глубина и стабильная техника, а не рост веса любой ценой."
         },
         {
-          "dn": "День B · Верх",
-          "tn": "Объём · верх груди",
-          "ex": [
-            {
-              "n": "Жим на наклонной (приоритет)",
-              "p": 1,
-              "sets": 2,
-              "weight": 45,
-              "reps": 8
-            },
-            {
-              "n": "Жим лёжа (объёмный)",
-              "sets": 2,
-              "weight": 65,
-              "reps": 8
-            },
-            {
-              "n": "Вертик. тяга (другой хват)",
-              "est": 1,
-              "sets": 2,
-              "weight": 50,
-              "reps": 10
-            },
-            {
-              "n": "Горизонт. тяга (тренажёр)",
-              "est": 1,
-              "sets": 2,
-              "weight": 45,
-              "reps": 10
-            },
-            {
-              "n": "Махи гантелями в стороны",
-              "est": 1,
-              "unit": " ×2",
-              "sets": 2,
-              "weight": 10,
-              "reps": 12
-            },
-            {
-              "n": "Молотковые сгибания",
-              "est": 1,
-              "unit": " ×2",
-              "sets": 2,
-              "weight": 12,
-              "reps": 10
-            },
-            {
-              "n": "Разгибания из-за головы",
-              "est": 1,
-              "sets": 2,
-              "weight": 20,
-              "reps": 12
-            }
-          ]
+          "id": "leg-extension",
+          "name": "Разгибание ног",
+          "estimated": true,
+          "sets": 3,
+          "reps": "8–15",
+          "startWeightKg": 35,
+          "targetRir": "1–2",
+          "restSeconds": 120,
+          "progressionKey": "machine",
+          "deload": {
+            "sets": 2,
+            "reps": "12",
+            "weightKg": 35
+          }
         },
         {
-          "dn": "День B · Низ",
-          "tn": "Тяга-акцент",
-          "ex": [
-            {
-              "n": "Румынская тяга (приоритет)",
-              "p": 1,
-              "sets": 2,
-              "weight": 60,
-              "reps": 8
-            },
-            {
-              "n": "Глубокий присед, пятки на подставке",
-              "sets": 2,
-              "weight": 50,
-              "reps": 8
-            },
-            {
-              "n": "Разгибания ног",
-              "est": 1,
-              "sets": 2,
-              "weight": 35,
-              "reps": 12
-            },
-            {
-              "n": "Сгибание ног",
-              "est": 1,
-              "sets": 2,
-              "weight": 35,
-              "reps": 12
-            },
-            {
-              "n": "Подъём на носки сидя",
-              "est": 1,
-              "sets": 2,
-              "weight": 40,
-              "reps": 15
-            },
-            {
-              "n": "Пресс",
-              "bw": 1,
-              "sets": "2–3"
-            }
-          ]
+          "id": "leg-curl-b",
+          "name": "Сгибание ног",
+          "estimated": true,
+          "sets": 3,
+          "reps": "8–15",
+          "startWeightKg": 35,
+          "targetRir": "1–2",
+          "restSeconds": 120,
+          "progressionKey": "machine",
+          "deload": {
+            "sets": 2,
+            "reps": "12",
+            "weightKg": 35
+          }
+        },
+        {
+          "id": "seated-calf-raise",
+          "name": "Подъём на носки сидя",
+          "estimated": true,
+          "sets": 3,
+          "reps": "12–20",
+          "startWeightKg": 40,
+          "targetRir": "1–2",
+          "restSeconds": 90,
+          "progressionKey": "machine",
+          "deload": {
+            "sets": 2,
+            "reps": "15",
+            "weightKg": 40
+          }
+        },
+        {
+          "id": "abs-b",
+          "name": "Пресс",
+          "sets": "2–3",
+          "reps": "повторы / время",
+          "targetRir": "2–3",
+          "restSeconds": 60,
+          "progressionKey": "bodyweight",
+          "bodyweight": true,
+          "deload": {
+            "sets": 2,
+            "reps": "лёгкий вариант"
+          }
         }
       ]
     }
