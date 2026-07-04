@@ -96,9 +96,9 @@
 
 <header>
   <div class="wrap">
-    <p class="eyebrow">Блок 1 · Мезоцикл 3+1 · Верх / Низ</p>
-    <h1>4 недели · веса по дням</h1>
-    <p class="meta">183·85·жир 25–26% &nbsp;|&nbsp; жим <b>~100</b> → цель <b>150</b> &nbsp;|&nbsp; ротация: Верх A → Низ A → Верх B → Низ B, через день</p>
+    <p class="eyebrow" id="eyebrow"></p>
+    <h1 id="title"></h1>
+    <p class="meta" id="subtitle"></p>
   </div>
 </header>
 
@@ -153,63 +153,27 @@
   });
   function kg(v){return (''+v).replace('.',',');}
 
-  // each exercise: n=name, sets=base sets, p=primary, est=calibrate estimate, unit=' ×2' for per-dumbbell
-  // wk = [[w,reps]x4]; week4 = deload. bw=bodyweight
-  var WK=[
-    {dn:'День A · Верх',tn:'Жим-акцент · сила',ex:[
-      {n:'Жим лёжа (тяжёлый)',sets:4,p:1,wk:[[80,5],[82.5,5],[85,5],[70,5]]},
-      {n:'Жим на наклонной',sets:3,wk:[[50,8],[52.5,8],[55,8],[45,8]]},
-      {n:'Горизонт. тяга (тренажёр)',sets:3,est:1,wk:[[45,10],[47.5,10],[50,10],[45,10]]},
-      {n:'Вертик. тяга (верх. блок)',sets:3,est:1,wk:[[50,10],[52.5,10],[55,10],[50,10]]},
-      {n:'Махи гантелями в стороны',sets:3,est:1,unit:' ×2',wk:[[10,12],[10,15],[10,18],[10,12]]},
-      {n:'Разгибание на трицепс (блок)',sets:3,est:1,wk:[[25,12],[27.5,12],[30,12],[25,12]]},
-      {n:'Сгибание на бицепс (штанга)',sets:3,est:1,wk:[[27.5,10],[30,10],[32.5,10],[27.5,10]]}
-    ]},
-    {dn:'День A · Низ',tn:'Присед-акцент',ex:[
-      {n:'Глубокий присед, пятки на подставке',sets:4,p:1,wk:[[55,6],[57.5,6],[60,6],[50,6]]},
-      {n:'Румынская тяга',sets:3,wk:[[65,8],[67.5,8],[70,8],[60,8]]},
-      {n:'Жим платформы (ногами)',sets:3,est:1,wk:[[120,12],[130,12],[140,12],[120,12]]},
-      {n:'Сгибание ног',sets:3,est:1,wk:[[35,12],[37.5,12],[40,12],[35,12]]},
-      {n:'Подъём на носки стоя',sets:3,est:1,wk:[[60,12],[65,12],[70,12],[60,12]]},
-      {n:'Пресс (планка/скручивания)',sets:'2–3',bw:1}
-    ]},
-    {dn:'День B · Верх',tn:'Объём · верх груди',ex:[
-      {n:'Жим на наклонной (приоритет)',sets:4,p:1,wk:[[50,8],[52.5,8],[55,8],[45,8]]},
-      {n:'Жим лёжа (объёмный)',sets:3,wk:[[72.5,8],[75,8],[77.5,8],[65,8]]},
-      {n:'Вертик. тяга (другой хват)',sets:3,est:1,wk:[[50,10],[52.5,10],[55,10],[50,10]]},
-      {n:'Горизонт. тяга (тренажёр)',sets:3,est:1,wk:[[45,10],[47.5,10],[50,10],[45,10]]},
-      {n:'Махи гантелями в стороны',sets:3,est:1,unit:' ×2',wk:[[10,12],[10,15],[10,18],[10,12]]},
-      {n:'Молотковые сгибания',sets:3,est:1,unit:' ×2',wk:[[12,10],[12,12],[12,14],[12,10]]},
-      {n:'Разгибания из-за головы',sets:3,est:1,wk:[[20,12],[22.5,12],[25,12],[20,12]]}
-    ]},
-    {dn:'День B · Низ',tn:'Тяга-акцент',ex:[
-      {n:'Румынская тяга (приоритет)',sets:4,p:1,wk:[[65,8],[67.5,8],[70,8],[60,8]]},
-      {n:'Глубокий присед, пятки на подставке',sets:3,wk:[[55,8],[57.5,8],[60,8],[50,8]]},
-      {n:'Разгибания ног',sets:3,est:1,wk:[[35,12],[37.5,12],[40,12],[35,12]]},
-      {n:'Сгибание ног',sets:3,est:1,wk:[[35,12],[37.5,12],[40,12],[35,12]]},
-      {n:'Подъём на носки сидя',sets:3,est:1,wk:[[40,15],[45,15],[50,15],[40,15]]},
-      {n:'Пресс',sets:'2–3',bw:1}
-    ]}
-  ];
-  var RIR=['≈3 в запасе','≈2 в запасе','≈1 в запасе','разгрузка ≈3–4'];
-  var PH=[['Нед 1','ввод'],['Нед 2','рост'],['Нед 3','пик'],['Нед 4','разгрузка']];
-
+  // Все данные уже посчитаны в plan.json — здесь ничего не вычисляем, только рисуем.
+  // plan.weeks[] -> {label, phase, rir, days[]}; days[] -> {dn, tn, ex[]}
+  // ex[] уже с готовыми полями: n, sets, weight, reps, unit(' ×2'), p(база), est(старт),
+  //   bw(свой вес), wUp/rUp(флажок роста ▲). Подходы в разгрузку и стрелки уже проставлены.
+  var WEEKS=[];
   var cur=0; // 0-based week
+
   function renderCards(){
+    var week=WEEKS[cur]; if(!week)return;
     var html='';
-    WK.forEach(function(w){
+    week.days.forEach(function(w){
       html+='<div class="wcard"><div class="whead"><div><div class="dn">'+w.dn+'</div><div class="tn">'+w.tn+'</div></div>'+
-        '<div class="rir">запас<br><b>'+RIR[cur]+'</b></div></div>';
+        '<div class="rir">запас<br><b>'+week.rir+'</b></div></div>';
       w.ex.forEach(function(e){
-        var sets = e.bw ? e.sets : (cur===3?2:e.sets);
         var load,sr;
-        if(e.bw){load='<span class="kg" style="color:var(--ink-3)">—</span>';sr=sets+' подх.';}
-        else{
-          var d=e.wk[cur];
-          var prev = (cur>0 && cur<3)?e.wk[cur-1]:null; // show growth on weeks 2 & 3
-          var wUp = prev && d[0]>prev[0], rUp = prev && d[1]>prev[1];
-          load='<span class="kg">'+kg(d[0])+(e.unit||'')+'<small> кг</small>'+(wUp?'<span class="up">▲</span>':'')+'</span>';
-          sr = d[1]+(rUp?'<span class="up">▲</span>':'')+' повт × '+sets+' подх';
+        if(e.bw){
+          load='<span class="kg" style="color:var(--ink-3)">—</span>';
+          sr=e.sets+' подх.';
+        }else{
+          load='<span class="kg">'+kg(e.weight)+(e.unit||'')+'<small> кг</small>'+(e.wUp?'<span class="up">▲</span>':'')+'</span>';
+          sr=e.reps+(e.rUp?'<span class="up">▲</span>':'')+' повт × '+e.sets+' подх';
         }
         html+='<div class="ex'+(e.p?' primary':'')+'">'+
           '<span class="en">'+e.n+(e.est?'<span class="est">старт</span>':'')+'</span>'+
@@ -221,11 +185,32 @@
     document.getElementById('cards').innerHTML=html;
     document.querySelectorAll('#weekbtns button').forEach(function(b,i){b.setAttribute('aria-pressed',i===cur?'true':'false');});
   }
-  var wb='';for(var i=0;i<4;i++){wb+='<button class="'+(i===3?'dl':'')+'" data-w="'+i+'">'+PH[i][0]+'<small>'+PH[i][1]+'</small></button>';}
-  document.getElementById('weekbtns').innerHTML=wb;
+
+  function renderWeekBtns(){
+    var wb='';for(var i=0;i<WEEKS.length;i++){wb+='<button class="'+(i===WEEKS.length-1?'dl':'')+'" data-w="'+i+'">'+WEEKS[i].label+'<small>'+WEEKS[i].phase+'</small></button>';}
+    document.getElementById('weekbtns').innerHTML=wb;
+  }
   document.getElementById('weekbtns').addEventListener('click',function(ev){
     var b=ev.target.closest('button');if(!b)return;cur=+b.dataset.w;renderCards();
   });
-  renderCards();
+
+  function init(plan){
+    var m=plan.meta||{};
+    document.getElementById('eyebrow').textContent=m.eyebrow||'';
+    document.getElementById('title').textContent=m.title||'';
+    document.getElementById('subtitle').innerHTML=m.subtitle||'';
+    WEEKS=plan.weeks||[];
+    renderWeekBtns();
+    renderCards();
+  }
+
+  fetch('plan.json')
+    .then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
+    .then(init)
+    .catch(function(err){
+      document.getElementById('cards').innerHTML=
+        '<div class="callout warn" style="grid-column:1/-1">Не удалось загрузить <b>plan.json</b> ('+err.message+
+        '). Открой страницу через сайт (GitHub Pages) или локальный сервер — из file:// браузер блокирует загрузку.</div>';
+    });
 })();
 </script>
