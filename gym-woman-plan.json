@@ -1,9 +1,9 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "meta": {
     "eyebrow": "Блок 1 · Ягодичный акцент · 4 дня",
     "title": "4 микроцикла · 32 дня",
-    "subtitle": "29 лет · 55 кг | приоритет — ягодицы и задняя цепь | 4 тренировки в ротации, через день | без жима платформы, присед сохранён"
+    "subtitle": "29 лет · 55 кг | приоритет — ягодицы и задняя цепь | 4 тренировки через день | калибровка весов по RIR"
   },
   "schedule": {
     "kind": "every_other_day",
@@ -24,117 +24,201 @@
         "label": "Микроцикл 1",
         "phase": "калибровка",
         "baseRir": "2–3",
-        "isolationLastSetRir": "1–2"
+        "isolationLastSetRir": "2"
       },
       {
         "number": 2,
         "label": "Микроцикл 2",
         "phase": "рост",
-        "baseRir": "2–3",
+        "baseRir": "2",
         "isolationLastSetRir": "1–2"
       },
       {
         "number": 3,
         "label": "Микроцикл 3",
-        "phase": "пик",
+        "phase": "рост",
         "baseRir": "1–2",
-        "isolationLastSetRir": "0–1"
+        "isolationLastSetRir": "1"
       },
       {
         "number": 4,
         "label": "Микроцикл 4",
-        "phase": "разгрузка",
-        "baseRir": "3–4",
-        "isolationLastSetRir": "3–4",
-        "deload": true
+        "phase": "закрепление",
+        "baseRir": "1–2",
+        "isolationLastSetRir": "1"
       }
     ],
     "volume": {
-      "counting": "Прямые рабочие подходы за одну ротацию (4 тренировки / 8 дней). Ягодицы получают стимул ~4 раза за ротацию, задняя цепь и квадрицепс ~2 раза, верх ~2 раза.",
+      "counting": "Прямые рабочие подходы за одну ротацию (4 тренировки / 8 дней). Косвенные подходы перечислены отдельно и не складываются с прямыми как равноценные.",
       "perRotation8Days": {
-        "glutes": 20,
-        "posteriorChain": 11,
-        "quadriceps": 7,
-        "back": 12,
-        "lateralDelts": 9,
-        "rearDelts": 3,
-        "chest": 3,
-        "biceps": 6,
-        "triceps": 3,
-        "calves": 3
+        "directSets": {
+          "glutes": 10,
+          "posteriorChain": 9,
+          "quadriceps": 10,
+          "back": 10,
+          "lateralDelts": 4,
+          "rearDelts": 2,
+          "chest": 5,
+          "biceps": 4,
+          "triceps": 2,
+          "calves": 4,
+          "core": 4
+        },
+        "contributingSets": {
+          "glutes": {
+            "sets": 15,
+            "sources": "присед 6, румынская тяга 5, односторонние выпады 4"
+          },
+          "lateralDelts": {
+            "sets": 2,
+            "sources": "жим гантелей вверх"
+          },
+          "triceps": {
+            "sets": 7,
+            "sources": "жим гантелей вверх 2, жимы лёжа 5"
+          }
+        }
+      },
+      "sessionWorkingSets": {
+        "day-a": 17,
+        "day-b": 14,
+        "day-c": 18,
+        "day-d": 17
       }
+    },
+    "progressionModel": {
+      "kind": "planned_double_progression",
+      "targetsByMicrocycle": {
+        "1": "нижняя граница повторов с калибровочным весом",
+        "2": "середина диапазона с тем же весом",
+        "3": "верхняя граница диапазона с тем же весом",
+        "4": "нижняя граница после минимального повышения веса"
+      },
+      "increaseCondition": "Повышение веса в микроцикле 4 выполняется только если в микроцикле 3 достигнута верхняя граница во всех подходах с целевым RIR и чистой техникой. Иначе повторяется назначение микроцикла 3."
     }
   },
   "progressionRules": {
-    "barbell": {
-      "label": "двойная прогрессия · штанга",
+    "barbellCompound": {
+      "label": "двойная прогрессия · базовое упражнение со штангой",
       "incrementKg": 2.5,
+      "plannedIncrementKg": 2.5,
       "rule": "Повышай вес только когда все подходы выполнены по верхней границе повторов с целевым RIR и чистой техникой."
+    },
+    "barbellIsolation": {
+      "label": "двойная прогрессия · штанга, малое упражнение",
+      "incrementKg": "минимальный доступный шаг",
+      "plannedIncrementKg": 2.5,
+      "rule": "Сначала доведи все подходы до верхней границы повторов; затем добавь минимальный доступный вес."
+    },
+    "dumbbellCompound": {
+      "label": "двойная прогрессия · составное упражнение с гантелями",
+      "incrementKg": "минимальный доступный шаг",
+      "plannedIncrementKg": 1,
+      "rule": "Сначала наращивай повторы во всех подходах. После верхней границы с целевым RIR добавь минимальный вес на каждую гантель."
     },
     "machine": {
       "label": "двойная прогрессия · тренажёр",
       "incrementKg": "минимальный доступный шаг",
+      "plannedIncrementKg": 2.5,
       "rule": "Сначала доведи все подходы до верхней границы повторов, затем добавь минимальный доступный вес."
     },
     "dumbbellIsolation": {
-      "label": "двойная прогрессия · гантели",
+      "label": "двойная прогрессия · изоляция с гантелями",
       "incrementKg": "минимальный доступный шаг",
-      "rule": "Сначала наращивай повторы. Вес повышай только после верхней границы во всех подходах; после повышения вернись к нижней границе."
+      "plannedIncrementKg": 1,
+      "rule": "Сначала наращивай повторы. После верхней границы во всех подходах повысь вес и вернись к нижней границе."
     },
     "bodyweight": {
       "label": "повторы / время",
       "rule": "Добавляй повторения или время при сохранении техники; затем усложняй вариант."
     },
     "failureFallback": {
-      "rule": "Если не достигнута нижняя граница повторов, получен RIR 0 или ухудшилась техника, на следующем выполнении снизь вес на 5–10%."
+      "rule": "После единичного недобора удержи вес и повтори попытку после нормального восстановления. Снизь вес на 5–10%, если недобор нижней границы повторился, RIR оказался ниже цели на 2+ или заметно ухудшилась техника."
     }
   },
+  "loadCalibration": {
+    "rule": "Все указанные веса — ориентиры, а не обязательные назначения. В микроцикле 1 подбери рабочий вес, который позволяет выполнить нижнюю границу повторов с целевым RIR и чистой техникой.",
+    "logging": "Запиши фактические вес, повторы, RIR и замечания по технике; после первой ротации замени ориентиры фактическими рабочими весами."
+  },
   "deload": {
-    "firstBlock": "Микроцикл 4 — плановая разгрузка: примерно половина рабочих подходов и вес ниже на 5–10%.",
-    "futureBlocks": "В следующих блоках разгружайся по состоянию, а не автоматически.",
+    "scheduled": false,
+    "rule": "Разгрузка не привязана к номеру микроцикла и запускается только по состоянию.",
     "triggers": [
       "Падение результата в двух последовательных тренировках при обычном сне и питании.",
       "Систематический недобор нижней границы повторов или RIR на 2+ ниже цели.",
       "Сохраняющийся суставной дискомфорт или заметное ухудшение техники.",
       "Плохой сон, энергия и восстановление в трёх последовательных тренировках."
     ],
-    "method": "Сократи рабочие подходы примерно вдвое и снизь вес на 5–10%; сохрани движения и лёгкую технику."
+    "method": "На одну ротацию сократи рабочие подходы примерно вдвое, сохрани движения и RIR 3–4. Для подтверждённых рабочих весов снизь нагрузку на 5–10%, если это нужно для целевого RIR."
   },
   "assessment": {
-    "afterBlock": "После микроцикла 4 оцени рабочие веса по факту лога и собери блок 2 от достигнутых цифр. Настоящий 1ПМ не требуется.",
-    "goal": "Приоритет — гипертрофия ягодиц и задней цепи при поддержании стройной талии; квадрицепс поддерживается приседом без акцента."
+    "afterBlock": "После микроцикла 4 оцени рабочие веса, повторы, RIR и восстановление по логу. Настоящий 1ПМ не требуется.",
+    "goal": "Приоритет — гипертрофия ягодиц и задней цепи при поддержании общего мышечного баланса. Изменение окружности талии определяется прежде всего энергетическим балансом, а не выбором упражнений."
   },
   "nutrition": {
-    "strategy": "Рост ягодиц на поддержании или небольшом профиците, пока рабочие веса растут и талия не растёт.",
+    "strategy": "Обеспечь достаточную энергию и углеводы для тренировок. Поддержание или небольшой профицит допустимы; не удерживай дефицит, если падают результат, восстановление или менструальная функция.",
     "proteinGramsPerKg": "1.6–2.0",
     "proteinTargetGrams": "90–110",
+    "proteinDistribution": "3–5 приёмов в течение дня; ориентир около 20–25 г качественного белка за приём.",
     "tracking": [
       "Средняя масса тела за 7 дней.",
       "Талия и бёдра раз в неделю в одинаковых условиях.",
-      "Не резать калории, пока рабочие веса растут при стабильной талии."
+      "Результаты тренировок, энергия, сон, аппетит и восстановление.",
+      "Не снижать калории автоматически из-за краткосрочных колебаний массы или талии."
+    ]
+  },
+  "cardio": {
+    "weeklyTarget": "150 минут умеренной аэробной активности или эквивалент с учётом всей бытовой активности.",
+    "startingPrescription": "Начни с 2–3 сессий по 20–40 минут ходьбы, велосипеда или другой комфортной умеренной нагрузки и постепенно доведи недельный итог до цели.",
+    "placement": "Не ставь интенсивное кардио перед тяжёлой тренировкой ног; умеренную нагрузку можно выполнять после тренировки верха или в отдельное время.",
+    "sedentaryBehavior": "Регулярно прерывай длительное сидение короткой ходьбой или другой лёгкой активностью."
+  },
+  "readiness": {
+    "track": [
+      "сон",
+      "энергия",
+      "стресс",
+      "мышечная болезненность",
+      "боль или дискомфорт",
+      "результат относительно прошлой тренировки",
+      "индивидуальные симптомы менструального цикла"
+    ],
+    "menstrualCycleRule": "Не синхронизируй программу автоматически с фазами цикла. Меняй нагрузку только при повторяемом индивидуальном влиянии симптомов на самочувствие или результат."
+  },
+  "healthFlags": {
+    "assumptions": [
+      "Нет беременности или раннего послеродового периода.",
+      "Нет травм, заболеваний или медицинских противопоказаний к силовым тренировкам."
+    ],
+    "seekProfessionalAssessment": [
+      "Длительная нерегулярность или исчезновение менструаций без ожидаемой причины.",
+      "Постоянная выраженная усталость, повторные травмы или устойчивое падение результата.",
+      "Боль, которая усиливается, меняет технику или сохраняется вне тренировки."
     ]
   },
   "sessions": [
     {
       "id": "day-a",
       "name": "День A",
-      "focus": "Ягодичный мост · тяж",
-      "warmup": "5–10 минут общей разминки. Перед рабочим мостом и приседом 3–5 постепенно утяжеляющихся подводящих подходов; они не считаются рабочими.",
+      "focus": "Ягодичный мост · присед",
+      "warmup": "5–10 минут общей разминки. Перед мостом и приседом выполни только необходимые постепенно утяжеляющиеся подводящие подходы; они не считаются рабочими.",
       "exercises": [
         {
           "id": "hip-thrust-a",
           "name": "Ягодичный мост со штангой",
           "role": "primary",
-          "sets": 4,
+          "sets": 3,
           "reps": "6–8",
           "startWeightKg": 50,
+          "loadStatus": "calibrate",
           "estimated": true,
+          "rirProfile": "compound",
           "targetRir": "2–3",
           "restSeconds": 180,
-          "progressionKey": "barbell",
+          "progressionKey": "barbellCompound",
           "deload": {
             "sets": 2,
-            "reps": "8",
+            "reps": "6–8",
             "weightKg": 45
           }
         },
@@ -144,12 +228,14 @@
           "sets": 3,
           "reps": "8–10",
           "startWeightKg": 35,
+          "loadStatus": "calibrate",
           "estimated": true,
+          "rirProfile": "compound",
           "targetRir": "2–3",
           "restSeconds": 180,
-          "progressionKey": "barbell",
+          "progressionKey": "barbellCompound",
           "deload": {
-            "sets": 2,
+            "sets": 1,
             "reps": "8",
             "weightKg": 30
           }
@@ -157,96 +243,88 @@
         {
           "id": "leg-curl-a",
           "name": "Сгибание ног",
-          "estimated": true,
-          "sets": 3,
+          "sets": 2,
           "reps": "10–15",
           "startWeightKg": 30,
+          "loadStatus": "calibrate",
+          "estimated": true,
+          "rirProfile": "isolation",
           "targetRir": "1–2",
           "restSeconds": 120,
           "progressionKey": "machine",
           "deload": {
-            "sets": 2,
-            "reps": "12",
-            "weightKg": 30
-          }
-        },
-        {
-          "id": "hip-abduction-a",
-          "name": "Отведение бедра в тренажёре",
-          "estimated": true,
-          "sets": 3,
-          "reps": "15–20",
-          "startWeightKg": 40,
-          "targetRir": "1–2",
-          "restSeconds": 90,
-          "progressionKey": "machine",
-          "deload": {
-            "sets": 2,
-            "reps": "15",
-            "weightKg": 40
+            "sets": 1,
+            "reps": "10–12",
+            "weightKg": 27.5
           }
         },
         {
           "id": "lat-pulldown-a",
           "name": "Вертикальная тяга верхнего блока",
-          "estimated": true,
           "sets": 3,
           "reps": "8–12",
           "startWeightKg": 35,
+          "loadStatus": "calibrate",
+          "estimated": true,
+          "rirProfile": "compound",
           "targetRir": "2–3",
           "restSeconds": 120,
           "progressionKey": "machine",
           "deload": {
             "sets": 2,
-            "reps": "10",
-            "weightKg": 35
+            "reps": "8–10",
+            "weightKg": 32.5
           }
         },
         {
           "id": "lateral-raise-a",
           "name": "Махи гантелями в стороны",
           "perHand": true,
-          "estimated": true,
-          "unitSuffix": " ×2",
-          "sets": 3,
+          "sets": 2,
           "reps": "12–20",
           "startWeightKg": 5,
-          "targetRir": "1–2; в микроцикле 3 последний подход 0–1",
+          "loadStatus": "calibrate",
+          "estimated": true,
+          "rirProfile": "isolation",
+          "targetRir": "1–2",
           "restSeconds": 90,
           "progressionKey": "dumbbellIsolation",
           "deload": {
-            "sets": 2,
-            "reps": "12",
-            "weightKg": 5
+            "sets": 1,
+            "reps": "12–15",
+            "weightKg": 4
           }
         },
         {
           "id": "barbell-curl-a",
           "name": "Сгибание рук со штангой",
-          "estimated": true,
-          "sets": 3,
+          "sets": 2,
           "reps": "10–15",
           "startWeightKg": 15,
-          "targetRir": "1–2; в микроцикле 3 последний подход 0–1",
+          "loadStatus": "calibrate",
+          "estimated": true,
+          "rirProfile": "isolation",
+          "targetRir": "1–2",
           "restSeconds": 90,
-          "progressionKey": "barbell",
+          "progressionKey": "barbellIsolation",
           "deload": {
-            "sets": 2,
-            "reps": "12",
-            "weightKg": 15
+            "sets": 1,
+            "reps": "10–12",
+            "weightKg": 12.5
           }
         },
         {
           "id": "abs-a",
           "name": "Пресс: планка или скручивания",
-          "sets": "2–3",
+          "sets": 2,
           "reps": "повторы / время",
+          "rirProfile": "compound",
           "targetRir": "2–3",
           "restSeconds": 60,
           "progressionKey": "bodyweight",
           "bodyweight": true,
           "deload": {
-            "sets": 2,
+            "sets": 1,
             "reps": "лёгкий вариант"
           }
         }
@@ -255,20 +333,22 @@
     {
       "id": "day-b",
       "name": "День B",
-      "focus": "Румынская тяга · тяж",
-      "warmup": "5–10 минут общей разминки. Перед румынской тягой 3–5 подводящих подходов.",
+      "focus": "Румынская тяга · верх",
+      "warmup": "5–10 минут общей разминки. Перед румынской тягой выполни 3–5 постепенно утяжеляющихся подводящих подходов.",
       "exercises": [
         {
           "id": "rdl-b",
           "name": "Румынская тяга",
           "role": "primary",
-          "sets": 4,
+          "sets": 3,
           "reps": "8–10",
           "startWeightKg": 40,
+          "loadStatus": "calibrate",
           "estimated": true,
+          "rirProfile": "compound",
           "targetRir": "2–3",
           "restSeconds": 180,
-          "progressionKey": "barbell",
+          "progressionKey": "barbellCompound",
           "deload": {
             "sets": 2,
             "reps": "8",
@@ -279,97 +359,88 @@
           "id": "bulgarian-split-b",
           "name": "Болгарские выпады с наклоном корпуса",
           "perHand": true,
-          "estimated": true,
-          "unitSuffix": " ×2",
-          "sets": 3,
+          "sets": 2,
           "reps": "8–12",
           "startWeightKg": 10,
+          "loadStatus": "calibrate",
+          "estimated": true,
+          "rirProfile": "compound",
           "targetRir": "2–3",
           "restSeconds": 120,
-          "progressionKey": "dumbbellIsolation",
+          "progressionKey": "dumbbellCompound",
           "deload": {
-            "sets": 2,
-            "reps": "10",
-            "weightKg": 10
-          }
-        },
-        {
-          "id": "glute-hyperext-b",
-          "name": "Гиперэкстензия на ягодицы",
-          "estimated": true,
-          "sets": 3,
-          "reps": "12–15",
-          "startWeightKg": 10,
-          "targetRir": "1–2; в микроцикле 3 последний подход 0–1",
-          "restSeconds": 90,
-          "progressionKey": "barbell",
-          "deload": {
-            "sets": 2,
-            "reps": "12",
-            "weightKg": 10
+            "sets": 1,
+            "reps": "8–10",
+            "weightKg": 9
           }
         },
         {
           "id": "machine-row-b",
           "name": "Горизонтальная тяга в тренажёре",
-          "estimated": true,
           "sets": 3,
           "reps": "8–12",
           "startWeightKg": 35,
+          "loadStatus": "calibrate",
+          "estimated": true,
+          "rirProfile": "compound",
           "targetRir": "2–3",
           "restSeconds": 120,
           "progressionKey": "machine",
           "deload": {
-            "sets": 2,
-            "reps": "10",
-            "weightKg": 35
+            "sets": 1,
+            "reps": "8–10",
+            "weightKg": 32.5
           }
         },
         {
           "id": "overhead-db-press-b",
           "name": "Жим гантелей сидя вверх",
           "perHand": true,
-          "estimated": true,
-          "unitSuffix": " ×2",
-          "sets": 3,
+          "sets": 2,
           "reps": "8–12",
           "startWeightKg": 8,
+          "loadStatus": "calibrate",
+          "estimated": true,
+          "rirProfile": "compound",
           "targetRir": "2–3",
           "restSeconds": 120,
-          "progressionKey": "dumbbellIsolation",
+          "progressionKey": "dumbbellCompound",
           "deload": {
-            "sets": 2,
-            "reps": "10",
-            "weightKg": 8
+            "sets": 1,
+            "reps": "8–10",
+            "weightKg": 7
           }
         },
         {
           "id": "triceps-pushdown-b",
           "name": "Разгибание на трицепс в блоке",
-          "estimated": true,
-          "sets": 3,
+          "sets": 2,
           "reps": "10–15",
           "startWeightKg": 20,
-          "targetRir": "1–2; в микроцикле 3 последний подход 0–1",
+          "loadStatus": "calibrate",
+          "estimated": true,
+          "rirProfile": "isolation",
+          "targetRir": "1–2",
           "restSeconds": 90,
           "progressionKey": "machine",
           "deload": {
-            "sets": 2,
-            "reps": "12",
-            "weightKg": 20
+            "sets": 1,
+            "reps": "10–12",
+            "weightKg": 17.5
           }
         },
         {
           "id": "abs-b",
           "name": "Пресс",
-          "sets": "2–3",
+          "sets": 2,
           "reps": "повторы / время",
+          "rirProfile": "compound",
           "targetRir": "2–3",
           "restSeconds": 60,
           "progressionKey": "bodyweight",
           "bodyweight": true,
           "deload": {
-            "sets": 2,
+            "sets": 1,
             "reps": "лёгкий вариант"
           }
         }
@@ -379,19 +450,21 @@
       "id": "day-c",
       "name": "День C",
       "focus": "Ягодичный мост · объём",
-      "warmup": "5–10 минут общей разминки. Перед мостом 2–4 подводящих подхода.",
+      "warmup": "5–10 минут общей разминки. Перед мостом выполни 2–4 постепенно утяжеляющихся подводящих подхода.",
       "exercises": [
         {
           "id": "hip-thrust-c",
           "name": "Ягодичный мост со штангой",
           "role": "primary",
-          "sets": 4,
+          "sets": 3,
           "reps": "10–12",
           "startWeightKg": 45,
+          "loadStatus": "calibrate",
           "estimated": true,
+          "rirProfile": "compound",
           "targetRir": "2–3",
           "restSeconds": 150,
-          "progressionKey": "barbell",
+          "progressionKey": "barbellCompound",
           "deload": {
             "sets": 2,
             "reps": "10",
@@ -400,118 +473,132 @@
         },
         {
           "id": "reverse-lunge-c",
-          "name": "Выпады назад / ходьба выпадами",
+          "name": "Выпады назад",
           "perHand": true,
-          "estimated": true,
-          "unitSuffix": " ×2",
-          "sets": 3,
+          "sets": 2,
           "reps": "10–12",
           "startWeightKg": 10,
+          "loadStatus": "calibrate",
+          "estimated": true,
+          "rirProfile": "compound",
           "targetRir": "2–3",
           "restSeconds": 120,
-          "progressionKey": "dumbbellIsolation",
+          "progressionKey": "dumbbellCompound",
           "deload": {
-            "sets": 2,
+            "sets": 1,
             "reps": "10",
-            "weightKg": 10
+            "weightKg": 9
           }
         },
         {
           "id": "hip-abduction-c",
           "name": "Отведение бедра в тренажёре",
-          "estimated": true,
-          "sets": 3,
+          "sets": 2,
           "reps": "15–20",
           "startWeightKg": 40,
+          "loadStatus": "calibrate",
+          "estimated": true,
+          "rirProfile": "isolation",
           "targetRir": "1–2",
           "restSeconds": 90,
           "progressionKey": "machine",
           "deload": {
-            "sets": 2,
+            "sets": 1,
             "reps": "15",
-            "weightKg": 40
+            "weightKg": 35
           }
         },
         {
           "id": "lat-pulldown-c",
           "name": "Вертикальная тяга, другой хват",
-          "estimated": true,
-          "sets": 3,
+          "sets": 2,
           "reps": "8–12",
           "startWeightKg": 35,
+          "loadStatus": "calibrate",
+          "estimated": true,
+          "rirProfile": "compound",
           "targetRir": "2–3",
           "restSeconds": 120,
           "progressionKey": "machine",
           "deload": {
-            "sets": 2,
-            "reps": "10",
-            "weightKg": 35
+            "sets": 1,
+            "reps": "8–10",
+            "weightKg": 32.5
+          }
+        },
+        {
+          "id": "db-bench-c",
+          "name": "Жим гантелей лёжа",
+          "perHand": true,
+          "sets": 3,
+          "reps": "8–12",
+          "startWeightKg": 10,
+          "loadStatus": "calibrate",
+          "estimated": true,
+          "rirProfile": "compound",
+          "targetRir": "2–3",
+          "restSeconds": 120,
+          "progressionKey": "dumbbellCompound",
+          "deload": {
+            "sets": 1,
+            "reps": "8–10",
+            "weightKg": 9
           }
         },
         {
           "id": "lateral-raise-c",
           "name": "Махи гантелями в стороны",
           "perHand": true,
-          "estimated": true,
-          "unitSuffix": " ×2",
-          "sets": 3,
+          "sets": 2,
           "reps": "12–20",
           "startWeightKg": 5,
-          "targetRir": "1–2; в микроцикле 3 последний подход 0–1",
+          "loadStatus": "calibrate",
+          "estimated": true,
+          "rirProfile": "isolation",
+          "targetRir": "1–2",
           "restSeconds": 90,
           "progressionKey": "dumbbellIsolation",
           "deload": {
-            "sets": 2,
-            "reps": "12",
-            "weightKg": 5
+            "sets": 1,
+            "reps": "12–15",
+            "weightKg": 4
           }
         },
         {
           "id": "hammer-curl-c",
           "name": "Молотковые сгибания",
           "perHand": true,
-          "estimated": true,
-          "unitSuffix": " ×2",
-          "sets": 3,
-          "reps": "10–12",
+          "sets": 2,
+          "reps": "10–15",
           "startWeightKg": 8,
-          "targetRir": "1–2; в микроцикле 3 последний подход 0–1",
+          "loadStatus": "calibrate",
+          "estimated": true,
+          "rirProfile": "isolation",
+          "targetRir": "1–2",
           "restSeconds": 90,
           "progressionKey": "dumbbellIsolation",
           "deload": {
-            "sets": 2,
-            "reps": "10",
-            "weightKg": 8
+            "sets": 1,
+            "reps": "10–12",
+            "weightKg": 7
           }
         },
         {
           "id": "standing-calf-c",
           "name": "Подъём на носки стоя",
-          "estimated": true,
-          "sets": 3,
+          "sets": 2,
           "reps": "12–20",
           "startWeightKg": 40,
+          "loadStatus": "calibrate",
+          "estimated": true,
+          "rirProfile": "isolation",
           "targetRir": "1–2",
           "restSeconds": 90,
           "progressionKey": "machine",
           "deload": {
-            "sets": 2,
-            "reps": "15",
-            "weightKg": 40
-          }
-        },
-        {
-          "id": "abs-c",
-          "name": "Пресс",
-          "sets": "2–3",
-          "reps": "повторы / время",
-          "targetRir": "2–3",
-          "restSeconds": 60,
-          "progressionKey": "bodyweight",
-          "bodyweight": true,
-          "deload": {
-            "sets": 2,
-            "reps": "лёгкий вариант"
+            "sets": 1,
+            "reps": "12–15",
+            "weightKg": 35
           }
         }
       ]
@@ -520,19 +607,21 @@
       "id": "day-d",
       "name": "День D",
       "focus": "Присед · задняя цепь",
-      "warmup": "5–10 минут общей разминки. Перед приседом 3–5 подводящих подходов, перед румынской тягой 1–3.",
+      "warmup": "5–10 минут общей разминки. Перед приседом выполни 3–5 подводящих подходов, перед румынской тягой — 1–3 по необходимости.",
       "exercises": [
         {
           "id": "deep-squat-d",
           "name": "Глубокий присед, пятки на подставке",
           "role": "primary",
-          "sets": 4,
+          "sets": 3,
           "reps": "6–8",
           "startWeightKg": 35,
+          "loadStatus": "calibrate",
           "estimated": true,
+          "rirProfile": "compound",
           "targetRir": "2–3",
           "restSeconds": 180,
-          "progressionKey": "barbell",
+          "progressionKey": "barbellCompound",
           "deload": {
             "sets": 2,
             "reps": "6",
@@ -542,15 +631,17 @@
         {
           "id": "rdl-d",
           "name": "Румынская тяга",
-          "sets": 3,
+          "sets": 2,
           "reps": "10–12",
           "startWeightKg": 40,
+          "loadStatus": "calibrate",
           "estimated": true,
+          "rirProfile": "compound",
           "targetRir": "2–3",
           "restSeconds": 150,
-          "progressionKey": "barbell",
+          "progressionKey": "barbellCompound",
           "deload": {
-            "sets": 2,
+            "sets": 1,
             "reps": "10",
             "weightKg": 35
           }
@@ -558,97 +649,110 @@
         {
           "id": "glute-kickback-d",
           "name": "Отведение ноги назад в кроссовере",
-          "estimated": true,
-          "sets": 3,
+          "sets": 2,
           "reps": "12–15",
           "startWeightKg": 15,
-          "targetRir": "1–2; в микроцикле 3 последний подход 0–1",
+          "loadStatus": "calibrate",
+          "estimated": true,
+          "rirProfile": "isolation",
+          "targetRir": "1–2",
           "restSeconds": 90,
           "progressionKey": "machine",
           "deload": {
-            "sets": 2,
+            "sets": 1,
             "reps": "12",
-            "weightKg": 15
+            "weightKg": 12.5
           }
         },
         {
           "id": "leg-curl-d",
           "name": "Сгибание ног",
-          "estimated": true,
-          "sets": 3,
+          "sets": 2,
           "reps": "10–15",
           "startWeightKg": 30,
+          "loadStatus": "calibrate",
+          "estimated": true,
+          "rirProfile": "isolation",
           "targetRir": "1–2",
           "restSeconds": 120,
           "progressionKey": "machine",
           "deload": {
-            "sets": 2,
-            "reps": "12",
-            "weightKg": 30
+            "sets": 1,
+            "reps": "10–12",
+            "weightKg": 27.5
           }
         },
         {
           "id": "machine-row-d",
           "name": "Горизонтальная тяга в тренажёре",
-          "estimated": true,
-          "sets": 3,
+          "sets": 2,
           "reps": "8–12",
           "startWeightKg": 35,
+          "loadStatus": "calibrate",
+          "estimated": true,
+          "rirProfile": "compound",
           "targetRir": "2–3",
           "restSeconds": 120,
           "progressionKey": "machine",
           "deload": {
-            "sets": 2,
-            "reps": "10",
-            "weightKg": 35
+            "sets": 1,
+            "reps": "8–10",
+            "weightKg": 32.5
           }
         },
         {
           "id": "rear-delt-d",
           "name": "Разведения на заднюю дельту",
-          "estimated": true,
-          "sets": 3,
+          "sets": 2,
           "reps": "15–20",
           "startWeightKg": 15,
-          "targetRir": "1–2; в микроцикле 3 последний подход 0–1",
+          "loadStatus": "calibrate",
+          "estimated": true,
+          "rirProfile": "isolation",
+          "targetRir": "1–2",
           "restSeconds": 90,
           "progressionKey": "machine",
           "deload": {
-            "sets": 2,
+            "sets": 1,
             "reps": "15",
-            "weightKg": 15
+            "weightKg": 12.5
           }
         },
         {
-          "id": "db-bench-light-d",
-          "name": "Жим гантелей лёжа (лёгкая грудь)",
+          "id": "incline-db-bench-d",
+          "name": "Жим гантелей на наклонной скамье",
           "perHand": true,
-          "estimated": true,
-          "unitSuffix": " ×2",
-          "sets": 3,
+          "sets": 2,
           "reps": "10–15",
           "startWeightKg": 10,
+          "loadStatus": "calibrate",
+          "estimated": true,
+          "rirProfile": "compound",
           "targetRir": "2–3",
           "restSeconds": 120,
-          "progressionKey": "dumbbellIsolation",
+          "progressionKey": "dumbbellCompound",
           "deload": {
-            "sets": 2,
-            "reps": "12",
-            "weightKg": 10
+            "sets": 1,
+            "reps": "10–12",
+            "weightKg": 9
           }
         },
         {
-          "id": "abs-d",
-          "name": "Пресс",
-          "sets": "2–3",
-          "reps": "повторы / время",
-          "targetRir": "2–3",
-          "restSeconds": 60,
-          "progressionKey": "bodyweight",
-          "bodyweight": true,
+          "id": "standing-calf-d",
+          "name": "Подъём на носки стоя",
+          "sets": 2,
+          "reps": "12–20",
+          "startWeightKg": 40,
+          "loadStatus": "calibrate",
+          "estimated": true,
+          "rirProfile": "isolation",
+          "targetRir": "1–2",
+          "restSeconds": 90,
+          "progressionKey": "machine",
           "deload": {
-            "sets": 2,
-            "reps": "лёгкий вариант"
+            "sets": 1,
+            "reps": "12–15",
+            "weightKg": 35
           }
         }
       ]

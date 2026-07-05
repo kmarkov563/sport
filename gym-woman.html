@@ -158,23 +158,31 @@
   <div class="grid2">
     <div class="card">
       <ul class="clean">
-        <li><b>Двойная прогрессия:</b> сначала добавляй повторы внутри диапазона, сохраняя целевой RIR и технику.</li>
+        <li><b>Двойная прогрессия:</b> МЦ1 — низ диапазона, МЦ2 — середина, МЦ3 — верх; МЦ4 — минимальный шаг веса и возврат к низу диапазона.</li>
         <li>Вес повышается только после верхней границы во <b>всех рабочих подходах</b>: штанга обычно +2,5 кг, тренажёр — минимальный шаг.</li>
-        <li>После повышения веса вернись к нижней границе повторов. Если не достиг нижней границы или получился отказ — снизь вес на следующей сессии на 5–10%.</li>
-        <li><b>Усилие:</b> микроциклы 1–2 — RIR 2–3, микроцикл 3 — RIR 1–2, разгрузка — RIR 3–4.</li>
+        <li>После единичного недобора удержи вес. Снижай его на 5–10% только при повторном недоборе, RIR ниже цели на 2+ или ухудшении техники.</li>
+        <li><b>Усилие:</b> калибровка — RIR 2–3, затем RIR 2 → 1–2. Отказ не планируется; изоляция — не ближе RIR 1.</li>
       </ul>
     </div>
     <div class="card">
       <ul class="clean">
-        <li><b>Микроциклы 1–3</b> — калибровка и рост. <b>Микроцикл 4</b> — плановая разгрузка: примерно половина подходов и вес ниже на 5–10%.</li>
-        <li><span class="est" style="margin:0">старт</span> — оценочный вес: в микроцикле 1 подбери его под диапазон и RIR, затем <b>запиши факт</b>.</li>
-        <li>Полная ротация — <b>4 тренировки за 8 дней</b>: ягодицы получают стимул ~4 раза, задняя цепь и квадрицепс ~2 раза, верх ~2 раза.</li>
+        <li><b>Все 4 микроцикла рабочие.</b> Вес в МЦ4 повышается только после выполнения цели МЦ3 во всех подходах; иначе повтори МЦ3. Разгрузка — только по состоянию.</li>
+        <li><span class="est" style="margin:0">калибровка</span> — ориентир: в микроцикле 1 подбери вес под диапазон и RIR, затем <b>запиши факт</b>.</li>
+        <li>Полная ротация — <b>4 тренировки за 8 дней</b>, по 14–18 рабочих подходов. Прямые и косвенные подходы на ягодицы считаются отдельно.</li>
       </ul>
     </div>
   </div>
 
   <div class="callout" style="margin-top:16px">
     <b>После микроцикла 4:</b> оцени рабочие веса по факту лога и собери блок 2 от достигнутых цифр. Настоящий 1ПМ не нужен.
+  </div>
+  <div class="grid2" style="margin-top:12px">
+    <div class="callout">
+      <b>Кардио:</b> постепенно доведи умеренную аэробную активность до 150 минут в неделю. Интенсивное кардио не ставь перед тяжёлой тренировкой ног.
+    </div>
+    <div class="callout">
+      <b>Восстановление:</b> белок 90–110 г/сутки, достаточно энергии и углеводов. Фазы цикла не требуют автоматической смены программы — отслеживай индивидуальные симптомы.
+    </div>
   </div>
   <div class="callout warn" style="margin-top:12px">
     <b>План адаптивный.</b> После тренировок открой новую сессию и скинь: что легко/тяжело, что не смог, сон и самочувствие, боли. Пересчитаю веса и обновлю блок.
@@ -198,10 +206,28 @@
   var PLAN=null;
   var cur=0; // 0-based microcycle
 
+  function cyclePrescription(e,microcycle){
+    if(microcycle.deload)return e.deload;
+    var p={sets:e.sets,reps:e.reps,weightKg:e.startWeightKg};
+    var match=typeof e.reps==='string'&&e.reps.match(/^(\d+)[–-](\d+)$/);
+    if(match){
+      var low=+match[1],high=+match[2];
+      if(microcycle.number===1)p.reps=''+low;
+      if(microcycle.number===2)p.reps=''+Math.round((low+high)/2);
+      if(microcycle.number===3)p.reps=''+high;
+      if(microcycle.number===4){
+        p.reps=''+low;
+        var rule=PLAN.progressionRules[e.progressionKey];
+        p.weightKg=e.startWeightKg+(rule.plannedIncrementKg||0);
+      }
+    }
+    return p;
+  }
+
   function effectiveRir(e,microcycle){
     if(microcycle.deload)return microcycle.baseRir;
-    if(e.targetRir.indexOf('в микроцикле 3')!==-1){
-      return microcycle.number===3?'1–2; последний подход 0–1':'1–2';
+    if(e.rirProfile==='isolation'){
+      return '1–2; последний подход '+microcycle.isolationLastSetRir;
     }
     return e.targetRir==='2–3'?microcycle.baseRir:e.targetRir;
   }
@@ -214,19 +240,19 @@
         '<div class="rir">база<br><b>RIR '+microcycle.baseRir+'</b></div></div>';
       session.exercises.forEach(function(e){
         if((e.fromMicrocycle && microcycle.number<e.fromMicrocycle) || (microcycle.deload && !e.deload))return;
-        var prescription=microcycle.deload?e.deload:e;
+        var prescription=cyclePrescription(e,microcycle);
         var load,sr;
         if(e.bodyweight){
           load='<span class="kg" style="color:var(--ink-3)">—</span>';
           sr=prescription.reps+' · '+prescription.sets+' подх.';
         }else{
-          var weight=microcycle.deload?prescription.weightKg:e.startWeightKg;
+          var weight=prescription.weightKg;
           load='<span class="kg">'+kg(weight)+(e.perHand?' ×2':'')+'<small> кг</small></span>';
           sr=prescription.reps+' повт × '+prescription.sets+' подх.';
         }
         var rir=effectiveRir(e,microcycle);
         html+='<div class="ex'+(e.role==='primary'?' primary':'')+'">'+
-          '<span class="en">'+e.name+(e.estimated?'<span class="est">старт</span>':'')+(e.optional?'<span class="est">опция</span>':'')+'</span>'+
+          '<span class="en">'+e.name+(e.loadStatus==='calibrate'?'<span class="est">калибровка</span>':e.estimated?'<span class="est">старт</span>':'')+(e.optional?'<span class="est">опция</span>':'')+'</span>'+
           '<span class="load">'+load+'</span>'+
           '<span class="sr">'+sr+'</span>'+
           '<span class="rirline">RIR '+rir+' · отдых '+Math.round(e.restSeconds/60*10)/10+' мин</span></div>';
@@ -247,7 +273,7 @@
   });
 
   function init(plan){
-    if(plan.schemaVersion!==2)throw new Error('неподдерживаемая схема данных');
+    if(plan.schemaVersion!==3)throw new Error('неподдерживаемая схема данных');
     PLAN=plan;
     var m=plan.meta||{};
     document.getElementById('eyebrow').textContent=m.eyebrow||'';
