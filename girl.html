@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Тренировки — 24 недели</title>
+<link rel="icon" type="image/webp" href="assets/might_guy.webp">
+<link rel="shortcut icon" type="image/webp" href="assets/might_guy.webp">
+<link rel="apple-touch-icon" href="assets/might_guy.webp">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #ffffff; --bg-2: #f5f5f3; --bg-3: #eeece8;
+    --text: #1a1a18; --muted: #6b6b67;
+    --border: rgba(0,0,0,0.09); --border-strong: rgba(0,0,0,0.18);
+    --radius: 12px; --blue: #2563EB; --blue-bg: #eff6ff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #141413; --bg-2: #1e1e1c; --bg-3: #272725;
+      --text: #f0ede8; --muted: #8a8a84;
+      --border: rgba(255,255,255,0.07); --border-strong: rgba(255,255,255,0.15);
+      --blue-bg: #1a2744; }
+  }
+  body { font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif; background: var(--bg); color: var(--text); }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 1.5rem 1rem 5rem; }
+  h1 { font-size: 20px; font-weight: 600; }
+  .subtitle { font-size: 13px; color: var(--muted); margin: 2px 0 1.2rem; }
+  .legend { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 1.4rem; }
+  .leg { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--muted); }
+  .leg-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .week { border: 0.5px solid var(--border-strong); border-radius: var(--radius); margin-bottom: 12px; overflow: hidden; }
+  .week-head { padding: 10px 14px; background: var(--bg-2); cursor: pointer; display: flex; align-items: center; justify-content: space-between; user-select: none; }
+  .week-head-left { display: flex; align-items: center; gap: 8px; }
+  .week-num { font-size: 14px; font-weight: 600; }
+  .week-range { font-size: 12px; color: var(--muted); }
+  .phase-badge { font-size: 10px; padding: 2px 8px; border-radius: 99px; }
+  .ph0 { background:#FDE8F0; color:#7C0C3A; }
+  .ph1 { background:#F0E8FD; color:#4A0C7C; }
+  .ph2 { background:#E8F4FD; color:#0C4A7C; }
+  .ph3 { background:#E8FDF0; color:#0C7C3A; }
+  .chevron { font-size: 11px; color: var(--muted); transition: transform 0.2s; }
+  .chevron.open { transform: rotate(180deg); }
+  .week-body { display: none; }
+  .week-body.open { display: block; }
+  .week-note { font-size: 11px; color: var(--muted); padding: 6px 14px; background: var(--bg-2); border-bottom: 0.5px solid var(--border); border-left: 2px solid var(--border-strong); }
+  .day { border-bottom: 0.5px solid var(--border); padding: 10px 14px; }
+  .day:last-child { border-bottom: none; }
+  .day.today { background: var(--blue-bg); }
+  .day.rest { background: var(--bg-2); }
+  .day-head { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
+  .day-name { font-size: 13px; font-weight: 600; }
+  .day-date { font-size: 12px; color: var(--muted); }
+  .today-pill { font-size: 10px; background: var(--blue); color: #fff; padding: 1px 7px; border-radius: 99px; }
+  .rest-text { font-size: 12px; color: var(--muted); font-style: italic; }
+  table { width: 100%; border-collapse: collapse; }
+  td { padding: 2.5px 0; font-size: 12.5px; }
+  td:first-child { color: var(--muted); }
+  td:last-child { text-align: right; font-weight: 500; }
+  .modifier { font-size: 11px; color: var(--muted); font-style: italic; margin-left: 3px; }
+  .vol-footer { padding: 8px 14px; background: var(--bg-3); display: flex; align-items: center; justify-content: space-between; }
+  .vol-label { font-size: 11px; color: var(--muted); }
+  .vol-right { display: flex; align-items: center; gap: 10px; }
+  .vol-num { font-size: 13px; font-weight: 600; }
+  .vol-delta { font-size: 12px; font-weight: 500; }
+  .up { color: #16a34a; } .down { color: #dc2626; } .neutral { color: var(--muted); }
+  .fab-group { position: fixed; bottom: 1.2rem; right: 1.2rem; display: flex; flex-direction: column; gap: 6px; }
+  .fab { width: 42px; height: 42px; border-radius: 50%; border: 0.5px solid var(--border-strong); background: var(--bg-2); cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; color: var(--text); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+  .fab:hover { background: var(--bg-3); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Домашние тренировки</h1>
+  <p class="subtitle">24 недели · 6 тренировок в неделю · День 7 — отдых</p>
+  <div class="legend">
+    <div class="leg"><div class="leg-dot" style="background:#E05A8A"></div>Фаза 1 — база (нед. 1–6)</div>
+    <div class="leg"><div class="leg-dot" style="background:#8A5AE0"></div>Фаза 2 — объём (нед. 7–12)</div>
+    <div class="leg"><div class="leg-dot" style="background:#5A8AE0"></div>Фаза 3 — интенсивность (нед. 13–18)</div>
+    <div class="leg"><div class="leg-dot" style="background:#5AE08A"></div>Фаза 4 — силовая (нед. 19–24)</div>
+  </div>
+  <div id="plan"></div>
+</div>
+
+<div class="fab-group">
+  <button class="fab" onclick="scrollToToday()" title="Сегодня">◉</button>
+  <button class="fab" onclick="navDay(-1)" title="Предыдущий день">↑</button>
+  <button class="fab" onclick="navDay(1)" title="Следующий день">↓</button>
+</div>
+
+<script>
+const PLAN = {
+  startDate: new Date(2026, 4, 2),
+  phases: ["Фаза 1 — база", "Фаза 2 — объём", "Фаза 3 — интенсивность", "Фаза 4 — силовая"],
+  phaseCls: ["ph0", "ph1", "ph2", "ph3"],
+  weeks: [
+    // ── ФАЗА 1: растут повторения ─────────────────────────────────────────
+    {
+      phase: 0, note: "Стартуем. Австрал. подтяг. — ноги согнуты.",
+      A: [
+        { name: "Отжимания от кровати", sets: 3, reps: "15" },
+        { name: "Присед", sets: 3, reps: "20" },
+        { name: "Австрал. подтяг. (согн. ноги)", sets: 3, reps: "3" }
+      ],
+      B: [
+        { name: "Жим бутылки 1.5л", sets: 3, reps: "15" },
+        { name: "Болгар. выпад (2×1.5л)", sets: 3, reps: "15 кажд." },
+        { name: "Обратные отж. от стула", sets: 3, reps: "10" }
+      ],
+      C: [
+        { name: "Мост 1 ногой", sets: 3, reps: "15 кажд." },
+        { name: "Отведение ноги назад", sets: 3, reps: "20 кажд." },
+        { name: "Румынская тяга (2×1.5л)", sets: 3, reps: "30" }
+      ],
+      pattern: ["A","B","C","A","B","C","rest"]
+    },
+    {
+      phase: 0, note: "",
+      A: [
+        { name: "Отжимания от кровати", sets: 3, reps: "17" },
+        { name: "Присед", sets: 3, reps: "22" },
+        { name: "Австрал. подтяг. (согн. ноги)", sets: 3, reps: "4" }
+      ],
+      B: [
+        { name: "Жим бутылки 1.5л", sets: 3, reps: "17" },
+        { name: "Болгар. выпад (2×1.5л)", sets: 3, reps: "17 кажд." },
+        { name: "Обратные отж. от стула", sets: 3, reps: "11" }
+      ],
+      C: [
+        { name: "Мост 1 ногой", sets: 3, reps: "17 кажд." },
+        { name: "Отведение ноги назад", sets: 3, reps: "22 кажд." },
+        { name: "Румынская тяга (2×1.5л)", sets: 3, reps: "30" }
+      ],
+      pattern: ["A","B","C","A","B","C","rest"]
+    },
+    {
+      phase: 0, note: "",
+      A: [
+        { name: "Отжимания от кровати", sets: 3, reps: "19" },
+        { name: "Присед", sets: 3, reps: "24" },
+        { name: "Австрал. подтяг. (согн. ноги)", sets: 3, reps: "5" }
+      ],
+      B: [
+        { name: "Жим бутылки 1.5л", sets: 3, reps: "19" },
+        { name: "Болгар. выпад (2×1.5л)", sets: 3, reps: "19 кажд." },
+        { name: "Обратные отж. от стула", sets: 3, reps: "12" }
+      ],
+      C: [
+        { name: "Мост 1 ногой", sets: 3, reps: "19 кажд." },
+        { name: "Отведение ноги назад", sets: 3, reps: "24 кажд." },
+        { name: "Румынская тяга (2×1.5л)", sets: 3, reps: "30" }
+      ],
+      pattern: ["A","B","C","A","B","C","rest"]
+    },
+    {
+      phase: 0, note: "Добавляем подход.",
+      A: [
+        { name: "Отжимания от кровати", sets: 4, reps: "15" },
+        { name: "Присед", sets: 4, reps: "20" },
+        { name: "Австрал. подтяг. (согн. ноги)", sets: 4, reps: "5" }
+      ],
+      B: [
+        { name: "Жим бутылки 1.5л", sets: 4, reps: "15" },
+        { name: "Болгар. выпад (2×1.5л)", sets: 4, reps: "15 кажд." },
+        { name: "Обратные отж. от стула", sets: 4, reps: "10" }
+      ],
+      C: [
+        { name: "Мост 1 ногой", sets: 4, reps: "15 кажд." },
+        { name: "Отведение ноги назад", sets: 4, reps: "20 кажд." },
+        { name: "Румынская тяга (2×1.5л)", sets: 4, reps: "30" }
+      ],
+      pattern: ["A","B","C","A","B","C","rest"]
+    },
+    {
+      phase: 0, note: "",
+      A: [
+        { name: "Отжимания от кровати", sets: 4, reps: "17" },
+        { name: "Присед", sets: 4, reps: "22" },
+        { name: "Австрал. подтяг. (согн. ноги)", sets: 4, reps: "6" }
+      ],
+      B: [
+        { name: "Жим бутылки 1.5л", sets: 4, reps: "17" },
+        { name: "Болгар. выпад (2×1.5л)", sets: 4, reps: "17 кажд." },
+        { name: "Обратные отж. от стула", sets: 4, reps: "11" }
+      ],
+      C: [
+        { name: "Мост 1 ногой", sets: 4, reps: "17 кажд." },
+        { name: "Отведение ноги назад", sets: 4, reps: "22 кажд." },
+        { name: "Румынская тяга (2×1.5л)", sets: 4, reps: "30" }
+      ],
+      pattern: ["A","B","C","A","B","C","rest"]
+    },
+    {
+      phase: 0, note: "Дамп: темп 3с↓.",
+      A: [
+        { name: "Отжимания от кровати", sets: 3, reps: "15", modifier: "3с↓" },
+        { name: "Присед", sets: 3, reps: "20", modifier: "3с↓" },
+        { name: "Австрал. подтяг. (согн. ноги)", sets: 3, reps: "5", modifier: "3с↓" }
+      ],
+      B: [
+        { name: "Жим бутылки 1.5л", sets: 3, reps: "15", modifier: "3с↓" },
+        { name: "Болгар. выпад (2×1.5л)", sets: 3, reps: "15 кажд." },
+        { name: "Обратные отж. от стула", sets: 3, reps: "10", modifier: "3с↓" }
+      ],
+      C: [
+        { name: "Мост 1 ногой", sets: 3, reps: "15 кажд." },
+        { name: "Отведение ноги назад", sets: 3, reps: "20 кажд." },
+        { name: "Румынская тяга (2×1.5л)", sets: 3, reps: "30", modifier: "3с↓" }
+      ],
+      pattern: ["A","B","C","A","B","C","rest"]
+    },
+
+    // ── ФАЗА 2: +1 подход + темп ───────────────────────────────────────────
+    {
+      phase: 1, note: "+1 подход. Темп 3с↓. Отжимания от пола. Австрал. подтяг. — ещё согн. ноги.",
+      A: [
+        { name: "Отжимания от пола", sets: 4, reps: "8", modifier: "3с↓" },
+        { name: "Присед", sets: 4, reps: "22", modifier: "3с↓" },
+        { name: "Австрал. подтяг. (согн. ноги)", sets: 4, reps: "6", modifier: "3с↓" }
+      ],
+      B: [
+        { name: "Жим бутылки 1.5л", sets: 4, reps: "17", modifier: "3с↓" },
+        { name: "Болгар. выпад (2×1.5л)", sets: 4, reps: "17 кажд." },
+        { name: "Обратные отж. от стула", sets: 4, reps: "11", modifier: "3с↓" }
+      ],
+      C: [
+        { name: "Мост 1 ногой", sets: 4, reps: "17 кажд." },
+        { name: "Отведение ноги назад", sets: 4, reps: "22 кажд." },
+        { name: "Румынская тяга (2×1.5л)", sets: 4, reps: "30", modifier: "3с↓" }
+      ],
+      pattern: ["A","B","C","A","B","C","rest"]
+    },
+    {
+      phase: 1, note: "",
+      A: [
+        { name: "Отжимания от пола", sets: 4, reps: "10", modifier: "3с↓" },
+        { name: "Присед", sets: 4, reps: "24", modifier: "3с↓" },
+        { name: "Австрал. подтяг. (согн. ноги)", sets: 4, reps: "7", modifier: "3с↓" }
+      ],
+      B: [
+        { name: "Жим бутылки 1.5л", sets: 4, reps: "19", modifier: "3с↓" },
+        { name: "Болгар. выпад (2×1.5л)", sets: 4, reps: "19 кажд." },
+        { name: "Обратные отж. от стула", sets: 4, reps: "12", modifier: "3с↓" }
+      ],
+      C: [
+        { name: "Мост 1 ногой", sets: 4, reps: "19 кажд." },
+        { name: "Отведение ноги назад", sets: 4, reps: "24 кажд." },
+        { name: "Румынская тяга (2×1.5л)", sets: 4, reps: "30", modifier: "3с↓" }
+      ],
+      pattern: ["A","B","C","A","B","C","rest"]
+    },
+    {
+      phase: 1, note: "",
+      A: [
+        { name: "Отжимания от пола", sets: 4, reps: "12", modifier: "3с↓" },
+        { name: "Присед", sets: 4, reps: "26", modifier: "3с↓" },
+        { name: "Австрал. подтяг. (согн. ноги)", sets: 4, reps: "8", modifier: "3с↓" }
+      ],
+      B: [
+        { name: "Жим бутылки 1.5л", sets: 4, reps: "20", modifier: "3с↓" },
+        { name: "Болгар. выпад (2×1.5л)", sets: 4, reps: "20 кажд." },
+        { name: "Обратные отж. от стула", sets: 4, reps: "13", modifier: "3с↓" }
+      ],
+      C: [
+        { name: "Мост 1 ногой", sets: 4, reps: "20 кажд." },
+        { name: "Отведение ноги назад", sets: 4, reps: "26 кажд." },
+        { name: "Румынская тяга (2×1.5л)", sets: 4, reps: "30", modifier: "3с↓" }
+      ],
+      pattern: ["A","B","C","A","B","C","rest"]
+    },
+    {
+      phase: 1, note: "Пауза 2с в нижней точке. Австрал. подтяг. — переход на прямые ноги!",
+      A: [
+        { name: "Отжимания от пола", sets: 4, reps: "10", modifier: "пауза↓" },
+        { name: "Присед", sets: 4, reps: "24", modifier: "пауза↓" },
+        { name: "Австрал. подтяг. (прям. ноги)", sets: 4, reps: "4", modifier: "пауза↓" }
+      ],
+      B: [
+        { name: "Жим бутылки 1.5л", sets: 4, reps: "18", modifier: "пауза↓" },
+        { name: "Болгар. выпад (2×1.5л)", sets: 4, reps: "18 кажд.", modifier: "пауза↓" },
+        { name: "Обратные отж. от стула", sets: 4, reps: "12", modifier: "пауза↓" }
+      ],
+      C: [
+        { name: "Мост 1 ногой", sets: 4, reps: "20 кажд." },
+        { name: "Отведение ноги назад", sets: 4, reps: "26 кажд." },
+        { name: "Румынская тяга (2×1.5л)", sets: 4, reps: "30", modifier: "пауза↓" }
+      ],
+      pattern: ["A","B","C","A","B","C","rest"]
+    },
+    {
+      phase: 1, note: "",
+      A: [
+        { name: "Отжимания от пола", sets: 4, reps: "13", modifier: "пауза↓" },
+        { name: "Присед", sets: 4, reps: "26", modifier: "пауза↓" },
+        { name: "Австрал. подтяг. (прям. ноги)", sets: 4, reps: "5", modifier: "пауза↓" }
+      ],
+      B: [
+        { name: "Жим бутылки 1.5л", sets: 4, reps: "20", modifier: "пауза↓" },
+        { name: "Болгар. выпад (2×1.5л)", sets: 4, reps: "20 кажд.", modifier: "пауза↓" },
+        { name: "Обратные отж. от стула", sets: 4, reps: "13", modifier: "пауза↓" }
+      ],
+      C: [
+        { name: "Мост 1 ногой", sets: 4, reps: "22 кажд." },
+        { name: "Отведение ноги назад", sets: 4, reps: "28 кажд." },
+        { name: "Румынская тяга (2×1.5л)", sets: 4, reps: "30", modifier: "пауза↓" }
+      ],
+      pattern: ["A","B","C","A","B","C","rest"]
+    },
+    {
+      phase: 1, note: "Дамп: лёгкая неделя, без темпа.",
+      A: [
+        { name: "Отжимания от пола", sets: 3, reps: "12" },
+        { name: "Присед", sets: 3, reps: "22" },
+        { name: "Австрал. подтяг. (прям. ноги)", sets: 3, reps: "5" }
+      ],
+      B: [
+        { name: "Жим бутылки 1.5л", sets: 3, reps: "18" },
+        { name: "Болгар. выпад (2×1.5л)", sets: 3, reps: "18 кажд." },
+        { name: "Обратные отж. от стула", sets: 3, reps: "12" }
+      ],
+      C: [
+        { name: "Мост 1 ногой", sets: 3, reps: "20 кажд." },
+        { name: "Отведение ноги назад", sets: 3, reps: "25 кажд." },
+        { name: "Румынская тяга (2×1.5л)", sets: 3, reps: "30" }
+      ],
+      pattern: ["A","B","C","A","B","C","rest"]
+    },
+
+    // ── ФАЗА 3: усложнение упражнений ─────────────────────────────────────
+    {
+      phase: 2, note: "Отжимания — широкая постановка рук. Болгарский — без веса, глубже.",
+      A: [
+        { name: "Отжимания широкие", sets: 4, reps: "12" },
+        { name: "Присед", sets: 4, reps: "26" },
+        { name: "Австрал. подтяг. (прям. ноги)", sets: 4, reps: "6" }
+      ],
+      B: [
+        { name: "Жим бутылки 1.5л", sets: 4, reps: "20" },
+        { name: "Болгар. выпад (без веса, глубоко)", sets: 4, reps: "15 кажд." },
+        { name: "Обратные отж. от стула", sets: 4, reps: "14" }
+      ],
+      C: [
+        { name: "Мост 1 ногой", sets: 4, reps: "22 кажд." },
+        { name: "Отведение ноги назад", sets: 4, reps: "28 кажд." },
+        { name: "Румынская тяга (2×1.5л)", sets: 4, reps: "30" }
+      ],
+      pattern: ["A","B","C","A","B","C","rest"]
+    },
+    {
+      phase: 2, note: "",
+      A: [
+        { name: "Отжимания широкие", sets: 4, reps: "14" },
+        { name: "Присед", sets: 4, reps: "28" },
+        { name: "Австрал. подтяг. (прям. ноги)", sets: 4, reps: "7" }
+      ],
+      B: [
+        { name: "Жим бутылки 1.5л", sets: 4, reps: "22" },
+        { name: "Болгар. выпад (без веса, глубоко)", sets: 4, reps: "17 кажд." },
+        { name: "Обратные отж. от стула", sets: 4, reps: "15" }
+      ],
+      C: [
+        { name: "Мост 1 ногой", sets: 4, reps: "24 кажд." },
+        { name: "Отведение ноги назад", sets: 4, reps: "30 кажд." },
+        { name: "Румынская тяга (2×1.5л)", sets: 4, reps: "30" }
+      ],
+      pattern: ["A","B","C","A","B","C","rest"]
+    },
+    {
+      phase: 2, note: "",
+      A: [
+        { name: "Отжимания широкие", sets: 5, reps: "12" },
+        { name: "Присед", sets: 5, reps: "26" },
+        { name: "Австрал. подтяг. (прям. ноги)", sets: 5, reps: "6" }
+      ],
+      B: [
+        { name: "Жим бутылки 1.5л", sets: 5, reps: "20" },
+        { name: "Болгар. выпад (без веса, глубоко)", sets: 5, reps: "15 кажд." },
+        { name: "Обратные отж. от стула", sets: 5, reps: "14" }
+      ],
+      C: [
+        { name: "Мост 1 ногой", sets: 5, reps: "22 кажд." },
+        { name: "Отведение ноги назад", sets: 5, reps: "28 кажд." },
+        { name: "Румынская тяга (2×1.5л)", sets: 5, reps: "25" }
+      ],
+      pattern: ["A","B","C","A","B","C","rest"]
+    },
+    {
+      phase: 2, note: "Болгарский — возвращаем вес, пауза внизу.",
+      A: [
+        { name: "Отжимания широкие", sets: 5, reps: "14" },
+        { name: "Присед", sets: 5, reps: "28" },
+        { name: "Австрал. подтяг. (прям. ноги)", sets: 5, reps: "7" }
+      ],
+      B: [
+        { name: "Жим бутылки 1.5л", sets: 5, reps: "20" },
+        { name: "Болгар. выпад (2×1.5л)", sets: 5, reps: "15 кажд.", modifier: "пауза↓" },
+        { name: "Обратные отж. от стула", sets: 5, reps: "14" }
+      ],
+      C: [
+        { name: "Мост 1 ногой", sets: 5, reps: "22 кажд." },
+        { name: "Отведение ноги назад", sets: 5, reps: "28 кажд." },
+        { name: "Румынская тяга (2×1.5л)", sets: 5, reps: "25" }
+      ],
+      pattern: ["A","B","C","A","B","C","rest"]
+    },
+    {
+      phase: 2, note: "",
+      A: [
+        { name: "Отжимания широкие", sets: 5, reps: "16" },
+        { name: "Присед", sets: 5, reps: "28" },
+        { name: "Австрал. подтяг. (прям. ноги)", sets: 5, reps: "8" }
+      ],
+      B: [
+        { name: "Жим бутылки 1.5л", sets: 5, reps: "22" },
+        { name: "Болгар. выпад (2×1.5л)", sets: 5, reps: "17 кажд.", modifier: "пауза↓" },
+        { name: "Обратные отж. от стула", sets: 5, reps: "15" }
+      ],
+      C: [
+        { name: "Мост 1 ногой", sets: 5, reps: "24 кажд." },
+        { name: "Отведение ноги назад", sets: 5, reps: "30 кажд." },
+        { name: "Румынская тяга (2×1.5л)", sets: 5, reps: "25" }
+      ],
+      pattern: ["A","B","C","A","B","C","rest"]
+    },
+    {
+      phase: 2, note: "Дамп: лёгкая неделя.",
+      A: [
+        { name: "Отжимания широкие", sets: 3, reps: "14" },
+        { name: "Присед", sets: 3, reps: "24" },
+        { name: "Австрал. подтяг. (прям. ноги)", sets: 3, reps: "6" }
+      ],
+      B: [
+        { name: "Жим бутылки 1.5л", sets: 3, reps: "18" },
+        { name: "Болгар. выпад (2×1.5л)", sets: 3, reps: "15 кажд." },
+        { name: "Обратные отж. от стула", sets: 3, reps: "13" }
+      ],
+      C: [
+        { name: "Мост 1 ногой", sets: 3, reps: "22 кажд." },
+        { name: "Отведение ноги назад", sets: 3, reps: "28 кажд." },
+        { name: "Румынская тяга (2×1.5л)", sets: 3, reps: "25" }
+      ],
+      pattern: ["A","B","C","A","B","C","rest"]
+    },
+
+    // ── ФАЗА 4: максимальная сложность ────────────────────────────────────
+    {
+      phase: 3, note: "Archer push-up. Австрал. подтяг. — прямые ноги + темп 3с↓.",
+      A: [
+        { name: "Archer push-up", sets: 5, reps: "6 кажд." },
+        { name: "Присед", sets: 5, reps: "28" },
+        { name: "Австрал. подтяг. (прям. ноги)", sets: 5, reps: "8", modifier: "3с↓" }
+      ],
+      B: [
+        { name: "Жим бутылки 1.5л", sets: 5, reps: "22" },
+        { name: "Болгар. выпад (2×1.5л)", sets: 5, reps: "18 кажд." },
+        { name: "Обратные отж. от стула", sets: 5, reps: "15" }
+      ],
+      C: [
+        { name: "Мост 1 ногой", sets: 5, reps: "24 кажд." },
+        { name: "Отведение ноги назад", sets: 5, reps: "30 кажд." },
+        { name: "Румынская тяга (2×1.5л)", sets: 5, reps: "20", modifier: "3с↓" }
+      ],
+      pattern: ["A","B","C","A","B","C","rest"]
+    },
+    {
+      phase: 3, note: "",
+      A: [
+        { name: "Archer push-up", sets: 5, reps: "7 кажд." },
+        { name: "Присед", sets: 5, reps: "28" },
+        { name: "Австрал. подтяг. (прям. ноги)", sets: 5, reps: "9", modifier: "3с↓" }
+      ],
+      B: [
+        { name: "Жим бутылки 1.5л", sets: 5, reps: "24" },
+        { name: "Болгар. выпад (2×1.5л)", sets: 5, reps: "19 кажд." },
+        { name: "Обратные отж. от стула", sets: 5, reps: "16" }
+      ],
+      C: [
+        { name: "Мост 1 ногой", sets: 5, reps: "24 кажд." },
+        { name: "Отведение ноги назад", sets: 5, reps: "30 кажд." },
+        { name: "Румынская тяга (2×1.5л)", sets: 5, reps: "22", modifier: "3с↓" }
+      ],
+      pattern: ["A","B","C","A","B","C","rest"]
+    },
+    {
+      phase: 3, note: "",
+      A: [
+        { name: "Archer push-up", sets: 5, reps: "8 кажд." },
+        { name: "Присед", sets: 5, reps: "28" },
+        { name: "Австрал. подтяг. (прям. ноги)", sets: 5, reps: "10", modifier: "3с↓" }
+      ],
+      B: [
+        { name: "Жим бутылки 1.5л", sets: 5, reps: "25" },
+        { name: "Болгар. выпад (2×1.5л)", sets: 5, reps: "20 кажд." },
+        { name: "Обратные отж. от стула", sets: 5, reps: "17" }
+      ],
+      C: [
+        { name: "Мост 1 ногой", sets: 5, reps: "25 кажд." },
+        { name: "Отведение ноги назад", sets: 5, reps: "30 кажд." },
+        { name: "Румынская тяга (2×1.5л)", sets: 5, reps: "24", modifier: "3с↓" }
+      ],
+      pattern: ["A","B","C","A","B","C","rest"]
+    },
+    {
+      phase: 3, note: "",
+      A: [
+        { name: "Archer push-up", sets: 5, reps: "9 кажд." },
+        { name: "Присед", sets: 5, reps: "28" },
+        { name: "Австрал. подтяг. (прям. ноги)", sets: 5, reps: "11", modifier: "3с↓" }
+      ],
+      B: [
+        { name: "Жим бутылки 1.5л", sets: 5, reps: "25" },
+        { name: "Болгар. выпад (2×1.5л)", sets: 5, reps: "20 кажд." },
+        { name: "Обратные отж. от стула", sets: 5, reps: "18" }
+      ],
+      C: [
+        { name: "Мост 1 ногой", sets: 5, reps: "25 кажд." },
+        { name: "Отведение ноги назад", sets: 5, reps: "30 кажд." },
+        { name: "Румынская тяга (2×1.5л)", sets: 5, reps: "25", modifier: "3с↓" }
+      ],
+      pattern: ["A","B","C","A","B","C","rest"]
+    },
+    {
+      phase: 3, note: "Финальная неделя — максимум.",
+      A: [
+        { name: "Archer push-up", sets: 5, reps: "12 кажд." },
+        { name: "Присед", sets: 5, reps: "28" },
+        { name: "Австрал. подтяг. (прям. ноги)", sets: 5, reps: "12", modifier: "3с↓" }
+      ],
+      B: [
+        { name: "Жим бутылки 1.5л", sets: 5, reps: "25" },
+        { name: "Болгар. выпад (2×1.5л)", sets: 5, reps: "20 кажд." },
+        { name: "Обратные отж. от стула", sets: 5, reps: "20" }
+      ],
+      C: [
+        { name: "Мост 1 ногой", sets: 5, reps: "25 кажд." },
+        { name: "Отведение ноги назад", sets: 5, reps: "30 кажд." },
+        { name: "Румынская тяга (2×1.5л)", sets: 5, reps: "25", modifier: "3с↓" }
+      ],
+      pattern: ["A","B","C","A","B","C","rest"]
+    }
+  ]
+};
+
+// ─── HELPERS ─────────────────────────────────────────────────────────────────
+function addDays(date, n) { const d = new Date(date); d.setDate(d.getDate() + n); return d; }
+function formatDate(date) { return date.toLocaleDateString('ru-RU', { day: 'numeric', month: 'short', weekday: 'short' }); }
+function isToday(date) { const t = new Date(); t.setHours(0,0,0,0); return date.getTime() === t.getTime(); }
+
+function weekVolume(week) {
+  let total = 0;
+  week.pattern.forEach(type => {
+    if (type === 'rest') return;
+    (week[type] || []).forEach(ex => {
+      const n = parseInt(ex.reps);
+      if (!isNaN(n)) total += ex.sets * n;
+    });
+  });
+  return total;
+}
+
+// ─── RENDER ──────────────────────────────────────────────────────────────────
+function render() {
+  const container = document.getElementById('plan');
+  let dayOffset = 0;
+  let todayDayEl = null;
+  const allDayEls = [];
+  const volumes = PLAN.weeks.map(weekVolume);
+
+  PLAN.weeks.forEach((week, wi) => {
+    const weekStartDate = addDays(PLAN.startDate, dayOffset);
+    const weekEndDate = addDays(PLAN.startDate, dayOffset + 6);
+    const vol = volumes[wi];
+    const prevVol = wi > 0 ? volumes[wi - 1] : null;
+    const deltaStr = prevVol
+      ? (vol > prevVol
+          ? `<span class="vol-delta up">↑ +${Math.round((vol - prevVol) / prevVol * 100)}%</span>`
+          : vol < prevVol
+            ? `<span class="vol-delta down">↓ −${Math.round((prevVol - vol) / prevVol * 100)}%</span>`
+            : `<span class="vol-delta neutral">→ 0%</span>`)
+      : '';
+
+    let weekHasToday = false;
+    week.pattern.forEach((_, di) => { if (isToday(addDays(PLAN.startDate, dayOffset + di))) weekHasToday = true; });
+
+    const weekEl = document.createElement('div');
+    weekEl.className = 'week';
+
+    const headEl = document.createElement('div');
+    headEl.className = 'week-head';
+    headEl.innerHTML = `
+      <div class="week-head-left">
+        <span class="week-num">Неделя ${wi + 1}</span>
+        <span class="phase-badge ${PLAN.phaseCls[week.phase]}">${PLAN.phases[week.phase]}</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="week-range">${formatDate(weekStartDate)} — ${formatDate(weekEndDate)}</span>
+        <span class="chevron ${weekHasToday ? 'open' : ''}">▼</span>
+      </div>`;
+
+    const bodyEl = document.createElement('div');
+    bodyEl.className = `week-body${weekHasToday ? ' open' : ''}`;
+
+    if (week.note) {
+      const noteEl = document.createElement('div');
+      noteEl.className = 'week-note';
+      noteEl.textContent = week.note;
+      bodyEl.appendChild(noteEl);
+    }
+
+    week.pattern.forEach((type, di) => {
+      const date = addDays(PLAN.startDate, dayOffset + di);
+      const today = isToday(date);
+      const dayEl = document.createElement('div');
+      dayEl.className = `day${today ? ' today' : ''}${type === 'rest' ? ' rest' : ''}`;
+
+      if (type === 'rest') {
+        dayEl.innerHTML = `
+          <div class="day-head">
+            <span class="day-name">День ${di + 1}</span>
+            <span class="day-date">${formatDate(date)}</span>
+            ${today ? '<span class="today-pill">Сегодня</span>' : ''}
+          </div>
+          <div class="rest-text">Отдых</div>`;
+      } else {
+        const rows = (week[type] || []).map(ex => {
+          const mod = ex.modifier ? `<span class="modifier">${ex.modifier}</span>` : '';
+          return `<tr><td>${ex.name}${mod}</td><td>${ex.sets} × ${ex.reps}</td></tr>`;
+        }).join('');
+        dayEl.innerHTML = `
+          <div class="day-head">
+            <span class="day-name">День ${di + 1}</span>
+            <span class="day-date">${formatDate(date)}</span>
+            ${today ? '<span class="today-pill">Сегодня</span>' : ''}
+          </div>
+          <table>${rows}</table>`;
+      }
+
+      bodyEl.appendChild(dayEl);
+      allDayEls.push(dayEl);
+      if (today) todayDayEl = dayEl;
+    });
+
+    const volFooter = document.createElement('div');
+    volFooter.className = 'vol-footer';
+    volFooter.innerHTML = `
+      <span class="vol-label">Объём за неделю</span>
+      <div class="vol-right">${deltaStr}<span class="vol-num">${vol.toLocaleString('ru')} повт.</span></div>`;
+    bodyEl.appendChild(volFooter);
+
+    headEl.addEventListener('click', () => {
+      const isOpen = bodyEl.classList.contains('open');
+      bodyEl.classList.toggle('open', !isOpen);
+      headEl.querySelector('.chevron').classList.toggle('open', !isOpen);
+    });
+
+    weekEl.appendChild(headEl);
+    weekEl.appendChild(bodyEl);
+    container.appendChild(weekEl);
+    dayOffset += 7;
+  });
+
+  window._allDayEls = allDayEls;
+  window._todayDayEl = todayDayEl;
+  if (todayDayEl) setTimeout(() => todayDayEl.scrollIntoView({ behavior: 'smooth', block: 'center' }), 200);
+}
+
+function scrollToToday() {
+  if (!window._todayDayEl) return;
+  const wb = window._todayDayEl.closest('.week-body');
+  if (wb) { wb.classList.add('open'); wb.previousElementSibling.querySelector('.chevron').classList.add('open'); }
+  window._todayDayEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function navDay(delta) {
+  const els = window._allDayEls;
+  const center = window.innerHeight / 2;
+  let currentIdx = 0, minDist = Infinity;
+  els.forEach((el, i) => {
+    const rect = el.getBoundingClientRect();
+    const dist = Math.abs(rect.top + rect.height / 2 - center);
+    if (dist < minDist) { minDist = dist; currentIdx = i; }
+  });
+  const target = els[Math.max(0, Math.min(els.length - 1, currentIdx + delta))];
+  if (target) {
+    const wb = target.closest('.week-body');
+    if (wb) { wb.classList.add('open'); wb.previousElementSibling.querySelector('.chevron').classList.add('open'); }
+    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+}
+
+render();
+</script>
+</body>
+</html>

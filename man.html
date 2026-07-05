@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Домашние тренировки — 24 недели</title>
+    <link rel="icon" type="image/webp" href="assets/might_guy.webp">
+    <link rel="shortcut icon" type="image/webp" href="assets/might_guy.webp">
+    <link rel="apple-touch-icon" href="assets/might_guy.webp">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #ffffff;
+            --bg-2: #f5f5f3;
+            --bg-3: #eeece8;
+            --text: #1a1a18;
+            --muted: #6b6b67;
+            --border: rgba(0, 0, 0, 0.09);
+            --border-strong: rgba(0, 0, 0, 0.18);
+            --radius: 12px;
+            --blue: #2563EB;
+            --blue-bg: #eff6ff;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #141413;
+                --bg-2: #1e1e1c;
+                --bg-3: #272725;
+                --text: #f0ede8;
+                --muted: #8a8a84;
+                --border: rgba(255, 255, 255, 0.07);
+                --border-strong: rgba(255, 255, 255, 0.15);
+                --blue-bg: #1a2744;
+            }
+        }
+
+        body {
+            font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        .wrap {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem 5rem;
+        }
+
+        h1 {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-size: 13px;
+            color: var(--muted);
+            margin: 2px 0 1.2rem;
+        }
+
+        .legend {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 1.4rem;
+        }
+
+        .leg {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        .leg-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* WEEK */
+        .week {
+            border: 0.5px solid var(--border-strong);
+            border-radius: var(--radius);
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .week-head {
+            padding: 10px 14px;
+            background: var(--bg-2);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            user-select: none;
+        }
+
+        .week-head-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .week-num {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .week-range {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .phase-badge {
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 99px;
+        }
+
+        .ph0 {
+            background: #E6F1FB;
+            color: #0C447C;
+        }
+
+        .ph1 {
+            background: #E1F5EE;
+            color: #085041;
+        }
+
+        .ph2 {
+            background: #FAEEDA;
+            color: #633806;
+        }
+
+        .ph3 {
+            background: #FAECE7;
+            color: #712B13;
+        }
+
+        .chevron {
+            font-size: 11px;
+            color: var(--muted);
+            transition: transform 0.2s;
+        }
+
+        .chevron.open {
+            transform: rotate(180deg);
+        }
+
+        .week-body {
+            display: none;
+        }
+
+        .week-body.open {
+            display: block;
+        }
+
+        .week-note {
+            font-size: 11px;
+            color: var(--muted);
+            padding: 6px 14px;
+            background: var(--bg-2);
+            border-bottom: 0.5px solid var(--border);
+            border-left: 2px solid var(--border-strong);
+        }
+
+        /* DAY */
+        .day {
+            border-bottom: 0.5px solid var(--border);
+            padding: 10px 14px;
+        }
+
+        .day:last-child {
+            border-bottom: none;
+        }
+
+        .day.today {
+            background: var(--blue-bg);
+        }
+
+        .day-head {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 6px;
+        }
+
+        .day-name {
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .day-date {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .today-pill {
+            font-size: 10px;
+            background: var(--blue);
+            color: #fff;
+            padding: 1px 7px;
+            border-radius: 99px;
+        }
+
+        .rest-text {
+            font-size: 12px;
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 2.5px 0;
+            font-size: 12.5px;
+        }
+
+        td:first-child {
+            color: var(--muted);
+        }
+
+        td:last-child {
+            text-align: right;
+            font-weight: 500;
+        }
+
+        .modifier {
+            font-size: 11px;
+            color: var(--muted);
+            font-style: italic;
+            margin-left: 3px;
+        }
+
+        /* VOLUME FOOTER */
+        .vol-footer {
+            padding: 8px 14px;
+            background: var(--bg-3);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .vol-label {
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        .vol-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .vol-num {
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .vol-delta {
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .up {
+            color: #16a34a;
+        }
+
+        .down {
+            color: #dc2626;
+        }
+
+        .neutral {
+            color: var(--muted);
+        }
+
+        /* NAV */
+        .fab-group {
+            position: fixed;
+            bottom: 1.2rem;
+            right: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .fab {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 0.5px solid var(--border-strong);
+            background: var(--bg-2);
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .fab:hover {
+            background: var(--bg-3);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <h1>Домашние тренировки</h1>
+        <p class="subtitle">24 недели · 6 тренировок в неделю · День 7 — отдых</p>
+        <div class="legend">
+            <div class="leg">
+                <div class="leg-dot" style="background:#378ADD"></div>Фаза 1 — база (нед. 1–6)
+            </div>
+            <div class="leg">
+                <div class="leg-dot" style="background:#1D9E75"></div>Фаза 2 — объём (нед. 7–12)
+            </div>
+            <div class="leg">
+                <div class="leg-dot" style="background:#EF9F27"></div>Фаза 3 — интенсивность (нед. 13–18)
+            </div>
+            <div class="leg">
+                <div class="leg-dot" style="background:#D85A30"></div>Фаза 4 — силовая (нед. 19–24)
+            </div>
+        </div>
+        <div id="plan"></div>
+    </div>
+
+    <div class="fab-group">
+        <button class="fab" onclick="scrollToToday()" title="Сегодня">◉</button>
+        <button class="fab" onclick="navDay(-1)" title="Предыдущий день">↑</button>
+        <button class="fab" onclick="navDay(1)" title="Следующий день">↓</button>
+    </div>
+
+    <script>
+        // ─── DATA ────────────────────────────────────────────────────────────────────
+        // PLAN is loaded from plan.json at startup (see bottom of script).
+        let PLAN = null;
+
+        // Parse a "YYYY-MM-DD" string into a local Date (avoids UTC shift).
+        function parseLocalDate(str) {
+            const [y, m, d] = str.split('-').map(Number);
+            return new Date(y, m - 1, d);
+        }
+
+        // ─── HELPERS ─────────────────────────────────────────────────────────────────
+        function addDays(date, n) {
+            const d = new Date(date);
+            d.setDate(d.getDate() + n);
+            return d;
+        }
+
+        function formatDate(date) {
+            return date.toLocaleDateString('ru-RU', { day: 'numeric', month: 'short', weekday: 'short' });
+        }
+
+        function isToday(date) {
+            const t = new Date(); t.setHours(0, 0, 0, 0);
+            return date.getTime() === t.getTime();
+        }
+
+        // Calculate weekly volume: sum of (sets * reps_numeric) for all exercises in the week
+        function weekVolume(week) {
+            let total = 0;
+            week.pattern.forEach(type => {
+                if (type === 'rest') return;
+                const exs = week[type] || [];
+                exs.forEach(ex => {
+                    const repsNum = parseInt(ex.reps);
+                    if (!isNaN(repsNum)) total += ex.sets * repsNum;
+                });
+            });
+            return total;
+        }
+
+        // ─── RENDER ──────────────────────────────────────────────────────────────────
+        function render() {
+            const container = document.getElementById('plan');
+            let dayOffset = 0;
+            let todayWeekIdx = -1;
+            let todayDayEl = null;
+            const allDayEls = [];
+
+            const volumes = PLAN.weeks.map(weekVolume);
+
+            PLAN.weeks.forEach((week, wi) => {
+                const weekStartDate = addDays(PLAN.startDate, dayOffset);
+                const weekEndDate = addDays(PLAN.startDate, dayOffset + 6);
+
+                const vol = volumes[wi];
+                const prevVol = wi > 0 ? volumes[wi - 1] : null;
+                const deltaStr = prevVol
+                    ? (vol > prevVol
+                        ? `<span class="vol-delta up">↑ +${Math.round((vol - prevVol) / prevVol * 100)}%</span>`
+                        : vol < prevVol
+                            ? `<span class="vol-delta down">↓ −${Math.round((prevVol - vol) / prevVol * 100)}%</span>`
+                            : `<span class="vol-delta neutral">→ 0%</span>`)
+                    : '';
+
+                // Check if today is in this week
+                let weekHasToday = false;
+                week.pattern.forEach((_, di) => {
+                    const d = addDays(PLAN.startDate, dayOffset + di);
+                    if (isToday(d)) weekHasToday = true;
+                });
+
+                const weekEl = document.createElement('div');
+                weekEl.className = 'week';
+                weekEl.id = `week-${wi}`;
+
+                const headEl = document.createElement('div');
+                headEl.className = 'week-head';
+                headEl.innerHTML = `
+      <div class="week-head-left">
+        <span class="week-num">Неделя ${wi + 1}</span>
+        <span class="phase-badge ${PLAN.phaseCls[week.phase]}">${PLAN.phases[week.phase]}</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="week-range">${formatDate(weekStartDate)} — ${formatDate(weekEndDate)}</span>
+        <span class="chevron ${weekHasToday ? 'open' : ''}">▼</span>
+      </div>
+    `;
+
+                const bodyEl = document.createElement('div');
+                bodyEl.className = `week-body${weekHasToday ? ' open' : ''}`;
+
+                if (week.note) {
+                    const noteEl = document.createElement('div');
+                    noteEl.className = 'week-note';
+                    noteEl.textContent = week.note;
+                    bodyEl.appendChild(noteEl);
+                }
+
+                week.pattern.forEach((type, di) => {
+                    const date = addDays(PLAN.startDate, dayOffset + di);
+                    const today = isToday(date);
+                    if (today) { todayWeekIdx = wi; weekHasToday = true; }
+
+                    const dayEl = document.createElement('div');
+                    dayEl.className = `day${today ? ' today' : ''}${type === 'rest' ? ' rest' : ''}`;
+                    dayEl.dataset.dayIndex = dayOffset + di;
+
+                    if (type === 'rest') {
+                        dayEl.innerHTML = `
+          <div class="day-head">
+            <span class="day-name">День ${di + 1}</span>
+            <span class="day-date">${formatDate(date)}</span>
+            ${today ? '<span class="today-pill">Сегодня</span>' : ''}
+          </div>
+          <div class="rest-text">Отдых</div>
+        `;
+                    } else {
+                        const exs = week[type] || [];
+                        const rows = exs.map(ex => {
+                            const mod = ex.modifier ? `<span class="modifier">${ex.modifier}</span>` : '';
+                            return `<tr><td>${ex.name}${mod}</td><td>${ex.sets} × ${ex.reps}</td></tr>`;
+                        }).join('');
+                        dayEl.innerHTML = `
+          <div class="day-head">
+            <span class="day-name">День ${di + 1}</span>
+            <span class="day-date">${formatDate(date)}</span>
+            ${today ? '<span class="today-pill">Сегодня</span>' : ''}
+          </div>
+          <table>${rows}</table>
+        `;
+                    }
+
+                    bodyEl.appendChild(dayEl);
+                    allDayEls.push(dayEl);
+                    if (today) todayDayEl = dayEl;
+                });
+
+                // Volume footer
+                const volFooter = document.createElement('div');
+                volFooter.className = 'vol-footer';
+                volFooter.innerHTML = `
+      <span class="vol-label">Объём за неделю</span>
+      <div class="vol-right">
+        ${deltaStr}
+        <span class="vol-num">${vol.toLocaleString('ru')} повт.</span>
+      </div>
+    `;
+                bodyEl.appendChild(volFooter);
+
+                headEl.addEventListener('click', () => {
+                    const isOpen = bodyEl.classList.contains('open');
+                    bodyEl.classList.toggle('open', !isOpen);
+                    headEl.querySelector('.chevron').classList.toggle('open', !isOpen);
+                });
+
+                weekEl.appendChild(headEl);
+                weekEl.appendChild(bodyEl);
+                container.appendChild(weekEl);
+
+                dayOffset += 7;
+            });
+
+            // Store for nav
+            window._allDayEls = allDayEls;
+            window._todayDayEl = todayDayEl;
+
+            // Auto-scroll to today
+            if (todayDayEl) {
+                setTimeout(() => todayDayEl.scrollIntoView({ behavior: 'smooth', block: 'center' }), 200);
+            }
+        }
+
+        function scrollToToday() {
+            if (window._todayDayEl) {
+                // Make sure parent week is open
+                const weekBody = window._todayDayEl.closest('.week-body');
+                if (weekBody) {
+                    weekBody.classList.add('open');
+                    weekBody.previousElementSibling.querySelector('.chevron').classList.add('open');
+                }
+                window._todayDayEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        function navDay(delta) {
+            const els = window._allDayEls;
+            // Find currently most visible non-rest day
+            let currentIdx = -1;
+            let minDist = Infinity;
+            const center = window.innerHeight / 2;
+            els.forEach((el, i) => {
+                const rect = el.getBoundingClientRect();
+                const dist = Math.abs(rect.top + rect.height / 2 - center);
+                if (dist < minDist) { minDist = dist; currentIdx = i; }
+            });
+            const target = els[Math.max(0, Math.min(els.length - 1, currentIdx + delta))];
+            if (target) {
+                const weekBody = target.closest('.week-body');
+                if (weekBody) {
+                    weekBody.classList.add('open');
+                    weekBody.previousElementSibling.querySelector('.chevron').classList.add('open');
+                }
+                target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        // ─── LOAD & START ─────────────────────────────────────────────────────────────
+        fetch('home-plan.json')
+            .then(res => res.json())
+            .then(data => {
+                PLAN = data;
+                PLAN.startDate = parseLocalDate(PLAN.startDate);
+                render();
+            })
+            .catch(err => {
+                document.getElementById('plan').textContent = 'Не удалось загрузить план: ' + err;
+            });
+    </script>
+</body>
+
+</html>

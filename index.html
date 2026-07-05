@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тренировки</title>
+    <link rel="icon" type="image/webp" href="assets/might_guy.webp">
+    <link rel="shortcut icon" type="image/webp" href="assets/might_guy.webp">
+    <link rel="apple-touch-icon" href="assets/might_guy.webp">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #ffffff;
+            --bg-2: #f5f5f3;
+            --bg-3: #eeece8;
+            --text: #1a1a18;
+            --muted: #6b6b67;
+            --border-strong: rgba(0, 0, 0, 0.18);
+            --radius: 12px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #141413;
+                --bg-2: #1e1e1c;
+                --bg-3: #272725;
+                --text: #f0ede8;
+                --muted: #8a8a84;
+                --border-strong: rgba(255, 255, 255, 0.15);
+            }
+        }
+
+        body {
+            font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        .wrap {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem 5rem;
+        }
+
+        h1 {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-size: 13px;
+            color: var(--muted);
+            margin: 2px 0 1.4rem;
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin: 1.6rem 0 0.6rem;
+        }
+
+        .card {
+            display: block;
+            border: 0.5px solid var(--border-strong);
+            border-radius: var(--radius);
+            background: var(--bg-2);
+            padding: 14px 16px;
+            margin-bottom: 12px;
+            text-decoration: none;
+            color: var(--text);
+            transition: background 0.15s;
+        }
+
+        .card:hover {
+            background: var(--bg-3);
+        }
+
+        .card-title {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .card-desc {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .arrow {
+            float: right;
+            color: var(--muted);
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <h1>Тренировки</h1>
+        <p class="subtitle">Планы и программы</p>
+
+        <div class="section-label">Зал</div>
+
+        <a class="card" href="gym_man.html">
+            <span class="arrow">→</span>
+            <div class="card-title">Зал · Блок 1</div>
+            <div class="card-desc">Адаптивный мезоцикл · Верх/Низ · через день</div>
+        </a>
+
+        <div class="section-label">Дом</div>
+
+        <a class="card" href="man.html">
+            <span class="arrow">→</span>
+            <div class="card-title">Домашние тренировки</div>
+            <div class="card-desc">24 недели · 6 тренировок в неделю</div>
+        </a>
+
+        <a class="card" href="girl.html">
+            <span class="arrow">→</span>
+            <div class="card-title">Домашние тренировки (для неё)</div>
+            <div class="card-desc">24 недели · 6 тренировок в неделю</div>
+        </a>
+    </div>
+</body>
+
+</html>
