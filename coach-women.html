@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AI-тренер · Мужской план</title>
+  <title>AI-тренер · Женский план</title>
 </head>
 <body>
   <script>
     const target = new URL("coach.html", window.location.href);
     new URLSearchParams(window.location.search).forEach((value, key) => target.searchParams.set(key, value));
-    target.searchParams.set("athlete", "man");
+    target.searchParams.set("athlete", "women");
     window.location.replace(target);
   </script>
-  <noscript><a href="coach.html?athlete=man">Открыть мужской план</a></noscript>
+  <noscript><a href="coach.html?athlete=women">Открыть женский план</a></noscript>
 </body>
 </html>
