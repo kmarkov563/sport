@@ -3,6 +3,7 @@
   "athlete": "women",
   "activePlanId": "0001",
   "nextPlanId": null,
+  "nextGlobalNumber": 5,
   "updatedAt": "2026-07-05T17:00:00+04:00",
   "plans": [
     {

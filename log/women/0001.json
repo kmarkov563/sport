@@ -58,6 +58,7 @@
   "sessions": [
     {
       "sessionId": "W-0001-S01",
+      "globalNumber": 1,
       "sequence": 1,
       "status": "planned",
       "recommendedIntervalAfterPreviousHours": 0,
@@ -158,6 +159,7 @@
     },
     {
       "sessionId": "W-0001-S02",
+      "globalNumber": 2,
       "sequence": 2,
       "status": "planned",
       "recommendedIntervalAfterPreviousHours": 48,
@@ -246,6 +248,7 @@
     },
     {
       "sessionId": "W-0001-S03",
+      "globalNumber": 3,
       "sequence": 3,
       "status": "planned",
       "recommendedIntervalAfterPreviousHours": 48,
@@ -353,6 +356,7 @@
     },
     {
       "sessionId": "W-0001-S04",
+      "globalNumber": 4,
       "sequence": 4,
       "status": "planned",
       "recommendedIntervalAfterPreviousHours": 48,

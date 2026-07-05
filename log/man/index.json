@@ -4,6 +4,7 @@
   "activePlanId": "0001",
   "nextPlanId": "0002",
   "currentSessionId": "M-0001-S02",
+  "nextGlobalNumber": 9,
   "updatedAt": "2026-07-05T18:30:00+04:00",
   "plans": [
     {

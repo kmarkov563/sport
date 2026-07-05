@@ -228,10 +228,10 @@
         return `
           <details class="session" id="session-${escapeHtml(session.sessionId)}" open>
             <summary>
-              <span class="sequence">${session.sequence}</span>
+              <span class="sequence">${session.globalNumber}</span>
               <span>
                 <span class="session-title">${escapeHtml(session.focus)}</span>
-                <span class="session-meta">Тренировка ${escapeHtml(session.sessionId)} · ~${session.estimatedDurationMinutes} мин · ${interval}</span>
+                <span class="session-meta">Тренировка ${session.globalNumber} · ${escapeHtml(session.sessionId)} · ~${session.estimatedDurationMinutes} мин · ${interval}</span>
               </span>
               <span class="badge ${session.status}">${statusLabel[session.status] || session.status}</span>
             </summary>
@@ -251,8 +251,8 @@
         $("session-links").innerHTML = plan.sessions.map((session, index) => `
           <button class="tool-button ${index === state.currentSession ? "active" : ""}"
             type="button" data-session-index="${index}"
-            aria-label="Тренировка ${escapeHtml(session.sessionId)}"
-            title="${escapeHtml(session.focus)}">S${String(session.sequence).padStart(2, "0")}</button>
+            aria-label="Тренировка ${session.globalNumber}"
+            title="${escapeHtml(session.focus)}">№${session.globalNumber}</button>
         `).join("");
         document.querySelectorAll("[data-mode]").forEach(button => {
           button.classList.toggle("active", button.dataset.mode === state.mode);
