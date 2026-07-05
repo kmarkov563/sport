@@ -54,6 +54,7 @@
     .exercise-name{font-weight:780}
     .tech{font-size:11px;color:var(--muted);margin-top:4px}
     .working{font-size:15px;font-weight:760}
+    .working.actual-line{color:var(--accent)}
     .warmup{font-size:11px;color:var(--muted);margin-top:4px}
     .params{text-align:right;font-size:12px;color:var(--muted);white-space:nowrap}
     .actual{margin-top:9px;padding:9px 11px;border-radius:10px;background:var(--accent2);font-size:12px}
@@ -158,17 +159,49 @@
         const unit = block.unit === "kg_per_hand" ? " кг/рука" :
           block.unit === "kg_per_side" ? " кг/сторона" :
           block.unit === "bodyweight" ? " · свой вес" : " кг";
-        return `${number(block.weight)}${unit} × ${block.reps} × ${block.sets}`;
+        const alt = (block.altWeight !== undefined && block.altWeight !== null)
+          ? ` (или ${number(block.altWeight)})` : "";
+        return `${number(block.weight)}${unit}${alt} × ${block.reps} × ${block.sets}`;
       }
 
       function formatBlocks(blocks) {
         return (blocks || []).map(formatBlock).join("; ");
       }
 
-      function renderExercise(exercise) {
+      function formatActualBlock(block) {
+        const base = formatBlock(block);
+        const rir = block.rir;
+        if (rir === undefined || rir === null || rir === "") return base;
+        if (typeof rir === "string" && /разм/i.test(rir)) return `${base} (разминка)`;
+        return `${base} · RIR ${rir}`;
+      }
+
+      function formatActual(blocks) {
+        return (blocks || []).map(formatActualBlock).join("; ");
+      }
+
+      function renderExercise(exercise, actualByOrder, completed) {
+        const actualEx = actualByOrder ? actualByOrder[exercise.order] : null;
+        const hasActual = completed && actualEx && Array.isArray(actualEx.performed) && actualEx.performed.length;
+
+        if (hasActual) {
+          const subNote = actualEx.substitutedFrom
+            ? ` <span class="tech">(вместо: ${escapeHtml(actualEx.substitutedFrom)})</span>` : "";
+          const exNote = actualEx.note ? `<div class="tech">${escapeHtml(actualEx.note)}</div>` : "";
+          return `
+            <div class="exercise">
+              <div>
+                <div class="exercise-name">${exercise.order}. ${escapeHtml(actualEx.name || exercise.name)}${subNote}</div>
+                ${exNote}
+              </div>
+              <div>
+                <div class="working actual-line">${escapeHtml(formatActual(actualEx.performed))}</div>
+              </div>
+              <div class="params"><span class="badge completed">Факт</span></div>
+            </div>`;
+        }
+
         const warmup = formatBlocks(exercise.warmupBlocks);
-        const actual = exercise.actual
-          ? `<div class="actual"><b>Факт:</b> ${escapeHtml(formatBlocks(exercise.actual))}</div>` : "";
         return `
           <div class="exercise">
             <div>
@@ -178,13 +211,17 @@
             <div>
               <div class="working">${escapeHtml(formatBlocks(exercise.loadBlocks))}</div>
               ${warmup ? `<div class="warmup">Разминка: ${escapeHtml(warmup)}</div>` : ""}
-              ${actual}
             </div>
             <div class="params">Отдых ${Math.round(exercise.restSeconds / 60 * 10) / 10} мин<br>ожидаемый RIR ${exercise.expectedRir}</div>
           </div>`;
       }
 
       function renderSession(session, index) {
+        const completed = session.status === "completed";
+        const actualByOrder = {};
+        if (session.actual && Array.isArray(session.actual.exercises)) {
+          session.actual.exercises.forEach(a => { actualByOrder[a.order] = a; });
+        }
         const interval = session.recommendedIntervalAfterPreviousHours
           ? `через ${session.recommendedIntervalAfterPreviousHours} ч после предыдущей`
           : "первая тренировка плана";
@@ -199,7 +236,7 @@
               <span class="badge ${session.status}">${statusLabel[session.status] || session.status}</span>
             </summary>
             <div class="session-body">
-              ${session.prescribed.exercises.map(renderExercise).join("")}
+              ${session.prescribed.exercises.map(ex => renderExercise(ex, actualByOrder, completed)).join("")}
             </div>
           </details>`;
       }

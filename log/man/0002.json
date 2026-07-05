@@ -1,0 +1,464 @@
+{
+  "schemaVersion": 1,
+  "planId": "0002",
+  "athlete": "man",
+  "status": "planned",
+  "createdAt": "2026-07-05T18:30:00+04:00",
+  "updatedAt": "2026-07-05T18:45:00+04:00",
+  "evidenceReviewedAt": "2026-07-05",
+  "evidenceSources": [
+    {
+      "title": "Опорная база проекта: base/common.txt и base/man.txt",
+      "year": 2026,
+      "url": "base/common.txt",
+      "applied": "Объём 10–20 подходов на группу в неделю, частота ≥2×, рабочие подходы в RIR 1–3, отдых 2–3 мин на базовых и 60–90 с на изоляции, двойная прогрессия; приоритет жима лёжа при сохранении баланса групп."
+    },
+    {
+      "title": "Pelland et al. The Resistance Training Dose-Response (2024–2025)",
+      "year": 2025,
+      "url": "https://sportrxiv.org/index.php/server/preprint/view/460",
+      "applied": "Объём — главный драйвер роста с убывающей отдачей; при возвращении держим умеренный объём."
+    },
+    {
+      "title": "Robinson/Pelland et al. Proximity to Failure — meta-regressions (2024)",
+      "year": 2024,
+      "url": "https://sportrxiv.org/index.php/server/preprint/view/295",
+      "applied": "Рабочие подходы близко к отказу (RIR 1–3), систематический отказ — преимущественно на изоляции."
+    }
+  ],
+  "athleteSnapshot": {
+    "heightCm": 183,
+    "bodyWeightKg": 85,
+    "estimatedBodyFatPercent": "25–26",
+    "trainingContext": "Вторая ротация в новом зале. По Тренировке 1: жим 85 кг × 5 шёл на RIR 0–1, устойчивый рабочий вес ~80 кг; часть тренажёров калибруется под новый зал.",
+    "currentBenchPress": "80 кг × 5 уверенно (RIR 1–2); 85 кг × 5 около максимума (RIR 0–1).",
+    "newGymNotes": [
+      "Блины 1.25 кг есть не всегда: дробный идеал (напр. 72.5) планируется с альтернативой кратно 5 кг.",
+      "Наклонный жим — Смит или свободная штанга на выбор; в Смите 35 кг × 8 = RIR 1–2, 40 кг × 8 ≈ отказ.",
+      "Махи в стороны — гантели или тренажёр (разводка) на выбор.",
+      "Горизонтальная тяга: рабочий диапазон ~70 кг (45 кг из старого ориентира было слишком легко)."
+    ],
+    "lowerBodyDataPending": "Низ тела (S02/S04 плана 0001) ещё не выполнялся в новом зале. Нагрузки низа в этом плане предварительные и будут откалиброваны по факту.",
+    "assumptions": [
+      "Нет актуальной боли или медицинских ограничений.",
+      "Сон и питание позволяют нормально восстанавливаться."
+    ]
+  },
+  "goalSummary": [
+    "Закрепить рабочие веса верха тела в новом зале и начать системную прогрессию.",
+    "Довести жим лёжа до чистых 80 кг × 5 на все рабочие подходы как база для перехода к 85 кг.",
+    "Развивать атлетичное пропорциональное телосложение, не жертвуя спиной, ногами и плечами.",
+    "Долгосрочная цель жима лёжа — 150 кг."
+  ],
+  "coachRationale": "Продолжение ротации Верх A / Низ A / Верх B / Низ B (48 ч), проверенной в плане 0001 и совпадающей с пожеланиями атлета. Верх тела откалиброван по реальному факту Тренировки 1: жим сводится к закреплению 80 кг × 5 на все 4 подхода (в Т1 82.5 недоступно, 85 × 5 шло на RIR 0–1 только 2 подхода, затем 80) — когда все 4 подхода на 80 идут с запасом, переходим к 85. Горизонтальная тяга поднята к рабочим ~70 кг (в Т1 45 было слишком легко). Наклонный жим оставлен вариантом Смит/штанга на выбор с честной калибровкой 35 кг × 8. Бицепс и трицепс закрепляются на доступных весах (25 и 20 кг) после того, как 30 и 25 в Т1 шли в отказ с читингом. Объём — по нижней части диапазона base/common.txt (умеренно, возвращение). Низ тела перенесён из откалиброванных назначений 0001 без слепой прогрессии: он ещё не выполнялся в новом зале, поэтому помечен как предварительный и будет уточнён по факту S02/S04.",
+  "schedule": {
+    "kind": "every_other_day",
+    "sessionsPlanned": 4,
+    "defaultIntervalHours": 48,
+    "estimatedSessionMinutes": "75–95"
+  },
+  "sessions": [
+    {
+      "sessionId": "M-0002-S01",
+      "sequence": 1,
+      "status": "planned",
+      "recommendedIntervalAfterPreviousHours": 48,
+      "estimatedDurationMinutes": 80,
+      "focus": "Верх A · жим лёжа, сила",
+      "prescribed": {
+        "generalWarmup": {
+          "durationMinutes": 7,
+          "instruction": "Лёгкое кардио и движения плеч без утомления."
+        },
+        "exercises": [
+          {
+            "order": 1,
+            "name": "Жим штанги лёжа",
+            "warmupBlocks": [
+              { "weight": 20, "unit": "kg", "reps": 12, "sets": 1 },
+              { "weight": 40, "unit": "kg", "reps": 8, "sets": 1 },
+              { "weight": 60, "unit": "kg", "reps": 5, "sets": 1 },
+              { "weight": 75, "unit": "kg", "reps": 3, "sets": 1 }
+            ],
+            "loadBlocks": [
+              { "weight": 80, "unit": "kg", "reps": 5, "sets": 4 }
+            ],
+            "restSeconds": 240,
+            "expectedRir": 2,
+            "technicalNote": "Закрепляем 80 кг на все 4 подхода с одинаковой техникой. Когда все 4 идут с запасом ~2 — следующий блок 85 кг (82.5 недоступно)."
+          },
+          {
+            "order": 2,
+            "name": "Горизонтальная тяга в тренажёре",
+            "warmupBlocks": [
+              { "weight": 45, "unit": "kg", "reps": 10, "sets": 1 }
+            ],
+            "loadBlocks": [
+              { "weight": 70, "unit": "kg", "reps": 10, "sets": 3 }
+            ],
+            "restSeconds": 150,
+            "expectedRir": 2,
+            "technicalNote": "В Т1 70 кг × 10 шло с запасом 2–3."
+          },
+          {
+            "order": 3,
+            "name": "Жим на наклонной: Смит или свободная штанга (на выбор)",
+            "warmupBlocks": [
+              { "weight": 20, "unit": "kg", "reps": 10, "sets": 1 },
+              { "weight": 30, "unit": "kg", "reps": 6, "sets": 1 }
+            ],
+            "loadBlocks": [
+              { "weight": 35, "unit": "kg", "reps": 8, "sets": 3 }
+            ],
+            "restSeconds": 180,
+            "expectedRir": 2,
+            "technicalNote": "Веса для Смита (Т1: 40 × 8 почти в отказ, 35 × 8 — запас 1–2). Свободная штанга — старт ~40 кг × 8, калибровать по RIR 2."
+          },
+          {
+            "order": 4,
+            "name": "Вертикальная тяга верхнего блока",
+            "warmupBlocks": [
+              { "weight": 35, "unit": "kg", "reps": 10, "sets": 1 }
+            ],
+            "loadBlocks": [
+              { "weight": 50, "unit": "kg", "reps": 10, "sets": 3 }
+            ],
+            "restSeconds": 150,
+            "expectedRir": 2,
+            "technicalNote": "В Т1 последний подход шёл в отказ — сначала все 3 подхода с запасом, затем повышаем."
+          },
+          {
+            "order": 5,
+            "name": "Махи в стороны: гантели или разводка в тренажёре (на выбор)",
+            "warmupBlocks": [],
+            "loadBlocks": [
+              { "weight": 10, "unit": "kg_per_hand", "reps": 15, "sets": 3 }
+            ],
+            "restSeconds": 90,
+            "expectedRir": 2,
+            "technicalNote": "Гантели — 10 кг/рука × 15. В тренажёре ~12 кг × 15 (в Т1 15 кг × 14 шло в отказ)."
+          },
+          {
+            "order": 6,
+            "name": "Разгибание рук на верхнем блоке",
+            "warmupBlocks": [],
+            "loadBlocks": [
+              { "weight": 20, "unit": "kg", "reps": 12, "sets": 3 }
+            ],
+            "restSeconds": 90,
+            "expectedRir": 2,
+            "technicalNote": "В Т1 25 кг × 12 шло в отказ; закрепляем 20 кг на 3 чистых подхода."
+          },
+          {
+            "order": 7,
+            "name": "Сгибание рук со штангой",
+            "warmupBlocks": [],
+            "loadBlocks": [
+              { "weight": 25, "unit": "kg", "reps": 10, "sets": 3 }
+            ],
+            "restSeconds": 90,
+            "expectedRir": 2,
+            "technicalNote": "27.5 недоступно; 30 в Т1 шло в отказ с читингом. Держим 25 кг × 10 чисто, без раскачивания."
+          }
+        ]
+      },
+      "actual": null,
+      "feedback": null,
+      "adjustmentHistory": []
+    },
+    {
+      "sessionId": "M-0002-S02",
+      "sequence": 2,
+      "status": "planned",
+      "recommendedIntervalAfterPreviousHours": 48,
+      "estimatedDurationMinutes": 75,
+      "focus": "Низ A · глубокий присед (нагрузки предварительные)",
+      "prescribed": {
+        "generalWarmup": {
+          "durationMinutes": 8,
+          "instruction": "Лёгкое кардио, тазобедренные и голеностоп без утомления."
+        },
+        "exercises": [
+          {
+            "order": 1,
+            "name": "Глубокий присед, пятки на подставке",
+            "warmupBlocks": [
+              { "weight": 20, "unit": "kg", "reps": 10, "sets": 1 },
+              { "weight": 40, "unit": "kg", "reps": 6, "sets": 1 },
+              { "weight": 50, "unit": "kg", "reps": 3, "sets": 1 }
+            ],
+            "loadBlocks": [
+              { "weight": 55, "unit": "kg", "reps": 6, "sets": 4 }
+            ],
+            "restSeconds": 240,
+            "expectedRir": 2,
+            "technicalNote": "Вес предварительный (низ ещё не выполнялся в новом зале). Держать глубину и одинаковую скорость спуска; по факту откалибруем."
+          },
+          {
+            "order": 2,
+            "name": "Румынская тяга",
+            "warmupBlocks": [
+              { "weight": 40, "unit": "kg", "reps": 8, "sets": 1 },
+              { "weight": 55, "unit": "kg", "reps": 5, "sets": 1 }
+            ],
+            "loadBlocks": [
+              { "weight": 65, "unit": "kg", "reps": 8, "sets": 3 }
+            ],
+            "restSeconds": 180,
+            "expectedRir": 2,
+            "technicalNote": "Вес предварительный. Опускание до нейтральной спины, штанга близко к ногам."
+          },
+          {
+            "order": 3,
+            "name": "Жим платформы ногами",
+            "warmupBlocks": [
+              { "weight": 80, "unit": "kg", "reps": 10, "sets": 1 }
+            ],
+            "loadBlocks": [
+              { "weight": 120, "unit": "kg", "reps": 10, "sets": 3 }
+            ],
+            "restSeconds": 180,
+            "expectedRir": 3,
+            "technicalNote": "Вес предварительный, откалибруем по факту тренажёра."
+          },
+          {
+            "order": 4,
+            "name": "Сгибание ног в тренажёре",
+            "warmupBlocks": [],
+            "loadBlocks": [
+              { "weight": 35, "unit": "kg", "reps": 12, "sets": 3 }
+            ],
+            "restSeconds": 120,
+            "expectedRir": 2
+          },
+          {
+            "order": 5,
+            "name": "Подъём на носки стоя",
+            "warmupBlocks": [],
+            "loadBlocks": [
+              { "weight": 60, "unit": "kg", "reps": 15, "sets": 3 }
+            ],
+            "restSeconds": 90,
+            "expectedRir": 2
+          },
+          {
+            "order": 6,
+            "name": "Планка на локтях",
+            "warmupBlocks": [],
+            "loadBlocks": [
+              { "weight": 0, "unit": "bodyweight", "durationSeconds": 45, "sets": 3 }
+            ],
+            "restSeconds": 60,
+            "expectedRir": 2
+          }
+        ]
+      },
+      "actual": null,
+      "feedback": null,
+      "adjustmentHistory": []
+    },
+    {
+      "sessionId": "M-0002-S03",
+      "sequence": 3,
+      "status": "planned",
+      "recommendedIntervalAfterPreviousHours": 48,
+      "estimatedDurationMinutes": 78,
+      "focus": "Верх B · верх груди и объём жима",
+      "prescribed": {
+        "generalWarmup": {
+          "durationMinutes": 7,
+          "instruction": "Лёгкое кардио и движения плеч без утомления."
+        },
+        "exercises": [
+          {
+            "order": 1,
+            "name": "Жим на наклонной: Смит или свободная штанга (на выбор)",
+            "warmupBlocks": [
+              { "weight": 20, "unit": "kg", "reps": 10, "sets": 1 },
+              { "weight": 30, "unit": "kg", "reps": 6, "sets": 1 }
+            ],
+            "loadBlocks": [
+              { "weight": 35, "unit": "kg", "reps": 8, "sets": 4 }
+            ],
+            "restSeconds": 180,
+            "expectedRir": 2,
+            "technicalNote": "Приоритетное упражнение дня — ставим первым. Веса для Смита; свободная штанга калибруется по RIR 2."
+          },
+          {
+            "order": 2,
+            "name": "Вертикальная тяга верхнего блока, нейтральный хват",
+            "warmupBlocks": [
+              { "weight": 35, "unit": "kg", "reps": 10, "sets": 1 }
+            ],
+            "loadBlocks": [
+              { "weight": 50, "unit": "kg", "reps": 10, "sets": 3 }
+            ],
+            "restSeconds": 150,
+            "expectedRir": 2
+          },
+          {
+            "order": 3,
+            "name": "Жим штанги лёжа с паузой 1 секунда",
+            "warmupBlocks": [
+              { "weight": 40, "unit": "kg", "reps": 6, "sets": 1 },
+              { "weight": 60, "unit": "kg", "reps": 4, "sets": 1 }
+            ],
+            "loadBlocks": [
+              { "weight": 72.5, "unit": "kg", "altWeight": 70, "reps": 7, "sets": 3 }
+            ],
+            "restSeconds": 180,
+            "expectedRir": 2,
+            "technicalNote": "Явная пауза на груди, без отбива. Идеал 72.5 кг; если не собрать блины 1.25 — 70 кг."
+          },
+          {
+            "order": 4,
+            "name": "Горизонтальная тяга в тренажёре",
+            "warmupBlocks": [
+              { "weight": 45, "unit": "kg", "reps": 10, "sets": 1 }
+            ],
+            "loadBlocks": [
+              { "weight": 70, "unit": "kg", "reps": 10, "sets": 3 }
+            ],
+            "restSeconds": 150,
+            "expectedRir": 2
+          },
+          {
+            "order": 5,
+            "name": "Махи в стороны: гантели или разводка в тренажёре (на выбор)",
+            "warmupBlocks": [],
+            "loadBlocks": [
+              { "weight": 10, "unit": "kg_per_hand", "reps": 15, "sets": 3 }
+            ],
+            "restSeconds": 90,
+            "expectedRir": 2,
+            "technicalNote": "Гантели — 10 кг/рука × 15; в тренажёре ~12 кг × 15."
+          },
+          {
+            "order": 6,
+            "name": "Молотковые сгибания",
+            "warmupBlocks": [],
+            "loadBlocks": [
+              { "weight": 12, "unit": "kg_per_hand", "reps": 12, "sets": 2 }
+            ],
+            "restSeconds": 90,
+            "expectedRir": 2
+          },
+          {
+            "order": 7,
+            "name": "Разгибание рук на блоке из-за головы",
+            "warmupBlocks": [],
+            "loadBlocks": [
+              { "weight": 20, "unit": "kg", "reps": 12, "sets": 2 }
+            ],
+            "restSeconds": 90,
+            "expectedRir": 2
+          }
+        ]
+      },
+      "actual": null,
+      "feedback": null,
+      "adjustmentHistory": []
+    },
+    {
+      "sessionId": "M-0002-S04",
+      "sequence": 4,
+      "status": "planned",
+      "recommendedIntervalAfterPreviousHours": 48,
+      "estimatedDurationMinutes": 72,
+      "focus": "Низ B · румынская тяга (нагрузки предварительные)",
+      "prescribed": {
+        "generalWarmup": {
+          "durationMinutes": 8,
+          "instruction": "Лёгкое кардио, тазобедренные и голеностоп без утомления."
+        },
+        "exercises": [
+          {
+            "order": 1,
+            "name": "Румынская тяга",
+            "warmupBlocks": [
+              { "weight": 20, "unit": "kg", "reps": 10, "sets": 1 },
+              { "weight": 40, "unit": "kg", "reps": 8, "sets": 1 },
+              { "weight": 55, "unit": "kg", "reps": 5, "sets": 1 },
+              { "weight": 60, "unit": "kg", "reps": 3, "sets": 1 }
+            ],
+            "loadBlocks": [
+              { "weight": 65, "unit": "kg", "reps": 8, "sets": 4 }
+            ],
+            "restSeconds": 210,
+            "expectedRir": 2,
+            "technicalNote": "Вес предварительный (низ ещё не выполнялся в новом зале). Веса кратны 5 кг."
+          },
+          {
+            "order": 2,
+            "name": "Глубокий присед, пятки на подставке",
+            "warmupBlocks": [
+              { "weight": 20, "unit": "kg", "reps": 8, "sets": 1 },
+              { "weight": 40, "unit": "kg", "reps": 5, "sets": 1 }
+            ],
+            "loadBlocks": [
+              { "weight": 50, "unit": "kg", "reps": 8, "sets": 3 }
+            ],
+            "restSeconds": 180,
+            "expectedRir": 3,
+            "technicalNote": "Вес предварительный. После тяги приоритет — стабильная глубина."
+          },
+          {
+            "order": 3,
+            "name": "Разгибание ног в тренажёре",
+            "warmupBlocks": [],
+            "loadBlocks": [
+              { "weight": 35, "unit": "kg", "reps": 12, "sets": 3 }
+            ],
+            "restSeconds": 120,
+            "expectedRir": 2
+          },
+          {
+            "order": 4,
+            "name": "Сгибание ног в тренажёре",
+            "warmupBlocks": [],
+            "loadBlocks": [
+              { "weight": 35, "unit": "kg", "reps": 12, "sets": 3 }
+            ],
+            "restSeconds": 120,
+            "expectedRir": 2
+          },
+          {
+            "order": 5,
+            "name": "Подъём на носки сидя",
+            "warmupBlocks": [],
+            "loadBlocks": [
+              { "weight": 40, "unit": "kg", "reps": 15, "sets": 3 }
+            ],
+            "restSeconds": 90,
+            "expectedRir": 2
+          },
+          {
+            "order": 6,
+            "name": "Планка на локтях",
+            "warmupBlocks": [],
+            "loadBlocks": [
+              { "weight": 0, "unit": "bodyweight", "durationSeconds": 45, "sets": 3 }
+            ],
+            "restSeconds": 60,
+            "expectedRir": 2
+          }
+        ]
+      },
+      "actual": null,
+      "feedback": null,
+      "adjustmentHistory": []
+    }
+  ],
+  "revisionLog": [
+    {
+      "at": "2026-07-05T18:30:00+04:00",
+      "type": "created",
+      "message": "Создан план 0002 (следующая ротация Верх A / Низ A / Верх B / Низ B). Верх тела откалиброван по факту Тренировки 1: жим 80 × 5 × 4 (закрепление перед 85), горизонтальная тяга 70, наклонный Смит/штанга 35, трицепс 20, бицепс 25. Низ тела перенесён из откалиброванных назначений 0001 как предварительный — уточнить по факту S02/S04 плана 0001."
+    },
+    {
+      "at": "2026-07-05T18:45:00+04:00",
+      "type": "prescription_format",
+      "message": "По уточнению атлета блины 1.25 кг доступны не всегда. Жим с паузой S03 записан как идеал 72.5 (или 70) через altWeight."
+    }
+  ]
+}
