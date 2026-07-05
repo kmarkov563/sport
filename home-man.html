@@ -348,7 +348,7 @@
 
     <script>
         // ─── DATA ────────────────────────────────────────────────────────────────────
-        // PLAN is loaded from plan.json at startup (see bottom of script).
+        // PLAN is loaded from home-man-plan.json at startup (see bottom of script).
         let PLAN = null;
 
         // Parse a "YYYY-MM-DD" string into a local Date (avoids UTC shift).
@@ -554,7 +554,7 @@
         }
 
         // ─── LOAD & START ─────────────────────────────────────────────────────────────
-        fetch('home-plan.json')
+        fetch('home-man-plan.json')
             .then(res => res.json())
             .then(data => {
                 PLAN = data;
