@@ -191,7 +191,7 @@
               <span class="sequence">${session.sequence}</span>
               <span>
                 <span class="session-title">${escapeHtml(session.focus)}</span>
-                <span class="session-meta">Тренировка ${escapeHtml(session.sessionId)} · ${interval}</span>
+                <span class="session-meta">Тренировка ${escapeHtml(session.sessionId)} · ~${session.estimatedDurationMinutes} мин · ${interval}</span>
               </span>
               <span class="badge ${session.status}">${statusLabel[session.status] || session.status}</span>
             </summary>

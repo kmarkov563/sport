@@ -61,6 +61,7 @@
       "sequence": 1,
       "status": "planned",
       "recommendedIntervalAfterPreviousHours": 0,
+      "estimatedDurationMinutes": 60,
       "focus": "День A · ягодичный мост и присед",
       "prescribed": {
         "generalWarmup": {
@@ -160,6 +161,7 @@
       "sequence": 2,
       "status": "planned",
       "recommendedIntervalAfterPreviousHours": 48,
+      "estimatedDurationMinutes": 55,
       "focus": "День B · румынская тяга и односторонняя работа",
       "prescribed": {
         "generalWarmup": {
@@ -247,6 +249,7 @@
       "sequence": 3,
       "status": "planned",
       "recommendedIntervalAfterPreviousHours": 48,
+      "estimatedDurationMinutes": 60,
       "focus": "День C · объёмный ягодичный мост",
       "prescribed": {
         "generalWarmup": {
@@ -353,6 +356,7 @@
       "sequence": 4,
       "status": "planned",
       "recommendedIntervalAfterPreviousHours": 48,
+      "estimatedDurationMinutes": 60,
       "focus": "День D · присед и задняя цепь",
       "prescribed": {
         "generalWarmup": {

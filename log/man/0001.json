@@ -58,6 +58,7 @@
       "sequence": 1,
       "status": "planned",
       "recommendedIntervalAfterPreviousHours": 0,
+      "estimatedDurationMinutes": 80,
       "focus": "Верх A · жим лёжа, сила",
       "prescribed": {
         "generalWarmup": {
@@ -156,6 +157,7 @@
       "sequence": 2,
       "status": "planned",
       "recommendedIntervalAfterPreviousHours": 48,
+      "estimatedDurationMinutes": 75,
       "focus": "Низ A · глубокий присед",
       "prescribed": {
         "generalWarmup": {
@@ -245,6 +247,7 @@
       "sequence": 3,
       "status": "planned",
       "recommendedIntervalAfterPreviousHours": 48,
+      "estimatedDurationMinutes": 78,
       "focus": "Верх B · верх груди и объём жима",
       "prescribed": {
         "generalWarmup": {
@@ -341,6 +344,7 @@
       "sequence": 4,
       "status": "planned",
       "recommendedIntervalAfterPreviousHours": 48,
+      "estimatedDurationMinutes": 72,
       "focus": "Низ B · румынская тяга",
       "prescribed": {
         "generalWarmup": {
