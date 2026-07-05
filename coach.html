@@ -201,6 +201,20 @@
             </div>`;
         }
 
+        if (completed && actualEx && (actualEx.skipped || actualEx.note)) {
+          const line = actualEx.note ? escapeHtml(actualEx.note) : "Пропущено";
+          return `
+            <div class="exercise">
+              <div>
+                <div class="exercise-name">${exercise.order}. ${escapeHtml(actualEx.name || exercise.name)}</div>
+              </div>
+              <div>
+                <div class="working" style="color:var(--warm)">${line}</div>
+              </div>
+              <div class="params"><span class="badge skipped">Пропущено</span></div>
+            </div>`;
+        }
+
         const warmup = formatBlocks(exercise.warmupBlocks);
         return `
           <div class="exercise">
