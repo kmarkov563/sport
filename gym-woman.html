@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#EAEEF1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D1013" media="(prefers-color-scheme: dark)">
+<title>Блок 1 · ягодичный акцент</title>
+<style>
+  :root{
+    --bg:#EAEEF1;--surface:#FFFFFF;--surface-2:#F3F6F8;--surface-3:#E7ECEF;
+    --ink:#14171B;--ink-2:#48535D;--ink-3:#7B8892;
+    --line:#D6DDE2;--accent:#B0311D;--accent-2:#8C2616;
+    --good:#2E7D51;--warn:#B07715;--steel:#5C6B77;
+    --shadow:0 1px 2px rgba(20,23,27,.06),0 6px 20px rgba(20,23,27,.06);
+  }
+  @media (prefers-color-scheme:dark){:root{
+    --bg:#0D1013;--surface:#161A1E;--surface-2:#1D2329;--surface-3:#232A31;
+    --ink:#ECF1F4;--ink-2:#A7B2BB;--ink-3:#6C7883;
+    --line:#282F36;--accent:#E0563C;--accent-2:#EE7259;
+    --good:#4FB07C;--warn:#D6A03E;--steel:#8493A0;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 30px rgba(0,0,0,.35);
+  }}
+  :root[data-theme="light"]{
+    --bg:#EAEEF1;--surface:#FFFFFF;--surface-2:#F3F6F8;--surface-3:#E7ECEF;
+    --ink:#14171B;--ink-2:#48535D;--ink-3:#7B8892;--line:#D6DDE2;
+    --accent:#B0311D;--accent-2:#8C2616;--good:#2E7D51;--warn:#B07715;--steel:#5C6B77;
+    --shadow:0 1px 2px rgba(20,23,27,.06),0 6px 20px rgba(20,23,27,.06);
+  }
+  :root[data-theme="dark"]{
+    --bg:#0D1013;--surface:#161A1E;--surface-2:#1D2329;--surface-3:#232A31;
+    --ink:#ECF1F4;--ink-2:#A7B2BB;--ink-3:#6C7883;--line:#282F36;
+    --accent:#E0563C;--accent-2:#EE7259;--good:#4FB07C;--warn:#D6A03E;--steel:#8493A0;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 30px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;scroll-padding-top:82px}
+  body{min-width:280px;min-height:100dvh;margin:0;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.55;
+    font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-variant-numeric:tabular-nums}
+  .wrap{width:100%;max-width:860px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+  h1{font-size:clamp(1.5rem,5vw,2.1rem);font-weight:800;letter-spacing:-.03em;margin:0 0 6px;text-wrap:balance}
+  h2{font-size:1.15rem;font-weight:800;letter-spacing:-.01em;margin:32px 0 12px;display:flex;align-items:center;gap:10px}
+  h2::before{content:"";width:22px;height:3px;background:var(--accent);border-radius:2px}
+  p{margin:0 0 12px;color:var(--ink-2)}
+  .eyebrow{font:600 .68rem/1 ui-monospace,Menlo,monospace;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+  header{padding:34px 0 8px}
+  header .wrap{padding-right:max(64px,env(safe-area-inset-right))}
+  .meta{font:600 .74rem/1.5 ui-monospace,Menlo,monospace;color:var(--ink-3)}
+  .meta b{color:var(--accent)}
+
+  .picker{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 86%,transparent);
+    backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:12px 0;margin:18px 0 6px}
+  .picker .inner{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .picker label{font:600 .68rem/1 ui-monospace,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+  .weekbtns{display:flex;gap:6px;min-width:0}
+  .weekbtns button{touch-action:manipulation;font-family:ui-monospace,Menlo,monospace;min-width:82px;min-height:44px;padding:4px 8px;border:1px solid var(--line);background:var(--surface);
+    color:var(--ink-2);border-radius:9px;cursor:pointer;font-size:.8rem;font-weight:700;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.1}
+  .weekbtns button small{font-size:.56rem;font-weight:600;color:var(--ink-3);letter-spacing:.04em}
+  .weekbtns button:hover{border-color:var(--accent);color:var(--accent)}
+  .weekbtns button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+  .weekbtns button[aria-pressed="true"] small{color:rgba(255,255,255,.85)}
+  .weekbtns button.dl[aria-pressed="true"]{background:var(--warn);border-color:var(--warn)}
+  @media(max-width:560px){
+    .picker{padding:9px 0;margin-top:12px}
+    .picker .inner{align-items:stretch;gap:7px}
+    .picker label{width:100%}
+    .weekbtns{width:100%}
+    .weekbtns button{min-width:0;flex:1;padding-inline:3px}
+  }
+
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:6px}
+  @media(max-width:680px){.cards{grid-template-columns:1fr}}
+  .wcard{background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
+  .whead{padding:13px 16px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,var(--surface-2),var(--surface));display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+  .whead .dn{font:600 .62rem/1 ui-monospace,Menlo,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+  .whead .tn{font-size:1.05rem;font-weight:800;letter-spacing:-.02em;margin-top:2px}
+  .whead .rir{font:600 .62rem/1.3 ui-monospace,Menlo,monospace;color:var(--ink-3);text-align:right}
+  .whead .rir b{color:var(--ink-2)}
+  .ex{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;padding:10px 16px;border-bottom:1px solid var(--line);align-items:center}
+  .ex:last-child{border-bottom:0}
+  .ex .en{min-width:0;font-size:.9rem;font-weight:600;overflow-wrap:anywhere}
+  .ex .load{grid-row:1/2;grid-column:2;text-align:right;white-space:nowrap}
+  .ex .kg{font-family:ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums;font-size:1.14rem;font-weight:700;color:var(--accent);line-height:1}
+  .ex .kg small{font-size:.62rem;color:var(--ink-3);font-weight:600}
+  .ex .sr{grid-row:2/3;grid-column:2;text-align:right;font-family:ui-monospace,Menlo,monospace;font-size:.72rem;color:var(--ink-2);font-weight:600}
+  .ex .rirline{grid-column:1/-1;font:600 .64rem/1.35 ui-monospace,Menlo,monospace;color:var(--ink-3)}
+  .ex.primary{background:color-mix(in srgb,var(--accent) 7%,transparent)}
+  .ex.primary .en::after{content:"база";font:600 .54rem/1 ui-monospace,Menlo,monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);border-radius:4px;padding:2px 4px;margin-left:6px;vertical-align:middle}
+  .est{font-size:.56rem;color:var(--warn);border:1px solid color-mix(in srgb,var(--warn) 45%,transparent);border-radius:4px;padding:1px 4px;margin-left:6px;vertical-align:middle;text-transform:uppercase;letter-spacing:.04em;font-weight:700}
+  .up{color:var(--good);font-size:.62rem;margin-left:5px;font-weight:700}
+
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;box-shadow:var(--shadow)}
+  ul.clean{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px}
+  ul.clean li{position:relative;padding-left:22px;color:var(--ink-2);font-size:.9rem}
+  ul.clean li::before{content:"";position:absolute;left:1px;top:.55em;width:8px;height:8px;border-radius:2px;background:var(--accent);transform:rotate(45deg)}
+  ul.clean li b{color:var(--ink)}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:680px){.grid2{grid-template-columns:1fr}}
+
+  .callout{border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;padding:12px 16px;background:var(--surface);font-size:.88rem}
+  .callout.warn{border-left-color:var(--warn)}
+  .callout b{color:var(--ink)}
+  .themebtn{touch-action:manipulation;position:fixed;top:max(10px,env(safe-area-inset-top));right:max(10px,env(safe-area-inset-right));z-index:20;width:44px;height:44px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);cursor:pointer;box-shadow:var(--shadow);font-size:1rem}
+  .themebtn:hover{color:var(--accent);border-color:var(--accent)}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
+  footer{padding:28px 0 max(56px,env(safe-area-inset-bottom));color:var(--ink-3);font-size:.8rem;border-top:1px solid var(--line);margin-top:34px}
+  @media(max-width:420px){
+    body{font-size:15px}
+    .wrap{padding-left:max(12px,env(safe-area-inset-left));padding-right:max(12px,env(safe-area-inset-right))}
+    header{padding-top:24px}
+    h1{font-size:1.55rem}
+    h2{font-size:1.05rem;margin-top:26px}
+    .meta{font-size:.68rem;overflow-wrap:anywhere}
+    .cards,.grid2{gap:12px}
+    .wcard{border-radius:12px}
+    .whead{padding:12px}
+    .whead .tn{font-size:1rem}
+    .ex{grid-template-columns:minmax(0,1fr) auto;padding:12px;gap:5px 10px}
+    .ex .en{grid-column:1/-1}
+    .ex .load{grid-row:2;grid-column:1;text-align:left}
+    .ex .sr{grid-row:2;grid-column:2}
+    .ex .rirline{grid-row:3}
+    .card{padding:14px}
+    .callout{padding:12px 13px}
+  }
+  @media(max-width:340px){
+    .weekbtns{gap:4px}
+    .weekbtns button{font-size:.75rem}
+    .weekbtns button small{font-size:.5rem;letter-spacing:0}
+    .whead{gap:8px}
+  }
+</style>
+</head>
+<body>
+
+<button class="themebtn" id="themebtn" aria-label="Тема">◐</button>
+
+<header>
+  <div class="wrap">
+    <p class="eyebrow" id="eyebrow"></p>
+    <h1 id="title"></h1>
+    <p class="meta" id="subtitle"></p>
+  </div>
+</header>
+
+<div class="picker">
+  <div class="wrap inner">
+    <label>Микроцикл</label>
+    <div class="weekbtns" id="weekbtns"></div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="cards" id="cards"></div>
+
+  <h2>Как устроена прогрессия</h2>
+  <div class="grid2">
+    <div class="card">
+      <ul class="clean">
+        <li><b>Двойная прогрессия:</b> сначала добавляй повторы внутри диапазона, сохраняя целевой RIR и технику.</li>
+        <li>Вес повышается только после верхней границы во <b>всех рабочих подходах</b>: штанга обычно +2,5 кг, тренажёр — минимальный шаг.</li>
+        <li>После повышения веса вернись к нижней границе повторов. Если не достиг нижней границы или получился отказ — снизь вес на следующей сессии на 5–10%.</li>
+        <li><b>Усилие:</b> микроциклы 1–2 — RIR 2–3, микроцикл 3 — RIR 1–2, разгрузка — RIR 3–4.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <ul class="clean">
+        <li><b>Микроциклы 1–3</b> — калибровка и рост. <b>Микроцикл 4</b> — плановая разгрузка: примерно половина подходов и вес ниже на 5–10%.</li>
+        <li><span class="est" style="margin:0">старт</span> — оценочный вес: в микроцикле 1 подбери его под диапазон и RIR, затем <b>запиши факт</b>.</li>
+        <li>Полная ротация — <b>4 тренировки за 8 дней</b>: ягодицы получают стимул ~4 раза, задняя цепь и квадрицепс ~2 раза, верх ~2 раза.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout" style="margin-top:16px">
+    <b>После микроцикла 4:</b> оцени рабочие веса по факту лога и собери блок 2 от достигнутых цифр. Настоящий 1ПМ не нужен.
+  </div>
+  <div class="callout warn" style="margin-top:12px">
+    <b>План адаптивный.</b> После тренировок открой новую сессию и скинь: что легко/тяжело, что не смог, сон и самочувствие, боли. Пересчитаю веса и обновлю блок.
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">Не медицинская рекомендация. Подстраивай нагрузку по технике, самочувствию и восстановлению; при болях — стоп и консультация специалиста.</div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  document.getElementById('themebtn').addEventListener('click',function(){
+    var c=document.documentElement.getAttribute('data-theme');
+    document.documentElement.setAttribute('data-theme',
+      c==='dark'?'light':c==='light'?'dark':(window.matchMedia('(prefers-color-scheme: dark)').matches?'light':'dark'));
+  });
+  function kg(v){return (''+v).replace('.',',');}
+
+  var PLAN=null;
+  var cur=0; // 0-based microcycle
+
+  function effectiveRir(e,microcycle){
+    if(microcycle.deload)return microcycle.baseRir;
+    if(e.targetRir.indexOf('в микроцикле 3')!==-1){
+      return microcycle.number===3?'1–2; последний подход 0–1':'1–2';
+    }
+    return e.targetRir==='2–3'?microcycle.baseRir:e.targetRir;
+  }
+
+  function renderCards(){
+    var microcycle=PLAN.block.microcycles[cur]; if(!microcycle)return;
+    var html='';
+    PLAN.sessions.forEach(function(session){
+      html+='<div class="wcard"><div class="whead"><div><div class="dn">'+session.name+'</div><div class="tn">'+session.focus+'</div></div>'+
+        '<div class="rir">база<br><b>RIR '+microcycle.baseRir+'</b></div></div>';
+      session.exercises.forEach(function(e){
+        if((e.fromMicrocycle && microcycle.number<e.fromMicrocycle) || (microcycle.deload && !e.deload))return;
+        var prescription=microcycle.deload?e.deload:e;
+        var load,sr;
+        if(e.bodyweight){
+          load='<span class="kg" style="color:var(--ink-3)">—</span>';
+          sr=prescription.reps+' · '+prescription.sets+' подх.';
+        }else{
+          var weight=microcycle.deload?prescription.weightKg:e.startWeightKg;
+          load='<span class="kg">'+kg(weight)+(e.perHand?' ×2':'')+'<small> кг</small></span>';
+          sr=prescription.reps+' повт × '+prescription.sets+' подх.';
+        }
+        var rir=effectiveRir(e,microcycle);
+        html+='<div class="ex'+(e.role==='primary'?' primary':'')+'">'+
+          '<span class="en">'+e.name+(e.estimated?'<span class="est">старт</span>':'')+(e.optional?'<span class="est">опция</span>':'')+'</span>'+
+          '<span class="load">'+load+'</span>'+
+          '<span class="sr">'+sr+'</span>'+
+          '<span class="rirline">RIR '+rir+' · отдых '+Math.round(e.restSeconds/60*10)/10+' мин</span></div>';
+      });
+      html+='</div>';
+    });
+    document.getElementById('cards').innerHTML=html;
+    document.querySelectorAll('#weekbtns button').forEach(function(b,i){b.setAttribute('aria-pressed',i===cur?'true':'false');});
+  }
+
+  function renderWeekBtns(){
+    var cycles=PLAN.block.microcycles;
+    var wb='';for(var i=0;i<cycles.length;i++){wb+='<button class="'+(cycles[i].deload?'dl':'')+'" data-w="'+i+'">'+cycles[i].number+'<small>'+cycles[i].phase+'</small></button>';}
+    document.getElementById('weekbtns').innerHTML=wb;
+  }
+  document.getElementById('weekbtns').addEventListener('click',function(ev){
+    var b=ev.target.closest('button');if(!b)return;cur=+b.dataset.w;renderCards();
+  });
+
+  function init(plan){
+    if(plan.schemaVersion!==2)throw new Error('неподдерживаемая схема данных');
+    PLAN=plan;
+    var m=plan.meta||{};
+    document.getElementById('eyebrow').textContent=m.eyebrow||'';
+    document.getElementById('title').textContent=m.title||'';
+    document.getElementById('subtitle').innerHTML=m.subtitle||'';
+    renderWeekBtns();
+    renderCards();
+  }
+
+  fetch('gym-woman-plan.json')
+    .then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
+    .then(init)
+    .catch(function(err){
+      document.getElementById('cards').innerHTML=
+        '<div class="callout warn" style="grid-column:1/-1">Не удалось загрузить <b>gym-woman-plan.json</b> ('+err.message+
+        '). Открой страницу через сайт (GitHub Pages) или локальный сервер — из file:// браузер блокирует загрузку.</div>';
+    });
+})();
+</script>
+</body>
+</html>
