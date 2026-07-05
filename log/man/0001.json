@@ -54,7 +54,7 @@
   },
   "sessions": [
     {
-      "sessionId": "0001-S01",
+      "sessionId": "M-0001-S01",
       "sequence": 1,
       "status": "planned",
       "recommendedIntervalAfterPreviousHours": 0,
@@ -152,7 +152,7 @@
       "adjustmentHistory": []
     },
     {
-      "sessionId": "0001-S02",
+      "sessionId": "M-0001-S02",
       "sequence": 2,
       "status": "planned",
       "recommendedIntervalAfterPreviousHours": 48,
@@ -241,7 +241,7 @@
       "adjustmentHistory": []
     },
     {
-      "sessionId": "0001-S03",
+      "sessionId": "M-0001-S03",
       "sequence": 3,
       "status": "planned",
       "recommendedIntervalAfterPreviousHours": 48,
@@ -337,7 +337,7 @@
       "adjustmentHistory": []
     },
     {
-      "sessionId": "0001-S04",
+      "sessionId": "M-0001-S04",
       "sequence": 4,
       "status": "planned",
       "recommendedIntervalAfterPreviousHours": 48,

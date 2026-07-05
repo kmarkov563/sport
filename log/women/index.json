@@ -1,8 +1,17 @@
 {
   "schemaVersion": 1,
   "athlete": "women",
-  "activePlanId": null,
+  "activePlanId": "0001",
   "nextPlanId": null,
-  "updatedAt": null,
-  "plans": []
+  "updatedAt": "2026-07-05T17:00:00+04:00",
+  "plans": [
+    {
+      "planId": "0001",
+      "file": "0001.json",
+      "status": "active",
+      "createdAt": "2026-07-05T17:00:00+04:00",
+      "sessionCount": 4,
+      "completedSessionCount": 0
+    }
+  ]
 }
