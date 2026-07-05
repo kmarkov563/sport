@@ -121,7 +121,10 @@
 
         const plan = state.plans[state.current];
         const sessionId = params.get("session");
-        const sessionIndex = plan.sessions.findIndex(session => session.sessionId === sessionId);
+        let sessionIndex = plan.sessions.findIndex(session => session.sessionId === sessionId);
+        if (sessionIndex < 0 && state.index?.currentSessionId) {
+          sessionIndex = plan.sessions.findIndex(session => session.sessionId === state.index.currentSessionId);
+        }
         state.currentSession = sessionIndex >= 0 ? sessionIndex : 0;
       }
 
@@ -244,9 +247,7 @@
           applyUrlState();
           renderPlan();
           syncUrl(false);
-          if (new URLSearchParams(window.location.search).has("session")) {
-            requestAnimationFrame(scrollToCurrentSession);
-          }
+          requestAnimationFrame(scrollToCurrentSession);
         } catch (error) {
           $("content").className = "error";
           $("content").innerHTML = `<b>Не удалось загрузить планы.</b><br>${escapeHtml(error.message)}<br><small>Открывайте страницу через сайт или локальный HTTP-сервер, не через file://.</small>`;
