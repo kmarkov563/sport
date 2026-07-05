@@ -1,0 +1,435 @@
+{
+  "schemaVersion": 1,
+  "planId": "0001",
+  "athlete": "man",
+  "status": "active",
+  "createdAt": "2026-07-05T16:00:00+04:00",
+  "updatedAt": "2026-07-05T16:00:00+04:00",
+  "evidenceReviewedAt": "2026-07-05",
+  "evidenceSources": [
+    {
+      "title": "ACSM Position Stand: Resistance Training Prescription for Muscle Function, Hypertrophy, and Physical Performance in Healthy Adults",
+      "year": 2026,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12965823/",
+      "applied": "Регулярная тренировка всех крупных мышечных групп, многоподходная работа, тяжёлая нагрузка для силы и достаточный недельный объём для гипертрофии."
+    },
+    {
+      "title": "Resistance training prescription for muscle strength and hypertrophy in healthy adults: systematic review and Bayesian network meta-analysis",
+      "year": 2023,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10579494/",
+      "applied": "Для силы и гипертрофии используются многоподходные назначения и повторный стимул мышечных групп в пределах ротации."
+    },
+    {
+      "title": "Exploring the Dose-Response Relationship Between Estimated Resistance Training Proximity to Failure, Strength Gain, and Muscle Hypertrophy",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38970765/",
+      "applied": "Рабочие подходы запланированы близко к отказу, но без систематического отказа; ожидаемый запас преимущественно 2–3 повторения."
+    }
+  ],
+  "athleteSnapshot": {
+    "heightCm": 183,
+    "bodyWeightKg": 85,
+    "estimatedBodyFatPercent": "25–26",
+    "trainingContext": "Возвращение после перерыва около двух месяцев.",
+    "currentBenchPress": "Около 100 кг с небольшим запасом.",
+    "currentDeepSquat": "Около 60 кг × 8 с запасом.",
+    "assumptions": [
+      "Нет актуальной боли или медицинских ограничений.",
+      "Сон и питание позволяют нормально восстанавливаться.",
+      "Вес тренажёров сопоставим с оборудованием, на котором получены текущие ориентиры."
+    ]
+  },
+  "goalSummary": [
+    "Вернуть устойчивую тренировочную нагрузку после перерыва.",
+    "Развивать атлетичное и пропорциональное телосложение.",
+    "Начать системный прогресс жима лёжа к долгосрочной цели 150 кг.",
+    "Сохранить глубокий присед, румынскую тягу, наклонный жим, вертикальную и горизонтальную тяги."
+  ],
+  "coachRationale": "Первый план — одна четырёхтренировочная ротация Верх A / Низ A / Верх B / Низ B с интервалом 48 часов. Объём достаточен для повторного стимула крупных мышечных групп, но рабочие веса основных движений оставляют ожидаемый запас 2–3 повторения после перерыва. Жим получает силовую и объёмную экспозиции; наклонный жим поставлен первым во второй тренировке верха. Присед и румынская тяга поочерёдно получают приоритет.",
+  "schedule": {
+    "kind": "every_other_day",
+    "sessionsPlanned": 4,
+    "defaultIntervalHours": 48,
+    "estimatedSessionMinutes": "75–95"
+  },
+  "sessions": [
+    {
+      "sessionId": "0001-S01",
+      "sequence": 1,
+      "status": "planned",
+      "recommendedIntervalAfterPreviousHours": 0,
+      "focus": "Верх A · жим лёжа, сила",
+      "prescribed": {
+        "generalWarmup": {
+          "durationMinutes": 7,
+          "instruction": "Лёгкое кардио и движения плеч без утомления."
+        },
+        "exercises": [
+          {
+            "order": 1,
+            "name": "Жим штанги лёжа",
+            "warmupBlocks": [
+              { "weight": 20, "unit": "kg", "reps": 12, "sets": 1 },
+              { "weight": 40, "unit": "kg", "reps": 8, "sets": 1 },
+              { "weight": 60, "unit": "kg", "reps": 5, "sets": 1 },
+              { "weight": 72.5, "unit": "kg", "reps": 3, "sets": 1 }
+            ],
+            "loadBlocks": [
+              { "weight": 82.5, "unit": "kg", "reps": 5, "sets": 4 }
+            ],
+            "restSeconds": 240,
+            "expectedRir": 2,
+            "technicalNote": "Одинаковая пауза касания и траектория во всех рабочих подходах."
+          },
+          {
+            "order": 2,
+            "name": "Горизонтальная тяга в тренажёре",
+            "warmupBlocks": [
+              { "weight": 30, "unit": "kg", "reps": 10, "sets": 1 }
+            ],
+            "loadBlocks": [
+              { "weight": 45, "unit": "kg", "reps": 10, "sets": 3 }
+            ],
+            "restSeconds": 150,
+            "expectedRir": 2
+          },
+          {
+            "order": 3,
+            "name": "Жим штанги на наклонной скамье",
+            "warmupBlocks": [
+              { "weight": 30, "unit": "kg", "reps": 8, "sets": 1 }
+            ],
+            "loadBlocks": [
+              { "weight": 50, "unit": "kg", "reps": 8, "sets": 3 }
+            ],
+            "restSeconds": 180,
+            "expectedRir": 2
+          },
+          {
+            "order": 4,
+            "name": "Вертикальная тяга верхнего блока",
+            "warmupBlocks": [],
+            "loadBlocks": [
+              { "weight": 50, "unit": "kg", "reps": 10, "sets": 3 }
+            ],
+            "restSeconds": 150,
+            "expectedRir": 2
+          },
+          {
+            "order": 5,
+            "name": "Махи гантелями в стороны",
+            "warmupBlocks": [],
+            "loadBlocks": [
+              { "weight": 10, "unit": "kg_per_hand", "reps": 15, "sets": 3 }
+            ],
+            "restSeconds": 90,
+            "expectedRir": 2
+          },
+          {
+            "order": 6,
+            "name": "Разгибание рук на верхнем блоке",
+            "warmupBlocks": [],
+            "loadBlocks": [
+              { "weight": 25, "unit": "kg", "reps": 12, "sets": 2 }
+            ],
+            "restSeconds": 90,
+            "expectedRir": 2
+          },
+          {
+            "order": 7,
+            "name": "Сгибание рук со штангой",
+            "warmupBlocks": [],
+            "loadBlocks": [
+              { "weight": 27.5, "unit": "kg", "reps": 10, "sets": 2 }
+            ],
+            "restSeconds": 90,
+            "expectedRir": 2
+          }
+        ]
+      },
+      "actual": null,
+      "feedback": null,
+      "adjustmentHistory": []
+    },
+    {
+      "sessionId": "0001-S02",
+      "sequence": 2,
+      "status": "planned",
+      "recommendedIntervalAfterPreviousHours": 48,
+      "focus": "Низ A · глубокий присед",
+      "prescribed": {
+        "generalWarmup": {
+          "durationMinutes": 8,
+          "instruction": "Лёгкое кардио, тазобедренные и голеностоп без утомления."
+        },
+        "exercises": [
+          {
+            "order": 1,
+            "name": "Глубокий присед, пятки на подставке",
+            "warmupBlocks": [
+              { "weight": 20, "unit": "kg", "reps": 10, "sets": 1 },
+              { "weight": 40, "unit": "kg", "reps": 6, "sets": 1 },
+              { "weight": 50, "unit": "kg", "reps": 3, "sets": 1 }
+            ],
+            "loadBlocks": [
+              { "weight": 55, "unit": "kg", "reps": 6, "sets": 4 }
+            ],
+            "restSeconds": 240,
+            "expectedRir": 2,
+            "technicalNote": "Сохранять глубину, давление всей стопой и одинаковую скорость спуска."
+          },
+          {
+            "order": 2,
+            "name": "Румынская тяга",
+            "warmupBlocks": [
+              { "weight": 40, "unit": "kg", "reps": 8, "sets": 1 },
+              { "weight": 55, "unit": "kg", "reps": 5, "sets": 1 }
+            ],
+            "loadBlocks": [
+              { "weight": 65, "unit": "kg", "reps": 8, "sets": 3 }
+            ],
+            "restSeconds": 180,
+            "expectedRir": 2,
+            "technicalNote": "Остановить опускание в точке, где сохраняется нейтральная спина."
+          },
+          {
+            "order": 3,
+            "name": "Жим платформы ногами",
+            "warmupBlocks": [
+              { "weight": 80, "unit": "kg", "reps": 10, "sets": 1 }
+            ],
+            "loadBlocks": [
+              { "weight": 120, "unit": "kg", "reps": 10, "sets": 3 }
+            ],
+            "restSeconds": 180,
+            "expectedRir": 3
+          },
+          {
+            "order": 4,
+            "name": "Сгибание ног в тренажёре",
+            "warmupBlocks": [],
+            "loadBlocks": [
+              { "weight": 35, "unit": "kg", "reps": 12, "sets": 3 }
+            ],
+            "restSeconds": 120,
+            "expectedRir": 2
+          },
+          {
+            "order": 5,
+            "name": "Подъём на носки стоя",
+            "warmupBlocks": [],
+            "loadBlocks": [
+              { "weight": 60, "unit": "kg", "reps": 15, "sets": 3 }
+            ],
+            "restSeconds": 90,
+            "expectedRir": 2
+          },
+          {
+            "order": 6,
+            "name": "Планка на локтях",
+            "warmupBlocks": [],
+            "loadBlocks": [
+              { "weight": 0, "unit": "bodyweight", "durationSeconds": 45, "sets": 3 }
+            ],
+            "restSeconds": 60,
+            "expectedRir": 2
+          }
+        ]
+      },
+      "actual": null,
+      "feedback": null,
+      "adjustmentHistory": []
+    },
+    {
+      "sessionId": "0001-S03",
+      "sequence": 3,
+      "status": "planned",
+      "recommendedIntervalAfterPreviousHours": 48,
+      "focus": "Верх B · верх груди и объём жима",
+      "prescribed": {
+        "generalWarmup": {
+          "durationMinutes": 7,
+          "instruction": "Лёгкое кардио и движения плеч без утомления."
+        },
+        "exercises": [
+          {
+            "order": 1,
+            "name": "Жим штанги на наклонной скамье",
+            "warmupBlocks": [
+              { "weight": 20, "unit": "kg", "reps": 12, "sets": 1 },
+              { "weight": 35, "unit": "kg", "reps": 8, "sets": 1 },
+              { "weight": 45, "unit": "kg", "reps": 4, "sets": 1 }
+            ],
+            "loadBlocks": [
+              { "weight": 52.5, "unit": "kg", "reps": 8, "sets": 4 }
+            ],
+            "restSeconds": 180,
+            "expectedRir": 2
+          },
+          {
+            "order": 2,
+            "name": "Вертикальная тяга верхнего блока, нейтральный хват",
+            "warmupBlocks": [
+              { "weight": 35, "unit": "kg", "reps": 10, "sets": 1 }
+            ],
+            "loadBlocks": [
+              { "weight": 50, "unit": "kg", "reps": 10, "sets": 3 }
+            ],
+            "restSeconds": 150,
+            "expectedRir": 2
+          },
+          {
+            "order": 3,
+            "name": "Жим штанги лёжа с паузой 1 секунда",
+            "warmupBlocks": [
+              { "weight": 60, "unit": "kg", "reps": 5, "sets": 1 }
+            ],
+            "loadBlocks": [
+              { "weight": 72.5, "unit": "kg", "reps": 7, "sets": 3 }
+            ],
+            "restSeconds": 180,
+            "expectedRir": 2
+          },
+          {
+            "order": 4,
+            "name": "Горизонтальная тяга в тренажёре",
+            "warmupBlocks": [],
+            "loadBlocks": [
+              { "weight": 45, "unit": "kg", "reps": 10, "sets": 3 }
+            ],
+            "restSeconds": 150,
+            "expectedRir": 2
+          },
+          {
+            "order": 5,
+            "name": "Махи гантелями в стороны",
+            "warmupBlocks": [],
+            "loadBlocks": [
+              { "weight": 10, "unit": "kg_per_hand", "reps": 15, "sets": 3 }
+            ],
+            "restSeconds": 90,
+            "expectedRir": 2
+          },
+          {
+            "order": 6,
+            "name": "Молотковые сгибания",
+            "warmupBlocks": [],
+            "loadBlocks": [
+              { "weight": 12, "unit": "kg_per_hand", "reps": 12, "sets": 2 }
+            ],
+            "restSeconds": 90,
+            "expectedRir": 2
+          },
+          {
+            "order": 7,
+            "name": "Разгибание рук на блоке из-за головы",
+            "warmupBlocks": [],
+            "loadBlocks": [
+              { "weight": 20, "unit": "kg", "reps": 12, "sets": 2 }
+            ],
+            "restSeconds": 90,
+            "expectedRir": 2
+          }
+        ]
+      },
+      "actual": null,
+      "feedback": null,
+      "adjustmentHistory": []
+    },
+    {
+      "sessionId": "0001-S04",
+      "sequence": 4,
+      "status": "planned",
+      "recommendedIntervalAfterPreviousHours": 48,
+      "focus": "Низ B · румынская тяга",
+      "prescribed": {
+        "generalWarmup": {
+          "durationMinutes": 8,
+          "instruction": "Лёгкое кардио, тазобедренные и голеностоп без утомления."
+        },
+        "exercises": [
+          {
+            "order": 1,
+            "name": "Румынская тяга",
+            "warmupBlocks": [
+              { "weight": 20, "unit": "kg", "reps": 10, "sets": 1 },
+              { "weight": 40, "unit": "kg", "reps": 8, "sets": 1 },
+              { "weight": 55, "unit": "kg", "reps": 5, "sets": 1 },
+              { "weight": 62.5, "unit": "kg", "reps": 3, "sets": 1 }
+            ],
+            "loadBlocks": [
+              { "weight": 67.5, "unit": "kg", "reps": 8, "sets": 4 }
+            ],
+            "restSeconds": 210,
+            "expectedRir": 2,
+            "technicalNote": "Контролируемое опускание, штанга близко к ногам."
+          },
+          {
+            "order": 2,
+            "name": "Глубокий присед, пятки на подставке",
+            "warmupBlocks": [
+              { "weight": 20, "unit": "kg", "reps": 8, "sets": 1 },
+              { "weight": 40, "unit": "kg", "reps": 5, "sets": 1 }
+            ],
+            "loadBlocks": [
+              { "weight": 50, "unit": "kg", "reps": 8, "sets": 3 }
+            ],
+            "restSeconds": 180,
+            "expectedRir": 3,
+            "technicalNote": "После тяги приоритет — стабильная глубина, без замедленных предельных повторений."
+          },
+          {
+            "order": 3,
+            "name": "Разгибание ног в тренажёре",
+            "warmupBlocks": [],
+            "loadBlocks": [
+              { "weight": 35, "unit": "kg", "reps": 12, "sets": 3 }
+            ],
+            "restSeconds": 120,
+            "expectedRir": 2
+          },
+          {
+            "order": 4,
+            "name": "Сгибание ног в тренажёре",
+            "warmupBlocks": [],
+            "loadBlocks": [
+              { "weight": 35, "unit": "kg", "reps": 12, "sets": 3 }
+            ],
+            "restSeconds": 120,
+            "expectedRir": 2
+          },
+          {
+            "order": 5,
+            "name": "Подъём на носки сидя",
+            "warmupBlocks": [],
+            "loadBlocks": [
+              { "weight": 40, "unit": "kg", "reps": 15, "sets": 3 }
+            ],
+            "restSeconds": 90,
+            "expectedRir": 2
+          },
+          {
+            "order": 6,
+            "name": "Планка на локтях",
+            "warmupBlocks": [],
+            "loadBlocks": [
+              { "weight": 0, "unit": "bodyweight", "durationSeconds": 45, "sets": 3 }
+            ],
+            "restSeconds": 60,
+            "expectedRir": 2
+          }
+        ]
+      },
+      "actual": null,
+      "feedback": null,
+      "adjustmentHistory": []
+    }
+  ],
+  "revisionLog": [
+    {
+      "at": "2026-07-05T16:00:00+04:00",
+      "type": "created",
+      "message": "Создан первый активный план из четырёх полностью рассчитанных тренировок."
+    }
+  ]
+}
