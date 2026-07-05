@@ -564,7 +564,22 @@
             .catch(err => {
                 document.getElementById('plan').textContent = 'Не удалось загрузить план: ' + err;
             });
+
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => navigator.serviceWorker.register("../sw.js"));
+        }
+        (function () {
+            var banner = document.getElementById("offline-banner");
+            var update = function () { banner.hidden = navigator.onLine; };
+            window.addEventListener("online", update);
+            window.addEventListener("offline", update);
+            update();
+        })();
     </script>
+    <div id="offline-banner" hidden
+        style="position:fixed;left:0;right:0;bottom:0;z-index:9999;background:#9a5a13;color:#fff;text-align:center;padding:9px 12px;font-size:13px;font-weight:600">
+        Офлайн — открыты сохранённые данные
+    </div>
 </body>
 
 </html>

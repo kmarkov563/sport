@@ -72,6 +72,9 @@
   </style>
 </head>
 <body>
+  <div id="offline-banner" hidden style="position:fixed;left:0;right:0;bottom:0;z-index:9999;background:var(--warmbg);color:var(--warm);text-align:center;padding:9px 12px;font-size:13px;font-weight:700;border-top:1px solid color-mix(in srgb,var(--warm) 40%,transparent)">
+    Офлайн — показаны сохранённые данные
+  </div>
   <main class="shell">
     <div class="controls">
       <div class="topbar">
@@ -101,6 +104,14 @@
       const requestedAthlete = new URLSearchParams(window.location.search).get("athlete");
       const athlete = requestedAthlete === "women" ? "women" : "man";
       const state = { athlete, index: null, plans: [], current: 0, mode: "all", currentSession: 0 };
+
+      const offlineBanner = document.getElementById("offline-banner");
+      let servedFromCache = false;
+      function updateOfflineBanner() {
+        offlineBanner.hidden = navigator.onLine && !servedFromCache;
+      }
+      window.addEventListener("online", () => { servedFromCache = false; updateOfflineBanner(); });
+      window.addEventListener("offline", updateOfflineBanner);
       const $ = id => document.getElementById(id);
       const escapeHtml = value => String(value ?? "")
         .replaceAll("&", "&amp;").replaceAll("<", "&lt;")
@@ -284,13 +295,16 @@
           document.title = state.athlete === "women"
             ? "AI-тренер · Женский план"
             : "AI-тренер · Мужской план";
+          servedFromCache = false;
           const indexResponse = await fetch(`log/${state.athlete}/index.json`, { cache: "no-store" });
           if (!indexResponse.ok) throw new Error(`index.json: HTTP ${indexResponse.status}`);
+          if (indexResponse.headers.get("X-Offline")) servedFromCache = true;
           state.index = await indexResponse.json();
           const records = state.index.plans;
           state.plans = await Promise.all(records.map(async record => {
             const response = await fetch(`log/${state.athlete}/${record.file}`, { cache: "no-store" });
             if (!response.ok) throw new Error(`${record.file}: HTTP ${response.status}`);
+            if (response.headers.get("X-Offline")) servedFromCache = true;
             return response.json();
           }));
           const active = state.plans.findIndex(plan => plan.planId === state.index.activePlanId);
@@ -298,10 +312,11 @@
           applyUrlState();
           renderPlan();
           syncUrl(false);
+          updateOfflineBanner();
           requestAnimationFrame(scrollToCurrentSession);
         } catch (error) {
           $("content").className = "error";
-          $("content").innerHTML = `<b>Не удалось загрузить планы.</b><br>${escapeHtml(error.message)}<br><small>Открывайте страницу через сайт или локальный HTTP-сервер, не через file://.</small>`;
+          $("content").innerHTML = `<b>Не удалось загрузить планы.</b><br>${escapeHtml(error.message)}<br><small>Откройте страницу онлайн хотя бы один раз — дальше она будет работать и без интернета.</small>`;
         }
       }
 
@@ -340,6 +355,10 @@
         renderPlan();
         requestAnimationFrame(scrollToCurrentSession);
       });
+
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => navigator.serviceWorker.register("sw.js"));
+      }
 
       load();
     })();
