@@ -172,7 +172,8 @@
           block.unit === "bodyweight" ? " · свой вес" : " кг";
         const alt = (block.altWeight !== undefined && block.altWeight !== null)
           ? ` (или ${number(block.altWeight)})` : "";
-        return `${number(block.weight)}${unit}${alt} × ${block.reps} × ${block.sets}`;
+        const label = block.label ? `${block.label}: ` : "";
+        return `${label}${number(block.weight)}${unit}${alt} × ${block.reps} × ${block.sets}`;
       }
 
       function formatBlocks(blocks) {
