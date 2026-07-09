@@ -176,6 +176,10 @@
         if (block.durationSeconds) {
           return `${block.durationSeconds} сек × ${block.sets}`;
         }
+        if (block.unit === "machine_base") {
+          const lbl = block.label ? `${block.label}: ` : "";
+          return `${lbl}базовый вес × ${block.reps} × ${block.sets}`;
+        }
         const unit = block.unit === "kg_per_hand" ? " кг/рука" :
           block.unit === "kg_per_side" ? " кг/сторона" :
           block.unit === "bodyweight" ? " · свой вес" : " кг";

@@ -3,9 +3,9 @@
   "athlete": "women",
   "activePlanId": "0001",
   "nextPlanId": "0002",
-  "currentSessionId": "W-0001-S03",
+  "currentSessionId": "W-0001-S04",
   "nextGlobalNumber": 9,
-  "updatedAt": "2026-07-07T21:00:00+04:00",
+  "updatedAt": "2026-07-09T21:00:00+04:00",
   "plans": [
     {
       "planId": "0001",
@@ -13,7 +13,7 @@
       "status": "active",
       "createdAt": "2026-07-05T17:00:00+04:00",
       "sessionCount": 4,
-      "completedSessionCount": 2
+      "completedSessionCount": 3
     },
     {
       "planId": "0002",
