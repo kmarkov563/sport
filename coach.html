@@ -96,8 +96,8 @@
       </div>
       <div class="workout-toolbar">
         <div class="mode-switch" aria-label="Режим отображения">
-          <button class="tool-button active" type="button" data-mode="all">Все</button>
-          <button class="tool-button" type="button" data-mode="single">По одной</button>
+          <button class="tool-button" type="button" data-mode="all">Все</button>
+          <button class="tool-button active" type="button" data-mode="single">По одной</button>
         </div>
         <nav class="session-links" id="session-links" aria-label="Быстрый переход к тренировке"></nav>
       </div>
@@ -112,7 +112,7 @@
 
       const requestedAthlete = new URLSearchParams(window.location.search).get("athlete");
       const athlete = requestedAthlete === "women" ? "women" : "man";
-      const state = { athlete, index: null, plans: [], current: 0, mode: "all", currentSession: 0 };
+      const state = { athlete, index: null, plans: [], current: 0, mode: "single", currentSession: 0 };
 
       const offlineBanner = document.getElementById("offline-banner");
       let servedFromCache = false;
@@ -138,7 +138,7 @@
         if (planIndex >= 0) state.current = planIndex;
 
         const view = params.get("view");
-        state.mode = view === "single" ? "single" : "all";
+        state.mode = view === "all" ? "all" : "single";
 
         const plan = state.plans[state.current];
         const sessionId = params.get("session");
