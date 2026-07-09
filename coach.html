@@ -37,6 +37,15 @@
     .tool-button{border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:10px;padding:7px 10px;cursor:pointer;font-size:12px;font-weight:760}
     .tool-button:hover{color:var(--text)}
     .tool-button.active{background:var(--accent2);border-color:color-mix(in srgb,var(--accent) 42%,var(--line));color:var(--accent)}
+    .session-links .tool-button{transition:box-shadow .12s,background .12s,border-color .12s,color .12s}
+    /* выполненная тренировка — заливка зелёным светлым */
+    .session-links .st-done{background:var(--accent2);border-color:color-mix(in srgb,var(--accent) 42%,var(--line));color:var(--accent)}
+    /* текущая (первая запланированная) — сплошной акцент */
+    .session-links .st-current{background:var(--accent);border-color:var(--accent);color:var(--bg);font-weight:820}
+    /* пропущенная/отменённая — приглушённый тёплый */
+    .session-links .st-skipped{background:var(--warmbg);border-color:color-mix(in srgb,var(--warm) 40%,var(--line));color:var(--warm)}
+    /* выбранный квадратик — тёплое кольцо поверх любого состояния */
+    .session-links .tool-button.selected{box-shadow:0 0 0 2px var(--surface),0 0 0 4px var(--warm)}
     .sessions{display:grid;gap:14px}
     details.session{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;scroll-margin-top:130px}
     details.session[open]{border-color:color-mix(in srgb,var(--accent) 32%,var(--line))}
@@ -274,12 +283,21 @@
         $("plan-label").textContent = `План ${plan.planId}`;
         $("previous-plan").disabled = state.current === 0;
         $("next-plan").disabled = state.current === state.plans.length - 1;
-        $("session-links").innerHTML = plan.sessions.map((session, index) => `
-          <button class="tool-button ${index === state.currentSession ? "active" : ""}"
-            type="button" data-session-index="${index}"
-            aria-label="Тренировка ${session.globalNumber}"
-            title="${escapeHtml(session.focus)}">№${session.globalNumber}</button>
-        `).join("");
+        const currentSessionId = state.index?.currentSessionId;
+        $("session-links").innerHTML = plan.sessions.map((session, index) => {
+          const isSelected = index === state.currentSession;
+          const statusClass = session.status === "completed" ? "st-done"
+            : session.sessionId === currentSessionId ? "st-current"
+            : (session.status === "skipped" || session.status === "cancelled" || session.status === "superseded") ? "st-skipped"
+            : "";
+          const classes = ["tool-button", statusClass, isSelected ? "selected" : ""].filter(Boolean).join(" ");
+          return `
+            <button class="${classes}"
+              type="button" data-session-index="${index}"
+              aria-label="Тренировка ${session.globalNumber}"
+              title="${escapeHtml(session.focus)}">№${session.globalNumber}</button>
+          `;
+        }).join("");
         document.querySelectorAll("[data-mode]").forEach(button => {
           button.classList.toggle("active", button.dataset.mode === state.mode);
         });
