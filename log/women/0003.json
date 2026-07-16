@@ -1,0 +1,412 @@
+{
+  "schemaVersion": 1,
+  "planId": "0003",
+  "athlete": "women",
+  "status": "planned",
+  "createdAt": "2026-07-16T21:00:00+04:00",
+  "updatedAt": "2026-07-16T21:00:00+04:00",
+  "evidenceReviewedAt": "2026-07-16",
+  "evidenceSources": [
+    {
+      "title": "The impact of resistance training on gluteus maximus hypertrophy: a systematic review and meta-analysis",
+      "year": 2025,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12018462/",
+      "applied": "Сохранён приоритет прямого разгибания бедра (мост/хип-траст) и полноамплитудного/глубокого приседа для гипертрофии GMax; гиперэкстензия и односторонние движения как дополнительная задняя цепь."
+    },
+    {
+      "title": "The Resistance Training Dose Response: Meta-Regressions Exploring the Effects of Weekly Volume and Frequency on Muscle Hypertrophy and Strength Gains",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41343037/",
+      "applied": "Более высокий недельный объём подходов усиливает гипертрофию и силу — приоритетным ягодицам/задней цепи удерживается наибольший объём, верх тела в поддерживающем объёме."
+    },
+    {
+      "title": "ACSM Position Stand: Resistance Training Prescription for Muscle Function, Hypertrophy, and Physical Performance in Healthy Adults",
+      "year": 2026,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12965823/",
+      "applied": "Двойная прогрессия (сначала повторы, затем вес) при работе с запасом 1–2 RIR."
+    }
+  ],
+  "athleteSnapshot": {
+    "ageYears": 29,
+    "bodyWeightKg": 55,
+    "trainingContext": "Третий план. Провизорный горизонт для соблюдения правила «минимум 4 готовые тренировки» после выполнения Тренировки 5. Продолжает откалиброванные веса плана 0002 с двойной прогрессией. Будет пересчитан по факту Тренировок 6–8 (сессии S02–S04 плана 0002 ещё не выполнены).",
+    "currentLoadEstimates": {
+      "barbellHipThrust": "50 кг (подтверждён; объёмный день 45 кг)",
+      "deepSquat": "30 кг (подтверждён по Тренировке 5: 30 кг × 8 × 3, сложность не сообщена)",
+      "romanianDeadlift": "40 кг свободной штангой (подтверждён по Тренировке 4)",
+      "legCurl": "25 кг (подтверждён)",
+      "latPulldown": "15 кг, средний/широкий хват (подтверждён)",
+      "seatedRow": "20 кг, средний/широкий хват (подтверждён)",
+      "barbellCurl": "10 кг (подтверждён)",
+      "rearDelt": "10 кг (подтверждён по Тренировке 4)"
+    },
+    "assumptions": [
+      "Нет беременности, травм или медицинских ограничений.",
+      "Веса и повторы Тренировок 6–8 подтвердятся близко к назначенным; при крупном отклонении план 0003 пересчитывается.",
+      "Техническое ограничение сохраняется: тяги на спину только средним/широким хватом (нейтральный/узкий исключены)."
+    ]
+  },
+  "goalSummary": [
+    "Приоритетно развивать ягодицы и заднюю цепь.",
+    "Поддерживать пропорциональное атлетичное телосложение.",
+    "Сохранить глубокий присед без жима платформы.",
+    "Сохранять визуально стройную талию — без отдельной работы на пресс."
+  ],
+  "coachRationale": "Продолжение ротации A/B/C/D. Прогрессия двойная (RIR 1–2): где вес подтверждён фактом, сначала добавляем 1–2 повтора в подходе, затем поднимаем вес и сбрасываем повторы. Ключевая рекалибровка — присед: по Тренировке 5 подтверждён 30 кг × 8 × 3 (было назначено 20 кг), поэтому в плане 0003 присед стартует 30 кг с прибавкой повторов. Свободная РДЛ ведётся от подтверждённых 40 кг, мост от 50 кг (объёмный день 45 кг), верх тела в поддерживающем объёме средним/широким хватом. Гиперэкстензия остаётся первым активационным упражнением, отдельного пресса нет, ~7 упражнений на день под целевую длительность ~70 мин. План провизорный: сессии S02–S04 плана 0002 (Тренировки 6–8) ещё не выполнены, поэтому неподтверждённые веса (болгарские/обратные выпады с гантелями, отведение бедра/ноги, объёмный мост) продолжают значения 0002 и будут пересчитаны по реальному факту.",
+  "schedule": {
+    "kind": "every_other_day",
+    "sessionsPlanned": 4,
+    "defaultIntervalHours": 48,
+    "estimatedSessionMinutes": "60–75"
+  },
+  "sessions": [
+    {
+      "sessionId": "W-0003-S01",
+      "globalNumber": 9,
+      "sequence": 1,
+      "status": "planned",
+      "recommendedIntervalAfterPreviousHours": 48,
+      "estimatedDurationMinutes": 60,
+      "focus": "День A · ягодичный мост и присед",
+      "prescribed": {
+        "generalWarmup": {
+          "durationMinutes": 7,
+          "instruction": "Лёгкое кардио и движения тазобедренных без утомления."
+        },
+        "exercises": [
+          {
+            "order": 1,
+            "name": "Гиперэкстензия (90°)",
+            "warmupBlocks": [],
+            "loadBlocks": [ { "weight": 0, "unit": "bodyweight", "reps": 15, "sets": 2 } ],
+            "restSeconds": 60,
+            "expectedRir": 3,
+            "technicalNote": "Активация ягодиц и поясницы, не до отказа."
+          },
+          {
+            "order": 2,
+            "name": "Ягодичный мост со штангой",
+            "warmupBlocks": [
+              { "weight": 20, "unit": "kg", "reps": 12, "sets": 1 },
+              { "weight": 40, "unit": "kg", "reps": 6, "sets": 1 }
+            ],
+            "loadBlocks": [ { "weight": 50, "unit": "kg", "reps": 10, "sets": 3 } ],
+            "restSeconds": 180,
+            "expectedRir": 2,
+            "technicalNote": "Прибавка повторов 8→10 при 50 кг (двойная прогрессия). При 3×10 с запасом ≥2 — в следующем плане 52.5–55 кг."
+          },
+          {
+            "order": 3,
+            "name": "Глубокий присед, пятки на подставке",
+            "warmupBlocks": [
+              { "weight": 0, "unit": "bodyweight", "reps": 8, "sets": 1 },
+              { "weight": 20, "unit": "kg", "reps": 5, "sets": 1 }
+            ],
+            "loadBlocks": [ { "weight": 30, "unit": "kg", "reps": 9, "sets": 3 } ],
+            "restSeconds": 180,
+            "expectedRir": 2,
+            "technicalNote": "Вес откалиброван по Тренировке 5 (30 кг × 8 × 3). Прибавка повторов 8→9. Сохранять глубину и давление всей стопой; сообщить сложность."
+          },
+          {
+            "order": 4,
+            "name": "Сгибание ног в тренажёре",
+            "warmupBlocks": [],
+            "loadBlocks": [ { "weight": 25, "unit": "kg", "reps": 14, "sets": 2 } ],
+            "restSeconds": 120,
+            "expectedRir": 2,
+            "technicalNote": "Прибавка повторов 13→14; при 2×15 с запасом — поднять вес."
+          },
+          {
+            "order": 5,
+            "name": "Вертикальная тяга верхнего блока",
+            "warmupBlocks": [ { "weight": 10, "unit": "kg", "reps": 10, "sets": 1 } ],
+            "loadBlocks": [ { "weight": 15, "unit": "kg", "reps": 13, "sets": 3 } ],
+            "restSeconds": 120,
+            "expectedRir": 2,
+            "technicalNote": "Только средний/широкий хват. Прибавка повторов 12→13."
+          },
+          {
+            "order": 6,
+            "name": "Махи гантелями в стороны",
+            "warmupBlocks": [],
+            "loadBlocks": [ { "weight": 3, "unit": "kg_per_hand", "reps": 18, "sets": 2 } ],
+            "restSeconds": 90,
+            "expectedRir": 2,
+            "technicalNote": "Прибавка повторов 16→18; при 2×18 легко — 4 кг/рука со сбросом повторов."
+          },
+          {
+            "order": 7,
+            "name": "Сгибание рук со штангой",
+            "warmupBlocks": [],
+            "loadBlocks": [ { "weight": 10, "unit": "kg", "reps": 13, "sets": 2 } ],
+            "restSeconds": 90,
+            "expectedRir": 2,
+            "technicalNote": "Закрепить оба подхода по 13 при 10 кг (на Тренировке 5 второй подход дал 9)."
+          }
+        ]
+      },
+      "actual": null,
+      "feedback": null,
+      "adjustmentHistory": []
+    },
+    {
+      "sessionId": "W-0003-S02",
+      "globalNumber": 10,
+      "sequence": 2,
+      "status": "planned",
+      "recommendedIntervalAfterPreviousHours": 48,
+      "estimatedDurationMinutes": 55,
+      "focus": "День B · румынская тяга и односторонняя работа",
+      "prescribed": {
+        "generalWarmup": {
+          "durationMinutes": 7,
+          "instruction": "Лёгкое кардио и движения тазобедренных без утомления."
+        },
+        "exercises": [
+          {
+            "order": 1,
+            "name": "Гиперэкстензия (90°)",
+            "warmupBlocks": [],
+            "loadBlocks": [ { "weight": 0, "unit": "bodyweight", "reps": 15, "sets": 2 } ],
+            "restSeconds": 60,
+            "expectedRir": 3,
+            "technicalNote": "Активация, не до отказа."
+          },
+          {
+            "order": 2,
+            "name": "Румынская тяга (свободная штанга)",
+            "warmupBlocks": [
+              { "weight": 20, "unit": "kg", "reps": 8, "sets": 1 },
+              { "weight": 30, "unit": "kg", "reps": 6, "sets": 1 }
+            ],
+            "loadBlocks": [ { "weight": 40, "unit": "kg", "reps": 9, "sets": 3 } ],
+            "restSeconds": 180,
+            "expectedRir": 2,
+            "technicalNote": "От подтверждённых 40 кг (Тренировка 4). Прибавка повторов относительно старта дня B плана 0002 (40 × 8 × 3). Провизорно: пересчитать по факту Тренировки 6."
+          },
+          {
+            "order": 3,
+            "name": "Болгарские выпады с наклоном корпуса",
+            "warmupBlocks": [ { "weight": 0, "unit": "bodyweight", "reps": 8, "sets": 1 } ],
+            "loadBlocks": [ { "weight": 4, "unit": "kg_per_hand", "reps": 11, "sets": 2 } ],
+            "restSeconds": 120,
+            "expectedRir": 2,
+            "technicalNote": "Повторы на каждую ногу. Вес продолжает 0002 (не подтверждён фактом) — пересчитать по Тренировке 6."
+          },
+          {
+            "order": 4,
+            "name": "Горизонтальная тяга в тренажёре",
+            "warmupBlocks": [ { "weight": 15, "unit": "kg", "reps": 10, "sets": 1 } ],
+            "loadBlocks": [ { "weight": 20, "unit": "kg", "reps": 12, "sets": 3 } ],
+            "restSeconds": 120,
+            "expectedRir": 2,
+            "technicalNote": "Только средний/широкий хват. Прибавка повторов 11→12."
+          },
+          {
+            "order": 5,
+            "name": "Жим гантелей сидя вверх",
+            "warmupBlocks": [],
+            "loadBlocks": [ { "weight": 4, "unit": "kg_per_hand", "reps": 12, "sets": 2 } ],
+            "restSeconds": 120,
+            "expectedRir": 2,
+            "technicalNote": "Прибавка повторов 11→12; при 2×12 легко — 5 кг/рука."
+          },
+          {
+            "order": 6,
+            "name": "Разгибание рук на верхнем блоке",
+            "warmupBlocks": [],
+            "loadBlocks": [ { "weight": 10, "unit": "kg", "reps": 14, "sets": 2 } ],
+            "restSeconds": 90,
+            "expectedRir": 2,
+            "technicalNote": "Прибавка повторов 13→14."
+          }
+        ]
+      },
+      "actual": null,
+      "feedback": null,
+      "adjustmentHistory": []
+    },
+    {
+      "sessionId": "W-0003-S03",
+      "globalNumber": 11,
+      "sequence": 3,
+      "status": "planned",
+      "recommendedIntervalAfterPreviousHours": 48,
+      "estimatedDurationMinutes": 60,
+      "focus": "День C · объёмный ягодичный мост",
+      "prescribed": {
+        "generalWarmup": {
+          "durationMinutes": 7,
+          "instruction": "Лёгкое кардио и движения тазобедренных без утомления."
+        },
+        "exercises": [
+          {
+            "order": 1,
+            "name": "Гиперэкстензия (90°)",
+            "warmupBlocks": [],
+            "loadBlocks": [ { "weight": 0, "unit": "bodyweight", "reps": 15, "sets": 2 } ],
+            "restSeconds": 60,
+            "expectedRir": 3,
+            "technicalNote": "Активация, не до отказа."
+          },
+          {
+            "order": 2,
+            "name": "Ягодичный мост со штангой",
+            "warmupBlocks": [
+              { "weight": 20, "unit": "kg", "reps": 12, "sets": 1 },
+              { "weight": 35, "unit": "kg", "reps": 8, "sets": 1 }
+            ],
+            "loadBlocks": [ { "weight": 45, "unit": "kg", "reps": 15, "sets": 3 } ],
+            "restSeconds": 150,
+            "expectedRir": 2,
+            "technicalNote": "Объёмный день. Прибавка повторов 13→15 при 45 кг; при 3×15 с запасом — 50 кг со сбросом повторов. Пересчитать по факту Тренировки 7."
+          },
+          {
+            "order": 3,
+            "name": "Выпады назад",
+            "warmupBlocks": [ { "weight": 0, "unit": "bodyweight", "reps": 8, "sets": 1 } ],
+            "loadBlocks": [ { "weight": 4, "unit": "kg_per_hand", "reps": 11, "sets": 2 } ],
+            "restSeconds": 120,
+            "expectedRir": 2,
+            "technicalNote": "Повторы на каждую ногу. Вес продолжает 0002 — пересчитать по Тренировке 7."
+          },
+          {
+            "order": 4,
+            "name": "Отведение бедра в тренажёре",
+            "warmupBlocks": [],
+            "loadBlocks": [ { "weight": 0, "unit": "machine_base", "reps": 16, "sets": 2 } ],
+            "restSeconds": 90,
+            "expectedRir": 1,
+            "technicalNote": "Базовый вес тренажёра без блинов (сопротивление по умолчанию не подтверждено). Если легко — добавить самый лёгкий блин по стороне и записать. Пересчитать по факту Тренировки 7."
+          },
+          {
+            "order": 5,
+            "name": "Вертикальная тяга верхнего блока, широкий хват",
+            "warmupBlocks": [],
+            "loadBlocks": [ { "weight": 15, "unit": "kg", "reps": 12, "sets": 3 } ],
+            "restSeconds": 120,
+            "expectedRir": 2,
+            "technicalNote": "Только средний/широкий хват. Прибавка повторов 11→12."
+          },
+          {
+            "order": 6,
+            "name": "Жим гантелей лёжа",
+            "warmupBlocks": [ { "weight": 4, "unit": "kg_per_hand", "reps": 10, "sets": 1 } ],
+            "loadBlocks": [ { "weight": 5, "unit": "kg_per_hand", "reps": 12, "sets": 3 } ],
+            "restSeconds": 120,
+            "expectedRir": 2,
+            "technicalNote": "Прибавка повторов 11→12."
+          },
+          {
+            "order": 7,
+            "name": "Махи гантелями в стороны",
+            "warmupBlocks": [],
+            "loadBlocks": [ { "weight": 3, "unit": "kg_per_hand", "reps": 18, "sets": 2 } ],
+            "restSeconds": 90,
+            "expectedRir": 2,
+            "technicalNote": "Прибавка повторов 16→18."
+          }
+        ]
+      },
+      "actual": null,
+      "feedback": null,
+      "adjustmentHistory": []
+    },
+    {
+      "sessionId": "W-0003-S04",
+      "globalNumber": 12,
+      "sequence": 4,
+      "status": "planned",
+      "recommendedIntervalAfterPreviousHours": 48,
+      "estimatedDurationMinutes": 60,
+      "focus": "День D · присед и задняя цепь",
+      "prescribed": {
+        "generalWarmup": {
+          "durationMinutes": 7,
+          "instruction": "Лёгкое кардио и движения тазобедренных без утомления."
+        },
+        "exercises": [
+          {
+            "order": 1,
+            "name": "Гиперэкстензия (90°)",
+            "warmupBlocks": [],
+            "loadBlocks": [ { "weight": 0, "unit": "bodyweight", "reps": 15, "sets": 2 } ],
+            "restSeconds": 60,
+            "expectedRir": 3,
+            "technicalNote": "Активация, не до отказа."
+          },
+          {
+            "order": 2,
+            "name": "Глубокий присед, пятки на подставке",
+            "warmupBlocks": [
+              { "weight": 0, "unit": "bodyweight", "reps": 8, "sets": 1 },
+              { "weight": 20, "unit": "kg", "reps": 5, "sets": 1 }
+            ],
+            "loadBlocks": [ { "weight": 30, "unit": "kg", "reps": 9, "sets": 3 } ],
+            "restSeconds": 180,
+            "expectedRir": 2,
+            "technicalNote": "Вес откалиброван по Тренировке 5 (30 кг × 8 × 3). Прибавка повторов 8→9; при 3×9 с запасом ≥2 — 32.5 кг со сбросом повторов."
+          },
+          {
+            "order": 3,
+            "name": "Румынская тяга (свободная штанга)",
+            "warmupBlocks": [ { "weight": 30, "unit": "kg", "reps": 6, "sets": 1 } ],
+            "loadBlocks": [ { "weight": 40, "unit": "kg", "reps": 10, "sets": 3 } ],
+            "restSeconds": 150,
+            "expectedRir": 2,
+            "technicalNote": "От подтверждённых 40 кг × 10 (Тренировка 4). Добавлен третий рабочий подход (объём). Пересчитать по факту Тренировки 6."
+          },
+          {
+            "order": 4,
+            "name": "Отведение ноги назад (кроссовер или тренажёр на выбор)",
+            "warmupBlocks": [],
+            "loadBlocks": [
+              { "label": "Кроссовер", "weight": 5, "unit": "kg_per_side", "reps": 13, "sets": 2 },
+              { "label": "Тренажёр", "weight": 5, "unit": "kg_over_base", "reps": 12, "sets": 2 }
+            ],
+            "restSeconds": 90,
+            "expectedRir": 1,
+            "technicalNote": "Повторы на каждую ногу. Два снаряда на выбор, веса ведём раздельно. Значения продолжают 0002 (не подтверждены) — если легко, добавить самый лёгкий блин и записать. Пересчитать по факту Тренировки 8."
+          },
+          {
+            "order": 5,
+            "name": "Сгибание ног в тренажёре",
+            "warmupBlocks": [],
+            "loadBlocks": [ { "weight": 25, "unit": "kg", "reps": 14, "sets": 2 } ],
+            "restSeconds": 120,
+            "expectedRir": 2,
+            "technicalNote": "Прибавка повторов 13→14."
+          },
+          {
+            "order": 6,
+            "name": "Горизонтальная тяга в тренажёре",
+            "warmupBlocks": [],
+            "loadBlocks": [ { "weight": 20, "unit": "kg", "reps": 12, "sets": 2 } ],
+            "restSeconds": 120,
+            "expectedRir": 2,
+            "technicalNote": "Только средний/широкий хват. Прибавка повторов 11→12."
+          },
+          {
+            "order": 7,
+            "name": "Разведения на заднюю дельту",
+            "warmupBlocks": [],
+            "loadBlocks": [ { "weight": 10, "unit": "kg", "reps": 16, "sets": 2 } ],
+            "restSeconds": 90,
+            "expectedRir": 2,
+            "technicalNote": "От подтверждённых 10 кг (Тренировка 4). Прибавка повторов 15→16."
+          }
+        ]
+      },
+      "actual": null,
+      "feedback": null,
+      "adjustmentHistory": []
+    }
+  ],
+  "revisionLog": [
+    {
+      "at": "2026-07-16T21:00:00+04:00",
+      "type": "created",
+      "message": "Создан провизорный план 0003 (Тренировки 9–12) для соблюдения горизонта «минимум 4 готовые тренировки» после выполнения Тренировки 5 (в плане 0002 осталось 3 будущие сессии). Продолжение ротации A/B/C/D с двойной прогрессией (RIR 1–2). Ключевая рекалибровка: присед стартует 30 кг (подтверждён по Тренировке 5). Свободная РДЛ от 40 кг, мост от 50 кг (объёмный день 45 кг), задняя дельта от 10 кг — подтверждённые веса с прибавкой повторов. Неподтверждённые движения (болгарские/обратные выпады с гантелями, отведение бедра/ноги) продолжают значения 0002 и будут пересчитаны по факту Тренировок 6–8. Доказательная база проверена 2026-07-16 (глют-гипертрофия 2025, дозозависимость объёма 2025, ACSM 2026)."
+    }
+  ]
+}
