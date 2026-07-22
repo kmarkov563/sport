@@ -6,6 +6,7 @@
 
 - Разбор фидбека атлета (что значит «последняя тренировка», неназванный вес) — [`agents/feedback-conventions.md`](agents/feedback-conventions.md).
 - Хостинг сайта и правило «проверку в браузере делает пользователь» — [`agents/site.md`](agents/site.md).
+- Формат назначений: разминка со штангой кратна 5 кг на сторону, блины только добавляются — [`agents/prescription-conventions.md`](agents/prescription-conventions.md).
 
 ## Актуальная структура
 
