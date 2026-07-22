@@ -31,6 +31,7 @@
     .plan-nav{display:flex;align-items:center;gap:8px}
     .nav-button{border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:12px;padding:10px 13px;cursor:pointer}
     .nav-button:disabled{opacity:.35;cursor:not-allowed}
+    .today-button{background:var(--accent);border-color:var(--accent);color:var(--bg);font-weight:820}
     .plan-label{font-size:13px;font-weight:800;min-width:92px;text-align:center}
     .workout-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:10px}
     .mode-switch,.session-links{display:flex;gap:6px}
@@ -92,6 +93,7 @@
           <button class="nav-button" id="previous-plan" type="button" aria-label="Предыдущий план">←</button>
           <span class="plan-label" id="plan-label">План —</span>
           <button class="nav-button" id="next-plan" type="button" aria-label="Следующий план">→</button>
+          <button class="nav-button today-button" id="today-button" type="button" aria-label="Открыть текущую тренировку">Сегодня</button>
         </nav>
       </div>
       <div class="workout-toolbar">
@@ -160,6 +162,20 @@
         window.history[push ? "pushState" : "replaceState"]({}, "", url);
       }
 
+      function goToCurrentSession() {
+        const currentSessionId = state.index?.currentSessionId;
+        if (!currentSessionId) return;
+        const planIndex = state.plans.findIndex(plan =>
+          plan.sessions.some(session => session.sessionId === currentSessionId));
+        if (planIndex < 0) return;
+        state.current = planIndex;
+        state.currentSession = state.plans[planIndex].sessions
+          .findIndex(session => session.sessionId === currentSessionId);
+        renderPlan();
+        syncUrl();
+        scrollToCurrentSession();
+      }
+
       function scrollToCurrentSession() {
         if (state.mode !== "all") {
           window.scrollTo({ top: 0, behavior: "smooth" });
@@ -186,7 +202,8 @@
         }
         const unit = block.unit === "kg_per_hand" ? " кг/рука" :
           block.unit === "kg_per_side" ? " кг/сторона" :
-          block.unit === "bodyweight" ? " · свой вес" : " кг";
+          block.unit === "bodyweight" ? " · свой вес" :
+          block.unit === "plates" ? " плиток" : " кг";
         const alt = (block.altWeight !== undefined && block.altWeight !== null)
           ? ` (или ${number(block.altWeight)})` : "";
         const label = block.label ? `${block.label}: ` : "";
@@ -265,6 +282,9 @@
         if (session.actual && Array.isArray(session.actual.exercises)) {
           session.actual.exercises.forEach(a => { actualByOrder[a.order] = a; });
         }
+        const prescribedOrders = new Set(session.prescribed.exercises.map(ex => ex.order));
+        const addedExercises = (session.actual?.exercises || [])
+          .filter(actualEx => !prescribedOrders.has(actualEx.order));
         const interval = session.recommendedIntervalAfterPreviousHours
           ? `через ${session.recommendedIntervalAfterPreviousHours} ч после предыдущей`
           : "первая тренировка плана";
@@ -279,7 +299,7 @@
               <span class="badge ${session.status}">${statusLabel[session.status] || session.status}</span>
             </summary>
             <div class="session-body">
-              ${session.prescribed.exercises.map(ex => renderExercise(ex, actualByOrder, completed)).join("")}
+              ${[...session.prescribed.exercises, ...addedExercises].map(ex => renderExercise(ex, actualByOrder, completed)).join("")}
             </div>
           </details>`;
       }
@@ -292,6 +312,7 @@
         $("previous-plan").disabled = state.current === 0;
         $("next-plan").disabled = state.current === state.plans.length - 1;
         const currentSessionId = state.index?.currentSessionId;
+        $("today-button").disabled = !currentSessionId;
         $("session-links").innerHTML = plan.sessions.map((session, index) => {
           const isSelected = index === state.currentSession;
           const statusClass = session.status === "completed" ? "st-done"
@@ -361,6 +382,7 @@
           window.scrollTo({ top: 0, behavior: "smooth" });
         }
       });
+      $("today-button").addEventListener("click", goToCurrentSession);
       document.querySelector(".mode-switch").addEventListener("click", event => {
         const button = event.target.closest("[data-mode]");
         if (!button) return;
