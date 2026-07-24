@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI-тренер · Прогресс (Ж)</title>
+</head>
+<body>
+  <script>
+    const target = new URL("report.html", window.location.href);
+    new URLSearchParams(window.location.search).forEach((value, key) => target.searchParams.set(key, value));
+    target.searchParams.set("athlete", "women");
+    window.location.replace(target);
+  </script>
+  <noscript><a href="report.html?athlete=women">Открыть женский прогресс</a></noscript>
+</body>
+</html>

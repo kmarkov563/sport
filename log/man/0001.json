@@ -9,6 +9,7 @@
     {
       "sessionId": "M-0001-S01",
       "globalNumber": 1,
+      "performedAt": "2026-07-05",
       "recommendedIntervalAfterPreviousHours": 0,
       "estimatedDurationMinutes": 80,
       "focus": "Верх A · жим лёжа, сила",
@@ -111,6 +112,7 @@
     {
       "sessionId": "M-0001-S02",
       "globalNumber": 2,
+      "performedAt": "2026-07-07",
       "recommendedIntervalAfterPreviousHours": 48,
       "estimatedDurationMinutes": 75,
       "focus": "Низ A · глубокий присед",
@@ -184,6 +186,7 @@
     {
       "sessionId": "M-0001-S03",
       "globalNumber": 3,
+      "performedAt": "2026-07-09",
       "recommendedIntervalAfterPreviousHours": 48,
       "estimatedDurationMinutes": 78,
       "focus": "Верх B · верх груди и объём жима",
@@ -286,6 +289,7 @@
     {
       "sessionId": "M-0001-S04",
       "globalNumber": 4,
+      "performedAt": "2026-07-11",
       "recommendedIntervalAfterPreviousHours": 48,
       "estimatedDurationMinutes": 72,
       "focus": "Низ B · румынская тяга",

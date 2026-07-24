@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>AI-тренер · Прогресс</title>
+  <link rel="icon" type="image/webp" href="assets/might_guy.webp">
+  <style>
+    *{box-sizing:border-box}
+    :root{
+      --bg:#f1f4ef;--surface:#ffffff;--surface2:#f4f7f2;
+      --ink:#15211a;--muted:#69726b;--line:#e3e7e0;
+      --accent:#1c7a4b;--accent-ink:#12613b;--accent-soft:#e2f1e9;
+      --radius:16px;--shadow:0 8px 26px rgba(19,40,28,.07)
+    }
+    @media(prefers-color-scheme:dark){
+      :root{
+        --bg:#0f1512;--surface:#161c18;--surface2:#1c231e;
+        --ink:#eaf1eb;--muted:#9aa39c;--line:#2c342e;
+        --accent:#5fce93;--accent-ink:#8ee0b1;--accent-soft:#173225;
+        --shadow:0 14px 40px rgba(0,0,0,.3)
+      }
+    }
+    body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
+    button{font:inherit}
+    .shell{width:min(920px,100%);margin:auto;padding:24px 18px 72px}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:16px}
+    .back{color:var(--muted);text-decoration:none;font-weight:650;font-size:14px}
+    .back:hover{color:var(--ink)}
+    .title{font-size:16px;font-weight:820}
+
+    .card{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px}
+    .dot{pointer-events:none}
+    .hit{cursor:pointer;fill:transparent}
+    .tooltip{position:absolute;z-index:20;pointer-events:none;transform:translate(-50%,calc(-100% - 9px));background:var(--surface);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);padding:8px 11px;font-size:12px;line-height:1.45;white-space:nowrap}
+    .tooltip.below{transform:translate(-50%,9px)}
+    .tooltip[hidden]{display:none}
+    .tt-name{font-weight:820;margin-bottom:2px}
+    .tt-onepr{color:var(--muted)}
+    .chart-key{display:flex;gap:18px;color:var(--muted);font-size:12px;font-weight:700;margin-bottom:8px}
+    .chart-key .mark{display:inline-block;width:26px;height:0;border-top:2px solid var(--muted);vertical-align:middle;margin-right:6px}
+    .chart-key .mark.dashed{border-top-style:dashed}
+    svg{display:block;width:100%;height:auto}
+    .grid{stroke:var(--line)}
+    .axis-label{fill:var(--muted);font-size:11px}
+    .empty{padding:56px 16px;text-align:center;color:var(--muted)}
+
+    .legend{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
+    .legend-item{display:flex;align-items:center;gap:9px;padding:8px 11px;border:1px solid var(--line);border-radius:11px;background:var(--surface);cursor:pointer;text-align:left;transition:opacity .12s}
+    .legend-item.off{opacity:.4}
+    .swatch{width:14px;height:14px;border-radius:4px;flex:none}
+    .legend-name{font-size:13px;font-weight:720;line-height:1.25}
+    .legend-stat{font-size:12px;font-weight:720;margin-left:auto;white-space:nowrap}
+    .legend-stat .paren{color:var(--muted);font-weight:640}
+
+    .error{padding:18px;border-radius:14px;background:var(--surface2);color:var(--muted)}
+    .loading{padding:48px;text-align:center;color:var(--muted)}
+    :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+    @media(max-width:720px){.shell{padding:18px 12px 48px}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="topbar">
+      <a class="back" href="index.html">← Все программы</a>
+      <span class="title" id="title">Прогресс</span>
+    </div>
+    <section id="content" class="loading">Загружаю прогресс…</section>
+  </main>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const athlete = new URLSearchParams(window.location.search).get("athlete") === "women" ? "women" : "man";
+      const visibleStorageKey = `report-visible-${athlete}`;
+      const chartWidth = 920, chartHeight = 440;
+      const pad = { top: 14, right: 14, bottom: 34, left: 46 };
+
+      const $ = id => document.getElementById(id);
+      const escapeHtml = value => String(value ?? "")
+        .replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;");
+      const unitLabel = unit => unit === "kg_per_hand" ? "кг/рука" : unit === "kg_per_side" ? "кг/сторона" : "кг";
+      const dayMonth = date => `${date.slice(8, 10)}.${date.slice(5, 7)}`;
+      const dateValue = date => new Date(`${date}T00:00:00`).getTime();
+
+      const state = { exercises: [], visible: new Set() };
+      let pinnedTooltip = false;
+
+      function showTooltipFor(circle) {
+        const tooltip = $("tooltip"), info = circle.dataset;
+        const unit = escapeHtml(info.unit);
+        tooltip.innerHTML =
+          `<div class="tt-name">${escapeHtml(info.name)}</div>`
+          + `<div>${escapeHtml(info.date)} · ${escapeHtml(info.max)} ${unit}</div>`
+          + (info.onepr ? `<div class="tt-onepr">1ПМ ~${escapeHtml(info.onepr)} ${unit}</div>` : "");
+        const cardRect = $("card").getBoundingClientRect();
+        const dotRect = circle.getBoundingClientRect();
+        const x = dotRect.left + dotRect.width / 2 - cardRect.left;
+        const y = dotRect.top + dotRect.height / 2 - cardRect.top;
+        tooltip.hidden = false;
+        tooltip.style.left = `${Math.max(64, Math.min(x, cardRect.width - 64))}px`;
+        tooltip.style.top = `${y}px`;
+        tooltip.classList.toggle("below", y < 70);
+      }
+      function hideTooltip() {
+        pinnedTooltip = false;
+        $("tooltip").hidden = true;
+      }
+
+      function loadVisible(exercises) {
+        try {
+          const stored = JSON.parse(localStorage.getItem(visibleStorageKey));
+          if (Array.isArray(stored)) return new Set(stored);
+        } catch { /* нет сохранённого выбора */ }
+        return new Set(exercises.slice(0, 3).map(exercise => exercise.id));
+      }
+      function saveVisible() {
+        localStorage.setItem(visibleStorageKey, JSON.stringify([...state.visible]));
+      }
+
+      function niceStep(rough) {
+        const magnitude = 10 ** Math.floor(Math.log10(rough));
+        const normalized = rough / magnitude;
+        const step = normalized < 1.5 ? 1 : normalized < 3 ? 2 : normalized < 7 ? 5 : 10;
+        return step * magnitude;
+      }
+      function weightTicks(min, max) {
+        const step = niceStep((max - min) / 4 || 1);
+        const from = Math.floor(min / step) * step;
+        const to = Math.ceil(max / step) * step;
+        const ticks = [];
+        for (let value = from; value <= to + step / 2; value += step) ticks.push(Math.round(value));
+        return ticks;
+      }
+
+      function visibleSeries() {
+        return state.exercises.filter(exercise => state.visible.has(exercise.id) && exercise.data.length);
+      }
+
+      function polyline(points) {
+        return points.map((point, index) => `${index ? "L" : "M"}${point.x.toFixed(1)},${point.y.toFixed(1)}`).join(" ");
+      }
+
+      function renderChart() {
+        hideTooltip();
+        const series = visibleSeries();
+        const chart = $("chart");
+        if (!series.length) {
+          chart.innerHTML = `<div class="empty">Выбери упражнение ниже, чтобы увидеть график.</div>`;
+          return;
+        }
+
+        const dates = [...new Set(series.flatMap(exercise => exercise.data.map(point => point.date)))].sort();
+        const weights = series.flatMap(exercise => exercise.data.flatMap(point => [point.max, point.onepr].filter(v => v != null)));
+        const minTime = dateValue(dates[0]), maxTime = dateValue(dates[dates.length - 1]);
+        const ticks = weightTicks(Math.min(...weights), Math.max(...weights));
+        const yMin = ticks[0], yMax = ticks[ticks.length - 1];
+        const innerW = chartWidth - pad.left - pad.right;
+        const innerH = chartHeight - pad.top - pad.bottom;
+
+        const scaleX = time => maxTime === minTime
+          ? pad.left + innerW / 2
+          : pad.left + (time - minTime) / (maxTime - minTime) * innerW;
+        const scaleY = weight => pad.top + (1 - (weight - yMin) / (yMax - yMin)) * innerH;
+
+        const gridRows = ticks.map(value => {
+          const y = scaleY(value);
+          return `<line class="grid" x1="${pad.left}" y1="${y.toFixed(1)}" x2="${chartWidth - pad.right}" y2="${y.toFixed(1)}"/>`
+            + `<text class="axis-label" x="${pad.left - 8}" y="${(y + 3.5).toFixed(1)}" text-anchor="end">${value}</text>`;
+        }).join("");
+
+        const skip = Math.ceil(dates.length / 9);
+        const dateLabels = dates.map((date, index) => {
+          if (index % skip) return "";
+          const x = scaleX(dateValue(date));
+          return `<text class="axis-label" x="${x.toFixed(1)}" y="${chartHeight - pad.bottom + 18}" text-anchor="middle">${dayMonth(date)}</text>`;
+        }).join("");
+
+        const hits = [];
+        const hitCircle = (x, y, exercise, point, unit) =>
+          `<circle class="hit" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="13"`
+          + ` data-name="${escapeHtml(exercise.name)}" data-date="${dayMonth(point.date)}"`
+          + ` data-max="${point.max}" data-unit="${escapeHtml(unit)}"`
+          + `${point.onepr != null ? ` data-onepr="${point.onepr}"` : ""}/>`;
+        const drawn = series.map(exercise => {
+          const unit = unitLabel(exercise.unit);
+          const scaled = [...exercise.data]
+            .sort((a, b) => dateValue(a.date) - dateValue(b.date))
+            .map(point => ({
+              point,
+              x: scaleX(dateValue(point.date)),
+              yMax: scaleY(point.max),
+              yOnepr: point.onepr != null ? scaleY(point.onepr) : null,
+            }));
+          const maxLine = polyline(scaled.map(s => ({ x: s.x, y: s.yMax })));
+          const oneprScaled = scaled.filter(s => s.yOnepr != null);
+          const oneprLine = oneprScaled.length > 1
+            ? `<path d="${polyline(oneprScaled.map(s => ({ x: s.x, y: s.yOnepr })))}" fill="none" stroke="${exercise.color}" stroke-width="1.5" stroke-dasharray="5 4" opacity=".85"/>`
+            : "";
+          const dots = scaled.map(s =>
+            `<circle class="dot" cx="${s.x.toFixed(1)}" cy="${s.yMax.toFixed(1)}" r="3.5" fill="${exercise.color}"/>`
+            + (s.yOnepr != null ? `<circle class="dot" cx="${s.x.toFixed(1)}" cy="${s.yOnepr.toFixed(1)}" r="3" fill="${exercise.color}"/>` : "")).join("");
+          scaled.forEach(s => {
+            hits.push(hitCircle(s.x, s.yMax, exercise, s.point, unit));
+            if (s.yOnepr != null) hits.push(hitCircle(s.x, s.yOnepr, exercise, s.point, unit));
+          });
+          return `<path d="${maxLine}" fill="none" stroke="${exercise.color}" stroke-width="2.4"/>${oneprLine}${dots}`;
+        }).join("");
+
+        chart.innerHTML = `
+          <svg viewBox="0 0 ${chartWidth} ${chartHeight}" role="img" aria-label="График прогресса весов">
+            ${gridRows}${dateLabels}${drawn}${hits.join("")}
+          </svg>`;
+      }
+
+      function bestStat(exercise) {
+        if (!exercise.data.length) return "";
+        const unit = unitLabel(exercise.unit);
+        const bestMax = Math.max(...exercise.data.map(point => point.max));
+        const oneprs = exercise.data.map(point => point.onepr).filter(value => value != null);
+        const bestOnepr = oneprs.length ? ` <span class="paren">(${Math.max(...oneprs)} ${unit})</span>` : "";
+        return `${bestMax} ${unit}${bestOnepr}`;
+      }
+
+      function renderLegend() {
+        $("legend").innerHTML = state.exercises.map(exercise => {
+          const off = state.visible.has(exercise.id) ? "" : " off";
+          return `
+            <li><button class="legend-item${off}" type="button" data-id="${escapeHtml(exercise.id)}"
+              aria-pressed="${state.visible.has(exercise.id)}">
+              <span class="swatch" style="background:${exercise.color}"></span>
+              <span class="legend-name">${escapeHtml(exercise.name)}</span>
+              <span class="legend-stat">${bestStat(exercise)}</span>
+            </button></li>`;
+        }).join("");
+      }
+
+      function toggle(id) {
+        if (state.visible.has(id)) state.visible.delete(id); else state.visible.add(id);
+        saveVisible();
+        renderChart();
+        renderLegend();
+      }
+
+      async function load() {
+        document.title = athlete === "women" ? "AI-тренер · Прогресс (Ж)" : "AI-тренер · Прогресс (М)";
+        $("title").textContent = athlete === "women" ? "Прогресс · Женский" : "Прогресс · Мужской";
+        try {
+          const response = await fetch(`log/${athlete}/progress_report.json`, { cache: "no-store" });
+          if (!response.ok) throw new Error(`progress_report.json: HTTP ${response.status}`);
+          const report = await response.json();
+          state.exercises = report.exercises || [];
+          state.visible = loadVisible(state.exercises);
+          $("content").className = "";
+          $("content").innerHTML = `
+            <div class="card" id="card">
+              <div class="chart-key">
+                <span><span class="mark"></span>реальный вес</span>
+                <span><span class="mark dashed"></span>расчётный 1ПМ</span>
+              </div>
+              <div id="chart"></div>
+              <div class="tooltip" id="tooltip" hidden></div>
+            </div>
+            <ul class="legend" id="legend"></ul>`;
+          $("legend").addEventListener("click", event => {
+            const button = event.target.closest("[data-id]");
+            if (button) toggle(button.dataset.id);
+          });
+          $("chart").addEventListener("mouseover", event => {
+            const circle = event.target.closest(".hit");
+            if (circle && !pinnedTooltip) showTooltipFor(circle);
+          });
+          $("chart").addEventListener("mouseout", event => {
+            if (event.target.closest(".hit") && !pinnedTooltip) hideTooltip();
+          });
+          $("chart").addEventListener("click", event => {
+            const circle = event.target.closest(".hit");
+            if (!circle) return;
+            event.stopPropagation();
+            pinnedTooltip = true;
+            showTooltipFor(circle);
+          });
+          document.addEventListener("click", () => { if (pinnedTooltip) hideTooltip(); });
+          renderChart();
+          renderLegend();
+        } catch (error) {
+          $("content").className = "error";
+          $("content").innerHTML = `<b>Не удалось загрузить прогресс.</b><br>${escapeHtml(error.message)}`;
+        }
+      }
+
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => navigator.serviceWorker.register("sw.js"));
+      }
+      load();
+    })();
+  </script>
+</body>
+</html>

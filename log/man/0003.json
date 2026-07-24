@@ -9,6 +9,7 @@
     {
       "sessionId": "M-0003-S01",
       "globalNumber": 9,
+      "performedAt": "2026-07-23",
       "recommendedIntervalAfterPreviousHours": 48,
       "estimatedDurationMinutes": 92,
       "focus": "Верх A · жим лёжа",

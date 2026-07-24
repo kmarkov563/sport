@@ -1,0 +1,636 @@
+{
+  "athlete": "man",
+  "lastSession": "M-0003-S01",
+  "exercises": [
+    {
+      "id": "bench_press",
+      "name": "Жим лёжа",
+      "aliases": [
+        "Жим штанги лёжа",
+        "Жим штанги лёжа (добавлено атлетом)"
+      ],
+      "unit": "kg",
+      "color": "#D22D2D",
+      "data": [
+        {
+          "sessionId": "M-0001-S01",
+          "globalNumber": 1,
+          "date": "2026-07-05",
+          "max": 85,
+          "onepr": 99
+        },
+        {
+          "sessionId": "M-0002-S01",
+          "globalNumber": 5,
+          "date": "2026-07-14",
+          "max": 80,
+          "onepr": 99
+        },
+        {
+          "sessionId": "M-0002-S04",
+          "globalNumber": 8,
+          "date": "2026-07-20",
+          "max": 100,
+          "onepr": 110
+        },
+        {
+          "sessionId": "M-0003-S01",
+          "globalNumber": 9,
+          "date": "2026-07-23",
+          "max": 85,
+          "onepr": 105
+        }
+      ]
+    },
+    {
+      "id": "seated_row",
+      "name": "Горизонтальная тяга (тренажёр)",
+      "aliases": [
+        "Горизонтальная тяга в тренажёре"
+      ],
+      "unit": "kg",
+      "color": "#2DD25D",
+      "data": [
+        {
+          "sessionId": "M-0001-S01",
+          "globalNumber": 1,
+          "date": "2026-07-05",
+          "max": 70,
+          "onepr": 98
+        },
+        {
+          "sessionId": "M-0001-S03",
+          "globalNumber": 3,
+          "date": "2026-07-09",
+          "max": 65,
+          "onepr": 89
+        },
+        {
+          "sessionId": "M-0002-S01",
+          "globalNumber": 5,
+          "date": "2026-07-14",
+          "max": 70,
+          "onepr": 98
+        },
+        {
+          "sessionId": "M-0002-S03",
+          "globalNumber": 7,
+          "date": "2026-07-18",
+          "max": 60,
+          "onepr": 86
+        },
+        {
+          "sessionId": "M-0003-S01",
+          "globalNumber": 9,
+          "date": "2026-07-23",
+          "max": 75,
+          "onepr": 103
+        }
+      ]
+    },
+    {
+      "id": "incline_press_smith",
+      "name": "Наклонный жим (Смит)",
+      "aliases": [
+        "Жим на наклонной в Смите",
+        "Жим на наклонной"
+      ],
+      "unit": "kg",
+      "color": "#8D2DD2",
+      "data": [
+        {
+          "sessionId": "M-0001-S01",
+          "globalNumber": 1,
+          "date": "2026-07-05",
+          "max": 50,
+          "onepr": 57
+        },
+        {
+          "sessionId": "M-0001-S03",
+          "globalNumber": 3,
+          "date": "2026-07-09",
+          "max": 40,
+          "onepr": 52
+        },
+        {
+          "sessionId": "M-0002-S01",
+          "globalNumber": 5,
+          "date": "2026-07-14",
+          "max": 40,
+          "onepr": 53
+        }
+      ]
+    },
+    {
+      "id": "lat_pulldown",
+      "name": "Вертикальная тяга блока",
+      "aliases": [
+        "Вертикальная тяга верхнего блока",
+        "Вертикальная тяга верхнего блока, нейтральный хват"
+      ],
+      "unit": "kg",
+      "color": "#D2BE2D",
+      "data": [
+        {
+          "sessionId": "M-0001-S01",
+          "globalNumber": 1,
+          "date": "2026-07-05",
+          "max": 50,
+          "onepr": 68
+        },
+        {
+          "sessionId": "M-0001-S03",
+          "globalNumber": 3,
+          "date": "2026-07-09",
+          "max": 50,
+          "onepr": 68
+        },
+        {
+          "sessionId": "M-0002-S01",
+          "globalNumber": 5,
+          "date": "2026-07-14",
+          "max": 50,
+          "onepr": 70
+        },
+        {
+          "sessionId": "M-0002-S03",
+          "globalNumber": 7,
+          "date": "2026-07-18",
+          "max": 50,
+          "onepr": 70
+        },
+        {
+          "sessionId": "M-0003-S01",
+          "globalNumber": 9,
+          "date": "2026-07-23",
+          "max": 55,
+          "onepr": 77
+        }
+      ]
+    },
+    {
+      "id": "lateral_raise_machine",
+      "name": "Махи (тренажёр/трос)",
+      "aliases": [
+        "Разводка в тренажёре",
+        "Махи в стороны в тренажёре (разводка)",
+        "Махи в стороны (трос/тренажёр)"
+      ],
+      "unit": "kg",
+      "color": "#2DB7D2",
+      "data": [
+        {
+          "sessionId": "M-0001-S01",
+          "globalNumber": 1,
+          "date": "2026-07-05",
+          "max": 15,
+          "onepr": null
+        },
+        {
+          "sessionId": "M-0002-S01",
+          "globalNumber": 5,
+          "date": "2026-07-14",
+          "max": 12,
+          "onepr": null
+        },
+        {
+          "sessionId": "M-0003-S01",
+          "globalNumber": 9,
+          "date": "2026-07-23",
+          "max": 12,
+          "onepr": null
+        }
+      ]
+    },
+    {
+      "id": "triceps_pushdown",
+      "name": "Разгибание на блоке (трицепс)",
+      "aliases": [
+        "Разгибание рук на верхнем блоке"
+      ],
+      "unit": "kg",
+      "color": "#D22D86",
+      "data": [
+        {
+          "sessionId": "M-0001-S01",
+          "globalNumber": 1,
+          "date": "2026-07-05",
+          "max": 25,
+          "onepr": 35
+        },
+        {
+          "sessionId": "M-0002-S01",
+          "globalNumber": 5,
+          "date": "2026-07-14",
+          "max": 20,
+          "onepr": 29
+        },
+        {
+          "sessionId": "M-0003-S01",
+          "globalNumber": 9,
+          "date": "2026-07-23",
+          "max": 20,
+          "onepr": 29
+        }
+      ]
+    },
+    {
+      "id": "barbell_curl",
+      "name": "Сгибание со штангой (бицепс)",
+      "aliases": [
+        "Сгибание рук со штангой"
+      ],
+      "unit": "kg",
+      "color": "#56D22D",
+      "data": [
+        {
+          "sessionId": "M-0001-S01",
+          "globalNumber": 1,
+          "date": "2026-07-05",
+          "max": 30,
+          "onepr": 40
+        },
+        {
+          "sessionId": "M-0002-S01",
+          "globalNumber": 5,
+          "date": "2026-07-14",
+          "max": 25,
+          "onepr": 33
+        },
+        {
+          "sessionId": "M-0003-S01",
+          "globalNumber": 9,
+          "date": "2026-07-23",
+          "max": 25,
+          "onepr": 36
+        }
+      ]
+    },
+    {
+      "id": "squat_smith",
+      "name": "Присед (Смит)",
+      "aliases": [
+        "Глубокий присед в Смите"
+      ],
+      "unit": "kg",
+      "color": "#342DD2",
+      "data": [
+        {
+          "sessionId": "M-0001-S02",
+          "globalNumber": 2,
+          "date": "2026-07-07",
+          "max": 45,
+          "onepr": 56
+        }
+      ]
+    },
+    {
+      "id": "rdl_smith",
+      "name": "Румынская тяга (Смит)",
+      "aliases": [
+        "Румынская тяга в Смите",
+        "Румынская тяга"
+      ],
+      "unit": "kg",
+      "color": "#D2642D",
+      "data": [
+        {
+          "sessionId": "M-0001-S02",
+          "globalNumber": 2,
+          "date": "2026-07-07",
+          "max": 65,
+          "onepr": 87
+        },
+        {
+          "sessionId": "M-0001-S04",
+          "globalNumber": 4,
+          "date": "2026-07-11",
+          "max": 65,
+          "onepr": 87
+        },
+        {
+          "sessionId": "M-0002-S02",
+          "globalNumber": 6,
+          "date": "2026-07-16",
+          "max": 65,
+          "onepr": 89
+        },
+        {
+          "sessionId": "M-0002-S04",
+          "globalNumber": 8,
+          "date": "2026-07-20",
+          "max": 65,
+          "onepr": 87
+        }
+      ]
+    },
+    {
+      "id": "leg_press",
+      "name": "Жим ногами (платформа)",
+      "aliases": [
+        "Жим платформы ногами"
+      ],
+      "unit": "kg",
+      "color": "#2DD294",
+      "data": [
+        {
+          "sessionId": "M-0001-S02",
+          "globalNumber": 2,
+          "date": "2026-07-07",
+          "max": 120,
+          "onepr": 168
+        },
+        {
+          "sessionId": "M-0002-S02",
+          "globalNumber": 6,
+          "date": "2026-07-16",
+          "max": 120,
+          "onepr": 168
+        }
+      ]
+    },
+    {
+      "id": "standing_calf_smith",
+      "name": "Икры (Смит стоя)",
+      "aliases": [
+        "Подъём на носки стоя в Смите",
+        "Икры в Смите стоя"
+      ],
+      "unit": "kg",
+      "color": "#C52DD2",
+      "data": [
+        {
+          "sessionId": "M-0001-S02",
+          "globalNumber": 2,
+          "date": "2026-07-07",
+          "max": 30,
+          "onepr": null
+        },
+        {
+          "sessionId": "M-0002-S02",
+          "globalNumber": 6,
+          "date": "2026-07-16",
+          "max": 35,
+          "onepr": null
+        }
+      ]
+    },
+    {
+      "id": "leg_curl",
+      "name": "Сгибание ног",
+      "aliases": [
+        "Сгибание ног в тренажёре"
+      ],
+      "unit": "kg",
+      "color": "#B0D22D",
+      "data": [
+        {
+          "sessionId": "M-0001-S02",
+          "globalNumber": 2,
+          "date": "2026-07-07",
+          "max": 45,
+          "onepr": 66
+        },
+        {
+          "sessionId": "M-0001-S04",
+          "globalNumber": 4,
+          "date": "2026-07-11",
+          "max": 45,
+          "onepr": 66
+        },
+        {
+          "sessionId": "M-0002-S02",
+          "globalNumber": 6,
+          "date": "2026-07-16",
+          "max": 45,
+          "onepr": 68
+        },
+        {
+          "sessionId": "M-0002-S04",
+          "globalNumber": 8,
+          "date": "2026-07-20",
+          "max": 45,
+          "onepr": 69
+        }
+      ]
+    },
+    {
+      "id": "paused_bench",
+      "name": "Жим лёжа с паузой",
+      "aliases": [
+        "Жим штанги лёжа с паузой 1 секунда"
+      ],
+      "unit": "kg",
+      "color": "#2D7FD2",
+      "data": [
+        {
+          "sessionId": "M-0001-S03",
+          "globalNumber": 3,
+          "date": "2026-07-09",
+          "max": 72.5,
+          "onepr": 92
+        },
+        {
+          "sessionId": "M-0002-S03",
+          "globalNumber": 7,
+          "date": "2026-07-18",
+          "max": 70,
+          "onepr": 89
+        }
+      ]
+    },
+    {
+      "id": "lateral_raise_db",
+      "name": "Махи гантелями",
+      "aliases": [
+        "Махи в стороны с гантелями"
+      ],
+      "unit": "kg_per_hand",
+      "color": "#D22D4F",
+      "data": [
+        {
+          "sessionId": "M-0001-S03",
+          "globalNumber": 3,
+          "date": "2026-07-09",
+          "max": 10,
+          "onepr": 14
+        },
+        {
+          "sessionId": "M-0002-S03",
+          "globalNumber": 7,
+          "date": "2026-07-18",
+          "max": 10,
+          "onepr": null
+        }
+      ]
+    },
+    {
+      "id": "hammer_curl",
+      "name": "Молотковые сгибания",
+      "aliases": [
+        "Молотковые сгибания"
+      ],
+      "unit": "kg_per_hand",
+      "color": "#2DD23A",
+      "data": [
+        {
+          "sessionId": "M-0001-S03",
+          "globalNumber": 3,
+          "date": "2026-07-09",
+          "max": 12,
+          "onepr": 18
+        },
+        {
+          "sessionId": "M-0002-S03",
+          "globalNumber": 7,
+          "date": "2026-07-18",
+          "max": 12,
+          "onepr": 18
+        }
+      ]
+    },
+    {
+      "id": "overhead_ext",
+      "name": "Разгибание из-за головы",
+      "aliases": [
+        "Разгибание из-за головы с гантелей"
+      ],
+      "unit": "kg",
+      "color": "#6B2DD2",
+      "data": [
+        {
+          "sessionId": "M-0001-S03",
+          "globalNumber": 3,
+          "date": "2026-07-09",
+          "max": 15,
+          "onepr": 21
+        },
+        {
+          "sessionId": "M-0002-S03",
+          "globalNumber": 7,
+          "date": "2026-07-18",
+          "max": 20,
+          "onepr": 29
+        }
+      ]
+    },
+    {
+      "id": "squat_barbell",
+      "name": "Присед (штанга)",
+      "aliases": [
+        "Глубокий присед со штангой"
+      ],
+      "unit": "kg",
+      "color": "#D29B2D",
+      "data": [
+        {
+          "sessionId": "M-0001-S04",
+          "globalNumber": 4,
+          "date": "2026-07-11",
+          "max": 50,
+          "onepr": 68
+        },
+        {
+          "sessionId": "M-0002-S02",
+          "globalNumber": 6,
+          "date": "2026-07-16",
+          "max": 55,
+          "onepr": 72
+        },
+        {
+          "sessionId": "M-0002-S04",
+          "globalNumber": 8,
+          "date": "2026-07-20",
+          "max": 50,
+          "onepr": 68
+        }
+      ]
+    },
+    {
+      "id": "bulgarian_split_squat",
+      "name": "Болгарские выпады",
+      "aliases": [
+        "Болгарские выпады"
+      ],
+      "unit": "kg",
+      "color": "#2DD2CB",
+      "data": [
+        {
+          "sessionId": "M-0001-S04",
+          "globalNumber": 4,
+          "date": "2026-07-11",
+          "max": 20,
+          "onepr": 29
+        }
+      ]
+    },
+    {
+      "id": "standing_calf_cable",
+      "name": "Икры (блок)",
+      "aliases": [
+        "Икры в блочном тренажёре"
+      ],
+      "unit": "kg",
+      "color": "#D22DA9",
+      "data": [
+        {
+          "sessionId": "M-0001-S04",
+          "globalNumber": 4,
+          "date": "2026-07-11",
+          "max": 55,
+          "onepr": null
+        },
+        {
+          "sessionId": "M-0002-S04",
+          "globalNumber": 8,
+          "date": "2026-07-20",
+          "max": 55,
+          "onepr": null
+        }
+      ]
+    },
+    {
+      "id": "incline_press_barbell",
+      "name": "Наклонный жим (штанга)",
+      "aliases": [
+        "Жим на наклонной со свободной штангой"
+      ],
+      "unit": "kg",
+      "color": "#79D22D",
+      "data": [
+        {
+          "sessionId": "M-0002-S03",
+          "globalNumber": 7,
+          "date": "2026-07-18",
+          "max": 60,
+          "onepr": 78
+        },
+        {
+          "sessionId": "M-0003-S01",
+          "globalNumber": 9,
+          "date": "2026-07-23",
+          "max": 50,
+          "onepr": 68
+        }
+      ]
+    },
+    {
+      "id": "leg_extension",
+      "name": "Разгибание ног",
+      "aliases": [
+        "Разгибание ног в тренажёре"
+      ],
+      "unit": "kg",
+      "color": "#2D48D2",
+      "data": [
+        {
+          "sessionId": "M-0002-S04",
+          "globalNumber": 8,
+          "date": "2026-07-20",
+          "max": 70,
+          "onepr": null
+        }
+      ]
+    }
+  ]
+}
