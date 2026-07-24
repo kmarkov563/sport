@@ -90,6 +90,32 @@
     .error{padding:18px;border-radius:14px;background:var(--rir-soft);color:var(--rir)}
     .loading{padding:48px;text-align:center;color:var(--muted)}
 
+    .mc-summary{margin-top:22px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
+    .mc-summary h2{font-size:16px;font-weight:850;margin:0 0 14px}
+    .mc-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+    .mc-metric{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:13px}
+    .mc-value{font-size:24px;font-weight:850;letter-spacing:-.02em}
+    .mc-name{font-size:13px;font-weight:760;margin-top:2px}
+    .mc-note{font-size:12px;color:var(--muted);line-height:1.5;margin-top:8px}
+    .mc-note b{color:var(--ink);font-weight:760}
+    .mc-muscles{margin-top:18px}
+    .mc-muscles h3{font-size:13px;font-weight:820;margin:0 0 4px}
+    .mc-muscles .sub{font-size:12px;color:var(--muted);margin:0 0 12px}
+    .mc-table{display:grid;grid-template-columns:auto 1fr auto auto;gap:9px 12px;align-items:center;font-size:13px}
+    .mc-m{font-weight:720}
+    .mc-bar{height:8px;border-radius:999px;background:var(--surface2)}
+    .mc-bar span{display:block;height:100%;border-radius:999px}
+    .mc-sets{font-weight:800;white-space:nowrap}
+    .mc-sets small{font-weight:600;color:var(--muted)}
+    .mc-ton{color:var(--muted);white-space:nowrap;text-align:right}
+    .mc-incomplete{font-size:12px;color:var(--muted);margin:-6px 0 12px}
+    .delta{font-size:12px;font-weight:800;white-space:nowrap}
+    .mc-value .delta{font-size:14px;margin-left:8px}
+    .delta.up{color:var(--accent-ink)}
+    .delta.down{color:#d64545}
+    .delta.flat{color:var(--muted)}
+    @media(prefers-color-scheme:dark){.delta.down{color:#f28b82}}
+
     :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
     @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
     @media(max-width:720px){
@@ -291,6 +317,72 @@
           </details>`;
       }
 
+      const MUSCLE_NORMS = {
+        "Грудь": [10, 22], "Спина": [10, 22], "Квадрицепс": [8, 18], "Бицепс бедра": [6, 14],
+        "Ягодицы": [4, 16], "Плечи": [8, 22], "Бицепс": [8, 18], "Трицепс": [6, 16],
+        "Икры": [8, 16], "Пресс": [6, 20], "Задняя цепь": [4, 12],
+      };
+      function muscleNorm(muscle) { return MUSCLE_NORMS[muscle] || [10, 20]; }
+      function muscleTone(sets, [min, max]) {
+        return sets >= min && sets <= max ? "var(--accent)" : "var(--rir)";
+      }
+
+      function deltaBadge(current, previous, format = String, compact = false) {
+        if (previous === null || previous === undefined) return "";
+        const change = current - previous;
+        const tone = change > 0 ? "up" : change < 0 ? "down" : "flat";
+        const arrow = change > 0 ? "▲" : "▼";
+        const text = change === 0 ? "0" : `${change > 0 ? "+" : "−"}${format(Math.abs(change))}`;
+        return `<span class="delta ${tone}">${arrow}${compact ? "" : " "}${text}</span>`;
+      }
+
+      function renderMicrocycleSummary(stats, prev, cycle) {
+        if (!stats) return "";
+        const fmt = value => value.toLocaleString("ru-RU");
+        const incomplete = cycle && !cycle.complete
+          ? `<p class="mc-incomplete">Микроцикл ещё идёт (${cycle.performed} из ${cycle.planned}) — сравнение с прошлым появится после завершения.</p>`
+          : "";
+        const muscleRows = Object.keys(stats.hardSetsByMuscle).map(muscle => {
+          const sets = stats.hardSetsByMuscle[muscle];
+          const tonnage = stats.tonnageByMuscleKg[muscle] || 0;
+          const [min, max] = muscleNorm(muscle);
+          const width = Math.min(sets / max, 1) * 100;
+          const prevSets = prev ? (prev.hardSetsByMuscle[muscle] || 0) : null;
+          return `
+            <div class="mc-m">${escapeHtml(muscle)}</div>
+            <div class="mc-bar"><span style="width:${width.toFixed(0)}%;background:${muscleTone(sets, [min, max])}"></span></div>
+            <div class="mc-sets">${sets} ${deltaBadge(sets, prevSets, String, true)} <small>/ норма ${min}–${max}</small></div>
+            <div class="mc-ton">${fmt(tonnage)} кг</div>`;
+        }).join("");
+        return `
+          <section class="mc-summary">
+            <h2>Итоги микроцикла</h2>
+            ${incomplete}
+            <div class="mc-metrics">
+              <div class="mc-metric">
+                <div class="mc-value">${fmt(stats.tonnageKg)} кг ${deltaBadge(stats.tonnageKg, prev?.tonnageKg, fmt)}</div>
+                <div class="mc-name">Тоннаж</div>
+                <div class="mc-note">Сколько всего поднято за микроцикл: вес × повторы по рабочим подходам (гантели ×2, блок/сторона ×2, плитка ×5 кг, вес тела = 1 кг). <b>Норма:</b> должен расти от цикла к циклу — это и есть прогрессирующая нагрузка.</div>
+              </div>
+              <div class="mc-metric">
+                <div class="mc-value">${stats.avgIntensityPct} % ${deltaBadge(stats.avgIntensityPct, prev?.avgIntensityPct)}</div>
+                <div class="mc-name">Средняя интенсивность</div>
+                <div class="mc-note">Средний рабочий вес относительно расчётного 1ПМ. <b>Норма:</b> 65–75 % — гипертрофия, 80 %+ — сила.</div>
+              </div>
+              <div class="mc-metric">
+                <div class="mc-value">${stats.hardSets} ${deltaBadge(stats.hardSets, prev?.hardSets)}</div>
+                <div class="mc-name">Рабочих подходов</div>
+                <div class="mc-note">Подходы близко к отказу (RIR ≤ 3). <b>Норма:</b> у каждой мышцы своя — большие тянут больше, мелкие меньше (см. таблицу). Микроцикл ≈ неделя.</div>
+              </div>
+            </div>
+            <div class="mc-muscles">
+              <h3>По мышцам за микроцикл</h3>
+              <p class="sub">Полоса — подходы относительно нормы мышцы; справа от числа — дельта к прошлому микроциклу.</p>
+              <div class="mc-table">${muscleRows}</div>
+            </div>
+          </section>`;
+      }
+
       function renderPlan() {
         const plan = state.plans[state.current];
         if (!plan) return;
@@ -320,8 +412,13 @@
           ? [plan.sessions[state.currentSession]]
           : plan.sessions;
         $("content").className = "";
+        const performed = plan.sessions.filter(session => session.performedAt).length;
+        const planned = plan.schedule?.sessionsPlanned ?? plan.sessions.length;
+        const complete = performed >= planned;
+        const prevStats = complete ? state.plans[state.current - 1]?.microcycleStats : null;
         $("content").innerHTML = `
-          <div class="sessions">${visibleSessions.map(renderSession).join("")}</div>`;
+          <div class="sessions">${visibleSessions.map(renderSession).join("")}</div>
+          ${renderMicrocycleSummary(plan.microcycleStats, prevStats, { performed, planned, complete })}`;
       }
 
       async function load() {
