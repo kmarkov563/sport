@@ -4,12 +4,7 @@
   "athlete": "man",
   "createdAt": "2026-07-05T18:30:00+04:00",
   "updatedAt": "2026-07-22T20:00:00+04:00",
-  "schedule": {
-    "kind": "every_other_day",
-    "sessionsPlanned": 4,
-    "defaultIntervalHours": 48,
-    "estimatedSessionMinutes": "75–95"
-  },
+  "schedule": { "kind": "every_other_day", "sessionsPlanned": 4, "defaultIntervalHours": 48, "estimatedSessionMinutes": "75–95" },
   "sessions": [
     {
       "sessionId": "M-0002-S01",
@@ -21,56 +16,84 @@
         {
           "name": "Жим штанги лёжа",
           "restSeconds": 240,
-          "loadBlocks": [
-            { "weight": 80, "unit": "kg", "reps": 5, "sets": 4, "rir": 2 }
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 80, "unit": "kg", "reps": 5, "sets": 4, "rir": 2 }
+              ]
+            }
           ]
         },
         {
           "name": "Горизонтальная тяга в тренажёре",
           "restSeconds": 150,
-          "loadBlocks": [
-            { "weight": 70, "unit": "kg", "reps": 10, "sets": 3, "rir": 2 }
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 70, "unit": "kg", "reps": 10, "sets": 3, "rir": 2 }
+              ]
+            }
           ]
         },
         {
           "name": "Жим на наклонной",
           "restSeconds": 180,
           "note": "Снаряд (Смит или свободная штанга) не уточнён.",
-          "loadBlocks": [
-            { "weight": 40, "unit": "kg", "reps": 8, "sets": 3, "rir": 2 }
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 40, "unit": "kg", "reps": 8, "sets": 3, "rir": 2 }
+              ]
+            }
           ]
         },
         {
           "name": "Вертикальная тяга верхнего блока",
           "restSeconds": 150,
           "note": "Первые два подхода — запас 2; третий дошёл до отказа с лёгким читингом на старте. Вес удержан.",
-          "loadBlocks": [
-            { "weight": 50, "unit": "kg", "reps": 10, "sets": 2, "rir": 2 },
-            { "weight": 50, "unit": "kg", "reps": 10, "sets": 1, "rir": 0 }
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 50, "unit": "kg", "reps": 10, "sets": 2, "rir": 2 },
+                { "weight": 50, "unit": "kg", "reps": 10, "sets": 1, "rir": 0 }
+              ]
+            }
           ]
         },
         {
           "name": "Махи в стороны в тренажёре (разводка)",
           "restSeconds": 150,
           "note": "Третий подход упал до 13 повторов (отказ).",
-          "loadBlocks": [
-            { "weight": 12, "unit": "kg", "reps": 15, "sets": 2, "rir": 1 },
-            { "weight": 12, "unit": "kg", "reps": 13, "sets": 1, "rir": 0 }
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 12, "unit": "kg", "reps": 15, "sets": 2, "rir": 1 },
+                { "weight": 12, "unit": "kg", "reps": 13, "sets": 1, "rir": 0 }
+              ]
+            }
           ]
         },
         {
           "name": "Разгибание рук на верхнем блоке",
           "restSeconds": 150,
-          "loadBlocks": [
-            { "weight": 20, "unit": "kg", "reps": 12, "sets": 3, "rir": 2 }
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 20, "unit": "kg", "reps": 12, "sets": 3, "rir": 2 }
+              ]
+            }
           ]
         },
         {
           "name": "Сгибание рук со штангой",
           "restSeconds": 150,
           "note": "Первый подход чисто, 2-й и 3-й — с читингом (у отказа). Вес удержан.",
-          "loadBlocks": [
-            { "weight": 25, "unit": "kg", "reps": 10, "sets": 3, "rir": 0 }
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 25, "unit": "kg", "reps": 10, "sets": 3, "rir": 0 }
+              ]
+            }
           ]
         }
       ]
@@ -86,50 +109,74 @@
           "name": "Глубокий присед со штангой",
           "restSeconds": 240,
           "note": "Комфортно, запас 3+ — вес недогружен (цель была запас 2).",
-          "loadBlocks": [
-            { "weight": 55, "unit": "kg", "reps": 6, "sets": 4, "rir": 3 }
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 55, "unit": "kg", "reps": 6, "sets": 4, "rir": 3 }
+              ]
+            }
           ]
         },
         {
           "name": "Румынская тяга в Смите",
           "restSeconds": 180,
           "note": "Субъективно тяжело, но по повторам запас 3–4. Вес удержан.",
-          "loadBlocks": [
-            { "weight": 65, "unit": "kg", "reps": 8, "sets": 3, "rir": 3 }
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 65, "unit": "kg", "reps": 8, "sets": 3, "rir": 3 }
+              ]
+            }
           ]
         },
         {
           "name": "Жим платформы ногами",
           "restSeconds": 180,
           "note": "Медленный подконтрольный темп с паузами 1–2 с, жгло. Чистый запас 2 на всех подходах.",
-          "loadBlocks": [
-            { "weight": 120, "unit": "kg", "reps": 10, "sets": 3, "rir": 2 }
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 120, "unit": "kg", "reps": 10, "sets": 3, "rir": 2 }
+              ]
+            }
           ]
         },
         {
           "name": "Сгибание ног в тренажёре",
           "restSeconds": 120,
           "note": "Авторегуляция: от запаса 3–4 к отказу на третьем подходе.",
-          "loadBlocks": [
-            { "weight": 45, "unit": "kg", "reps": 12, "sets": 1, "rir": 3 },
-            { "weight": 45, "unit": "kg", "reps": 12, "sets": 1, "rir": 2 },
-            { "weight": 45, "unit": "kg", "reps": 12, "sets": 1, "rir": 0 }
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 45, "unit": "kg", "reps": 12, "sets": 1, "rir": 3 },
+                { "weight": 45, "unit": "kg", "reps": 12, "sets": 1, "rir": 2 },
+                { "weight": 45, "unit": "kg", "reps": 12, "sets": 1, "rir": 0 }
+              ]
+            }
           ]
         },
         {
           "name": "Икры в Смите стоя",
           "restSeconds": 120,
           "note": "Сделал в Смите стоя вместо блочного тренажёра; медленно, подконтрольно, жгло.",
-          "loadBlocks": [
-            { "weight": 35, "unit": "kg", "reps": 15, "sets": 3, "rir": 2 }
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 35, "unit": "kg", "reps": 15, "sets": 3, "rir": 2 }
+              ]
+            }
           ]
         },
         {
           "name": "Пресс",
           "restSeconds": 60,
           "note": "Атлет сам добавил в конце 2 подхода × 15 и попросил внести пресс в план.",
-          "loadBlocks": [
-            { "reps": 15, "sets": 2 }
+          "variants": [
+            {
+              "loadBlocks": [
+                { "reps": 15, "sets": 2 }
+              ]
+            }
           ]
         }
       ]
@@ -145,64 +192,92 @@
           "name": "Жим на наклонной со свободной штангой",
           "restSeconds": 180,
           "note": "Назначенные 40 кг были очень легки, поднял сам. Свежим 60×8 идёт на запас 1–2, но на 4 подхода не держится: 2-й подход дошёл до отказа, затем откат на 50. Рабочий первым упражнением ≈ 55×8. Отказ на 2-м подходе стоил жима с паузой (3-е упражнение).",
-          "loadBlocks": [
-            { "weight": 60, "unit": "kg", "reps": 8, "sets": 1, "rir": 1 },
-            { "weight": 60, "unit": "kg", "reps": 8, "sets": 1, "rir": 0 },
-            { "weight": 50, "unit": "kg", "reps": 8, "sets": 1, "rir": 1 },
-            { "weight": 50, "unit": "kg", "reps": 8, "sets": 1, "rir": 2 }
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 60, "unit": "kg", "reps": 8, "sets": 1, "rir": 1 },
+                { "weight": 60, "unit": "kg", "reps": 8, "sets": 1, "rir": 0 },
+                { "weight": 50, "unit": "kg", "reps": 8, "sets": 1, "rir": 1 },
+                { "weight": 50, "unit": "kg", "reps": 8, "sets": 1, "rir": 2 }
+              ]
+            }
           ]
         },
         {
           "name": "Вертикальная тяга верхнего блока, нейтральный хват",
           "restSeconds": 150,
           "note": "Все 3 подхода подконтрольно, полное растяжение, чистый запас 2–3 — недогружено, можно повышать.",
-          "loadBlocks": [
-            { "weight": 50, "unit": "kg", "reps": 10, "sets": 3, "rir": 2 }
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 50, "unit": "kg", "reps": 10, "sets": 3, "rir": 2 }
+              ]
+            }
           ]
         },
         {
           "name": "Жим штанги лёжа с паузой 1 секунда",
           "restSeconds": 210,
           "note": "Запас по подходам 2→1→0, третий почти в отказ. Условие перехода на 72.5 (все 3 с запасом 2) не выполнено; причина — отказ на наклонном жиме первым упражнением.",
-          "loadBlocks": [
-            { "weight": 70, "unit": "kg", "reps": 6, "sets": 1, "rir": 2 },
-            { "weight": 70, "unit": "kg", "reps": 6, "sets": 1, "rir": 1 },
-            { "weight": 70, "unit": "kg", "reps": 6, "sets": 1, "rir": 0 }
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 70, "unit": "kg", "reps": 6, "sets": 1, "rir": 2 },
+                { "weight": 70, "unit": "kg", "reps": 6, "sets": 1, "rir": 1 },
+                { "weight": 70, "unit": "kg", "reps": 6, "sets": 1, "rir": 0 }
+              ]
+            }
           ]
         },
         {
           "name": "Горизонтальная тяга в тренажёре",
           "restSeconds": 180,
           "note": "Предутомлённая позиция (после жима с паузой). Точно в цель; снижение 65→60 после читинга в прошлом микроцикле оправдалось.",
-          "loadBlocks": [
-            { "weight": 60, "unit": "kg", "reps": 10, "sets": 1, "rir": 3 },
-            { "weight": 60, "unit": "kg", "reps": 10, "sets": 1, "rir": 2 },
-            { "weight": 60, "unit": "kg", "reps": 10, "sets": 1, "rir": 1 }
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 60, "unit": "kg", "reps": 10, "sets": 1, "rir": 3 },
+                { "weight": 60, "unit": "kg", "reps": 10, "sets": 1, "rir": 2 },
+                { "weight": 60, "unit": "kg", "reps": 10, "sets": 1, "rir": 1 }
+              ]
+            }
           ]
         },
         {
           "name": "Махи в стороны с гантелями",
           "restSeconds": 150,
           "note": "Профиль запас 1→0→отказ — норма для изоляции на дельту. Вес удержан.",
-          "loadBlocks": [
-            { "weight": 10, "unit": "kg_per_hand", "reps": 15, "sets": 3, "rir": 0 }
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 10, "unit": "kg_per_hand", "reps": 15, "sets": 3, "rir": 0 }
+              ]
+            }
           ]
         },
         {
           "name": "Молотковые сгибания",
           "restSeconds": 150,
           "note": "1-й подход чисто, 2-й с читингом в конце. Чистых 2 подходов ещё нет.",
-          "loadBlocks": [
-            { "weight": 12, "unit": "kg_per_hand", "reps": 12, "sets": 1, "rir": 2 },
-            { "weight": 12, "unit": "kg_per_hand", "reps": 12, "sets": 1, "rir": 0 }
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 12, "unit": "kg_per_hand", "reps": 12, "sets": 1, "rir": 2 },
+                { "weight": 12, "unit": "kg_per_hand", "reps": 12, "sets": 1, "rir": 0 }
+              ]
+            }
           ]
         },
         {
           "name": "Разгибание из-за головы с гантелей",
           "restSeconds": 150,
           "note": "20 кг обеими руками идут на запас 1–2 — сила не лимитирует. Лимитирует позиция: стоя дискомфорт пояснице, одноручный вариант — боль в связках локтя. Согласована замена на опёртую позицию.",
-          "loadBlocks": [
-            { "weight": 20, "unit": "kg", "reps": 12, "sets": 1, "rir": 1 }
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 20, "unit": "kg", "reps": 12, "sets": 1, "rir": 1 }
+              ]
+            }
           ]
         }
       ]
@@ -218,55 +293,74 @@
           "name": "Румынская тяга",
           "restSeconds": 210,
           "note": "Отдельно не прокомментирована — по правилу выполнена по плану. Снаряд (Смит/штанга) не уточнён, оба варианта были на 65.",
-          "loadBlocks": [
-            { "weight": 65, "unit": "kg", "reps": 8, "sets": 4, "rir": 2 }
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 65, "unit": "kg", "reps": 8, "sets": 4, "rir": 2 }
+              ]
+            }
           ]
         },
         {
           "name": "Глубокий присед со штангой",
           "restSeconds": 180,
           "note": "Отдельно не прокомментирован — по правилу выполнен по плану. Снаряд не уточнён; записано по штанге 50 (как в последних тренировках).",
-          "loadBlocks": [
-            { "weight": 50, "unit": "kg", "reps": 8, "sets": 3, "rir": 3 }
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 50, "unit": "kg", "reps": 8, "sets": 3, "rir": 3 }
+              ]
+            }
           ]
         },
         {
           "name": "Разгибание ног в тренажёре",
           "restSeconds": 120,
           "note": "Тренажёр без килограммовой шкалы, нагрузка в плитках. 14 плиток × 14, жжение в последних повторах.",
-          "loadBlocks": [
-            { "weight": 14, "unit": "plates", "reps": 14, "sets": 3, "rir": 1 }
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 14, "unit": "plates", "reps": 14, "sets": 3, "rir": 1 }
+              ]
+            }
           ]
         },
         {
           "name": "Сгибание ног в тренажёре",
           "restSeconds": 120,
           "note": "Довольно легко, без жжения (в прошлом микроцикле 3-й подход был у отказа) — 45 перерос.",
-          "loadBlocks": [
-            { "weight": 45, "unit": "kg", "reps": 12, "sets": 3, "rir": 4 }
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 45, "unit": "kg", "reps": 12, "sets": 3, "rir": 4 }
+              ]
+            }
           ]
         },
         {
           "name": "Икры в блочном тренажёре",
           "restSeconds": 120,
           "note": "Отдельно не прокомментированы — по правилу выполнены по плану. Снаряд не уточнён; записано по тренажёру 55.",
-          "loadBlocks": [
-            { "weight": 55, "unit": "kg", "reps": 15, "sets": 3, "rir": 2 }
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 55, "unit": "kg", "reps": 15, "sets": 3, "rir": 2 }
+              ]
+            }
           ]
         },
-        {
-          "name": "Пресс",
-          "restSeconds": 60,
-          "note": "Не выполнен — атлет решил не делать (просто не захотел), хотя время было.",
-          "loadBlocks": []
-        },
+        { "name": "Пресс", "restSeconds": 60, "note": "Не выполнен — атлет решил не делать (просто не захотел), хотя время было.", "variants": [] },
         {
           "name": "Жим штанги лёжа (добавлено атлетом)",
           "restSeconds": 180,
           "note": "Добавлен в конце самим атлетом — осталось время. Обычный жим, не паузный. Одиночный на 100 идёт с запасом 1–2 — подтверждает разовый максимум ~100.",
-          "loadBlocks": [
-            { "weight": 80, "unit": "kg", "reps": 5, "sets": 3 },
-            { "weight": 100, "unit": "kg", "reps": 1, "sets": 1, "rir": 2 }
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 80, "unit": "kg", "reps": 5, "sets": 3 },
+                { "weight": 100, "unit": "kg", "reps": 1, "sets": 1, "rir": 2 }
+              ]
+            }
           ]
         }
       ]

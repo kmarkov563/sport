@@ -9,80 +9,96 @@
   <style>
     *{box-sizing:border-box}
     :root{
-      --bg:#f3f4f1;--surface:#fff;--surface2:#f8f8f6;--text:#171816;--muted:#696d66;
-      --line:#dfe2dc;--accent:#26734d;--accent2:#e1f1e8;--warm:#9a5a13;--warmbg:#fff1dc;
-      --shadow:0 10px 30px rgba(25,32,27,.07);--radius:18px
+      --bg:#f1f4ef;--surface:#ffffff;--surface2:#f4f7f2;
+      --ink:#15211a;--muted:#69726b;--line:#e3e7e0;
+      --accent:#1c7a4b;--accent-ink:#12613b;--accent-soft:#e2f1e9;
+      --rir:#b26a10;--rir-soft:#faedd6;
+      --radius:16px;--shadow:0 8px 26px rgba(19,40,28,.07)
     }
     @media(prefers-color-scheme:dark){
       :root{
-        --bg:#111512;--surface:#181d19;--surface2:#202621;--text:#edf2ed;--muted:#a5ada6;
-        --line:#333b35;--accent:#6ed29a;--accent2:#183826;--warm:#ffc273;--warmbg:#3d2b16;
-        --shadow:0 12px 36px rgba(0,0,0,.24)
+        --bg:#0f1512;--surface:#161c18;--surface2:#1c231e;
+        --ink:#eaf1eb;--muted:#9aa39c;--line:#2c342e;
+        --accent:#5fce93;--accent-ink:#8ee0b1;--accent-soft:#173225;
+        --rir:#f2b866;--rir-soft:#3a2c14;
+        --shadow:0 14px 40px rgba(0,0,0,.3)
       }
     }
     html{scroll-behavior:smooth}
-    body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
     button{font:inherit}
-    .shell{width:min(1040px,100%);margin:auto;padding:28px 18px 72px}
-    .controls{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(14px);padding:10px 0 12px;margin-bottom:12px}
+    .shell{width:min(920px,100%);margin:auto;padding:24px 18px 72px}
+
+    .controls{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);padding:12px 0;margin-bottom:14px}
     .topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-    .back{color:var(--muted);text-decoration:none;font-weight:650}
-    .back:hover{color:var(--text)}
+    .back{color:var(--muted);text-decoration:none;font-weight:650;font-size:14px}
+    .back:hover{color:var(--ink)}
     .plan-nav{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-    .nav-button{border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:12px;padding:10px 13px;cursor:pointer}
+    .nav-button{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:11px;width:38px;height:38px;display:grid;place-items:center;cursor:pointer;transition:border-color .12s,background .12s}
+    .nav-button:hover:not(:disabled){border-color:var(--accent)}
     .nav-button:disabled{opacity:.35;cursor:not-allowed}
-    .today-button{background:var(--accent);border-color:var(--accent);color:var(--bg);font-weight:820}
-    .plan-label{font-size:13px;font-weight:800;min-width:92px;text-align:center}
-    .workout-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:10px}
-    .mode-switch,.session-links{display:flex;gap:6px}
-    .tool-button{border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:10px;padding:7px 10px;cursor:pointer;font-size:12px;font-weight:760}
-    .tool-button:hover{color:var(--text)}
-    .tool-button.active{background:var(--accent2);border-color:color-mix(in srgb,var(--accent) 42%,var(--line));color:var(--accent)}
-    .session-links .tool-button{transition:box-shadow .12s,background .12s,border-color .12s,color .12s}
-    /* выполненная тренировка — заливка зелёным светлым */
-    .session-links .st-done{background:var(--accent2);border-color:color-mix(in srgb,var(--accent) 42%,var(--line));color:var(--accent)}
-    /* текущая (первая запланированная) — сплошной акцент */
-    .session-links .st-current{background:var(--accent);border-color:var(--accent);color:var(--bg);font-weight:820}
-    /* пропущенная/отменённая — приглушённый тёплый */
-    .session-links .st-skipped{background:var(--warmbg);border-color:color-mix(in srgb,var(--warm) 40%,var(--line));color:var(--warm)}
-    /* выбранный квадратик — тёплое кольцо поверх любого состояния */
-    .session-links .tool-button.selected{box-shadow:0 0 0 2px var(--surface),0 0 0 4px var(--warm)}
+    .today-button{width:auto;padding:0 15px;background:var(--accent);border-color:var(--accent);color:#fff;font-weight:800}
+    .plan-label{font-size:13px;font-weight:800;min-width:86px;text-align:center;letter-spacing:.02em}
+    .workout-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px}
+    .mode-switch{display:flex;gap:4px;background:var(--surface2);padding:3px;border-radius:11px;border:1px solid var(--line)}
+    .mode-switch .tool-button{border:0;background:transparent;color:var(--muted)}
+    .mode-switch .tool-button.active{background:var(--surface);box-shadow:var(--shadow);color:var(--ink)}
+    .session-links{display:flex;gap:6px}
+    .tool-button{border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:10px;padding:8px 11px;cursor:pointer;font-size:12px;font-weight:760;transition:all .12s}
+    .tool-button:hover{color:var(--ink)}
+    .session-links .st-done{background:var(--accent-soft);border-color:transparent;color:var(--accent-ink)}
+    .session-links .st-current{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:840}
+    .session-links .tool-button.selected{box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--rir)}
+
     .sessions{display:grid;gap:14px}
-    details.session{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;scroll-margin-top:130px}
-    details.session[open]{border-color:color-mix(in srgb,var(--accent) 32%,var(--line))}
-    summary{list-style:none;display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:18px;cursor:pointer}
+    details.session{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;scroll-margin-top:140px}
+    details.session[open]{border-color:color-mix(in srgb,var(--accent) 30%,var(--line))}
+    summary{list-style:none;display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;padding:16px 18px;cursor:pointer}
     summary::-webkit-details-marker{display:none}
-    .sequence{display:grid;place-items:center;width:42px;height:42px;border-radius:13px;background:var(--surface2);font-weight:850;font-size:18px}
-    .session-title{font-size:17px;font-weight:820;letter-spacing:-.01em}
-    .session-meta{font-size:12px;color:var(--muted);margin-top:2px}
-    .badge{padding:5px 9px;border-radius:999px;font-size:11px;font-weight:800;background:var(--accent2);color:var(--accent)}
-    .badge.completed{background:var(--accent2)}
-    .badge.skipped,.badge.cancelled{background:var(--warmbg);color:var(--warm)}
-    .session-body{border-top:1px solid var(--line);padding:5px 18px 18px}
-    .exercise{display:grid;grid-template-columns:minmax(190px,1.2fr) minmax(240px,2fr) auto;gap:14px;padding:15px 0;border-bottom:1px solid var(--line);align-items:center}
+    .sequence{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;background:var(--accent-soft);color:var(--accent-ink);font-weight:850;font-size:19px}
+    details.session[open] .sequence{background:var(--accent);color:#fff}
+    .session-title{font-size:16px;font-weight:820;letter-spacing:-.01em}
+    .session-meta{font-size:12px;color:var(--muted);margin-top:3px}
+    .badge{padding:5px 11px;border-radius:999px;font-size:11px;font-weight:820;letter-spacing:.02em;white-space:nowrap}
+    .badge.completed{background:var(--accent-soft);color:var(--accent-ink)}
+    .badge.current{background:var(--accent);color:#fff}
+    .badge.planned{background:var(--surface2);color:var(--muted);border:1px solid var(--line)}
+    .session-body{border-top:1px solid var(--line);padding:6px 18px 14px}
+    .session-note{margin:12px 0 6px;padding:11px 14px;background:var(--accent-soft);border-radius:12px;font-size:13px;line-height:1.5;color:var(--accent-ink)}
+
+    .exercise{display:grid;grid-template-columns:minmax(180px,1fr) minmax(190px,1.05fr);gap:18px;padding:15px 0;border-bottom:1px solid var(--line);align-items:start}
     .exercise:last-child{border-bottom:0}
-    .exercise-name{font-weight:780}
-    .tech{font-size:11px;color:var(--muted);margin-top:4px}
-    .working{font-size:15px;font-weight:760}
-    .working.actual-line{color:var(--accent)}
-    .warmup{font-size:11px;color:var(--muted);margin-top:4px}
-    .params{text-align:right;font-size:12px;color:var(--muted);white-space:nowrap}
-    .actual{margin-top:9px;padding:9px 11px;border-radius:10px;background:var(--accent2);font-size:12px}
-    .error{padding:18px;border-radius:14px;background:var(--warmbg);color:var(--warm)}
-    .loading{padding:40px;text-align:center;color:var(--muted)}
+    .ex-name{font-weight:740;font-size:15px;line-height:1.35}
+    .ex-index{display:inline-grid;place-items:center;min-width:20px;height:20px;margin-right:8px;border-radius:6px;background:var(--surface2);color:var(--muted);font-size:12px;font-weight:800}
+    .note{margin-top:7px;font-size:12.5px;color:var(--muted);line-height:1.5}
+    .note .star{color:var(--accent);font-weight:900;margin-right:3px}
+    .sets{display:flex;flex-direction:column;gap:6px}
+    .set{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+    .variant+.variant{margin-top:11px;padding-top:11px;border-top:1px dashed var(--line)}
+    .variant-label{font-size:10.5px;font-weight:820;color:var(--accent);text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px}
+    .load{font-weight:730;font-size:15px}
+    .exercise.done .load{color:var(--accent-ink)}
+    .rir{font-size:10.5px;font-weight:700;color:var(--muted);background:var(--surface2);padding:1px 7px;border-radius:999px}
+    .set .star{color:var(--accent);font-weight:900;font-size:15px}
+    .rest{margin-top:9px;font-size:12px;color:var(--muted)}
+
+    .error{padding:18px;border-radius:14px;background:var(--rir-soft);color:var(--rir)}
+    .loading{padding:48px;text-align:center;color:var(--muted)}
+
+    :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+    @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
     @media(max-width:720px){
-      .shell{padding:20px 12px 48px}
-      .workout-toolbar{align-items:flex-start;flex-direction:column}
-      .session-links{width:100%;display:grid;grid-template-columns:repeat(4,1fr)}
-      .session-links .tool-button{padding-inline:4px}
-      .exercise{grid-template-columns:1fr}
-      .params{text-align:left}
-      summary{grid-template-columns:auto 1fr}.badge{grid-column:2;justify-self:start}
+      .shell{padding:18px 12px 48px}
+      .workout-toolbar{align-items:stretch;flex-direction:column}
+      .session-links{display:grid;grid-template-columns:repeat(4,1fr)}
+      .exercise{grid-template-columns:1fr;gap:10px}
+      summary{grid-template-columns:auto 1fr}
+      .badge{grid-column:2;justify-self:start}
     }
   </style>
 </head>
 <body>
-  <div id="offline-banner" hidden style="position:fixed;left:0;right:0;bottom:0;z-index:9999;background:var(--warmbg);color:var(--warm);text-align:center;padding:9px 12px;font-size:13px;font-weight:700;border-top:1px solid color-mix(in srgb,var(--warm) 40%,transparent)">
+  <div id="offline-banner" hidden style="position:fixed;left:0;right:0;bottom:0;z-index:9999;background:var(--rir-soft);color:var(--rir);text-align:center;padding:9px 12px;font-size:13px;font-weight:700;border-top:1px solid color-mix(in srgb,var(--rir) 40%,transparent)">
     Офлайн — показаны сохранённые данные
   </div>
   <main class="shell">
@@ -128,10 +144,22 @@
         .replaceAll("&", "&amp;").replaceAll("<", "&lt;")
         .replaceAll(">", "&gt;").replaceAll('"', "&quot;");
       const number = value => String(value).replace(".", ",");
-      const statusLabel = {
-        planned: "Запланировано", active: "Активный", completed: "Выполнено",
-        skipped: "Пропущено", cancelled: "Отменено", superseded: "Заменён"
-      };
+      const statusLabel = { completed: "Выполнено", current: "Текущая", planned: "Запланировано" };
+
+      function currentGlobalNumber() {
+        const id = state.index?.currentSessionId;
+        for (const plan of state.plans) {
+          const session = plan.sessions.find(item => item.sessionId === id);
+          if (session) return session.globalNumber;
+        }
+        return null;
+      }
+      function sessionStatus(session) {
+        if (session.sessionId === state.index?.currentSessionId) return "current";
+        const current = currentGlobalNumber();
+        if (current === null || session.globalNumber < current) return "completed";
+        return "planned";
+      }
 
       function applyUrlState() {
         const params = new URLSearchParams(window.location.search);
@@ -188,106 +216,56 @@
           ?.scrollIntoView({ behavior: "smooth", block: "start" });
       }
 
-      function formatBlock(block) {
-        if (block.durationSeconds) {
-          return `${block.durationSeconds} сек × ${block.sets}`;
-        }
-        if (block.unit === "machine_base") {
-          const lbl = block.label ? `${block.label}: ` : "";
-          return `${lbl}базовый вес × ${block.reps} × ${block.sets}`;
-        }
-        if (block.weight === undefined || block.weight === null) {
-          const lbl = block.label ? `${block.label}: ` : "";
-          return `${lbl}${block.reps} × ${block.sets}`;
-        }
-        const unit = block.unit === "kg_per_hand" ? " кг/рука" :
-          block.unit === "kg_per_side" ? " кг/сторона" :
-          block.unit === "bodyweight" ? " · свой вес" :
-          block.unit === "plates" ? " плиток" : " кг";
-        const alt = (block.altWeight !== undefined && block.altWeight !== null)
-          ? ` (или ${number(block.altWeight)})` : "";
-        const label = block.label ? `${block.label}: ` : "";
-        return `${label}${number(block.weight)}${unit}${alt} × ${block.reps} × ${block.sets}`;
+      function unitLabel(unit) {
+        return unit === "kg_per_hand" ? " кг/рука"
+          : unit === "kg_per_side" ? " кг/сторона"
+          : unit === "plates" ? " плиток" : " кг";
       }
 
-      function formatBlocks(blocks) {
-        return (blocks || []).map(formatBlock).join("; ");
+      function renderSet(block) {
+        const load = block.weight === undefined || block.weight === null
+          ? `${block.reps} × ${block.sets}`
+          : `${number(block.weight)}${unitLabel(block.unit)} × ${block.reps} × ${block.sets}`;
+        const rir = block.rir === undefined || block.rir === null ? "" : `<span class="rir">RIR ${block.rir}</span>`;
+        const star = block.note ? `<span class="star">*</span>` : "";
+        return `<div class="set"><span class="load">${escapeHtml(load)}</span>${rir}${star}</div>`;
       }
 
-      function formatActualBlock(block) {
-        const base = formatBlock(block);
-        const rir = block.rir;
-        if (rir === undefined || rir === null || rir === "") return base;
-        if (typeof rir === "string" && /разм/i.test(rir)) return `${base} (разминка)`;
-        return `${base} · RIR ${rir}`;
+      function renderVariant(variant) {
+        const blocks = variant.loadBlocks || [];
+        const label = variant.label ? `<div class="variant-label">${escapeHtml(variant.label)}</div>` : "";
+        const sets = blocks.map(renderSet).join("");
+        const blockNotes = blocks.filter(block => block.note)
+          .map(block => `<div class="note"><span class="star">*</span>${escapeHtml(block.note)}</div>`).join("");
+        const variantNote = variant.note ? `<div class="note">${escapeHtml(variant.note)}</div>` : "";
+        return `<div class="variant">${label}<div class="sets">${sets}</div>${variantNote}${blockNotes}</div>`;
       }
 
-      function formatActual(blocks) {
-        return (blocks || []).map(formatActualBlock).join("; ");
-      }
-
-      function renderExercise(exercise, actualByOrder, completed) {
-        const actualEx = actualByOrder ? actualByOrder[exercise.order] : null;
-        const hasActual = completed && actualEx && Array.isArray(actualEx.performed) && actualEx.performed.length;
-
-        if (hasActual) {
-          const subNote = actualEx.substitutedFrom
-            ? ` <span class="tech">(вместо: ${escapeHtml(actualEx.substitutedFrom)})</span>` : "";
-          const exNote = actualEx.note ? `<div class="tech">${escapeHtml(actualEx.note)}</div>` : "";
-          return `
-            <div class="exercise">
-              <div>
-                <div class="exercise-name">${exercise.order}. ${escapeHtml(actualEx.name || exercise.name)}${subNote}</div>
-                ${exNote}
-              </div>
-              <div>
-                <div class="working actual-line">${escapeHtml(formatActual(actualEx.performed))}</div>
-              </div>
-              <div class="params"><span class="badge completed">Факт</span></div>
-            </div>`;
-        }
-
-        if (completed && actualEx && (actualEx.skipped || actualEx.note)) {
-          const line = actualEx.note ? escapeHtml(actualEx.note) : "Пропущено";
-          return `
-            <div class="exercise">
-              <div>
-                <div class="exercise-name">${exercise.order}. ${escapeHtml(actualEx.name || exercise.name)}</div>
-              </div>
-              <div>
-                <div class="working" style="color:var(--warm)">${line}</div>
-              </div>
-              <div class="params"><span class="badge skipped">Пропущено</span></div>
-            </div>`;
-        }
-
-        const warmup = formatBlocks(exercise.warmupBlocks);
+      function renderExercise(exercise, index, completed) {
+        const variants = (exercise.variants || []).map(renderVariant).join("");
+        const exerciseNote = exercise.note ? `<div class="note">${escapeHtml(exercise.note)}</div>` : "";
+        const rest = exercise.restSeconds
+          ? `<div class="rest">Отдых ${Math.round(exercise.restSeconds / 60 * 10) / 10} мин</div>` : "";
         return `
-          <div class="exercise">
+          <div class="exercise${completed ? " done" : ""}">
             <div>
-              <div class="exercise-name">${exercise.order}. ${escapeHtml(exercise.name)}</div>
-              ${exercise.technicalNote ? `<div class="tech">${escapeHtml(exercise.technicalNote)}</div>` : ""}
+              <div class="ex-name"><span class="ex-index">${index + 1}</span>${escapeHtml(exercise.name)}</div>
+              ${exerciseNote}
             </div>
             <div>
-              <div class="working">${escapeHtml(formatBlocks(exercise.loadBlocks))}</div>
-              ${warmup ? `<div class="warmup">Разминка: ${escapeHtml(warmup)}</div>` : ""}
+              ${variants}
+              ${rest}
             </div>
-            <div class="params">Отдых ${Math.round(exercise.restSeconds / 60 * 10) / 10} мин<br>ожидаемый RIR ${exercise.expectedRir}</div>
           </div>`;
       }
 
-      function renderSession(session, index) {
-        const completed = session.status === "completed";
-        const actualByOrder = {};
-        if (session.actual && Array.isArray(session.actual.exercises)) {
-          session.actual.exercises.forEach(a => { actualByOrder[a.order] = a; });
-        }
-        const prescribedOrders = new Set(session.prescribed.exercises.map(ex => ex.order));
-        const addedExercises = (session.actual?.exercises || [])
-          .filter(actualEx => !prescribedOrders.has(actualEx.order));
+      function renderSession(session) {
+        const status = sessionStatus(session);
+        const completed = status === "completed";
         const interval = session.recommendedIntervalAfterPreviousHours
           ? `через ${session.recommendedIntervalAfterPreviousHours} ч после предыдущей`
           : "первая тренировка плана";
+        const note = session.note ? `<div class="session-note">${escapeHtml(session.note)}</div>` : "";
         return `
           <details class="session" id="session-${escapeHtml(session.sessionId)}" open>
             <summary>
@@ -296,10 +274,11 @@
                 <span class="session-title">${escapeHtml(session.focus)}</span>
                 <span class="session-meta">Тренировка ${session.globalNumber} · ${escapeHtml(session.sessionId)} · ~${session.estimatedDurationMinutes} мин · ${interval}</span>
               </span>
-              <span class="badge ${session.status}">${statusLabel[session.status] || session.status}</span>
+              <span class="badge ${status}">${statusLabel[status] || status}</span>
             </summary>
             <div class="session-body">
-              ${[...session.prescribed.exercises, ...addedExercises].map(ex => renderExercise(ex, actualByOrder, completed)).join("")}
+              ${note}
+              ${(session.workout || []).map((exercise, index) => renderExercise(exercise, index, completed)).join("")}
             </div>
           </details>`;
       }
@@ -315,10 +294,9 @@
         $("today-button").disabled = !currentSessionId;
         $("session-links").innerHTML = plan.sessions.map((session, index) => {
           const isSelected = index === state.currentSession;
-          const statusClass = session.status === "completed" ? "st-done"
-            : session.sessionId === currentSessionId ? "st-current"
-            : (session.status === "skipped" || session.status === "cancelled" || session.status === "superseded") ? "st-skipped"
-            : "";
+          const status = sessionStatus(session);
+          const statusClass = status === "completed" ? "st-done"
+            : status === "current" ? "st-current" : "";
           const classes = ["tool-button", statusClass, isSelected ? "selected" : ""].filter(Boolean).join(" ");
           return `
             <button class="${classes}"
