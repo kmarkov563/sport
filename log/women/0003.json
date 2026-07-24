@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "planId": "0003",
   "athlete": "women",
-  "createdAt": "2026-07-16T21:00:00+04:00",
+  "createdAt": "2026-07-24T21:00:00+04:00",
   "updatedAt": "2026-07-24T21:00:00+04:00",
   "schedule": { "kind": "every_other_day", "sessionsPlanned": 4, "defaultIntervalHours": 48, "estimatedSessionMinutes": "60–75" },
   "sessions": [
@@ -24,23 +24,24 @@
         {
           "name": "Ягодичный мост со штангой",
           "restSeconds": 180,
+          "note": "Разминка — блины кратно 5 кг на сторону, только добавлять (20 → 40 → 50).",
           "variants": [
-            { "loadBlocks": [ { "weight": 50, "unit": "kg", "reps": 10, "sets": 3 } ] }
+            { "loadBlocks": [ { "weight": 50, "unit": "kg", "reps": 10, "sets": 3, "rir": 2 } ] }
           ]
         },
         {
           "name": "Глубокий присед, пятки на подставке",
           "restSeconds": 180,
-          "note": "Глубина, давление всей стопой; сообщи, насколько тяжело.",
+          "note": "Глубина, давление всей стопой.",
           "variants": [
-            { "loadBlocks": [ { "weight": 30, "unit": "kg", "reps": 9, "sets": 3 } ] }
+            { "loadBlocks": [ { "weight": 30, "unit": "kg", "reps": 9, "sets": 3, "rir": 2 } ] }
           ]
         },
         {
           "name": "Сгибание ног в тренажёре",
           "restSeconds": 120,
           "variants": [
-            { "loadBlocks": [ { "weight": 25, "unit": "kg", "reps": 14, "sets": 2 } ] }
+            { "loadBlocks": [ { "weight": 25, "unit": "kg", "reps": 14, "sets": 2, "rir": 1 } ] }
           ]
         },
         {
@@ -48,21 +49,21 @@
           "restSeconds": 120,
           "note": "Только средний/широкий хват.",
           "variants": [
-            { "loadBlocks": [ { "weight": 15, "unit": "kg", "reps": 13, "sets": 3 } ] }
+            { "loadBlocks": [ { "weight": 15, "unit": "kg", "reps": 13, "sets": 3, "rir": 2 } ] }
           ]
         },
         {
           "name": "Махи гантелями в стороны",
           "restSeconds": 90,
           "variants": [
-            { "loadBlocks": [ { "weight": 3, "unit": "kg_per_hand", "reps": 18, "sets": 2 } ] }
+            { "loadBlocks": [ { "weight": 3, "unit": "kg_per_hand", "reps": 18, "sets": 2, "rir": 1 } ] }
           ]
         },
         {
           "name": "Сгибание рук со штангой",
           "restSeconds": 90,
           "variants": [
-            { "loadBlocks": [ { "weight": 10, "unit": "kg", "reps": 13, "sets": 2 } ] }
+            { "loadBlocks": [ { "weight": 10, "unit": "kg", "reps": 13, "sets": 2, "rir": 1 } ] }
           ]
         }
       ]
@@ -85,15 +86,16 @@
         {
           "name": "Румынская тяга (свободная штанга или Смит на выбор)",
           "restSeconds": 180,
+          "note": "Основной день РДЛ. Колеи независимы: штанга уже прошла 40×10 — ушла на 42.5; Смит держим 40 и растим повторы.",
           "variants": [
             {
               "label": "Штанга",
-              "loadBlocks": [ { "weight": 40, "unit": "kg", "reps": 9, "sets": 3 } ]
+              "loadBlocks": [ { "weight": 42.5, "unit": "kg", "reps": 8, "sets": 3, "rir": 2 } ]
             },
             {
               "label": "Смит",
-              "note": "45 кг = 25 кг блинов на грифе (нет блинов 2.5 — тогда 22.5).",
-              "loadBlocks": [ { "weight": 45, "unit": "kg", "reps": 8, "sets": 3 } ]
+              "note": "40 кг = 20 кг блинов на грифе.",
+              "loadBlocks": [ { "weight": 40, "unit": "kg", "reps": 10, "sets": 3, "rir": 2 } ]
             }
           ]
         },
@@ -102,7 +104,7 @@
           "restSeconds": 120,
           "note": "Одна гантель в руке, ПРОТИВОПОЛОЖНОЙ рабочей ноге (на вторую ногу переложить). Наклон корпуса вперёд ~30°. Повторы на каждую ногу.",
           "variants": [
-            { "loadBlocks": [ { "weight": 6, "unit": "kg", "reps": 10, "sets": 2 } ] }
+            { "loadBlocks": [ { "weight": 6, "unit": "kg", "reps": 10, "sets": 2, "rir": 2 } ] }
           ]
         },
         {
@@ -110,15 +112,15 @@
           "restSeconds": 120,
           "note": "Только средний/широкий хват.",
           "variants": [
-            { "loadBlocks": [ { "weight": 20, "unit": "kg", "reps": 12, "sets": 3 } ] }
+            { "loadBlocks": [ { "weight": 20, "unit": "kg", "reps": 12, "sets": 3, "rir": 2 } ] }
           ]
         },
         {
           "name": "Жим гантелей сидя вверх, нейтральный хват",
           "restSeconds": 120,
-          "note": "Ладони друг к другу, локти чуть вперёд, спинка чуть назад — так лопатку не защемляет. Если защемляет даже на 3 кг — прекрати и сообщи.",
+          "note": "Ладони друг к другу, локти чуть вперёд, спинка чуть назад. Если защемляет лопатку даже на 3 кг — прекрати и сообщи.",
           "variants": [
-            { "loadBlocks": [ { "weight": 3, "unit": "kg_per_hand", "reps": 13, "sets": 2 } ] }
+            { "loadBlocks": [ { "weight": 3, "unit": "kg_per_hand", "reps": 13, "sets": 2, "rir": 2 } ] }
           ]
         },
         {
@@ -126,7 +128,7 @@
           "restSeconds": 90,
           "note": "Локти прижаты к корпусу.",
           "variants": [
-            { "loadBlocks": [ { "weight": 7.5, "unit": "kg", "reps": 12, "sets": 2 } ] }
+            { "loadBlocks": [ { "weight": 7.5, "unit": "kg", "reps": 12, "sets": 2, "rir": 1 } ] }
           ]
         }
       ]
@@ -149,9 +151,9 @@
         {
           "name": "Ягодичный мост со штангой",
           "restSeconds": 150,
-          "note": "Объёмный день. Разминка — блины кратно 5 кг на сторону грифа, только добавлять (не снимать).",
+          "note": "Объёмный день. Разминка — блины кратно 5 кг на сторону, только добавлять (20 → 40 → 50).",
           "variants": [
-            { "loadBlocks": [ { "weight": 50, "unit": "kg", "reps": 14, "sets": 3 } ] }
+            { "loadBlocks": [ { "weight": 50, "unit": "kg", "reps": 14, "sets": 3, "rir": 2 } ] }
           ]
         },
         {
@@ -159,7 +161,7 @@
           "restSeconds": 120,
           "note": "Повторы на каждую ногу.",
           "variants": [
-            { "loadBlocks": [ { "weight": 4, "unit": "kg_per_hand", "reps": 11, "sets": 2 } ] }
+            { "loadBlocks": [ { "weight": 4, "unit": "kg_per_hand", "reps": 11, "sets": 2, "rir": 2 } ] }
           ]
         },
         {
@@ -175,21 +177,21 @@
           "restSeconds": 120,
           "note": "Только средний/широкий хват.",
           "variants": [
-            { "loadBlocks": [ { "weight": 15, "unit": "kg", "reps": 12, "sets": 3 } ] }
+            { "loadBlocks": [ { "weight": 15, "unit": "kg", "reps": 12, "sets": 3, "rir": 2 } ] }
           ]
         },
         {
           "name": "Жим гантелей лёжа",
           "restSeconds": 120,
           "variants": [
-            { "loadBlocks": [ { "weight": 5, "unit": "kg_per_hand", "reps": 12, "sets": 3 } ] }
+            { "loadBlocks": [ { "weight": 5, "unit": "kg_per_hand", "reps": 12, "sets": 3, "rir": 2 } ] }
           ]
         },
         {
           "name": "Махи гантелями в стороны",
           "restSeconds": 90,
           "variants": [
-            { "loadBlocks": [ { "weight": 3, "unit": "kg_per_hand", "reps": 18, "sets": 2 } ] }
+            { "loadBlocks": [ { "weight": 3, "unit": "kg_per_hand", "reps": 18, "sets": 2, "rir": 1 } ] }
           ]
         }
       ]
@@ -212,38 +214,39 @@
         {
           "name": "Глубокий присед, пятки на подставке",
           "restSeconds": 180,
-          "note": "Глубина, давление всей стопой.",
+          "note": "Тяжёлый день приседа: тот же вес, но ближе к отказу, чем в дне A.",
           "variants": [
-            { "loadBlocks": [ { "weight": 30, "unit": "kg", "reps": 9, "sets": 3 } ] }
+            { "loadBlocks": [ { "weight": 30, "unit": "kg", "reps": 10, "sets": 3, "rir": 1 } ] }
           ]
         },
         {
           "name": "Румынская тяга (свободная штанга или Смит на выбор)",
           "restSeconds": 150,
+          "note": "Второй, объёмный проход РДЛ за неделю (2 подхода). Колеи независимы.",
           "variants": [
             {
               "label": "Штанга",
-              "loadBlocks": [ { "weight": 40, "unit": "kg", "reps": 10, "sets": 3 } ]
+              "loadBlocks": [ { "weight": 42.5, "unit": "kg", "reps": 8, "sets": 2, "rir": 2 } ]
             },
             {
               "label": "Смит",
-              "note": "45 кг = 25 кг блинов на грифе (нет блинов 2.5 — тогда 22.5).",
-              "loadBlocks": [ { "weight": 45, "unit": "kg", "reps": 9, "sets": 3 } ]
+              "note": "40 кг = 20 кг блинов на грифе.",
+              "loadBlocks": [ { "weight": 40, "unit": "kg", "reps": 10, "sets": 2, "rir": 2 } ]
             }
           ]
         },
         {
           "name": "Отведение ноги назад (кроссовер или тренажёр на выбор)",
           "restSeconds": 90,
-          "note": "Повторы на каждую ногу.",
+          "note": "Повторы на каждую ногу. Колеи независимы; кроссовер по факту ещё не выполнялся — вес прикидочный.",
           "variants": [
             {
               "label": "Кроссовер",
-              "loadBlocks": [ { "weight": 5, "unit": "kg_per_side", "reps": 13, "sets": 2 } ]
+              "loadBlocks": [ { "weight": 5, "unit": "kg_per_side", "reps": 13, "sets": 2, "rir": 2 } ]
             },
             {
               "label": "Тренажёр",
-              "loadBlocks": [ { "weight": 5, "unit": "kg", "reps": 12, "sets": 2, "note": "сверх базового веса тренажёра" } ]
+              "loadBlocks": [ { "weight": 5, "unit": "kg", "reps": 13, "sets": 2, "rir": 2, "note": "сверх базового веса тренажёра" } ]
             }
           ]
         },
@@ -251,7 +254,7 @@
           "name": "Сгибание ног в тренажёре",
           "restSeconds": 120,
           "variants": [
-            { "loadBlocks": [ { "weight": 25, "unit": "kg", "reps": 14, "sets": 2 } ] }
+            { "loadBlocks": [ { "weight": 25, "unit": "kg", "reps": 13, "sets": 2, "rir": 2 } ] }
           ]
         },
         {
@@ -259,14 +262,14 @@
           "restSeconds": 120,
           "note": "Только средний/широкий хват.",
           "variants": [
-            { "loadBlocks": [ { "weight": 20, "unit": "kg", "reps": 12, "sets": 2 } ] }
+            { "loadBlocks": [ { "weight": 20, "unit": "kg", "reps": 12, "sets": 2, "rir": 2 } ] }
           ]
         },
         {
           "name": "Разведения на заднюю дельту",
           "restSeconds": 90,
           "variants": [
-            { "loadBlocks": [ { "weight": 10, "unit": "kg", "reps": 16, "sets": 2 } ] }
+            { "loadBlocks": [ { "weight": 10, "unit": "kg", "reps": 16, "sets": 2, "rir": 1 } ] }
           ]
         }
       ]
