@@ -63,7 +63,7 @@
 <body>
   <main class="shell">
     <div class="topbar">
-      <a class="back" href="index.html">← Все программы</a>
+      <a class="back" id="back-link" href="coach.html">← К плану</a>
       <span class="title" id="title">Прогресс</span>
     </div>
     <section id="content" class="loading">Загружаю прогресс…</section>
@@ -247,6 +247,7 @@
       async function load() {
         document.title = athlete === "women" ? "AI-тренер · Прогресс (Ж)" : "AI-тренер · Прогресс (М)";
         $("title").textContent = athlete === "women" ? "Прогресс · Женский" : "Прогресс · Мужской";
+        $("back-link").href = `coach.html?athlete=${athlete}`;
         try {
           const response = await fetch(`log/${athlete}/progress_report.json`, { cache: "no-store" });
           if (!response.ok) throw new Error(`progress_report.json: HTTP ${response.status}`);

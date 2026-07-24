@@ -33,6 +33,9 @@
     .topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
     .back{color:var(--muted);text-decoration:none;font-weight:650;font-size:14px}
     .back:hover{color:var(--ink)}
+    .links{display:flex;align-items:center;gap:14px}
+    .report-link{color:var(--accent-ink);text-decoration:none;font-weight:760;font-size:14px}
+    .report-link:hover{text-decoration:underline}
     .plan-nav{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
     .nav-button{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:11px;width:38px;height:38px;display:grid;place-items:center;cursor:pointer;transition:border-color .12s,background .12s}
     .nav-button:hover:not(:disabled){border-color:var(--accent)}
@@ -104,7 +107,10 @@
   <main class="shell">
     <div class="controls">
       <div class="topbar">
-        <a class="back" href="index.html">← Все программы</a>
+        <div class="links">
+          <a class="back" href="index.html">← Все программы</a>
+          <a class="report-link" id="report-link" href="report.html">Прогресс →</a>
+        </div>
         <nav class="plan-nav" aria-label="Навигация по планам">
           <button class="nav-button" id="previous-plan" type="button" aria-label="Предыдущий план">←</button>
           <span class="plan-label" id="plan-label">План —</span>
@@ -321,6 +327,7 @@
           document.title = state.athlete === "women"
             ? "AI-тренер · Женский план"
             : "AI-тренер · Мужской план";
+          $("report-link").href = `report.html?athlete=${state.athlete}`;
           servedFromCache = false;
           const indexResponse = await fetch(`log/${state.athlete}/index.json`, { cache: "no-store" });
           if (!indexResponse.ok) throw new Error(`index.json: HTTP ${indexResponse.status}`);

@@ -9,6 +9,7 @@
     {
       "sessionId": "W-0001-S01",
       "globalNumber": 1,
+      "performedAt": "2026-07-08",
       "recommendedIntervalAfterPreviousHours": 0,
       "estimatedDurationMinutes": 60,
       "focus": "День A · ягодичный мост и присед",
@@ -91,6 +92,7 @@
     {
       "sessionId": "W-0001-S02",
       "globalNumber": 2,
+      "performedAt": "2026-07-10",
       "recommendedIntervalAfterPreviousHours": 48,
       "estimatedDurationMinutes": 55,
       "focus": "День B · румынская тяга и односторонняя работа",
@@ -170,6 +172,7 @@
     {
       "sessionId": "W-0001-S03",
       "globalNumber": 3,
+      "performedAt": "2026-07-12",
       "recommendedIntervalAfterPreviousHours": 48,
       "estimatedDurationMinutes": 60,
       "focus": "День C · объёмный ягодичный мост",
@@ -259,6 +262,7 @@
     {
       "sessionId": "W-0001-S04",
       "globalNumber": 4,
+      "performedAt": "2026-07-14",
       "recommendedIntervalAfterPreviousHours": 48,
       "estimatedDurationMinutes": 60,
       "focus": "День D · присед и задняя цепь",
