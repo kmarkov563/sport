@@ -138,7 +138,7 @@
       .exercise{grid-template-columns:1fr;gap:10px}
       summary{grid-template-columns:auto 1fr}
       .badge{grid-column:2;justify-self:start}
-      .mc-table{display:flex;flex-direction:column;gap:14px}
+      .mc-table{display:flex;flex-direction:column;gap:14px;align-items:stretch}
       .mc-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"name name" "bar bar" "sets ton";column-gap:12px;row-gap:6px;align-items:center}
       .mc-row .mc-m{grid-area:name}
       .mc-row .mc-bar{grid-area:bar}
@@ -365,9 +365,8 @@
       function metricDelta(current, previous, format = String) {
         if (previous === null || previous === undefined) return "";
         const { change, tone, sign, pct } = deltaInfo(current, previous);
-        const num = change === 0 ? "0" : `${sign}${format(Math.abs(change))}`;
-        const percent = pct === null ? "" : ` (${change === 0 ? "0%" : `${sign}${pct}%`})`;
-        return `<span class="delta ${tone}">${change > 0 ? "▲" : "▼"} ${num}${percent}</span>`;
+        const percent = pct === null ? "" : ` (${sign}${pct}%)`;
+        return `<span class="delta ${tone}">${change > 0 ? "▲" : "▼"} ${sign}${format(Math.abs(change))}${percent}</span>`;
       }
       function setDelta(current, previous) {
         if (previous === null || previous === undefined) return "";
@@ -377,9 +376,8 @@
       function tonnageDelta(current, previous, format) {
         if (previous === null || previous === undefined) return "";
         const { change, tone, sign, pct } = deltaInfo(current, previous);
-        const kg = `${change === 0 ? "" : sign}${format(Math.abs(change))} кг`;
-        const percent = pct === null ? "" : `, ${change === 0 ? "0" : sign}${pct}%`;
-        return `<span class="delta ${tone}"> (${kg}${percent})</span>`;
+        const percent = pct === null ? "" : `, ${sign}${pct}%`;
+        return `<span class="delta ${tone}"> (${sign}${format(Math.abs(change))} кг${percent})</span>`;
       }
 
       function renderMicrocycleSummary(stats, prev, cycle) {
