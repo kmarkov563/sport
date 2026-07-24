@@ -30,6 +30,18 @@
     .shell{width:min(920px,100%);margin:auto;padding:24px 18px 72px}
 
     .controls{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);padding:12px 0;margin-bottom:14px}
+    .mini-bar{display:none;align-items:center;gap:12px}
+    .mini-bar .back{flex:none;font-size:20px;font-weight:700}
+    .mini-title{flex:1;min-width:0;font-size:13px;font-weight:760;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .menu-toggle{flex:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:10px;padding:8px 13px;font-size:13px;font-weight:760;cursor:pointer}
+    .menu-toggle:hover{border-color:var(--accent)}
+    .mini-bar .today{flex:none;border:1px solid var(--accent);background:var(--accent);color:#fff;border-radius:10px;padding:8px 13px;font-size:13px;font-weight:800;cursor:pointer}
+    .mini-bar .today:disabled{opacity:.4;cursor:not-allowed}
+    @media(max-width:720px){
+      .mini-bar{display:flex}
+      .menu-panel{display:none}
+      .menu-panel.open{display:block;padding-top:12px}
+    }
     .topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
     .back{color:var(--muted);text-decoration:none;font-weight:650;font-size:14px}
     .back:hover{color:var(--ink)}
@@ -102,6 +114,7 @@
     .mc-muscles h3{font-size:13px;font-weight:820;margin:0 0 4px}
     .mc-muscles .sub{font-size:12px;color:var(--muted);margin:0 0 12px}
     .mc-table{display:grid;grid-template-columns:auto 1fr auto auto;gap:9px 12px;align-items:center;font-size:13px}
+    .mc-row{display:contents}
     .mc-m{font-weight:720}
     .mc-bar{height:8px;border-radius:999px;background:var(--surface2)}
     .mc-bar span{display:block;height:100%;border-radius:999px}
@@ -125,6 +138,12 @@
       .exercise{grid-template-columns:1fr;gap:10px}
       summary{grid-template-columns:auto 1fr}
       .badge{grid-column:2;justify-self:start}
+      .mc-table{display:flex;flex-direction:column;gap:14px}
+      .mc-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"name name" "bar bar" "sets ton";column-gap:12px;row-gap:6px;align-items:center}
+      .mc-row .mc-m{grid-area:name}
+      .mc-row .mc-bar{grid-area:bar}
+      .mc-row .mc-sets{grid-area:sets;white-space:normal}
+      .mc-row .mc-ton{grid-area:ton;white-space:normal;text-align:right}
     }
   </style>
 </head>
@@ -134,24 +153,32 @@
   </div>
   <main class="shell">
     <div class="controls">
-      <div class="topbar">
-        <div class="links">
-          <a class="back" href="index.html">← Все программы</a>
-          <a class="report-link" id="report-link" href="report.html">Прогресс →</a>
-        </div>
-        <nav class="plan-nav" aria-label="Навигация по планам">
-          <button class="nav-button" id="previous-plan" type="button" aria-label="Предыдущий план">←</button>
-          <span class="plan-label" id="plan-label">План —</span>
-          <button class="nav-button" id="next-plan" type="button" aria-label="Следующий план">→</button>
-          <button class="nav-button today-button" id="today-button" type="button" aria-label="Открыть текущую тренировку">Сегодня</button>
-        </nav>
+      <div class="mini-bar">
+        <a class="back" href="index.html" aria-label="Все программы">←</a>
+        <span class="mini-title" id="mini-title">—</span>
+        <button class="today" id="mini-today" type="button" aria-label="Открыть текущую тренировку">Сегодня</button>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Меню" aria-expanded="false">☰</button>
       </div>
-      <div class="workout-toolbar">
-        <div class="mode-switch" aria-label="Режим отображения">
-          <button class="tool-button" type="button" data-mode="all">Все</button>
-          <button class="tool-button active" type="button" data-mode="single">По одной</button>
+      <div class="menu-panel" id="menu-panel">
+        <div class="topbar">
+          <div class="links">
+            <a class="back" href="index.html">← Все программы</a>
+            <a class="report-link" id="report-link" href="report.html">Прогресс →</a>
+          </div>
+          <nav class="plan-nav" aria-label="Навигация по планам">
+            <button class="nav-button" id="previous-plan" type="button" aria-label="Предыдущий план">←</button>
+            <span class="plan-label" id="plan-label">План —</span>
+            <button class="nav-button" id="next-plan" type="button" aria-label="Следующий план">→</button>
+            <button class="nav-button today-button" id="today-button" type="button" aria-label="Открыть текущую тренировку">Сегодня</button>
+          </nav>
         </div>
-        <nav class="session-links" id="session-links" aria-label="Быстрый переход к тренировке"></nav>
+        <div class="workout-toolbar">
+          <div class="mode-switch" aria-label="Режим отображения">
+            <button class="tool-button" type="button" data-mode="all">Все</button>
+            <button class="tool-button active" type="button" data-mode="single">По одной</button>
+          </div>
+          <nav class="session-links" id="session-links" aria-label="Быстрый переход к тренировке"></nav>
+        </div>
       </div>
     </div>
 
@@ -236,6 +263,7 @@
         renderPlan();
         syncUrl();
         scrollToCurrentSession();
+        closeMenu();
       }
 
       function scrollToCurrentSession() {
@@ -327,20 +355,38 @@
         return sets >= min && sets <= max ? "var(--accent)" : "var(--rir)";
       }
 
-      function deltaBadge(current, previous, format = String, compact = false) {
-        if (previous === null || previous === undefined) return "";
+      function deltaInfo(current, previous) {
         const change = current - previous;
         const tone = change > 0 ? "up" : change < 0 ? "down" : "flat";
-        const arrow = change > 0 ? "▲" : "▼";
-        const text = change === 0 ? "0" : `${change > 0 ? "+" : "−"}${format(Math.abs(change))}`;
-        return `<span class="delta ${tone}">${arrow}${compact ? "" : " "}${text}</span>`;
+        const sign = change > 0 ? "+" : change < 0 ? "−" : "";
+        const pct = previous ? Math.round(Math.abs(change) / previous * 100) : null;
+        return { change, tone, sign, pct };
+      }
+      function metricDelta(current, previous, format = String) {
+        if (previous === null || previous === undefined) return "";
+        const { change, tone, sign, pct } = deltaInfo(current, previous);
+        const num = change === 0 ? "0" : `${sign}${format(Math.abs(change))}`;
+        const percent = pct === null ? "" : ` (${change === 0 ? "0%" : `${sign}${pct}%`})`;
+        return `<span class="delta ${tone}">${change > 0 ? "▲" : "▼"} ${num}${percent}</span>`;
+      }
+      function setDelta(current, previous) {
+        if (previous === null || previous === undefined) return "";
+        const { change, tone, sign } = deltaInfo(current, previous);
+        return `<span class="delta ${tone}">${change > 0 ? "▲" : "▼"}${change === 0 ? "0" : `${sign}${Math.abs(change)}`}</span>`;
+      }
+      function tonnageDelta(current, previous, format) {
+        if (previous === null || previous === undefined) return "";
+        const { change, tone, sign, pct } = deltaInfo(current, previous);
+        const kg = `${change === 0 ? "" : sign}${format(Math.abs(change))} кг`;
+        const percent = pct === null ? "" : `, ${change === 0 ? "0" : sign}${pct}%`;
+        return `<span class="delta ${tone}"> (${kg}${percent})</span>`;
       }
 
       function renderMicrocycleSummary(stats, prev, cycle) {
         if (!stats) return "";
         const fmt = value => value.toLocaleString("ru-RU");
         const incomplete = cycle && !cycle.complete
-          ? `<p class="mc-incomplete">Микроцикл ещё идёт (${cycle.performed} из ${cycle.planned}) — сравнение с прошлым появится после завершения.</p>`
+          ? `<p class="mc-incomplete">Цикл ещё идёт: ${cycle.performed} из ${cycle.planned} выполнено, остальное — по плану.</p>`
           : "";
         const muscleRows = Object.keys(stats.hardSetsByMuscle).map(muscle => {
           const sets = stats.hardSetsByMuscle[muscle];
@@ -348,11 +394,14 @@
           const [min, max] = muscleNorm(muscle);
           const width = Math.min(sets / max, 1) * 100;
           const prevSets = prev ? (prev.hardSetsByMuscle[muscle] || 0) : null;
+          const prevTon = prev ? (prev.tonnageByMuscleKg[muscle] || 0) : null;
           return `
-            <div class="mc-m">${escapeHtml(muscle)}</div>
-            <div class="mc-bar"><span style="width:${width.toFixed(0)}%;background:${muscleTone(sets, [min, max])}"></span></div>
-            <div class="mc-sets">${sets} ${deltaBadge(sets, prevSets, String, true)} <small>/ норма ${min}–${max}</small></div>
-            <div class="mc-ton">${fmt(tonnage)} кг</div>`;
+            <div class="mc-row">
+              <div class="mc-m">${escapeHtml(muscle)}</div>
+              <div class="mc-bar"><span style="width:${width.toFixed(0)}%;background:${muscleTone(sets, [min, max])}"></span></div>
+              <div class="mc-sets">${sets} ${setDelta(sets, prevSets)} <small>/ норма ${min}–${max}</small></div>
+              <div class="mc-ton">${fmt(tonnage)} кг${tonnageDelta(tonnage, prevTon, fmt)}</div>
+            </div>`;
         }).join("");
         return `
           <section class="mc-summary">
@@ -360,24 +409,24 @@
             ${incomplete}
             <div class="mc-metrics">
               <div class="mc-metric">
-                <div class="mc-value">${fmt(stats.tonnageKg)} кг ${deltaBadge(stats.tonnageKg, prev?.tonnageKg, fmt)}</div>
+                <div class="mc-value">${fmt(stats.tonnageKg)} кг ${metricDelta(stats.tonnageKg, prev?.tonnageKg, fmt)}</div>
                 <div class="mc-name">Тоннаж</div>
                 <div class="mc-note">Сколько всего поднято за микроцикл: вес × повторы по рабочим подходам (гантели ×2, блок/сторона ×2, плитка ×5 кг, вес тела = 1 кг). <b>Норма:</b> должен расти от цикла к циклу — это и есть прогрессирующая нагрузка.</div>
               </div>
               <div class="mc-metric">
-                <div class="mc-value">${stats.avgIntensityPct} % ${deltaBadge(stats.avgIntensityPct, prev?.avgIntensityPct)}</div>
+                <div class="mc-value">${stats.avgIntensityPct} % ${metricDelta(stats.avgIntensityPct, prev?.avgIntensityPct)}</div>
                 <div class="mc-name">Средняя интенсивность</div>
                 <div class="mc-note">Средний рабочий вес относительно расчётного 1ПМ. <b>Норма:</b> 65–75 % — гипертрофия, 80 %+ — сила.</div>
               </div>
               <div class="mc-metric">
-                <div class="mc-value">${stats.hardSets} ${deltaBadge(stats.hardSets, prev?.hardSets)}</div>
+                <div class="mc-value">${stats.hardSets} ${metricDelta(stats.hardSets, prev?.hardSets)}</div>
                 <div class="mc-name">Рабочих подходов</div>
                 <div class="mc-note">Подходы близко к отказу (RIR ≤ 3). <b>Норма:</b> у каждой мышцы своя — большие тянут больше, мелкие меньше (см. таблицу). Микроцикл ≈ неделя.</div>
               </div>
             </div>
             <div class="mc-muscles">
               <h3>По мышцам за микроцикл</h3>
-              <p class="sub">Полоса — подходы относительно нормы мышцы; справа от числа — дельта к прошлому микроциклу.</p>
+              <p class="sub">Полоса — подходы относительно нормы мышцы; у подходов и тоннажа — дельта к прошлому микроциклу.</p>
               <div class="mc-table">${muscleRows}</div>
             </div>
           </section>`;
@@ -388,10 +437,13 @@
         if (!plan) return;
         if (state.currentSession >= plan.sessions.length) state.currentSession = 0;
         $("plan-label").textContent = `План ${plan.planId}`;
+        const activeSession = plan.sessions[state.currentSession];
+        $("mini-title").textContent = activeSession ? `${activeSession.focus} · ${activeSession.sessionId}` : "";
         $("previous-plan").disabled = state.current === 0;
         $("next-plan").disabled = state.current === state.plans.length - 1;
         const currentSessionId = state.index?.currentSessionId;
         $("today-button").disabled = !currentSessionId;
+        $("mini-today").disabled = !currentSessionId;
         $("session-links").innerHTML = plan.sessions.map((session, index) => {
           const isSelected = index === state.currentSession;
           const status = sessionStatus(session);
@@ -414,11 +466,10 @@
         $("content").className = "";
         const performed = plan.sessions.filter(session => session.performedAt).length;
         const planned = plan.schedule?.sessionsPlanned ?? plan.sessions.length;
-        const complete = performed >= planned;
-        const prevStats = complete ? state.plans[state.current - 1]?.microcycleStats : null;
+        const prevStats = state.plans[state.current - 1]?.microcycleStats;
         $("content").innerHTML = `
           <div class="sessions">${visibleSessions.map(renderSession).join("")}</div>
-          ${renderMicrocycleSummary(plan.microcycleStats, prevStats, { performed, planned, complete })}`;
+          ${renderMicrocycleSummary(plan.microcycleStats, prevStats, { performed, planned, complete: performed >= planned })}`;
       }
 
       async function load() {
@@ -452,6 +503,14 @@
         }
       }
 
+      function closeMenu() {
+        $("menu-panel").classList.remove("open");
+        $("menu-toggle").setAttribute("aria-expanded", "false");
+      }
+      $("menu-toggle").addEventListener("click", () => {
+        const open = $("menu-panel").classList.toggle("open");
+        $("menu-toggle").setAttribute("aria-expanded", String(open));
+      });
       $("previous-plan").addEventListener("click", () => {
         if (state.current > 0) {
           state.current -= 1; state.currentSession = 0; renderPlan();
@@ -467,6 +526,7 @@
         }
       });
       $("today-button").addEventListener("click", goToCurrentSession);
+      $("mini-today").addEventListener("click", goToCurrentSession);
       document.querySelector(".mode-switch").addEventListener("click", event => {
         const button = event.target.closest("[data-mode]");
         if (!button) return;
@@ -482,6 +542,7 @@
         renderPlan();
         syncUrl();
         scrollToCurrentSession();
+        closeMenu();
       });
       window.addEventListener("popstate", () => {
         applyUrlState();
