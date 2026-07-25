@@ -3,7 +3,7 @@
   "planId": "0003",
   "athlete": "women",
   "createdAt": "2026-07-24T21:00:00+04:00",
-  "updatedAt": "2026-07-24T21:00:00+04:00",
+  "updatedAt": "2026-07-25T23:03:00+04:00",
   "schedule": { "kind": "every_other_day", "sessionsPlanned": 4, "defaultIntervalHours": 48, "estimatedSessionMinutes": "60–75" },
   "microcycleStats": {
     "tonnageKg": 13101,
@@ -16,6 +16,7 @@
     {
       "sessionId": "W-0003-S01",
       "globalNumber": 9,
+      "performedAt": "2026-07-25",
       "recommendedIntervalAfterPreviousHours": 48,
       "estimatedDurationMinutes": 60,
       "focus": "День A · ягодичный мост и присед",
@@ -97,12 +98,18 @@
           "variants": [
             {
               "label": "Штанга",
-              "loadBlocks": [ { "weight": 42.5, "unit": "kg", "reps": 8, "sets": 3, "rir": 2 } ]
+              "loadBlocks": [
+                { "weight": 20, "unit": "kg", "reps": 10, "sets": 1, "type": "warmup" },
+                { "weight": 42.5, "unit": "kg", "reps": 8, "sets": 3, "rir": 2 }
+              ]
             },
             {
               "label": "Смит",
-              "note": "40 кг = 20 кг блинов на грифе.",
-              "loadBlocks": [ { "weight": 40, "unit": "kg", "reps": 10, "sets": 3, "rir": 2 } ]
+              "note": "40 кг = 20 кг блинов на грифе; разминка — пустой гриф.",
+              "loadBlocks": [
+                { "weight": 20, "unit": "kg", "reps": 10, "sets": 1, "type": "warmup" },
+                { "weight": 40, "unit": "kg", "reps": 10, "sets": 3, "rir": 2 }
+              ]
             }
           ]
         },
@@ -158,9 +165,15 @@
         {
           "name": "Ягодичный мост со штангой",
           "restSeconds": 150,
-          "note": "Объёмный день. Разминка — блины кратно 5 кг на сторону, только добавлять (20 → 40 → 50).",
+          "note": "Объёмный день. Блины только добавлять.",
           "variants": [
-            { "loadBlocks": [ { "weight": 50, "unit": "kg", "reps": 14, "sets": 3, "rir": 2 } ] }
+            {
+              "loadBlocks": [
+                { "weight": 20, "unit": "kg", "reps": 12, "sets": 1, "type": "warmup" },
+                { "weight": 40, "unit": "kg", "reps": 8, "sets": 1, "type": "warmup" },
+                { "weight": 50, "unit": "kg", "reps": 14, "sets": 3, "rir": 2 }
+              ]
+            }
           ]
         },
         {
@@ -223,7 +236,12 @@
           "restSeconds": 180,
           "note": "Тяжёлый день приседа: тот же вес, но ближе к отказу, чем в дне A.",
           "variants": [
-            { "loadBlocks": [ { "weight": 30, "unit": "kg", "reps": 10, "sets": 3, "rir": 1 } ] }
+            {
+              "loadBlocks": [
+                { "weight": 20, "unit": "kg", "reps": 8, "sets": 1, "type": "warmup" },
+                { "weight": 30, "unit": "kg", "reps": 10, "sets": 3, "rir": 1 }
+              ]
+            }
           ]
         },
         {
@@ -233,12 +251,18 @@
           "variants": [
             {
               "label": "Штанга",
-              "loadBlocks": [ { "weight": 42.5, "unit": "kg", "reps": 8, "sets": 2, "rir": 2 } ]
+              "loadBlocks": [
+                { "weight": 20, "unit": "kg", "reps": 8, "sets": 1, "type": "warmup" },
+                { "weight": 42.5, "unit": "kg", "reps": 8, "sets": 2, "rir": 2 }
+              ]
             },
             {
               "label": "Смит",
-              "note": "40 кг = 20 кг блинов на грифе.",
-              "loadBlocks": [ { "weight": 40, "unit": "kg", "reps": 10, "sets": 2, "rir": 2 } ]
+              "note": "40 кг = 20 кг блинов на грифе; разминка — пустой гриф.",
+              "loadBlocks": [
+                { "weight": 20, "unit": "kg", "reps": 8, "sets": 1, "type": "warmup" },
+                { "weight": 40, "unit": "kg", "reps": 10, "sets": 2, "rir": 2 }
+              ]
             }
           ]
         },

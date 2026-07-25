@@ -1,6 +1,6 @@
 {
   "athlete": "man",
-  "lastSession": "M-0003-S01",
+  "lastSession": "M-0003-S02",
   "exercises": [
     {
       "id": "bench_press",
@@ -321,6 +321,13 @@
           "date": "2026-07-20",
           "max": 65,
           "onepr": 87
+        },
+        {
+          "sessionId": "M-0003-S02",
+          "globalNumber": 10,
+          "date": "2026-07-25",
+          "max": 80,
+          "onepr": 109
         }
       ]
     },
@@ -346,6 +353,13 @@
           "date": "2026-07-16",
           "max": 120,
           "onepr": 168
+        },
+        {
+          "sessionId": "M-0003-S02",
+          "globalNumber": 10,
+          "date": "2026-07-25",
+          "max": 125,
+          "onepr": 175
         }
       ]
     },
@@ -371,6 +385,13 @@
           "globalNumber": 6,
           "date": "2026-07-16",
           "max": 35,
+          "onepr": null
+        },
+        {
+          "sessionId": "M-0003-S02",
+          "globalNumber": 10,
+          "date": "2026-07-25",
+          "max": 50,
           "onepr": null
         }
       ]
@@ -411,6 +432,13 @@
           "date": "2026-07-20",
           "max": 45,
           "onepr": 69
+        },
+        {
+          "sessionId": "M-0003-S02",
+          "globalNumber": 10,
+          "date": "2026-07-25",
+          "max": 50,
+          "onepr": 73
         }
       ]
     },
@@ -543,6 +571,13 @@
           "date": "2026-07-20",
           "max": 50,
           "onepr": 68
+        },
+        {
+          "sessionId": "M-0003-S02",
+          "globalNumber": 10,
+          "date": "2026-07-25",
+          "max": 70,
+          "onepr": 96
         }
       ]
     },
@@ -629,6 +664,24 @@
           "date": "2026-07-20",
           "max": 70,
           "onepr": null
+        }
+      ]
+    },
+    {
+      "id": "rear_delt_fly_machine",
+      "name": "Задняя дельта (тренажёр)",
+      "aliases": [
+        "Задняя дельта: обратная разводка в тренажёре"
+      ],
+      "unit": "kg",
+      "color": "#D2412D",
+      "data": [
+        {
+          "sessionId": "M-0003-S02",
+          "globalNumber": 10,
+          "date": "2026-07-25",
+          "max": 55,
+          "onepr": 75
         }
       ]
     }

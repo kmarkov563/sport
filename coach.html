@@ -96,6 +96,8 @@
     .load{font-weight:730;font-size:15px}
     .exercise.done .load{color:var(--accent-ink)}
     .rir{font-size:10.5px;font-weight:700;color:var(--muted);background:var(--surface2);padding:1px 7px;border-radius:999px}
+    .set.warmup .load{font-weight:560;font-size:13.5px;color:var(--muted)}
+    .warmup-tag{font-size:10.5px;font-weight:700;color:var(--muted);border:1px dashed var(--line);padding:1px 7px;border-radius:999px}
     .set .star{color:var(--accent);font-weight:900;font-size:15px}
     .rest{margin-top:9px;font-size:12px;color:var(--muted)}
 
@@ -288,9 +290,11 @@
         const load = block.weight === undefined || block.weight === null
           ? `${block.reps} × ${block.sets}`
           : `${number(block.weight)}${unitLabel(block.unit)} × ${block.reps} × ${block.sets}`;
+        const warmup = block.type === "warmup";
+        const tag = warmup ? `<span class="warmup-tag">разминка</span>` : "";
         const rir = block.rir === undefined || block.rir === null ? "" : `<span class="rir">RIR ${block.rir}</span>`;
         const star = block.note ? `<span class="star">*</span>` : "";
-        return `<div class="set"><span class="load">${escapeHtml(load)}</span>${rir}${star}</div>`;
+        return `<div class="set${warmup ? " warmup" : ""}"><span class="load">${escapeHtml(load)}</span>${tag}${rir}${star}</div>`;
       }
 
       function renderVariant(variant) {
