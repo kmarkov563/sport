@@ -1,0 +1,321 @@
+{
+  "schemaVersion": 1,
+  "planId": "0004",
+  "athlete": "women",
+  "createdAt": "2026-07-25T23:30:00+04:00",
+  "updatedAt": "2026-07-25T23:30:00+04:00",
+  "schedule": { "kind": "every_other_day", "sessionsPlanned": 4, "defaultIntervalHours": 48, "estimatedSessionMinutes": "60–75" },
+  "microcycleStats": {
+    "tonnageKg": 14360,
+    "avgIntensityPct": 71,
+    "hardSets": 63,
+    "hardSetsByMuscle": { "Ягодицы": 14, "Спина": 11, "Бицепс бедра": 9, "Задняя цепь": 8, "Плечи": 8, "Квадрицепс": 6, "Грудь": 3, "Бицепс": 2, "Трицепс": 2 },
+    "tonnageByMuscleKg": { "Ягодицы": 4722, "Бицепс бедра": 3475, "Спина": 2515, "Квадрицепс": 1658, "Плечи": 1020, "Грудь": 360, "Бицепс": 280, "Трицепс": 210, "Задняя цепь": 120 }
+  },
+  "sessions": [
+    {
+      "sessionId": "W-0004-S01",
+      "globalNumber": 13,
+      "recommendedIntervalAfterPreviousHours": 48,
+      "estimatedDurationMinutes": 60,
+      "focus": "День A · ягодичный мост и присед",
+      "workout": [
+        {
+          "name": "Гиперэкстензия (90°)",
+          "restSeconds": 60,
+          "note": "Активация, не до отказа.",
+          "variants": [
+            { "loadBlocks": [ { "reps": 15, "sets": 2 } ] }
+          ]
+        },
+        {
+          "name": "Ягодичный мост со штангой",
+          "restSeconds": 180,
+          "note": "Тяжёлый день моста. Блины только добавлять.",
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 20, "unit": "kg", "reps": 10, "sets": 1, "type": "warmup" },
+                { "weight": 40, "unit": "kg", "reps": 6, "sets": 1, "type": "warmup" },
+                { "weight": 50, "unit": "kg", "reps": 12, "sets": 3, "rir": 2 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Глубокий присед, пятки на подставке",
+          "restSeconds": 180,
+          "note": "Глубина, давление всей стопой. 32.5 кг = +1.25 кг на сторону к 30.",
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 20, "unit": "kg", "reps": 8, "sets": 1, "type": "warmup" },
+                { "weight": 32.5, "unit": "kg", "reps": 8, "sets": 3, "rir": 2 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Сгибание ног в тренажёре",
+          "restSeconds": 120,
+          "variants": [
+            { "loadBlocks": [ { "weight": 25, "unit": "kg", "reps": 15, "sets": 2, "rir": 1 } ] }
+          ]
+        },
+        {
+          "name": "Вертикальная тяга верхнего блока",
+          "restSeconds": 120,
+          "note": "Только средний/широкий хват.",
+          "variants": [
+            { "loadBlocks": [ { "weight": 15, "unit": "kg", "reps": 14, "sets": 3, "rir": 2 } ] }
+          ]
+        },
+        {
+          "name": "Махи гантелями в стороны",
+          "restSeconds": 90,
+          "variants": [
+            { "loadBlocks": [ { "weight": 3, "unit": "kg_per_hand", "reps": 20, "sets": 2, "rir": 1 } ] }
+          ]
+        },
+        {
+          "name": "Сгибание рук со штангой",
+          "restSeconds": 90,
+          "variants": [
+            { "loadBlocks": [ { "weight": 10, "unit": "kg", "reps": 14, "sets": 2, "rir": 1 } ] }
+          ]
+        }
+      ]
+    },
+    {
+      "sessionId": "W-0004-S02",
+      "globalNumber": 14,
+      "recommendedIntervalAfterPreviousHours": 48,
+      "estimatedDurationMinutes": 55,
+      "focus": "День B · румынская тяга и односторонняя работа",
+      "workout": [
+        {
+          "name": "Гиперэкстензия (90°)",
+          "restSeconds": 60,
+          "note": "Активация, не до отказа.",
+          "variants": [
+            { "loadBlocks": [ { "reps": 15, "sets": 2 } ] }
+          ]
+        },
+        {
+          "name": "Румынская тяга (свободная штанга или Смит на выбор)",
+          "restSeconds": 180,
+          "note": "Основной день РДЛ. Колеи независимы: штанга добирает повторы на 42.5, Смит — на 40.",
+          "variants": [
+            {
+              "label": "Штанга",
+              "loadBlocks": [
+                { "weight": 20, "unit": "kg", "reps": 10, "sets": 1, "type": "warmup" },
+                { "weight": 42.5, "unit": "kg", "reps": 10, "sets": 3, "rir": 2 }
+              ]
+            },
+            {
+              "label": "Смит",
+              "note": "40 кг = 20 кг блинов на грифе; разминка — пустой гриф.",
+              "loadBlocks": [
+                { "weight": 20, "unit": "kg", "reps": 10, "sets": 1, "type": "warmup" },
+                { "weight": 40, "unit": "kg", "reps": 12, "sets": 3, "rir": 2 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Болгарские выпады с наклоном корпуса, одна гантель",
+          "restSeconds": 120,
+          "note": "Одна гантель в руке, ПРОТИВОПОЛОЖНОЙ рабочей ноге (на вторую ногу переложить). Наклон корпуса вперёд ~30°. Повторы на каждую ногу.",
+          "variants": [
+            { "loadBlocks": [ { "weight": 6, "unit": "kg", "reps": 12, "sets": 2, "rir": 2 } ] }
+          ]
+        },
+        {
+          "name": "Горизонтальная тяга в тренажёре",
+          "restSeconds": 120,
+          "note": "Только средний/широкий хват.",
+          "variants": [
+            { "loadBlocks": [ { "weight": 20, "unit": "kg", "reps": 13, "sets": 3, "rir": 2 } ] }
+          ]
+        },
+        {
+          "name": "Жим гантелей сидя вверх, нейтральный хват",
+          "restSeconds": 120,
+          "note": "Ладони друг к другу, локти чуть вперёд, спинка чуть назад. Вес держим 3 кг из-за лопатки — прогресс повторами; при защемлении прекратить и сообщить.",
+          "variants": [
+            { "loadBlocks": [ { "weight": 3, "unit": "kg_per_hand", "reps": 15, "sets": 2, "rir": 2 } ] }
+          ]
+        },
+        {
+          "name": "Разгибание рук на верхнем блоке",
+          "restSeconds": 90,
+          "note": "Локти прижаты к корпусу.",
+          "variants": [
+            { "loadBlocks": [ { "weight": 7.5, "unit": "kg", "reps": 14, "sets": 2, "rir": 1 } ] }
+          ]
+        }
+      ]
+    },
+    {
+      "sessionId": "W-0004-S03",
+      "globalNumber": 15,
+      "recommendedIntervalAfterPreviousHours": 48,
+      "estimatedDurationMinutes": 60,
+      "focus": "День C · объёмный ягодичный мост",
+      "workout": [
+        {
+          "name": "Гиперэкстензия (90°)",
+          "restSeconds": 60,
+          "note": "Активация, не до отказа.",
+          "variants": [
+            { "loadBlocks": [ { "reps": 15, "sets": 2 } ] }
+          ]
+        },
+        {
+          "name": "Ягодичный мост со штангой",
+          "restSeconds": 150,
+          "note": "Объёмный день, потолок повторов на 50 — дальше переход на 60. Блины только добавлять.",
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 20, "unit": "kg", "reps": 12, "sets": 1, "type": "warmup" },
+                { "weight": 40, "unit": "kg", "reps": 8, "sets": 1, "type": "warmup" },
+                { "weight": 50, "unit": "kg", "reps": 15, "sets": 3, "rir": 2 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Выпады назад",
+          "restSeconds": 120,
+          "note": "Повторы на каждую ногу.",
+          "variants": [
+            { "loadBlocks": [ { "weight": 4, "unit": "kg_per_hand", "reps": 12, "sets": 2, "rir": 2 } ] }
+          ]
+        },
+        {
+          "name": "Отведение бедра в тренажёре",
+          "restSeconds": 90,
+          "note": "Если легко — добавь самый лёгкий блин по стороне и запиши.",
+          "variants": [
+            { "loadBlocks": [ { "reps": 18, "sets": 2, "rir": 1, "note": "базовый вес тренажёра, без блинов" } ] }
+          ]
+        },
+        {
+          "name": "Вертикальная тяга верхнего блока, широкий хват",
+          "restSeconds": 120,
+          "note": "Только средний/широкий хват.",
+          "variants": [
+            { "loadBlocks": [ { "weight": 15, "unit": "kg", "reps": 13, "sets": 3, "rir": 2 } ] }
+          ]
+        },
+        {
+          "name": "Жим гантелей лёжа",
+          "restSeconds": 120,
+          "note": "Вес +1 кг после 5×12 — повторы заново снизу.",
+          "variants": [
+            { "loadBlocks": [ { "weight": 6, "unit": "kg_per_hand", "reps": 10, "sets": 3, "rir": 2 } ] }
+          ]
+        },
+        {
+          "name": "Махи гантелями в стороны",
+          "restSeconds": 90,
+          "variants": [
+            { "loadBlocks": [ { "weight": 3, "unit": "kg_per_hand", "reps": 20, "sets": 2, "rir": 1 } ] }
+          ]
+        }
+      ]
+    },
+    {
+      "sessionId": "W-0004-S04",
+      "globalNumber": 16,
+      "recommendedIntervalAfterPreviousHours": 48,
+      "estimatedDurationMinutes": 60,
+      "focus": "День D · присед и задняя цепь",
+      "workout": [
+        {
+          "name": "Гиперэкстензия (90°)",
+          "restSeconds": 60,
+          "note": "Активация, не до отказа.",
+          "variants": [
+            { "loadBlocks": [ { "reps": 15, "sets": 2 } ] }
+          ]
+        },
+        {
+          "name": "Глубокий присед, пятки на подставке",
+          "restSeconds": 180,
+          "note": "Тяжёлый день приседа: тот же вес, что в дне A, но ближе к отказу.",
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 20, "unit": "kg", "reps": 8, "sets": 1, "type": "warmup" },
+                { "weight": 32.5, "unit": "kg", "reps": 9, "sets": 3, "rir": 1 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Румынская тяга (свободная штанга или Смит на выбор)",
+          "restSeconds": 150,
+          "note": "Второй, объёмный проход РДЛ за неделю (2 подхода). Колеи независимы.",
+          "variants": [
+            {
+              "label": "Штанга",
+              "loadBlocks": [
+                { "weight": 20, "unit": "kg", "reps": 8, "sets": 1, "type": "warmup" },
+                { "weight": 42.5, "unit": "kg", "reps": 10, "sets": 2, "rir": 2 }
+              ]
+            },
+            {
+              "label": "Смит",
+              "note": "40 кг = 20 кг блинов на грифе; разминка — пустой гриф.",
+              "loadBlocks": [
+                { "weight": 20, "unit": "kg", "reps": 8, "sets": 1, "type": "warmup" },
+                { "weight": 40, "unit": "kg", "reps": 12, "sets": 2, "rir": 2 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Отведение ноги назад (кроссовер или тренажёр на выбор)",
+          "restSeconds": 90,
+          "note": "Повторы на каждую ногу. Колеи независимы; кроссовер по факту ещё не выполнялся — вес прикидочный.",
+          "variants": [
+            {
+              "label": "Кроссовер",
+              "loadBlocks": [ { "weight": 5, "unit": "kg_per_side", "reps": 15, "sets": 2, "rir": 2 } ]
+            },
+            {
+              "label": "Тренажёр",
+              "loadBlocks": [ { "weight": 5, "unit": "kg", "reps": 15, "sets": 2, "rir": 2, "note": "сверх базового веса тренажёра" } ]
+            }
+          ]
+        },
+        {
+          "name": "Сгибание ног в тренажёре",
+          "restSeconds": 120,
+          "note": "Вес +5 после 25×15 в дне A — повторы заново снизу.",
+          "variants": [
+            { "loadBlocks": [ { "weight": 30, "unit": "kg", "reps": 10, "sets": 2, "rir": 2 } ] }
+          ]
+        },
+        {
+          "name": "Горизонтальная тяга в тренажёре",
+          "restSeconds": 120,
+          "note": "Только средний/широкий хват.",
+          "variants": [
+            { "loadBlocks": [ { "weight": 20, "unit": "kg", "reps": 13, "sets": 2, "rir": 2 } ] }
+          ]
+        },
+        {
+          "name": "Разведения на заднюю дельту",
+          "restSeconds": 90,
+          "variants": [
+            { "loadBlocks": [ { "weight": 10, "unit": "kg", "reps": 18, "sets": 2, "rir": 1 } ] }
+          ]
+        }
+      ]
+    }
+  ]
+}

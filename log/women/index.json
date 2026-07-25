@@ -3,11 +3,12 @@
   "athlete": "women",
   "activePlanId": "0003",
   "currentSessionId": "W-0003-S02",
-  "nextGlobalNumber": 13,
-  "updatedAt": "2026-07-25T22:41:00+04:00",
+  "nextGlobalNumber": 17,
+  "updatedAt": "2026-07-25T23:30:00+04:00",
   "plans": [
     { "planId": "0001", "file": "0001.json", "status": "completed", "sessionIds": [ "W-0001-S01", "W-0001-S02", "W-0001-S03", "W-0001-S04" ] },
     { "planId": "0002", "file": "0002.json", "status": "completed", "sessionIds": [ "W-0002-S01", "W-0002-S02", "W-0002-S03", "W-0002-S04" ] },
-    { "planId": "0003", "file": "0003.json", "status": "active", "sessionIds": [ "W-0003-S01", "W-0003-S02", "W-0003-S03", "W-0003-S04" ] }
+    { "planId": "0003", "file": "0003.json", "status": "active", "sessionIds": [ "W-0003-S01", "W-0003-S02", "W-0003-S03", "W-0003-S04" ] },
+    { "planId": "0004", "file": "0004.json", "status": "planned", "sessionIds": [ "W-0004-S01", "W-0004-S02", "W-0004-S03", "W-0004-S04" ] }
   ]
 }
