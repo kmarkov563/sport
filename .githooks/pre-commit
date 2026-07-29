@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+set -u
+
+# /usr/bin/tidy на macOS — версия 2006 года без поддержки HTML5, нужен brew-овский
+TIDY=$(command -v /opt/homebrew/bin/tidy || command -v tidy)
+if [ -z "$TIDY" ]; then
+  echo "pre-commit: tidy не найден, установите: brew install tidy-html5" >&2
+  exit 1
+fi
+
+valid_json() { jq empty 2>&1 >/dev/null; }
+# незакрытые теги tidy считает предупреждениями, поэтому любое его сообщение — отказ
+valid_html() {
+  out=$("$TIDY" -errors -quiet 2>&1 >/dev/null)
+  [ -z "$out" ] || { printf '%s\n' "$out"; return 1; }
+}
+
+errors=0
+while IFS= read -r -d '' file; do
+  case "$file" in
+    *.json) reason=$(git show ":$file" | valid_json) && continue ;;
+    *.html) reason=$(git show ":$file" | valid_html) && continue ;;
+  esac
+  { echo "✗ $file"; echo "$reason"; } >&2
+  errors=1
+done < <(git diff --cached --name-only -z --diff-filter=ACM -- '*.json' '*.html')
+
+if [ "$errors" -ne 0 ]; then
+  echo "Коммит отменён: исправьте файлы выше." >&2
+  exit 1
+fi
