@@ -3,7 +3,7 @@
   "planId": "0003",
   "athlete": "women",
   "createdAt": "2026-07-24T21:00:00+04:00",
-  "updatedAt": "2026-07-29T08:12:00+04:00",
+  "updatedAt": "2026-07-31T12:00:00+04:00",
   "schedule": { "kind": "every_other_day", "sessionsPlanned": 4, "defaultIntervalHours": 48, "estimatedSessionMinutes": "60–75" },
   "microcycleStats": {
     "tonnageKg": 13511,
@@ -145,6 +145,7 @@
     {
       "sessionId": "W-0003-S03",
       "globalNumber": 11,
+      "performedAt": "2026-07-30",
       "recommendedIntervalAfterPreviousHours": 48,
       "estimatedDurationMinutes": 60,
       "focus": "День C · объёмный ягодичный мост",
