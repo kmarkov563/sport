@@ -244,6 +244,14 @@
         renderLegend();
       }
 
+      function exercisesWithDates(report) {
+        const sessionDate = new Map(report.sessions.map(session => [session.id, session.date]));
+        return report.exercises.map(exercise => ({
+          ...exercise,
+          data: exercise.data.map(point => ({ ...point, date: sessionDate.get(point.sessionId) })),
+        }));
+      }
+
       async function load() {
         document.title = athlete === "women" ? "AI-тренер · Прогресс (Ж)" : "AI-тренер · Прогресс (М)";
         $("title").textContent = athlete === "women" ? "Прогресс · Женский" : "Прогресс · Мужской";
@@ -252,7 +260,7 @@
           const response = await fetch(`log/${athlete}/progress_report.json`, { cache: "no-store" });
           if (!response.ok) throw new Error(`progress_report.json: HTTP ${response.status}`);
           const report = await response.json();
-          state.exercises = report.exercises || [];
+          state.exercises = exercisesWithDates(report);
           state.visible = loadVisible(state.exercises);
           $("content").className = "";
           $("content").innerHTML = `
