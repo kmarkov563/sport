@@ -1,6 +1,6 @@
 {
   "athlete": "man",
-  "lastSession": "M-0003-S04",
+  "lastSession": "M-0004-S01",
   "exercises": [
     {
       "id": "bench_press",
@@ -37,6 +37,13 @@
           "sessionId": "M-0003-S01",
           "globalNumber": 9,
           "date": "2026-07-23",
+          "max": 85,
+          "onepr": 105
+        },
+        {
+          "sessionId": "M-0004-S01",
+          "globalNumber": 13,
+          "date": "2026-08-01",
           "max": 85,
           "onepr": 105
         }
@@ -92,6 +99,13 @@
           "date": "2026-07-28",
           "max": 60,
           "onepr": 80
+        },
+        {
+          "sessionId": "M-0004-S01",
+          "globalNumber": 13,
+          "date": "2026-08-01",
+          "max": 65,
+          "onepr": 89
         }
       ]
     },
@@ -179,6 +193,13 @@
           "date": "2026-07-28",
           "max": 55,
           "onepr": 77
+        },
+        {
+          "sessionId": "M-0004-S01",
+          "globalNumber": 13,
+          "date": "2026-08-01",
+          "max": 55,
+          "onepr": 79
         }
       ]
     },
@@ -227,6 +248,13 @@
           "date": "2026-07-30",
           "max": 20,
           "onepr": 28
+        },
+        {
+          "sessionId": "M-0004-S01",
+          "globalNumber": 13,
+          "date": "2026-08-01",
+          "max": 20,
+          "onepr": 29
         }
       ]
     },
@@ -259,6 +287,13 @@
           "date": "2026-07-23",
           "max": 20,
           "onepr": 29
+        },
+        {
+          "sessionId": "M-0004-S01",
+          "globalNumber": 13,
+          "date": "2026-08-01",
+          "max": 30,
+          "onepr": 40
         }
       ]
     },
@@ -290,6 +325,13 @@
           "globalNumber": 9,
           "date": "2026-07-23",
           "max": 25,
+          "onepr": 36
+        },
+        {
+          "sessionId": "M-0004-S01",
+          "globalNumber": 13,
+          "date": "2026-08-01",
+          "max": 28,
           "onepr": 36
         }
       ]
@@ -728,6 +770,13 @@
           "date": "2026-07-28",
           "max": 55,
           "onepr": 72
+        },
+        {
+          "sessionId": "M-0004-S01",
+          "globalNumber": 13,
+          "date": "2026-08-01",
+          "max": 55,
+          "onepr": 73
         }
       ]
     },

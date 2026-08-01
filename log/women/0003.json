@@ -3,14 +3,14 @@
   "planId": "0003",
   "athlete": "women",
   "createdAt": "2026-07-24T21:00:00+04:00",
-  "updatedAt": "2026-07-31T12:00:00+04:00",
+  "updatedAt": "2026-08-01T12:00:00+04:00",
   "schedule": { "kind": "every_other_day", "sessionsPlanned": 4, "defaultIntervalHours": 48, "estimatedSessionMinutes": "60–75" },
   "microcycleStats": {
-    "tonnageKg": 13511,
+    "tonnageKg": 13381,
     "avgIntensityPct": 70,
     "hardSets": 63,
     "hardSetsByMuscle": { "Ягодицы": 14, "Спина": 11, "Бицепс бедра": 9, "Задняя цепь": 8, "Плечи": 8, "Квадрицепс": 6, "Грудь": 3, "Бицепс": 2, "Трицепс": 2 },
-    "tonnageByMuscleKg": { "Ягодицы": 4218, "Бицепс бедра": 3430, "Спина": 2325, "Квадрицепс": 1710, "Плечи": 908, "Грудь": 360, "Бицепс": 260, "Трицепс": 180, "Задняя цепь": 120 }
+    "tonnageByMuscleKg": { "Ягодицы": 4088, "Бицепс бедра": 3430, "Спина": 2325, "Квадрицепс": 1710, "Плечи": 908, "Грудь": 360, "Бицепс": 260, "Трицепс": 180, "Задняя цепь": 120 }
   },
   "sessions": [
     {
@@ -215,6 +215,7 @@
     {
       "sessionId": "W-0003-S04",
       "globalNumber": 12,
+      "performedAt": "2026-08-01",
       "recommendedIntervalAfterPreviousHours": 48,
       "estimatedDurationMinutes": 60,
       "focus": "День D · присед и задняя цепь",
@@ -244,6 +245,7 @@
           "name": "Румынская тяга (свободная штанга или Смит на выбор)",
           "restSeconds": 150,
           "note": "Второй, объёмный проход РДЛ за неделю (2 подхода). Колеи независимы.",
+          "postNotes": "Выбрана штанга. Смит не выполнялся.",
           "variants": [
             {
               "label": "Штанга",
@@ -252,14 +254,6 @@
                 { "weight": 20, "unit": "kg", "reps": 8, "sets": 1, "type": "warmup" },
                 { "weight": 40, "unit": "kg", "reps": 11, "sets": 2, "rir": 2 }
               ]
-            },
-            {
-              "label": "Смит",
-              "note": "40 кг = 20 кг блинов на грифе; разминка — пустой гриф.",
-              "loadBlocks": [
-                { "weight": 20, "unit": "kg", "reps": 8, "sets": 1, "type": "warmup" },
-                { "weight": 40, "unit": "kg", "reps": 10, "sets": 2, "rir": 2 }
-              ]
             }
           ]
         },
@@ -267,11 +261,8 @@
           "name": "Отведение ноги назад (кроссовер или тренажёр на выбор)",
           "restSeconds": 90,
           "note": "Повторы на каждую ногу. Колеи независимы; кроссовер по факту ещё не выполнялся — вес прикидочный.",
+          "postNotes": "Выбран тренажёр. Кроссовер не выполнялся.",
           "variants": [
-            {
-              "label": "Кроссовер",
-              "loadBlocks": [ { "weight": 5, "unit": "kg_per_side", "reps": 13, "sets": 2, "rir": 2 } ]
-            },
             {
               "label": "Тренажёр",
               "loadBlocks": [ { "weight": 5, "unit": "kg", "reps": 13, "sets": 2, "rir": 2, "note": "сверх базового веса тренажёра" } ]

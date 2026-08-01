@@ -3,19 +3,20 @@
   "planId": "0004",
   "athlete": "man",
   "createdAt": "2026-07-25T23:30:00+04:00",
-  "updatedAt": "2026-07-31T12:00:00+04:00",
+  "updatedAt": "2026-08-01T19:40:00+04:00",
   "schedule": { "kind": "every_other_day", "sessionsPlanned": 4, "defaultIntervalHours": 48, "estimatedSessionMinutes": "78–95" },
   "microcycleStats": {
-    "tonnageKg": 45400,
-    "avgIntensityPct": 74,
-    "hardSets": 86,
-    "hardSetsByMuscle": { "Грудь": 14, "Квадрицепс": 13, "Бицепс бедра": 13, "Спина": 12, "Плечи": 12, "Икры": 6, "Пресс": 6, "Трицепс": 5, "Бицепс": 5 },
-    "tonnageByMuscleKg": { "Квадрицепс": 10305, "Бицепс бедра": 8530, "Спина": 7680, "Грудь": 6255, "Икры": 5580, "Плечи": 4065, "Бицепс": 1575, "Трицепс": 1320, "Пресс": 90 }
+    "tonnageKg": 45326,
+    "avgIntensityPct": 72,
+    "hardSets": 87,
+    "hardSetsByMuscle": { "Грудь": 14, "Квадрицепс": 13, "Бицепс бедра": 13, "Спина": 12, "Плечи": 12, "Трицепс": 6, "Икры": 6, "Пресс": 6, "Бицепс": 5 },
+    "tonnageByMuscleKg": { "Квадрицепс": 10305, "Бицепс бедра": 8530, "Спина": 7380, "Грудь": 6255, "Икры": 5580, "Плечи": 3910, "Трицепс": 1660, "Бицепс": 1616, "Пресс": 90 }
   },
   "sessions": [
     {
       "sessionId": "M-0004-S01",
       "globalNumber": 13,
+      "performedAt": "2026-08-01",
       "recommendedIntervalAfterPreviousHours": 48,
       "estimatedDurationMinutes": 92,
       "focus": "Верх A · жим лёжа",
@@ -36,10 +37,13 @@
           "name": "Горизонтальная тяга в тренажёре",
           "restSeconds": 150,
           "note": "Строго вторым по счёту. Чисто, без читинга; пошёл читинг — вернуть 70.",
+          "postNotes": "По плану 75×10×3 — на 75 шёл читинг и неполная амплитуда, снизил до 65.",
           "variants": [
             {
               "loadBlocks": [
-                { "weight": 75, "unit": "kg", "reps": 10, "sets": 3, "rir": 2 }
+                { "weight": 65, "unit": "kg", "reps": 10, "sets": 1, "rir": 1, "postNotes": "Запас 1–2." },
+                { "weight": 65, "unit": "kg", "reps": 10, "sets": 1, "rir": 1 },
+                { "weight": 65, "unit": "kg", "reps": 10, "sets": 1, "rir": 0 }
               ]
             }
           ]
@@ -71,6 +75,7 @@
           "name": "Махи в стороны (трос/тренажёр)",
           "restSeconds": 150,
           "note": "Потолок RIR 1, в отказ не идти.",
+          "postNotes": "Тренажёр. 2-й и 3-й подходы сделал в отказ, повторы 12 → 11 → 9.",
           "variants": [
             {
               "label": "Трос",
@@ -81,7 +86,9 @@
             {
               "label": "Тренажёр",
               "loadBlocks": [
-                { "weight": 20, "unit": "kg", "reps": 12, "sets": 3, "rir": 1 }
+                { "weight": 20, "unit": "kg", "reps": 12, "sets": 1, "rir": 1 },
+                { "weight": 20, "unit": "kg", "reps": 11, "sets": 1, "rir": 0 },
+                { "weight": 20, "unit": "kg", "reps": 9, "sets": 1, "rir": 0 }
               ]
             }
           ]
@@ -89,10 +96,14 @@
         {
           "name": "Разгибание рук на верхнем блоке",
           "restSeconds": 150,
+          "postNotes": "По плану 20×14×3 — сделал 4 подхода, подбирая вес.",
           "variants": [
             {
               "loadBlocks": [
-                { "weight": 20, "unit": "kg", "reps": 14, "sets": 3, "rir": 2 }
+                { "weight": 20, "unit": "kg", "reps": 20, "sets": 1, "rir": 3, "postNotes": "Запас 3+." },
+                { "weight": 30, "unit": "kg", "reps": 10, "sets": 1, "rir": 0, "postNotes": "Запас 0–1." },
+                { "weight": 25, "unit": "kg", "reps": 15, "sets": 1, "rir": 0, "postNotes": "Запас 0–1." },
+                { "weight": 15, "unit": "kg", "reps": 7, "sets": 1, "rir": 0, "postNotes": "Другая техника — более подконтрольная, с акцентом на трицепс; отсюда меньший вес и повторы. Со слов атлета, дальше будет делать только в ней." }
               ]
             }
           ]
@@ -100,10 +111,13 @@
         {
           "name": "Сгибание рук со штангой",
           "restSeconds": 150,
+          "postNotes": "По плану 25×13×3 — первый подход 25×16, дальше сам поднял до 28.",
           "variants": [
             {
               "loadBlocks": [
-                { "weight": 25, "unit": "kg", "reps": 13, "sets": 3, "rir": 1 }
+                { "weight": 25, "unit": "kg", "reps": 16, "sets": 1, "rir": 2 },
+                { "weight": 28, "unit": "kg", "reps": 13, "sets": 1, "rir": 1 },
+                { "weight": 28, "unit": "kg", "reps": 9, "sets": 1, "rir": 0, "postNotes": "Запас 0–1." }
               ]
             }
           ]
@@ -294,13 +308,15 @@
             {
               "label": "Трос",
               "loadBlocks": [
-                { "weight": 15, "unit": "kg", "reps": 13, "sets": 3, "rir": 1, "note": "На тросе вес оценочный — сообщить запас." }
+                { "weight": 15, "unit": "kg", "reps": 12, "sets": 1, "rir": 1, "note": "На тросе вес оценочный — сообщить запас." },
+                { "weight": 15, "unit": "kg", "reps": 10, "sets": 2, "rir": 1 }
               ]
             },
             {
               "label": "Тренажёр",
               "loadBlocks": [
-                { "weight": 20, "unit": "kg", "reps": 13, "sets": 3, "rir": 1 }
+                { "weight": 20, "unit": "kg", "reps": 12, "sets": 1, "rir": 1 },
+                { "weight": 20, "unit": "kg", "reps": 10, "sets": 2, "rir": 1 }
               ]
             }
           ]
@@ -440,13 +456,15 @@
             {
               "label": "Трос",
               "loadBlocks": [
-                { "weight": 15, "unit": "kg", "reps": 14, "sets": 3, "rir": 1, "note": "На тросе вес оценочный — сообщить запас." }
+                { "weight": 15, "unit": "kg", "reps": 12, "sets": 1, "rir": 1, "note": "На тросе вес оценочный — сообщить запас." },
+                { "weight": 15, "unit": "kg", "reps": 10, "sets": 2, "rir": 1 }
               ]
             },
             {
               "label": "Тренажёр",
               "loadBlocks": [
-                { "weight": 20, "unit": "kg", "reps": 14, "sets": 3, "rir": 1 }
+                { "weight": 20, "unit": "kg", "reps": 12, "sets": 1, "rir": 1 },
+                { "weight": 20, "unit": "kg", "reps": 10, "sets": 2, "rir": 1 }
               ]
             }
           ]
