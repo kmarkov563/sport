@@ -3,19 +3,20 @@
   "planId": "0004",
   "athlete": "women",
   "createdAt": "2026-07-25T23:30:00+04:00",
-  "updatedAt": "2026-07-29T08:12:00+04:00",
+  "updatedAt": "2026-08-04T12:00:00+04:00",
   "schedule": { "kind": "every_other_day", "sessionsPlanned": 4, "defaultIntervalHours": 48, "estimatedSessionMinutes": "60–75" },
   "microcycleStats": {
-    "tonnageKg": 14768,
-    "avgIntensityPct": 70,
+    "tonnageKg": 14595,
+    "avgIntensityPct": 71,
     "hardSets": 63,
     "hardSetsByMuscle": { "Ягодицы": 14, "Спина": 11, "Бицепс бедра": 9, "Задняя цепь": 8, "Плечи": 8, "Квадрицепс": 6, "Грудь": 3, "Бицепс": 2, "Трицепс": 2 },
-    "tonnageByMuscleKg": { "Ягодицы": 4743, "Бицепс бедра": 3750, "Спина": 2515, "Квадрицепс": 1710, "Плечи": 1020, "Грудь": 420, "Бицепс": 280, "Трицепс": 210, "Задняя цепь": 120 }
+    "tonnageByMuscleKg": { "Ягодицы": 4743, "Бицепс бедра": 3750, "Спина": 2320, "Квадрицепс": 1840, "Плечи": 912, "Грудь": 420, "Бицепс": 280, "Трицепс": 210, "Задняя цепь": 120 }
   },
   "sessions": [
     {
       "sessionId": "W-0004-S01",
       "globalNumber": 13,
+      "performedAt": "2026-08-04",
       "recommendedIntervalAfterPreviousHours": 48,
       "estimatedDurationMinutes": 60,
       "focus": "День A · ягодичный мост и присед",
@@ -46,11 +47,13 @@
           "name": "Глубокий присед, пятки на подставке",
           "restSeconds": 180,
           "note": "Глубина, давление всей стопой. Блинов 1.25 кг нет — растим повторы на 30, первый заход на 35 в дне D.",
+          "postNotes": "По плану 30 кг × 12 × 3. Сделано 30 кг × 12 × 2 и 35 кг × 8 × 1. Атлет просит не назначать в приседе больше 8 повторений.",
           "variants": [
             {
               "loadBlocks": [
                 { "weight": 20, "unit": "kg", "reps": 8, "sets": 1, "type": "warmup" },
-                { "weight": 30, "unit": "kg", "reps": 12, "sets": 3, "rir": 2 }
+                { "weight": 30, "unit": "kg", "reps": 12, "sets": 2 },
+                { "weight": 35, "unit": "kg", "reps": 8, "sets": 1 }
               ]
             }
           ]
@@ -66,15 +69,17 @@
           "name": "Вертикальная тяга верхнего блока",
           "restSeconds": 120,
           "note": "Только средний/широкий хват.",
+          "postNotes": "По плану 15 кг × 14 × 3. Сделано 15 кг × 14 × 2 и 15 кг × 8 × 1. Атлет просит снизить повторы в подходе.",
           "variants": [
-            { "loadBlocks": [ { "weight": 15, "unit": "kg", "reps": 14, "sets": 3, "rir": 2 } ] }
+            { "loadBlocks": [ { "weight": 15, "unit": "kg", "reps": 14, "sets": 2 }, { "weight": 15, "unit": "kg", "reps": 8, "sets": 1 } ] }
           ]
         },
         {
           "name": "Махи гантелями в стороны",
           "restSeconds": 90,
+          "postNotes": "По плану 3 кг/рука × 20 × 2. Сделано 3 кг/рука × 15 × 2. Атлет сообщает, что может брать 4 кг/рука.",
           "variants": [
-            { "loadBlocks": [ { "weight": 3, "unit": "kg_per_hand", "reps": 20, "sets": 2, "rir": 1 } ] }
+            { "loadBlocks": [ { "weight": 3, "unit": "kg_per_hand", "reps": 15, "sets": 2 } ] }
           ]
         },
         {
@@ -207,7 +212,7 @@
           "restSeconds": 120,
           "note": "Только средний/широкий хват.",
           "variants": [
-            { "loadBlocks": [ { "weight": 15, "unit": "kg", "reps": 13, "sets": 3, "rir": 2 } ] }
+            { "loadBlocks": [ { "weight": 20, "unit": "kg", "reps": 8, "sets": 3, "rir": 2 } ] }
           ]
         },
         {
@@ -222,7 +227,7 @@
           "name": "Махи гантелями в стороны",
           "restSeconds": 90,
           "variants": [
-            { "loadBlocks": [ { "weight": 3, "unit": "kg_per_hand", "reps": 20, "sets": 2, "rir": 1 } ] }
+            { "loadBlocks": [ { "weight": 4, "unit": "kg_per_hand", "reps": 12, "sets": 2, "rir": 2 } ] }
           ]
         }
       ]
@@ -245,12 +250,12 @@
         {
           "name": "Глубокий присед, пятки на подставке",
           "restSeconds": 180,
-          "note": "Тяжёлый день приседа: первый заход на 35 (шаг зала 5 кг, блинов 1.25 нет).",
+          "note": "Тяжёлый день приседа. Рабочие подходы не больше 8 повторений.",
           "variants": [
             {
               "loadBlocks": [
                 { "weight": 20, "unit": "kg", "reps": 8, "sets": 1, "type": "warmup" },
-                { "weight": 35, "unit": "kg", "reps": 6, "sets": 3, "rir": 2, "note": "если первый подход тяжелее RIR 1 — остальные подходы 30 кг × 12" }
+                { "weight": 35, "unit": "kg", "reps": 8, "sets": 3, "rir": 2 }
               ]
             }
           ]

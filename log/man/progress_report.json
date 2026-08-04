@@ -1,6 +1,6 @@
 {
   "athlete": "man",
-  "lastSession": "M-0004-S01",
+  "lastSession": "M-0004-S02",
   "sessions": [
     { "id": "M-0001-S01", "globalNumber": 1, "date": "2026-07-05" },
     { "id": "M-0001-S02", "globalNumber": 2, "date": "2026-07-07" },
@@ -14,7 +14,8 @@
     { "id": "M-0003-S02", "globalNumber": 10, "date": "2026-07-25" },
     { "id": "M-0003-S03", "globalNumber": 11, "date": "2026-07-28" },
     { "id": "M-0003-S04", "globalNumber": 12, "date": "2026-07-30" },
-    { "id": "M-0004-S01", "globalNumber": 13, "date": "2026-08-01" }
+    { "id": "M-0004-S01", "globalNumber": 13, "date": "2026-08-01" },
+    { "id": "M-0004-S02", "globalNumber": 14, "date": "2026-08-04" }
   ],
   "exercises": [
     {
@@ -138,7 +139,8 @@
         { "sessionId": "M-0002-S02", "max": 65, "onepr": 89 },
         { "sessionId": "M-0002-S04", "max": 65, "onepr": 87 },
         { "sessionId": "M-0003-S02", "max": 80, "onepr": 109 },
-        { "sessionId": "M-0003-S04", "max": 80, "onepr": 107 }
+        { "sessionId": "M-0003-S04", "max": 80, "onepr": 107 },
+        { "sessionId": "M-0004-S02", "max": 80, "onepr": 107 }
       ]
     },
     {
@@ -150,20 +152,22 @@
       "data": [
         { "sessionId": "M-0001-S02", "max": 120, "onepr": 168 },
         { "sessionId": "M-0002-S02", "max": 120, "onepr": 168 },
-        { "sessionId": "M-0003-S02", "max": 125, "onepr": 175 }
+        { "sessionId": "M-0003-S02", "max": 125, "onepr": 175 },
+        { "sessionId": "M-0004-S02", "max": 130, "onepr": 182 }
       ]
     },
     {
       "id": "standing_calf_smith",
       "name": "Икры (Смит стоя)",
-      "aliases": [ "Подъём на носки стоя в Смите", "Икры в Смите стоя", "Икры стоя (тренажёр или Смит на выбор) / Смит стоя" ],
+      "aliases": [ "Подъём на носки стоя в Смите", "Икры в Смите стоя", "Икры стоя (тренажёр или Смит на выбор) / Смит стоя", "Икры стоя (Смит или тренажёр на выбор) / Смит стоя" ],
       "unit": "kg",
       "color": "#C52DD2",
       "data": [
         { "sessionId": "M-0001-S02", "max": 30, "onepr": null },
         { "sessionId": "M-0002-S02", "max": 35, "onepr": null },
         { "sessionId": "M-0003-S02", "max": 50, "onepr": null },
-        { "sessionId": "M-0003-S04", "max": 60, "onepr": null }
+        { "sessionId": "M-0003-S04", "max": 60, "onepr": null },
+        { "sessionId": "M-0004-S02", "max": 60, "onepr": null }
       ]
     },
     {
@@ -178,7 +182,8 @@
         { "sessionId": "M-0002-S02", "max": 45, "onepr": 68 },
         { "sessionId": "M-0002-S04", "max": 45, "onepr": 69 },
         { "sessionId": "M-0003-S02", "max": 50, "onepr": 73 },
-        { "sessionId": "M-0003-S04", "max": 50, "onepr": 75 }
+        { "sessionId": "M-0003-S04", "max": 50, "onepr": 75 },
+        { "sessionId": "M-0004-S02", "max": 55, "onepr": 72 }
       ]
     },
     {
@@ -238,7 +243,8 @@
         { "sessionId": "M-0002-S02", "max": 55, "onepr": 72 },
         { "sessionId": "M-0002-S04", "max": 50, "onepr": 68 },
         { "sessionId": "M-0003-S02", "max": 70, "onepr": 96 },
-        { "sessionId": "M-0003-S04", "max": 65, "onepr": 87 }
+        { "sessionId": "M-0003-S04", "max": 65, "onepr": 87 },
+        { "sessionId": "M-0004-S02", "max": 75, "onepr": 95 }
       ]
     },
     {
@@ -293,7 +299,8 @@
       "unit": "kg",
       "color": "#D2412D",
       "data": [
-        { "sessionId": "M-0003-S02", "max": 55, "onepr": 75 }
+        { "sessionId": "M-0003-S02", "max": 55, "onepr": 75 },
+        { "sessionId": "M-0004-S02", "max": 60, "onepr": 82 }
       ]
     },
     {
