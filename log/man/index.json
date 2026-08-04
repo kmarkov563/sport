@@ -3,8 +3,8 @@
   "athlete": "man",
   "activePlanId": "0004",
   "currentSessionId": "M-0004-S03",
-  "nextGlobalNumber": 17,
-  "updatedAt": "2026-08-04T22:41:23+04:00",
+  "nextGlobalNumber": 21,
+  "updatedAt": "2026-08-04T22:47:14+04:00",
   "plans": [
     {
       "planId": "0001",
@@ -29,6 +29,12 @@
       "file": "0004.json",
       "status": "active",
       "sessionIds": ["M-0004-S01", "M-0004-S02", "M-0004-S03", "M-0004-S04"]
+    },
+    {
+      "planId": "0005",
+      "file": "0005.json",
+      "status": "planned",
+      "sessionIds": ["M-0005-S01", "M-0005-S02", "M-0005-S03", "M-0005-S04"]
     }
   ]
 }

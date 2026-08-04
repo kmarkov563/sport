@@ -1,0 +1,421 @@
+{
+  "schemaVersion": 1,
+  "planId": "0005",
+  "athlete": "man",
+  "createdAt": "2026-08-04T22:47:14+04:00",
+  "updatedAt": "2026-08-04T22:47:14+04:00",
+  "schedule": { "kind": "every_other_day", "sessionsPlanned": 4, "defaultIntervalHours": 48, "estimatedSessionMinutes": "82-96" },
+  "microcycleStats": {
+    "tonnageKg": 46348,
+    "avgIntensityPct": 72,
+    "hardSets": 86,
+    "hardSetsByMuscle": { "Грудь": 14, "Бицепс бедра": 13, "Квадрицепс": 13, "Плечи": 12, "Спина": 12, "Икры": 6, "Пресс": 6, "Бицепс": 5, "Трицепс": 5 },
+    "tonnageByMuscleKg": { "Квадрицепс": 10920, "Бицепс бедра": 8555, "Спина": 7890, "Грудь": 6882, "Икры": 5400, "Плечи": 4140, "Бицепс": 1500, "Трицепс": 970, "Пресс": 90 }
+  },
+  "sessions": [
+    {
+      "sessionId": "M-0005-S01",
+      "globalNumber": 17,
+      "recommendedIntervalAfterPreviousHours": 48,
+      "estimatedDurationMinutes": 94,
+      "focus": "Верх A · жим лёжа",
+      "workout": [
+        {
+          "name": "Жим штанги лёжа",
+          "restSeconds": 240,
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 85, "unit": "kg", "reps": 5, "sets": 3, "rir": 2 },
+                { "weight": 80, "unit": "kg", "reps": 5, "sets": 1, "rir": 2 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Горизонтальная тяга в тренажёре",
+          "restSeconds": 180,
+          "note": "Строго вторым по счёту. Чисто, полная амплитуда, без читинга.",
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 65, "unit": "kg", "reps": 10, "sets": 3, "rir": 1 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Жим на наклонной со свободной штангой",
+          "restSeconds": 180,
+          "note": "Потолок RIR 2, в отказ не идти. Если 1-й подход тяжелее запаса 1 — остальные на 50.",
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 55, "unit": "kg", "reps": 9, "sets": 3, "rir": 2 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Вертикальная тяга верхнего блока",
+          "restSeconds": 150,
+          "note": "Полное растяжение вверху.",
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 55, "unit": "kg", "reps": 12, "sets": 3, "rir": 2 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Махи в стороны (тренажёр или гантели)",
+          "restSeconds": 150,
+          "note": "Потолок RIR 1, в отказ не идти.",
+          "variants": [
+            {
+              "label": "Тренажёр",
+              "loadBlocks": [
+                { "weight": 20, "unit": "kg", "reps": 12, "sets": 1, "rir": 1 },
+                { "weight": 20, "unit": "kg", "reps": 11, "sets": 1, "rir": 1 },
+                { "weight": 20, "unit": "kg", "reps": 10, "sets": 1, "rir": 1 }
+              ]
+            },
+            {
+              "label": "Гантели",
+              "loadBlocks": [
+                { "weight": 10, "unit": "kg_per_hand", "reps": 12, "sets": 1, "rir": 1 },
+                { "weight": 10, "unit": "kg_per_hand", "reps": 11, "sets": 1, "rir": 1 },
+                { "weight": 10, "unit": "kg_per_hand", "reps": 10, "sets": 1, "rir": 1 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Разгибание рук на верхнем блоке",
+          "restSeconds": 150,
+          "note": "Только подконтрольная техника с акцентом на трицепс.",
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 15, "unit": "kg", "reps": 10, "sets": 3, "rir": 2 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Сгибание рук со штангой",
+          "restSeconds": 150,
+          "note": "Без заброса корпусом.",
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 28, "unit": "kg", "reps": 10, "sets": 3, "rir": 1 }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sessionId": "M-0005-S02",
+      "globalNumber": 18,
+      "recommendedIntervalAfterPreviousHours": 48,
+      "estimatedDurationMinutes": 88,
+      "focus": "Низ A · глубокий присед + задняя дельта",
+      "workout": [
+        {
+          "name": "Глубокий присед со штангой",
+          "restSeconds": 240,
+          "note": "Пятки на подставке. Если 1-й подход тяжелее запаса 1 — остальные на 75.",
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 80, "unit": "kg", "reps": 6, "sets": 4, "rir": 2 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Румынская тяга в Смите",
+          "restSeconds": 180,
+          "note": "Контролируемое опускание, спина нейтральна.",
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 85, "unit": "kg", "reps": 8, "sets": 3, "rir": 2 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Жим платформы ногами",
+          "restSeconds": 180,
+          "note": "Медленный подконтрольный темп.",
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 135, "unit": "kg", "reps": 10, "sets": 3, "rir": 2 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Сгибание ног в тренажёре",
+          "restSeconds": 120,
+          "note": "Чистые повторы, без пауз и читинга.",
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 55, "unit": "kg", "reps": 11, "sets": 3, "rir": 2 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Икры в Смите стоя",
+          "restSeconds": 120,
+          "note": "Полная растяжка внизу; со снаряда сходить плавно.",
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 60, "unit": "kg", "reps": 15, "sets": 3, "rir": 1 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Задняя дельта: обратная разводка в тренажёре",
+          "restSeconds": 120,
+          "note": "Вести локтями, без инерции корпусом; последний подход близко к отказу.",
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 60, "unit": "kg", "reps": 12, "sets": 3, "rir": 1 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Пресс (упражнение на выбор)",
+          "restSeconds": 60,
+          "note": "Взвешенные полноамплитудные сгибания корпуса или подъёмы ног в висе, последний подход близко к отказу. Когда 15 идут легко — добавлять сопротивление.",
+          "variants": [
+            {
+              "loadBlocks": [
+                { "reps": 15, "sets": 3, "rir": 1 }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sessionId": "M-0005-S03",
+      "globalNumber": 19,
+      "recommendedIntervalAfterPreviousHours": 48,
+      "estimatedDurationMinutes": 94,
+      "focus": "Верх B · верх груди и объём жима",
+      "workout": [
+        {
+          "name": "Жим на наклонной со свободной штангой",
+          "restSeconds": 180,
+          "note": "Приоритет дня, делать первым. Потолок RIR 2, в отказ НЕ идти.",
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 55, "unit": "kg", "reps": 10, "sets": 4, "rir": 2 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Вертикальная тяга верхнего блока, нейтральный хват",
+          "restSeconds": 150,
+          "note": "Полное растяжение вверху.",
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 55, "unit": "kg", "reps": 12, "sets": 3, "rir": 2 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Жим штанги лёжа с паузой 1 секунда",
+          "restSeconds": 210,
+          "note": "Пауза 1 с в напряжении: штанга лишь касается груди, руки не расслаблять, гриф не утапливать; без отбива. Если блинов 1.25 нет — 70×8×3.",
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 72.5, "unit": "kg", "reps": 7, "sets": 3, "rir": 2 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Горизонтальная тяга в тренажёре",
+          "restSeconds": 180,
+          "note": "Чисто, без читинга.",
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 60, "unit": "kg", "reps": 11, "sets": 3, "rir": 2 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Махи в стороны (тренажёр или гантели)",
+          "restSeconds": 150,
+          "note": "Потолок RIR 1, в отказ не идти.",
+          "variants": [
+            {
+              "label": "Тренажёр",
+              "loadBlocks": [
+                { "weight": 20, "unit": "kg", "reps": 12, "sets": 1, "rir": 1 },
+                { "weight": 20, "unit": "kg", "reps": 11, "sets": 1, "rir": 1 },
+                { "weight": 20, "unit": "kg", "reps": 10, "sets": 1, "rir": 1 }
+              ]
+            },
+            {
+              "label": "Гантели",
+              "loadBlocks": [
+                { "weight": 10, "unit": "kg_per_hand", "reps": 12, "sets": 1, "rir": 1 },
+                { "weight": 10, "unit": "kg_per_hand", "reps": 11, "sets": 1, "rir": 1 },
+                { "weight": 10, "unit": "kg_per_hand", "reps": 10, "sets": 1, "rir": 1 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Молотковые сгибания",
+          "restSeconds": 150,
+          "note": "Без заброса корпусом. Тяжелее запаса 1 или пошёл заброс — вернуть 15×10.",
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 15, "unit": "kg_per_hand", "reps": 11, "sets": 2, "rir": 2 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Разгибание из-за головы EZ-грифом лёжа",
+          "restSeconds": 150,
+          "note": "Опускать до полной растяжки за голову, локти узко. Угол плеча зафиксирован, разгибается только локоть, без подкидывания плечами.",
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 20, "unit": "kg", "reps": 13, "sets": 2, "rir": 2 }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sessionId": "M-0005-S04",
+      "globalNumber": 20,
+      "recommendedIntervalAfterPreviousHours": 48,
+      "estimatedDurationMinutes": 90,
+      "focus": "Низ B · румынская тяга + средняя дельта",
+      "workout": [
+        {
+          "name": "Румынская тяга в Смите",
+          "restSeconds": 210,
+          "note": "Приоритет дня, делать первым и свежим. Контролируемое опускание, спина нейтральна. Если 1-й подход тяжелее запаса 1 — остальные на 80.",
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 85, "unit": "kg", "reps": 8, "sets": 4, "rir": 2 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Глубокий присед со штангой",
+          "restSeconds": 180,
+          "note": "Второе движение, без грайнда — приоритет дня у румынской. Пятки на подставке.",
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 75, "unit": "kg", "reps": 8, "sets": 3, "rir": 2 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Разгибание ног в тренажёре",
+          "restSeconds": 120,
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 15, "unit": "plates", "reps": 14, "sets": 3, "rir": 2 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Сгибание ног в тренажёре",
+          "restSeconds": 120,
+          "note": "Чистые повторы, без пауз и читинга.",
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 55, "unit": "kg", "reps": 12, "sets": 3, "rir": 2 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Икры в Смите стоя",
+          "restSeconds": 120,
+          "note": "Полная растяжка внизу; со снаряда сходить плавно.",
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 60, "unit": "kg", "reps": 15, "sets": 3, "rir": 1 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Махи в стороны (тренажёр или гантели)",
+          "restSeconds": 90,
+          "note": "Потолок RIR 1, в отказ не идти.",
+          "variants": [
+            {
+              "label": "Тренажёр",
+              "loadBlocks": [
+                { "weight": 20, "unit": "kg", "reps": 12, "sets": 1, "rir": 1 },
+                { "weight": 20, "unit": "kg", "reps": 11, "sets": 1, "rir": 1 },
+                { "weight": 20, "unit": "kg", "reps": 10, "sets": 1, "rir": 1 }
+              ]
+            },
+            {
+              "label": "Гантели",
+              "loadBlocks": [
+                { "weight": 10, "unit": "kg_per_hand", "reps": 12, "sets": 1, "rir": 1 },
+                { "weight": 10, "unit": "kg_per_hand", "reps": 11, "sets": 1, "rir": 1 },
+                { "weight": 10, "unit": "kg_per_hand", "reps": 10, "sets": 1, "rir": 1 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Пресс (упражнение на выбор)",
+          "restSeconds": 60,
+          "note": "Взвешенные полноамплитудные сгибания корпуса или подъёмы ног в висе, последний подход близко к отказу. Когда 15 идут легко — добавлять сопротивление.",
+          "variants": [
+            {
+              "loadBlocks": [
+                { "reps": 15, "sets": 3, "rir": 1 }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
