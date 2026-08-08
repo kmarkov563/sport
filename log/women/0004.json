@@ -3,14 +3,14 @@
   "planId": "0004",
   "athlete": "women",
   "createdAt": "2026-07-25T23:30:00+04:00",
-  "updatedAt": "2026-08-04T12:00:00+04:00",
+  "updatedAt": "2026-08-08T12:00:00+04:00",
   "schedule": { "kind": "every_other_day", "sessionsPlanned": 4, "defaultIntervalHours": 48, "estimatedSessionMinutes": "60–75" },
   "microcycleStats": {
-    "tonnageKg": 14595,
-    "avgIntensityPct": 71,
+    "tonnageKg": 14590,
+    "avgIntensityPct": 70,
     "hardSets": 63,
     "hardSetsByMuscle": { "Ягодицы": 14, "Спина": 11, "Бицепс бедра": 9, "Задняя цепь": 8, "Плечи": 8, "Квадрицепс": 6, "Грудь": 3, "Бицепс": 2, "Трицепс": 2 },
-    "tonnageByMuscleKg": { "Ягодицы": 4743, "Бицепс бедра": 3750, "Спина": 2320, "Квадрицепс": 1840, "Плечи": 912, "Грудь": 420, "Бицепс": 280, "Трицепс": 210, "Задняя цепь": 120 }
+    "tonnageByMuscleKg": { "Ягодицы": 4743, "Бицепс бедра": 3750, "Спина": 2320, "Квадрицепс": 1840, "Плечи": 912, "Грудь": 420, "Бицепс": 280, "Трицепс": 205, "Задняя цепь": 120 }
   },
   "sessions": [
     {
@@ -94,6 +94,7 @@
     {
       "sessionId": "W-0004-S02",
       "globalNumber": 14,
+      "performedAt": "2026-08-06",
       "recommendedIntervalAfterPreviousHours": 48,
       "estimatedDurationMinutes": 55,
       "focus": "День B · румынская тяга и односторонняя работа",
@@ -110,17 +111,10 @@
           "name": "Румынская тяга (свободная штанга или Смит на выбор)",
           "restSeconds": 180,
           "note": "Основной день РДЛ. Колеи независимы: штанга растит повторы на 40 (шаг зала 40 → 45, блинов 1.25 кг нет), Смит — на 40.",
+          "postNotes": "Выбрана штанга. Смит не выполнялся.",
           "variants": [
             {
               "label": "Штанга",
-              "loadBlocks": [
-                { "weight": 20, "unit": "kg", "reps": 10, "sets": 1, "type": "warmup" },
-                { "weight": 40, "unit": "kg", "reps": 12, "sets": 3, "rir": 2 }
-              ]
-            },
-            {
-              "label": "Смит",
-              "note": "40 кг = 20 кг блинов на грифе; разминка — пустой гриф.",
               "loadBlocks": [
                 { "weight": 20, "unit": "kg", "reps": 10, "sets": 1, "type": "warmup" },
                 { "weight": 40, "unit": "kg", "reps": 12, "sets": 3, "rir": 2 }
@@ -156,8 +150,9 @@
           "name": "Разгибание рук на верхнем блоке",
           "restSeconds": 90,
           "note": "Локти прижаты к корпусу.",
+          "postNotes": "По плану 7.5 кг × 14 × 2. Сделано 7.5 кг × 14 × 1 и 10 кг × 10 × 1.",
           "variants": [
-            { "loadBlocks": [ { "weight": 7.5, "unit": "kg", "reps": 14, "sets": 2, "rir": 1 } ] }
+            { "loadBlocks": [ { "weight": 7.5, "unit": "kg", "reps": 14, "sets": 1, "rir": 1 }, { "weight": 10, "unit": "kg", "reps": 10, "sets": 1 } ] }
           ]
         }
       ]
