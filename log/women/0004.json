@@ -3,14 +3,14 @@
   "planId": "0004",
   "athlete": "women",
   "createdAt": "2026-07-25T23:30:00+04:00",
-  "updatedAt": "2026-08-08T21:00:00+04:00",
-  "schedule": { "kind": "fixed_weekdays", "weekdays": ["tue", "thu", "sat"], "sessionsPlanned": 4, "sessionsPerWeek": 3, "estimatedSessionMinutes": "60–75" },
+  "updatedAt": "2026-08-08T17:30:00+04:00",
+  "schedule": { "kind": "fixed_weekdays", "weekdays": ["tue", "thu", "sat"], "sessionsPlanned": 3, "sessionsPerWeek": 3, "estimatedSessionMinutes": "60–75" },
   "microcycleStats": {
-    "tonnageKg": 14746,
+    "tonnageKg": 11136,
     "avgIntensityPct": 70,
-    "hardSets": 63,
-    "hardSetsByMuscle": { "Ягодицы": 14, "Спина": 11, "Бицепс бедра": 9, "Задняя цепь": 8, "Плечи": 8, "Квадрицепс": 6, "Грудь": 3, "Бицепс": 2, "Трицепс": 2 },
-    "tonnageByMuscleKg": { "Ягодицы": 4899, "Бицепс бедра": 3750, "Спина": 2320, "Квадрицепс": 1840, "Плечи": 912, "Грудь": 420, "Бицепс": 280, "Трицепс": 205, "Задняя цепь": 120 }
+    "hardSets": 48,
+    "hardSetsByMuscle": { "Ягодицы": 12, "Спина": 9, "Задняя цепь": 6, "Плечи": 6, "Бицепс бедра": 5, "Квадрицепс": 3, "Грудь": 3, "Бицепс": 2, "Трицепс": 2 },
+    "tonnageByMuscleKg": { "Ягодицы": 4599, "Бицепс бедра": 2190, "Спина": 1800, "Квадрицепс": 1000, "Плечи": 552, "Грудь": 420, "Бицепс": 280, "Трицепс": 205, "Задняя цепь": 90 }
   },
   "sessions": [
     {
@@ -225,87 +225,6 @@
           "restSeconds": 90,
           "variants": [
             { "loadBlocks": [ { "weight": 4, "unit": "kg_per_hand", "reps": 12, "sets": 2, "rir": 2 } ] }
-          ]
-        }
-      ]
-    },
-    {
-      "sessionId": "W-0004-S04",
-      "globalNumber": 16,
-      "recommendedIntervalAfterPreviousHours": 72,
-      "estimatedDurationMinutes": 60,
-      "focus": "День D · присед и задняя цепь",
-      "workout": [
-        {
-          "name": "Гиперэкстензия (90°)",
-          "restSeconds": 60,
-          "note": "Активация, не до отказа.",
-          "variants": [
-            { "loadBlocks": [ { "reps": 15, "sets": 2 } ] }
-          ]
-        },
-        {
-          "name": "Глубокий присед, пятки на подставке",
-          "restSeconds": 180,
-          "note": "Тяжёлый день приседа. Рабочие подходы не больше 8 повторений.",
-          "variants": [
-            {
-              "loadBlocks": [
-                { "weight": 20, "unit": "kg", "reps": 8, "sets": 1, "type": "warmup" },
-                { "weight": 35, "unit": "kg", "reps": 8, "sets": 3, "rir": 2 }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Румынская тяга со штангой",
-          "restSeconds": 150,
-          "note": "Второй, объёмный проход РДЛ за неделю (2 подхода).",
-          "variants": [
-            {
-              "loadBlocks": [
-                { "weight": 20, "unit": "kg", "reps": 8, "sets": 1, "type": "warmup" },
-                { "weight": 40, "unit": "kg", "reps": 12, "sets": 2, "rir": 2 }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Отведение ноги назад (кроссовер или тренажёр на выбор)",
-          "restSeconds": 90,
-          "note": "Повторы на каждую ногу. Колеи независимы; кроссовер по факту ещё не выполнялся — вес прикидочный.",
-          "variants": [
-            {
-              "label": "Кроссовер",
-              "loadBlocks": [ { "weight": 5, "unit": "kg_per_side", "reps": 15, "sets": 2, "rir": 2 } ]
-            },
-            {
-              "label": "Тренажёр",
-              "loadBlocks": [ { "weight": 5, "unit": "kg", "reps": 15, "sets": 2, "rir": 2, "note": "сверх базового веса тренажёра" } ]
-            }
-          ]
-        },
-        {
-          "name": "Сгибание ног в тренажёре",
-          "restSeconds": 120,
-          "note": "Вес +5 после 25×15 в дне A — повторы заново снизу.",
-          "variants": [
-            { "loadBlocks": [ { "weight": 30, "unit": "kg", "reps": 10, "sets": 2, "rir": 2 } ] }
-          ]
-        },
-        {
-          "name": "Горизонтальная тяга в тренажёре",
-          "restSeconds": 120,
-          "note": "Только средний/широкий хват.",
-          "variants": [
-            { "loadBlocks": [ { "weight": 20, "unit": "kg", "reps": 13, "sets": 2, "rir": 2 } ] }
-          ]
-        },
-        {
-          "name": "Разведения на заднюю дельту",
-          "restSeconds": 90,
-          "variants": [
-            { "loadBlocks": [ { "weight": 10, "unit": "kg", "reps": 18, "sets": 2, "rir": 1 } ] }
           ]
         }
       ]
