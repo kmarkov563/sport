@@ -4,7 +4,7 @@
   "athlete": "women",
   "createdAt": "2026-07-25T23:30:00+04:00",
   "updatedAt": "2026-08-08T21:00:00+04:00",
-  "schedule": { "kind": "every_other_day", "sessionsPlanned": 4, "defaultIntervalHours": 48, "estimatedSessionMinutes": "60–75" },
+  "schedule": { "kind": "fixed_weekdays", "weekdays": ["tue", "thu", "sat"], "sessionsPlanned": 4, "sessionsPerWeek": 3, "estimatedSessionMinutes": "60–75" },
   "microcycleStats": {
     "tonnageKg": 14746,
     "avgIntensityPct": 70,
@@ -232,7 +232,7 @@
     {
       "sessionId": "W-0004-S04",
       "globalNumber": 16,
-      "recommendedIntervalAfterPreviousHours": 48,
+      "recommendedIntervalAfterPreviousHours": 72,
       "estimatedDurationMinutes": 60,
       "focus": "День D · присед и задняя цепь",
       "workout": [
@@ -258,20 +258,11 @@
           ]
         },
         {
-          "name": "Румынская тяга (свободная штанга или Смит на выбор)",
+          "name": "Румынская тяга со штангой",
           "restSeconds": 150,
-          "note": "Второй, объёмный проход РДЛ за неделю (2 подхода). Колеи независимы.",
+          "note": "Второй, объёмный проход РДЛ за неделю (2 подхода).",
           "variants": [
             {
-              "label": "Штанга",
-              "loadBlocks": [
-                { "weight": 20, "unit": "kg", "reps": 8, "sets": 1, "type": "warmup" },
-                { "weight": 40, "unit": "kg", "reps": 12, "sets": 2, "rir": 2 }
-              ]
-            },
-            {
-              "label": "Смит",
-              "note": "40 кг = 20 кг блинов на грифе; разминка — пустой гриф.",
               "loadBlocks": [
                 { "weight": 20, "unit": "kg", "reps": 8, "sets": 1, "type": "warmup" },
                 { "weight": 40, "unit": "kg", "reps": 12, "sets": 2, "rir": 2 }
