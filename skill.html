@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>AI-тренер · Стойка на руках</title>
+  <link rel="icon" type="image/webp" href="assets/might_guy.webp">
+  <style>
+    *{box-sizing:border-box}
+    :root{
+      --bg:#f1f4ef;--surface:#ffffff;--surface2:#f4f7f2;
+      --ink:#15211a;--muted:#69726b;--line:#e3e7e0;
+      --accent:#1c7a4b;--accent-ink:#12613b;--accent-soft:#e2f1e9;
+      --warn:#b26a10;--warn-soft:#faedd6;
+      --radius:16px;--shadow:0 8px 26px rgba(19,40,28,.07)
+    }
+    @media(prefers-color-scheme:dark){
+      :root{
+        --bg:#0f1512;--surface:#161c18;--surface2:#1c231e;
+        --ink:#eaf1eb;--muted:#9aa39c;--line:#2c342e;
+        --accent:#5fce93;--accent-ink:#8ee0b1;--accent-soft:#173225;
+        --warn:#f2b866;--warn-soft:#3a2c14;
+        --shadow:0 14px 40px rgba(0,0,0,.3)
+      }
+    }
+    body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
+    button{font:inherit}
+    .shell{width:min(860px,100%);margin:auto;padding:24px 18px 72px}
+
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:18px}
+    .back{color:var(--muted);text-decoration:none;font-weight:650;font-size:14px}
+    .back:hover{color:var(--ink)}
+    .gym-link{color:var(--accent-ink);text-decoration:none;font-weight:760;font-size:14px}
+    .gym-link:hover{text-decoration:underline}
+
+    .head h1{font-size:21px;font-weight:850;letter-spacing:-.01em;margin:0}
+    .head .sub{font-size:13px;color:var(--muted);margin-top:4px}
+
+    .days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin:16px 0}
+    .day-tab{border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:10px;padding:9px 4px;cursor:pointer;font-size:13px;font-weight:780;text-align:center}
+    .day-tab:hover{color:var(--ink);border-color:var(--accent)}
+    .day-tab.active{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:850}
+
+    .callout{padding:12px 14px;border-radius:12px;background:var(--warn-soft);color:var(--warn);font-size:13px;line-height:1.5;font-weight:640;margin-bottom:16px}
+
+    .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;margin-top:14px}
+    .day-title{font-size:18px;font-weight:850;margin:0}
+    .day-meta{font-size:12.5px;color:var(--muted);margin-top:3px}
+
+    .part-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:6px}
+    .part-name{font-size:13px;font-weight:850;text-transform:uppercase;letter-spacing:.05em;color:var(--accent-ink)}
+    .part-minutes{font-size:12px;color:var(--muted);white-space:nowrap}
+
+    .exercise{padding:14px 0;border-bottom:1px solid var(--line)}
+    .exercise:last-child{border-bottom:0;padding-bottom:0}
+    .ex-top{display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap}
+    .ex-name{font-weight:800;font-size:15.5px;line-height:1.3}
+    .ex-index{display:inline-grid;place-items:center;min-width:21px;height:21px;margin-right:9px;border-radius:6px;background:var(--surface2);color:var(--muted);font-size:12px;font-weight:800}
+    .ex-sets{font-weight:820;font-size:15px;color:var(--accent-ink);white-space:nowrap}
+    .ex-how{margin-top:7px;font-size:13.5px;color:var(--muted);line-height:1.55}
+    .rest{margin-top:12px;font-size:12.5px;color:var(--muted)}
+
+    .error{padding:18px;border-radius:14px;background:var(--warn-soft);color:var(--warn)}
+    .loading{padding:48px;text-align:center;color:var(--muted)}
+    :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+    @media(max-width:720px){
+      .shell{padding:18px 12px 48px}
+      .days{gap:4px}
+      .day-tab{padding:9px 2px;font-size:12.5px}
+      .ex-top{flex-direction:column;gap:3px}
+    }
+  </style>
+</head>
+<body>
+  <div id="offline-banner" hidden style="position:fixed;left:0;right:0;bottom:0;z-index:9999;background:var(--warn-soft);color:var(--warn);text-align:center;padding:9px 12px;font-size:13px;font-weight:700;border-top:1px solid color-mix(in srgb,var(--warn) 40%,transparent)">
+    Офлайн — показаны сохранённые данные
+  </div>
+  <main class="shell">
+    <div class="topbar">
+      <a class="back" href="index.html">← Все программы</a>
+      <a class="gym-link" href="coach.html?athlete=man">План зала →</a>
+    </div>
+    <section id="content" class="loading">Загружаю план…</section>
+  </main>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const MILLISECONDS_PER_DAY = 24 * 60 * 60 * 1000;
+      const state = { week: null, day: 1 };
+
+      const offlineBanner = document.getElementById("offline-banner");
+      let servedFromCache = false;
+      function updateOfflineBanner() {
+        offlineBanner.hidden = navigator.onLine && !servedFromCache;
+      }
+      window.addEventListener("online", () => { servedFromCache = false; updateOfflineBanner(); });
+      window.addEventListener("offline", updateOfflineBanner);
+
+      const content = document.getElementById("content");
+      const escapeHtml = value => String(value ?? "")
+        .replaceAll("&", "&amp;").replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;").replaceAll('"', "&quot;");
+
+      function dayInProgress(startedAt, totalDays) {
+        const elapsed = Math.floor((Date.now() - new Date(startedAt).getTime()) / MILLISECONDS_PER_DAY);
+        return elapsed < 0 ? 1 : (elapsed % totalDays) + 1;
+      }
+
+      function formatSets(exercise) {
+        const amount = exercise.holdSeconds === undefined
+          ? `${exercise.reps} повт.`
+          : `${exercise.holdSeconds} с`;
+        const side = exercise.perSide ? " на каждую сторону" : "";
+        return `${exercise.sets} ${exercise.sets === 1 ? "подход" : "подхода"} × ${amount}${side}`;
+      }
+
+      function renderExercise(exercise, index) {
+        return `
+          <div class="exercise">
+            <div class="ex-top">
+              <div class="ex-name"><span class="ex-index">${index + 1}</span>${escapeHtml(exercise.name)}</div>
+              <div class="ex-sets">${escapeHtml(formatSets(exercise))}</div>
+            </div>
+            <div class="ex-how">${escapeHtml(exercise.howTo)}</div>
+          </div>`;
+      }
+
+      function renderPart(part) {
+        return `
+          <section class="card">
+            <div class="part-head">
+              <span class="part-name">${escapeHtml(part.name)}</span>
+              <span class="part-minutes">~${part.minutes} мин</span>
+            </div>
+            ${part.exercises.map(renderExercise).join("")}
+            <div class="rest">Отдых между подходами ${part.restSeconds} с</div>
+          </section>`;
+      }
+
+      function render() {
+        const week = state.week;
+        const day = week.days.find(entry => entry.day === state.day);
+        const tabs = week.days.map(entry => `
+          <button class="day-tab${entry.day === state.day ? " active" : ""}" type="button" data-day="${entry.day}">
+            Д${entry.day}
+          </button>`).join("");
+
+        content.className = "";
+        content.innerHTML = `
+          <div class="head">
+            <h1>${escapeHtml(week.title)}</h1>
+            <p class="sub">Неделя ${escapeHtml(week.weekId)} · ${escapeHtml(week.when)}</p>
+          </div>
+          <div class="days">${tabs}</div>
+          <div class="callout">${escapeHtml(week.sessionNote)}</div>
+          <section class="card">
+            <h2 class="day-title">День ${day.day} · ${escapeHtml(day.title)}</h2>
+            <p class="day-meta">~${day.estimatedMinutes} минут</p>
+          </section>
+          ${day.parts.map(renderPart).join("")}`;
+      }
+
+      content.addEventListener("click", event => {
+        const tab = event.target.closest("[data-day]");
+        if (!tab) return;
+        state.day = Number(tab.dataset.day);
+        render();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      async function loadJson(path) {
+        const response = await fetch(path, { cache: "no-store" });
+        if (!response.ok) throw new Error(`${path}: HTTP ${response.status}`);
+        if (response.headers.get("X-Offline")) servedFromCache = true;
+        return response.json();
+      }
+
+      async function load() {
+        try {
+          servedFromCache = false;
+          const index = await loadJson("log/man-skill/index.json");
+          const active = index.weeks.find(week => week.weekId === index.activeWeekId);
+          if (!active) throw new Error(`Активная неделя ${index.activeWeekId} не найдена`);
+          state.week = await loadJson(`log/man-skill/${active.file}`);
+          state.day = dayInProgress(index.startedAt, state.week.days.length);
+          render();
+          updateOfflineBanner();
+        } catch (error) {
+          content.className = "error";
+          content.innerHTML = `<b>Не удалось загрузить план.</b><br>${escapeHtml(error.message)}`;
+        }
+      }
+
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => navigator.serviceWorker.register("sw.js"));
+      }
+
+      load();
+    })();
+  </script>
+</body>
+</html>

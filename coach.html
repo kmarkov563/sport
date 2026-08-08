@@ -166,6 +166,7 @@
           <div class="links">
             <a class="back" href="index.html">← Все программы</a>
             <a class="report-link" id="report-link" href="report.html">Прогресс →</a>
+            <a class="report-link" id="skill-link" href="skill.html">Стойка на руках →</a>
           </div>
           <nav class="plan-nav" aria-label="Навигация по планам">
             <button class="nav-button" id="previous-plan" type="button" aria-label="Предыдущий план">←</button>
@@ -480,6 +481,7 @@
             ? "AI-тренер · Женский план"
             : "AI-тренер · Мужской план";
           $("report-link").href = `report.html?athlete=${state.athlete}`;
+          $("skill-link").hidden = state.athlete !== "man";
           servedFromCache = false;
           const indexResponse = await fetch(`log/${state.athlete}/index.json`, { cache: "no-store" });
           if (!indexResponse.ok) throw new Error(`index.json: HTTP ${indexResponse.status}`);
