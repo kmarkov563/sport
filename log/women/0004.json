@@ -3,14 +3,14 @@
   "planId": "0004",
   "athlete": "women",
   "createdAt": "2026-07-25T23:30:00+04:00",
-  "updatedAt": "2026-08-08T12:00:00+04:00",
+  "updatedAt": "2026-08-08T21:00:00+04:00",
   "schedule": { "kind": "every_other_day", "sessionsPlanned": 4, "defaultIntervalHours": 48, "estimatedSessionMinutes": "60–75" },
   "microcycleStats": {
-    "tonnageKg": 14590,
+    "tonnageKg": 14746,
     "avgIntensityPct": 70,
     "hardSets": 63,
     "hardSetsByMuscle": { "Ягодицы": 14, "Спина": 11, "Бицепс бедра": 9, "Задняя цепь": 8, "Плечи": 8, "Квадрицепс": 6, "Грудь": 3, "Бицепс": 2, "Трицепс": 2 },
-    "tonnageByMuscleKg": { "Ягодицы": 4743, "Бицепс бедра": 3750, "Спина": 2320, "Квадрицепс": 1840, "Плечи": 912, "Грудь": 420, "Бицепс": 280, "Трицепс": 205, "Задняя цепь": 120 }
+    "tonnageByMuscleKg": { "Ягодицы": 4899, "Бицепс бедра": 3750, "Спина": 2320, "Квадрицепс": 1840, "Плечи": 912, "Грудь": 420, "Бицепс": 280, "Трицепс": 205, "Задняя цепь": 120 }
   },
   "sessions": [
     {
@@ -160,6 +160,7 @@
     {
       "sessionId": "W-0004-S03",
       "globalNumber": 15,
+      "performedAt": "2026-08-08",
       "recommendedIntervalAfterPreviousHours": 48,
       "estimatedDurationMinutes": 60,
       "focus": "День C · объёмный ягодичный мост",
@@ -198,8 +199,9 @@
           "name": "Отведение бедра в тренажёре",
           "restSeconds": 90,
           "note": "Если легко — добавь самый лёгкий блин по стороне и запиши.",
+          "postNotes": "По плану базовый вес тренажёра × 18 × 2. Сделано +5 кг сверх базового × 16 × 2.",
           "variants": [
-            { "loadBlocks": [ { "reps": 18, "sets": 2, "rir": 1, "note": "базовый вес тренажёра, без блинов" } ] }
+            { "loadBlocks": [ { "weight": 5, "unit": "kg", "reps": 16, "sets": 2, "rir": 1, "note": "сверх базового веса тренажёра" } ] }
           ]
         },
         {

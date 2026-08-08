@@ -1,6 +1,6 @@
 {
   "athlete": "man",
-  "lastSession": "M-0004-S03",
+  "lastSession": "M-0004-S04",
   "sessions": [
     { "id": "M-0001-S01", "globalNumber": 1, "date": "2026-07-05" },
     { "id": "M-0001-S02", "globalNumber": 2, "date": "2026-07-07" },
@@ -16,7 +16,8 @@
     { "id": "M-0003-S04", "globalNumber": 12, "date": "2026-07-30" },
     { "id": "M-0004-S01", "globalNumber": 13, "date": "2026-08-01" },
     { "id": "M-0004-S02", "globalNumber": 14, "date": "2026-08-04" },
-    { "id": "M-0004-S03", "globalNumber": 15, "date": "2026-08-06" }
+    { "id": "M-0004-S03", "globalNumber": 15, "date": "2026-08-06" },
+    { "id": "M-0004-S04", "globalNumber": 16, "date": "2026-08-08" }
   ],
   "exercises": [
     {
@@ -30,7 +31,8 @@
         { "sessionId": "M-0002-S01", "max": 80, "onepr": 99 },
         { "sessionId": "M-0002-S04", "max": 100, "onepr": 110 },
         { "sessionId": "M-0003-S01", "max": 85, "onepr": 105 },
-        { "sessionId": "M-0004-S01", "max": 85, "onepr": 105 }
+        { "sessionId": "M-0004-S01", "max": 85, "onepr": 105 },
+        { "sessionId": "M-0004-S04", "max": 110, "onepr": 114 }
       ]
     },
     {
@@ -91,7 +93,8 @@
         { "sessionId": "M-0003-S01", "max": 12, "onepr": null },
         { "sessionId": "M-0003-S03", "max": 15, "onepr": null },
         { "sessionId": "M-0003-S04", "max": 20, "onepr": 28 },
-        { "sessionId": "M-0004-S01", "max": 20, "onepr": 29 }
+        { "sessionId": "M-0004-S01", "max": 20, "onepr": 29 },
+        { "sessionId": "M-0004-S04", "max": 20, "onepr": 27 }
       ]
     },
     {
@@ -143,7 +146,8 @@
         { "sessionId": "M-0002-S04", "max": 65, "onepr": 87 },
         { "sessionId": "M-0003-S02", "max": 80, "onepr": 109 },
         { "sessionId": "M-0003-S04", "max": 80, "onepr": 107 },
-        { "sessionId": "M-0004-S02", "max": 80, "onepr": 107 }
+        { "sessionId": "M-0004-S02", "max": 80, "onepr": 107 },
+        { "sessionId": "M-0004-S04", "max": 90, "onepr": 117 }
       ]
     },
     {
@@ -170,7 +174,8 @@
         { "sessionId": "M-0002-S02", "max": 35, "onepr": null },
         { "sessionId": "M-0003-S02", "max": 50, "onepr": null },
         { "sessionId": "M-0003-S04", "max": 60, "onepr": null },
-        { "sessionId": "M-0004-S02", "max": 60, "onepr": null }
+        { "sessionId": "M-0004-S02", "max": 60, "onepr": null },
+        { "sessionId": "M-0004-S04", "max": 60, "onepr": null }
       ]
     },
     {
@@ -186,7 +191,8 @@
         { "sessionId": "M-0002-S04", "max": 45, "onepr": 69 },
         { "sessionId": "M-0003-S02", "max": 50, "onepr": 73 },
         { "sessionId": "M-0003-S04", "max": 50, "onepr": 75 },
-        { "sessionId": "M-0004-S02", "max": 55, "onepr": 72 }
+        { "sessionId": "M-0004-S02", "max": 55, "onepr": 72 },
+        { "sessionId": "M-0004-S04", "max": 60, "onepr": 84 }
       ]
     },
     {
@@ -250,7 +256,8 @@
         { "sessionId": "M-0002-S04", "max": 50, "onepr": 68 },
         { "sessionId": "M-0003-S02", "max": 70, "onepr": 96 },
         { "sessionId": "M-0003-S04", "max": 65, "onepr": 87 },
-        { "sessionId": "M-0004-S02", "max": 75, "onepr": 95 }
+        { "sessionId": "M-0004-S02", "max": 75, "onepr": 95 },
+        { "sessionId": "M-0004-S04", "max": 70, "onepr": 93 }
       ]
     },
     {
@@ -296,7 +303,8 @@
       "color": "#2D48D2",
       "data": [
         { "sessionId": "M-0002-S04", "max": 70, "onepr": null },
-        { "sessionId": "M-0003-S04", "max": 70, "onepr": null }
+        { "sessionId": "M-0003-S04", "max": 70, "onepr": null },
+        { "sessionId": "M-0004-S04", "max": 95, "onepr": 130 }
       ]
     },
     {
