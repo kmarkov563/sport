@@ -1,332 +1,908 @@
 {
   "athlete": "man",
-  "lastSession": "M-0004-S04",
+  "lastSession": "M-0005-S01",
   "sessions": [
-    { "id": "M-0001-S01", "globalNumber": 1, "date": "2026-07-05" },
-    { "id": "M-0001-S02", "globalNumber": 2, "date": "2026-07-07" },
-    { "id": "M-0001-S03", "globalNumber": 3, "date": "2026-07-09" },
-    { "id": "M-0001-S04", "globalNumber": 4, "date": "2026-07-11" },
-    { "id": "M-0002-S01", "globalNumber": 5, "date": "2026-07-14" },
-    { "id": "M-0002-S02", "globalNumber": 6, "date": "2026-07-16" },
-    { "id": "M-0002-S03", "globalNumber": 7, "date": "2026-07-18" },
-    { "id": "M-0002-S04", "globalNumber": 8, "date": "2026-07-20" },
-    { "id": "M-0003-S01", "globalNumber": 9, "date": "2026-07-23" },
-    { "id": "M-0003-S02", "globalNumber": 10, "date": "2026-07-25" },
-    { "id": "M-0003-S03", "globalNumber": 11, "date": "2026-07-28" },
-    { "id": "M-0003-S04", "globalNumber": 12, "date": "2026-07-30" },
-    { "id": "M-0004-S01", "globalNumber": 13, "date": "2026-08-01" },
-    { "id": "M-0004-S02", "globalNumber": 14, "date": "2026-08-04" },
-    { "id": "M-0004-S03", "globalNumber": 15, "date": "2026-08-06" },
-    { "id": "M-0004-S04", "globalNumber": 16, "date": "2026-08-08" }
+    {
+      "id": "M-0001-S01",
+      "globalNumber": 1,
+      "date": "2026-07-05"
+    },
+    {
+      "id": "M-0001-S02",
+      "globalNumber": 2,
+      "date": "2026-07-07"
+    },
+    {
+      "id": "M-0001-S03",
+      "globalNumber": 3,
+      "date": "2026-07-09"
+    },
+    {
+      "id": "M-0001-S04",
+      "globalNumber": 4,
+      "date": "2026-07-11"
+    },
+    {
+      "id": "M-0002-S01",
+      "globalNumber": 5,
+      "date": "2026-07-14"
+    },
+    {
+      "id": "M-0002-S02",
+      "globalNumber": 6,
+      "date": "2026-07-16"
+    },
+    {
+      "id": "M-0002-S03",
+      "globalNumber": 7,
+      "date": "2026-07-18"
+    },
+    {
+      "id": "M-0002-S04",
+      "globalNumber": 8,
+      "date": "2026-07-20"
+    },
+    {
+      "id": "M-0003-S01",
+      "globalNumber": 9,
+      "date": "2026-07-23"
+    },
+    {
+      "id": "M-0003-S02",
+      "globalNumber": 10,
+      "date": "2026-07-25"
+    },
+    {
+      "id": "M-0003-S03",
+      "globalNumber": 11,
+      "date": "2026-07-28"
+    },
+    {
+      "id": "M-0003-S04",
+      "globalNumber": 12,
+      "date": "2026-07-30"
+    },
+    {
+      "id": "M-0004-S01",
+      "globalNumber": 13,
+      "date": "2026-08-01"
+    },
+    {
+      "id": "M-0004-S02",
+      "globalNumber": 14,
+      "date": "2026-08-04"
+    },
+    {
+      "id": "M-0004-S03",
+      "globalNumber": 15,
+      "date": "2026-08-06"
+    },
+    {
+      "id": "M-0004-S04",
+      "globalNumber": 16,
+      "date": "2026-08-08"
+    },
+    {
+      "id": "M-0005-S01",
+      "globalNumber": 17,
+      "date": "2026-08-11"
+    }
   ],
   "exercises": [
     {
       "id": "bench_press",
       "name": "Жим лёжа",
-      "aliases": [ "Жим штанги лёжа", "Жим штанги лёжа (добавлено атлетом)" ],
+      "aliases": [
+        "Жим штанги лёжа",
+        "Жим штанги лёжа (добавлено атлетом)"
+      ],
       "unit": "kg",
       "color": "#D22D2D",
       "data": [
-        { "sessionId": "M-0001-S01", "max": 85, "onepr": 99 },
-        { "sessionId": "M-0002-S01", "max": 80, "onepr": 99 },
-        { "sessionId": "M-0002-S04", "max": 100, "onepr": 110 },
-        { "sessionId": "M-0003-S01", "max": 85, "onepr": 105 },
-        { "sessionId": "M-0004-S01", "max": 85, "onepr": 105 },
-        { "sessionId": "M-0004-S04", "max": 110, "onepr": 114 }
+        {
+          "sessionId": "M-0001-S01",
+          "max": 85,
+          "onepr": 99
+        },
+        {
+          "sessionId": "M-0002-S01",
+          "max": 80,
+          "onepr": 99
+        },
+        {
+          "sessionId": "M-0002-S04",
+          "max": 100,
+          "onepr": 110
+        },
+        {
+          "sessionId": "M-0003-S01",
+          "max": 85,
+          "onepr": 105
+        },
+        {
+          "sessionId": "M-0004-S01",
+          "max": 85,
+          "onepr": 105
+        },
+        {
+          "sessionId": "M-0004-S04",
+          "max": 110,
+          "onepr": 114
+        },
+        {
+          "sessionId": "M-0005-S01",
+          "max": 87.5,
+          "onepr": 108
+        }
       ]
     },
     {
       "id": "seated_row",
       "name": "Горизонтальная тяга (тренажёр)",
-      "aliases": [ "Горизонтальная тяга в тренажёре" ],
+      "aliases": [
+        "Горизонтальная тяга в тренажёре"
+      ],
       "unit": "kg",
       "color": "#2DD25D",
       "data": [
-        { "sessionId": "M-0001-S01", "max": 70, "onepr": 98 },
-        { "sessionId": "M-0001-S03", "max": 65, "onepr": 89 },
-        { "sessionId": "M-0002-S01", "max": 70, "onepr": 98 },
-        { "sessionId": "M-0002-S03", "max": 60, "onepr": 86 },
-        { "sessionId": "M-0003-S01", "max": 75, "onepr": 103 },
-        { "sessionId": "M-0003-S03", "max": 60, "onepr": 80 },
-        { "sessionId": "M-0004-S01", "max": 65, "onepr": 89 },
-        { "sessionId": "M-0004-S03", "max": 60, "onepr": 84 }
+        {
+          "sessionId": "M-0001-S01",
+          "max": 70,
+          "onepr": 98
+        },
+        {
+          "sessionId": "M-0001-S03",
+          "max": 65,
+          "onepr": 89
+        },
+        {
+          "sessionId": "M-0002-S01",
+          "max": 70,
+          "onepr": 98
+        },
+        {
+          "sessionId": "M-0002-S03",
+          "max": 60,
+          "onepr": 86
+        },
+        {
+          "sessionId": "M-0003-S01",
+          "max": 75,
+          "onepr": 103
+        },
+        {
+          "sessionId": "M-0003-S03",
+          "max": 60,
+          "onepr": 80
+        },
+        {
+          "sessionId": "M-0004-S01",
+          "max": 65,
+          "onepr": 89
+        },
+        {
+          "sessionId": "M-0004-S03",
+          "max": 60,
+          "onepr": 84
+        },
+        {
+          "sessionId": "M-0005-S01",
+          "max": 65,
+          "onepr": 89
+        }
       ]
     },
     {
       "id": "incline_press_smith",
       "name": "Наклонный жим (Смит)",
-      "aliases": [ "Жим на наклонной в Смите", "Жим на наклонной" ],
+      "aliases": [
+        "Жим на наклонной в Смите",
+        "Жим на наклонной"
+      ],
       "unit": "kg",
       "color": "#8D2DD2",
       "data": [
-        { "sessionId": "M-0001-S01", "max": 50, "onepr": 57 },
-        { "sessionId": "M-0001-S03", "max": 40, "onepr": 52 },
-        { "sessionId": "M-0002-S01", "max": 40, "onepr": 53 }
+        {
+          "sessionId": "M-0001-S01",
+          "max": 50,
+          "onepr": 57
+        },
+        {
+          "sessionId": "M-0001-S03",
+          "max": 40,
+          "onepr": 52
+        },
+        {
+          "sessionId": "M-0002-S01",
+          "max": 40,
+          "onepr": 53
+        }
       ]
     },
     {
       "id": "lat_pulldown",
       "name": "Вертикальная тяга блока",
-      "aliases": [ "Вертикальная тяга верхнего блока", "Вертикальная тяга верхнего блока, нейтральный хват" ],
+      "aliases": [
+        "Вертикальная тяга верхнего блока",
+        "Вертикальная тяга верхнего блока, нейтральный хват"
+      ],
       "unit": "kg",
       "color": "#D2BE2D",
       "data": [
-        { "sessionId": "M-0001-S01", "max": 50, "onepr": 68 },
-        { "sessionId": "M-0001-S03", "max": 50, "onepr": 68 },
-        { "sessionId": "M-0002-S01", "max": 50, "onepr": 70 },
-        { "sessionId": "M-0002-S03", "max": 50, "onepr": 70 },
-        { "sessionId": "M-0003-S01", "max": 55, "onepr": 77 },
-        { "sessionId": "M-0003-S03", "max": 55, "onepr": 77 },
-        { "sessionId": "M-0004-S01", "max": 55, "onepr": 79 },
-        { "sessionId": "M-0004-S03", "max": 55, "onepr": 79 }
+        {
+          "sessionId": "M-0001-S01",
+          "max": 50,
+          "onepr": 68
+        },
+        {
+          "sessionId": "M-0001-S03",
+          "max": 50,
+          "onepr": 68
+        },
+        {
+          "sessionId": "M-0002-S01",
+          "max": 50,
+          "onepr": 70
+        },
+        {
+          "sessionId": "M-0002-S03",
+          "max": 50,
+          "onepr": 70
+        },
+        {
+          "sessionId": "M-0003-S01",
+          "max": 55,
+          "onepr": 77
+        },
+        {
+          "sessionId": "M-0003-S03",
+          "max": 55,
+          "onepr": 77
+        },
+        {
+          "sessionId": "M-0004-S01",
+          "max": 55,
+          "onepr": 79
+        },
+        {
+          "sessionId": "M-0004-S03",
+          "max": 55,
+          "onepr": 79
+        },
+        {
+          "sessionId": "M-0005-S01",
+          "max": 55,
+          "onepr": 81
+        }
       ]
     },
     {
       "id": "lateral_raise_machine",
       "name": "Махи (тренажёр/трос)",
-      "aliases": [ "Разводка в тренажёре", "Махи в стороны в тренажёре (разводка)", "Махи в стороны в тренажёре", "Махи в стороны (трос/тренажёр)", "Махи в стороны (тренажёр или гантели) / Тренажёр" ],
+      "aliases": [
+        "Разводка в тренажёре",
+        "Махи в стороны в тренажёре (разводка)",
+        "Махи в стороны в тренажёре",
+        "Махи в стороны (трос/тренажёр)",
+        "Махи в стороны (тренажёр или гантели) / Тренажёр"
+      ],
       "unit": "kg",
       "color": "#2DB7D2",
       "data": [
-        { "sessionId": "M-0001-S01", "max": 15, "onepr": null },
-        { "sessionId": "M-0002-S01", "max": 12, "onepr": null },
-        { "sessionId": "M-0003-S01", "max": 12, "onepr": null },
-        { "sessionId": "M-0003-S03", "max": 15, "onepr": null },
-        { "sessionId": "M-0003-S04", "max": 20, "onepr": 28 },
-        { "sessionId": "M-0004-S01", "max": 20, "onepr": 29 },
-        { "sessionId": "M-0004-S04", "max": 20, "onepr": 27 }
+        {
+          "sessionId": "M-0001-S01",
+          "max": 15,
+          "onepr": null
+        },
+        {
+          "sessionId": "M-0002-S01",
+          "max": 12,
+          "onepr": null
+        },
+        {
+          "sessionId": "M-0003-S01",
+          "max": 12,
+          "onepr": null
+        },
+        {
+          "sessionId": "M-0003-S03",
+          "max": 15,
+          "onepr": null
+        },
+        {
+          "sessionId": "M-0003-S04",
+          "max": 20,
+          "onepr": 28
+        },
+        {
+          "sessionId": "M-0004-S01",
+          "max": 20,
+          "onepr": 29
+        },
+        {
+          "sessionId": "M-0004-S04",
+          "max": 20,
+          "onepr": 27
+        },
+        {
+          "sessionId": "M-0005-S01",
+          "max": 20,
+          "onepr": 27
+        }
       ]
     },
     {
       "id": "triceps_pushdown",
       "name": "Разгибание на блоке (трицепс)",
-      "aliases": [ "Разгибание рук на верхнем блоке" ],
+      "aliases": [
+        "Разгибание рук на верхнем блоке"
+      ],
       "unit": "kg",
       "color": "#D22D86",
       "data": [
-        { "sessionId": "M-0001-S01", "max": 25, "onepr": 35 },
-        { "sessionId": "M-0002-S01", "max": 20, "onepr": 29 },
-        { "sessionId": "M-0003-S01", "max": 20, "onepr": 29 },
-        { "sessionId": "M-0004-S01", "max": 30, "onepr": 40 }
+        {
+          "sessionId": "M-0001-S01",
+          "max": 25,
+          "onepr": 35
+        },
+        {
+          "sessionId": "M-0002-S01",
+          "max": 20,
+          "onepr": 29
+        },
+        {
+          "sessionId": "M-0003-S01",
+          "max": 20,
+          "onepr": 29
+        },
+        {
+          "sessionId": "M-0004-S01",
+          "max": 30,
+          "onepr": 40
+        },
+        {
+          "sessionId": "M-0005-S01",
+          "max": 15,
+          "onepr": 21
+        }
       ]
     },
     {
       "id": "barbell_curl",
       "name": "Сгибание со штангой (бицепс)",
-      "aliases": [ "Сгибание рук со штангой" ],
+      "aliases": [
+        "Сгибание рук со штангой"
+      ],
       "unit": "kg",
       "color": "#56D22D",
       "data": [
-        { "sessionId": "M-0001-S01", "max": 30, "onepr": 40 },
-        { "sessionId": "M-0002-S01", "max": 25, "onepr": 33 },
-        { "sessionId": "M-0003-S01", "max": 25, "onepr": 36 },
-        { "sessionId": "M-0004-S01", "max": 28, "onepr": 36 }
+        {
+          "sessionId": "M-0001-S01",
+          "max": 30,
+          "onepr": 40
+        },
+        {
+          "sessionId": "M-0002-S01",
+          "max": 25,
+          "onepr": 33
+        },
+        {
+          "sessionId": "M-0003-S01",
+          "max": 25,
+          "onepr": 36
+        },
+        {
+          "sessionId": "M-0004-S01",
+          "max": 28,
+          "onepr": 36
+        },
+        {
+          "sessionId": "M-0005-S01",
+          "max": 28,
+          "onepr": 38
+        }
       ]
     },
     {
       "id": "squat_smith",
       "name": "Присед (Смит)",
-      "aliases": [ "Глубокий присед в Смите" ],
+      "aliases": [
+        "Глубокий присед в Смите"
+      ],
       "unit": "kg",
       "color": "#342DD2",
       "data": [
-        { "sessionId": "M-0001-S02", "max": 45, "onepr": 56 }
+        {
+          "sessionId": "M-0001-S02",
+          "max": 45,
+          "onepr": 56
+        }
       ]
     },
     {
       "id": "rdl_smith",
       "name": "Румынская тяга (Смит)",
-      "aliases": [ "Румынская тяга в Смите", "Румынская тяга", "Румынская тяга (штанга или Смит на выбор) / Смит" ],
+      "aliases": [
+        "Румынская тяга в Смите",
+        "Румынская тяга",
+        "Румынская тяга (штанга или Смит на выбор) / Смит"
+      ],
       "unit": "kg",
       "color": "#D2642D",
       "data": [
-        { "sessionId": "M-0001-S02", "max": 65, "onepr": 87 },
-        { "sessionId": "M-0001-S04", "max": 65, "onepr": 87 },
-        { "sessionId": "M-0002-S02", "max": 65, "onepr": 89 },
-        { "sessionId": "M-0002-S04", "max": 65, "onepr": 87 },
-        { "sessionId": "M-0003-S02", "max": 80, "onepr": 109 },
-        { "sessionId": "M-0003-S04", "max": 80, "onepr": 107 },
-        { "sessionId": "M-0004-S02", "max": 80, "onepr": 107 },
-        { "sessionId": "M-0004-S04", "max": 90, "onepr": 117 }
+        {
+          "sessionId": "M-0001-S02",
+          "max": 65,
+          "onepr": 87
+        },
+        {
+          "sessionId": "M-0001-S04",
+          "max": 65,
+          "onepr": 87
+        },
+        {
+          "sessionId": "M-0002-S02",
+          "max": 65,
+          "onepr": 89
+        },
+        {
+          "sessionId": "M-0002-S04",
+          "max": 65,
+          "onepr": 87
+        },
+        {
+          "sessionId": "M-0003-S02",
+          "max": 80,
+          "onepr": 109
+        },
+        {
+          "sessionId": "M-0003-S04",
+          "max": 80,
+          "onepr": 107
+        },
+        {
+          "sessionId": "M-0004-S02",
+          "max": 80,
+          "onepr": 107
+        },
+        {
+          "sessionId": "M-0004-S04",
+          "max": 90,
+          "onepr": 117
+        }
       ]
     },
     {
       "id": "leg_press",
       "name": "Жим ногами (платформа)",
-      "aliases": [ "Жим платформы ногами" ],
+      "aliases": [
+        "Жим платформы ногами"
+      ],
       "unit": "kg",
       "color": "#2DD294",
       "data": [
-        { "sessionId": "M-0001-S02", "max": 120, "onepr": 168 },
-        { "sessionId": "M-0002-S02", "max": 120, "onepr": 168 },
-        { "sessionId": "M-0003-S02", "max": 125, "onepr": 175 },
-        { "sessionId": "M-0004-S02", "max": 130, "onepr": 182 }
+        {
+          "sessionId": "M-0001-S02",
+          "max": 120,
+          "onepr": 168
+        },
+        {
+          "sessionId": "M-0002-S02",
+          "max": 120,
+          "onepr": 168
+        },
+        {
+          "sessionId": "M-0003-S02",
+          "max": 125,
+          "onepr": 175
+        },
+        {
+          "sessionId": "M-0004-S02",
+          "max": 130,
+          "onepr": 182
+        }
       ]
     },
     {
       "id": "standing_calf_smith",
       "name": "Икры (Смит стоя)",
-      "aliases": [ "Подъём на носки стоя в Смите", "Икры в Смите стоя", "Икры стоя (тренажёр или Смит на выбор) / Смит стоя", "Икры стоя (Смит или тренажёр на выбор) / Смит стоя" ],
+      "aliases": [
+        "Подъём на носки стоя в Смите",
+        "Икры в Смите стоя",
+        "Икры стоя (тренажёр или Смит на выбор) / Смит стоя",
+        "Икры стоя (Смит или тренажёр на выбор) / Смит стоя"
+      ],
       "unit": "kg",
       "color": "#C52DD2",
       "data": [
-        { "sessionId": "M-0001-S02", "max": 30, "onepr": null },
-        { "sessionId": "M-0002-S02", "max": 35, "onepr": null },
-        { "sessionId": "M-0003-S02", "max": 50, "onepr": null },
-        { "sessionId": "M-0003-S04", "max": 60, "onepr": null },
-        { "sessionId": "M-0004-S02", "max": 60, "onepr": null },
-        { "sessionId": "M-0004-S04", "max": 60, "onepr": null }
+        {
+          "sessionId": "M-0001-S02",
+          "max": 30,
+          "onepr": null
+        },
+        {
+          "sessionId": "M-0002-S02",
+          "max": 35,
+          "onepr": null
+        },
+        {
+          "sessionId": "M-0003-S02",
+          "max": 50,
+          "onepr": null
+        },
+        {
+          "sessionId": "M-0003-S04",
+          "max": 60,
+          "onepr": null
+        },
+        {
+          "sessionId": "M-0004-S02",
+          "max": 60,
+          "onepr": null
+        },
+        {
+          "sessionId": "M-0004-S04",
+          "max": 60,
+          "onepr": null
+        }
       ]
     },
     {
       "id": "leg_curl",
       "name": "Сгибание ног",
-      "aliases": [ "Сгибание ног в тренажёре" ],
+      "aliases": [
+        "Сгибание ног в тренажёре"
+      ],
       "unit": "kg",
       "color": "#B0D22D",
       "data": [
-        { "sessionId": "M-0001-S02", "max": 45, "onepr": 66 },
-        { "sessionId": "M-0001-S04", "max": 45, "onepr": 66 },
-        { "sessionId": "M-0002-S02", "max": 45, "onepr": 68 },
-        { "sessionId": "M-0002-S04", "max": 45, "onepr": 69 },
-        { "sessionId": "M-0003-S02", "max": 50, "onepr": 73 },
-        { "sessionId": "M-0003-S04", "max": 50, "onepr": 75 },
-        { "sessionId": "M-0004-S02", "max": 55, "onepr": 72 },
-        { "sessionId": "M-0004-S04", "max": 60, "onepr": 84 }
+        {
+          "sessionId": "M-0001-S02",
+          "max": 45,
+          "onepr": 66
+        },
+        {
+          "sessionId": "M-0001-S04",
+          "max": 45,
+          "onepr": 66
+        },
+        {
+          "sessionId": "M-0002-S02",
+          "max": 45,
+          "onepr": 68
+        },
+        {
+          "sessionId": "M-0002-S04",
+          "max": 45,
+          "onepr": 69
+        },
+        {
+          "sessionId": "M-0003-S02",
+          "max": 50,
+          "onepr": 73
+        },
+        {
+          "sessionId": "M-0003-S04",
+          "max": 50,
+          "onepr": 75
+        },
+        {
+          "sessionId": "M-0004-S02",
+          "max": 55,
+          "onepr": 72
+        },
+        {
+          "sessionId": "M-0004-S04",
+          "max": 60,
+          "onepr": 84
+        }
       ]
     },
     {
       "id": "paused_bench",
       "name": "Жим лёжа с паузой",
-      "aliases": [ "Жим штанги лёжа с паузой 1 секунда" ],
+      "aliases": [
+        "Жим штанги лёжа с паузой 1 секунда"
+      ],
       "unit": "kg",
       "color": "#2D7FD2",
       "data": [
-        { "sessionId": "M-0001-S03", "max": 72.5, "onepr": 92 },
-        { "sessionId": "M-0002-S03", "max": 70, "onepr": 89 },
-        { "sessionId": "M-0003-S03", "max": 70, "onepr": 89 },
-        { "sessionId": "M-0004-S03", "max": 72.5, "onepr": 92 }
+        {
+          "sessionId": "M-0001-S03",
+          "max": 72.5,
+          "onepr": 92
+        },
+        {
+          "sessionId": "M-0002-S03",
+          "max": 70,
+          "onepr": 89
+        },
+        {
+          "sessionId": "M-0003-S03",
+          "max": 70,
+          "onepr": 89
+        },
+        {
+          "sessionId": "M-0004-S03",
+          "max": 72.5,
+          "onepr": 92
+        }
       ]
     },
     {
       "id": "lateral_raise_db",
       "name": "Махи гантелями",
-      "aliases": [ "Махи в стороны с гантелями", "Махи в стороны (тренажёр или гантели) / Гантели" ],
+      "aliases": [
+        "Махи в стороны с гантелями",
+        "Махи в стороны (тренажёр или гантели) / Гантели"
+      ],
       "unit": "kg_per_hand",
       "color": "#D22D4F",
       "data": [
-        { "sessionId": "M-0001-S03", "max": 10, "onepr": 14 },
-        { "sessionId": "M-0002-S03", "max": 10, "onepr": null },
-        { "sessionId": "M-0004-S03", "max": 10, "onepr": 14 }
+        {
+          "sessionId": "M-0001-S03",
+          "max": 10,
+          "onepr": 14
+        },
+        {
+          "sessionId": "M-0002-S03",
+          "max": 10,
+          "onepr": null
+        },
+        {
+          "sessionId": "M-0004-S03",
+          "max": 10,
+          "onepr": 14
+        }
       ]
     },
     {
       "id": "hammer_curl",
       "name": "Молотковые сгибания",
-      "aliases": [ "Молотковые сгибания" ],
+      "aliases": [
+        "Молотковые сгибания"
+      ],
       "unit": "kg_per_hand",
       "color": "#2DD23A",
       "data": [
-        { "sessionId": "M-0001-S03", "max": 12, "onepr": 18 },
-        { "sessionId": "M-0002-S03", "max": 12, "onepr": 18 },
-        { "sessionId": "M-0003-S03", "max": 12.5, "onepr": 18 },
-        { "sessionId": "M-0004-S03", "max": 15, "onepr": 21 }
+        {
+          "sessionId": "M-0001-S03",
+          "max": 12,
+          "onepr": 18
+        },
+        {
+          "sessionId": "M-0002-S03",
+          "max": 12,
+          "onepr": 18
+        },
+        {
+          "sessionId": "M-0003-S03",
+          "max": 12.5,
+          "onepr": 18
+        },
+        {
+          "sessionId": "M-0004-S03",
+          "max": 15,
+          "onepr": 21
+        }
       ]
     },
     {
       "id": "overhead_ext",
       "name": "Разгибание из-за головы",
-      "aliases": [ "Разгибание из-за головы с гантелей", "Разгибание из-за головы (гантель сидя со спинкой или EZ-гриф лёжа на выбор) / Гантель сидя" ],
+      "aliases": [
+        "Разгибание из-за головы с гантелей",
+        "Разгибание из-за головы (гантель сидя со спинкой или EZ-гриф лёжа на выбор) / Гантель сидя"
+      ],
       "unit": "kg",
       "color": "#6B2DD2",
       "data": [
-        { "sessionId": "M-0001-S03", "max": 15, "onepr": 21 },
-        { "sessionId": "M-0002-S03", "max": 20, "onepr": 29 }
+        {
+          "sessionId": "M-0001-S03",
+          "max": 15,
+          "onepr": 21
+        },
+        {
+          "sessionId": "M-0002-S03",
+          "max": 20,
+          "onepr": 29
+        }
       ]
     },
     {
       "id": "squat_barbell",
       "name": "Присед (штанга)",
-      "aliases": [ "Глубокий присед со штангой", "Глубокий присед (штанга или Смит на выбор) / Штанга" ],
+      "aliases": [
+        "Глубокий присед со штангой",
+        "Глубокий присед (штанга или Смит на выбор) / Штанга"
+      ],
       "unit": "kg",
       "color": "#D29B2D",
       "data": [
-        { "sessionId": "M-0001-S04", "max": 50, "onepr": 68 },
-        { "sessionId": "M-0002-S02", "max": 55, "onepr": 72 },
-        { "sessionId": "M-0002-S04", "max": 50, "onepr": 68 },
-        { "sessionId": "M-0003-S02", "max": 70, "onepr": 96 },
-        { "sessionId": "M-0003-S04", "max": 65, "onepr": 87 },
-        { "sessionId": "M-0004-S02", "max": 75, "onepr": 95 },
-        { "sessionId": "M-0004-S04", "max": 70, "onepr": 93 }
+        {
+          "sessionId": "M-0001-S04",
+          "max": 50,
+          "onepr": 68
+        },
+        {
+          "sessionId": "M-0002-S02",
+          "max": 55,
+          "onepr": 72
+        },
+        {
+          "sessionId": "M-0002-S04",
+          "max": 50,
+          "onepr": 68
+        },
+        {
+          "sessionId": "M-0003-S02",
+          "max": 70,
+          "onepr": 96
+        },
+        {
+          "sessionId": "M-0003-S04",
+          "max": 65,
+          "onepr": 87
+        },
+        {
+          "sessionId": "M-0004-S02",
+          "max": 75,
+          "onepr": 95
+        },
+        {
+          "sessionId": "M-0004-S04",
+          "max": 70,
+          "onepr": 93
+        }
       ]
     },
     {
       "id": "bulgarian_split_squat",
       "name": "Болгарские выпады",
-      "aliases": [ "Болгарские выпады" ],
+      "aliases": [
+        "Болгарские выпады"
+      ],
       "unit": "kg",
       "color": "#2DD2CB",
       "data": [
-        { "sessionId": "M-0001-S04", "max": 20, "onepr": 29 }
+        {
+          "sessionId": "M-0001-S04",
+          "max": 20,
+          "onepr": 29
+        }
       ]
     },
     {
       "id": "standing_calf_cable",
       "name": "Икры (блок)",
-      "aliases": [ "Икры в блочном тренажёре" ],
+      "aliases": [
+        "Икры в блочном тренажёре"
+      ],
       "unit": "kg",
       "color": "#D22DA9",
       "data": [
-        { "sessionId": "M-0001-S04", "max": 55, "onepr": null },
-        { "sessionId": "M-0002-S04", "max": 55, "onepr": null }
+        {
+          "sessionId": "M-0001-S04",
+          "max": 55,
+          "onepr": null
+        },
+        {
+          "sessionId": "M-0002-S04",
+          "max": 55,
+          "onepr": null
+        }
       ]
     },
     {
       "id": "incline_press_barbell",
       "name": "Наклонный жим (штанга)",
-      "aliases": [ "Жим на наклонной со свободной штангой", "Жим на наклонной (Смит или свободная штанга на выбор) / Штанга" ],
+      "aliases": [
+        "Жим на наклонной со свободной штангой",
+        "Жим на наклонной (Смит или свободная штанга на выбор) / Штанга"
+      ],
       "unit": "kg",
       "color": "#79D22D",
       "data": [
-        { "sessionId": "M-0002-S03", "max": 60, "onepr": 78 },
-        { "sessionId": "M-0003-S01", "max": 50, "onepr": 68 },
-        { "sessionId": "M-0003-S03", "max": 55, "onepr": 72 },
-        { "sessionId": "M-0004-S01", "max": 55, "onepr": 73 },
-        { "sessionId": "M-0004-S03", "max": 55, "onepr": 75 }
+        {
+          "sessionId": "M-0002-S03",
+          "max": 60,
+          "onepr": 78
+        },
+        {
+          "sessionId": "M-0003-S01",
+          "max": 50,
+          "onepr": 68
+        },
+        {
+          "sessionId": "M-0003-S03",
+          "max": 55,
+          "onepr": 72
+        },
+        {
+          "sessionId": "M-0004-S01",
+          "max": 55,
+          "onepr": 73
+        },
+        {
+          "sessionId": "M-0004-S03",
+          "max": 55,
+          "onepr": 75
+        },
+        {
+          "sessionId": "M-0005-S01",
+          "max": 55,
+          "onepr": 75
+        }
       ]
     },
     {
       "id": "leg_extension",
       "name": "Разгибание ног",
-      "aliases": [ "Разгибание ног в тренажёре", "Разгибание ног или болгарские выпады (на выбор) / Разгибание ног" ],
+      "aliases": [
+        "Разгибание ног в тренажёре",
+        "Разгибание ног или болгарские выпады (на выбор) / Разгибание ног"
+      ],
       "unit": "kg",
       "color": "#2D48D2",
       "data": [
-        { "sessionId": "M-0002-S04", "max": 70, "onepr": null },
-        { "sessionId": "M-0003-S04", "max": 70, "onepr": null },
-        { "sessionId": "M-0004-S04", "max": 95, "onepr": 130 }
+        {
+          "sessionId": "M-0002-S04",
+          "max": 70,
+          "onepr": null
+        },
+        {
+          "sessionId": "M-0003-S04",
+          "max": 70,
+          "onepr": null
+        },
+        {
+          "sessionId": "M-0004-S04",
+          "max": 95,
+          "onepr": 130
+        }
       ]
     },
     {
       "id": "rear_delt_fly_machine",
       "name": "Задняя дельта (тренажёр)",
-      "aliases": [ "Задняя дельта: обратная разводка в тренажёре" ],
+      "aliases": [
+        "Задняя дельта: обратная разводка в тренажёре"
+      ],
       "unit": "kg",
       "color": "#D2412D",
       "data": [
-        { "sessionId": "M-0003-S02", "max": 55, "onepr": 75 },
-        { "sessionId": "M-0004-S02", "max": 60, "onepr": 82 }
+        {
+          "sessionId": "M-0003-S02",
+          "max": 55,
+          "onepr": 75
+        },
+        {
+          "sessionId": "M-0004-S02",
+          "max": 60,
+          "onepr": 82
+        }
       ]
     },
     {
       "id": "overhead_ext_ez",
       "name": "Разгибание из-за головы (EZ-гриф)",
-      "aliases": [ "Разгибание из-за головы (гантель сидя со спинкой или EZ-гриф лёжа на выбор) / EZ-гриф лёжа", "Разгибание из-за головы EZ-грифом лёжа" ],
+      "aliases": [
+        "Разгибание из-за головы (гантель сидя со спинкой или EZ-гриф лёжа на выбор) / EZ-гриф лёжа",
+        "Разгибание из-за головы EZ-грифом лёжа"
+      ],
       "unit": "kg",
       "color": "#2DD272",
       "data": [
-        { "sessionId": "M-0003-S03", "max": 30, "onepr": 41 },
-        { "sessionId": "M-0004-S03", "max": 20, "onepr": 29 }
+        {
+          "sessionId": "M-0003-S03",
+          "max": 30,
+          "onepr": 41
+        },
+        {
+          "sessionId": "M-0004-S03",
+          "max": 20,
+          "onepr": 29
+        }
       ]
     }
   ]

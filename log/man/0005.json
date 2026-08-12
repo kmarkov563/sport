@@ -3,7 +3,7 @@
   "planId": "0005",
   "athlete": "man",
   "createdAt": "2026-08-04T22:47:14+04:00",
-  "updatedAt": "2026-08-08T16:20:00+04:00",
+  "updatedAt": "2026-08-11T18:10:00+04:00",
   "schedule": { "kind": "fixed_weekdays", "weekdays": ["tue", "thu", "sat"], "sessionsPlanned": 3, "sessionsPerWeek": 3, "estimatedSessionMinutes": "89–95" },
   "microcycleStats": {
     "tonnageKg": 44913,
@@ -16,18 +16,22 @@
     {
       "sessionId": "M-0005-S01",
       "globalNumber": 17,
+      "performedAt": "2026-08-11",
       "recommendedIntervalAfterPreviousHours": 72,
       "estimatedDurationMinutes": 95,
       "focus": "Верх · тяжёлый жим лёжа",
+      "postNotes": "Тренировка далась очень тяжело. Со слов атлета — ест минимально, держит поддержание или лёгкий дефицит. По часам: 15:18–16:33, 1 ч 15 мин, пульс средний 133, максимум 158, 621 ккал активных.",
       "workout": [
         {
           "name": "Жим штанги лёжа",
           "restSeconds": 240,
           "note": "Приоритет недели, делать первым и свежим. Если 1-й подход тяжелее запаса 1 — остальные на 85.",
+          "postNotes": "По плану 87.5×5×4 — в 4-м подходе 4 повтора, пятый бы не сделал.",
           "variants": [
             {
               "loadBlocks": [
-                { "weight": 87.5, "unit": "kg", "reps": 5, "sets": 4, "rir": 2 }
+                { "weight": 87.5, "unit": "kg", "reps": 5, "sets": 3, "rir": 2 },
+                { "weight": 87.5, "unit": "kg", "reps": 4, "sets": 1, "rir": 0 }
               ]
             }
           ]
@@ -48,10 +52,13 @@
           "name": "Жим на наклонной со свободной штангой",
           "restSeconds": 180,
           "note": "Потолок RIR 2, в отказ не идти. Если 1-й подход тяжелее запаса 1 — остальные на 50.",
+          "postNotes": "По плану 55×9×3 — сделал 55×9, 55×8, 55×5. Запас во 2-м и 3-м подходах не сообщён.",
           "variants": [
             {
               "loadBlocks": [
-                { "weight": 55, "unit": "kg", "reps": 9, "sets": 3, "rir": 2 }
+                { "weight": 55, "unit": "kg", "reps": 9, "sets": 1, "rir": 2 },
+                { "weight": 55, "unit": "kg", "reps": 8, "sets": 1 },
+                { "weight": 55, "unit": "kg", "reps": 5, "sets": 1 }
               ]
             }
           ]
@@ -72,10 +79,12 @@
           "name": "Махи в стороны в тренажёре",
           "restSeconds": 120,
           "note": "Потолок RIR 1, в отказ не идти. Если 25 не даёт 10 чистых повторов — остальные подходы на 22.5.",
+          "postNotes": "По плану 25×10×4 — сделал 20×10 и 20×7, два подхода. Запас не сообщён.",
           "variants": [
             {
               "loadBlocks": [
-                { "weight": 25, "unit": "kg", "reps": 10, "sets": 4, "rir": 1 }
+                { "weight": 20, "unit": "kg", "reps": 10, "sets": 1 },
+                { "weight": 20, "unit": "kg", "reps": 7, "sets": 1 }
               ]
             }
           ]
@@ -84,10 +93,12 @@
           "name": "Разгибание рук на верхнем блоке",
           "restSeconds": 120,
           "note": "Только подконтрольная техника с акцентом на трицепс.",
+          "postNotes": "По плану 15×10×3 — в 3-м подходе 8 повторов.",
           "variants": [
             {
               "loadBlocks": [
-                { "weight": 15, "unit": "kg", "reps": 10, "sets": 3, "rir": 2 }
+                { "weight": 15, "unit": "kg", "reps": 10, "sets": 2, "rir": 2 },
+                { "weight": 15, "unit": "kg", "reps": 8, "sets": 1 }
               ]
             }
           ]
@@ -96,10 +107,11 @@
           "name": "Сгибание рук со штангой",
           "restSeconds": 120,
           "note": "Без заброса корпусом.",
+          "postNotes": "По плану 3 подхода — сделал 2.",
           "variants": [
             {
               "loadBlocks": [
-                { "weight": 28, "unit": "kg", "reps": 10, "sets": 3, "rir": 1 }
+                { "weight": 28, "unit": "kg", "reps": 10, "sets": 2, "rir": 1 }
               ]
             }
           ]
@@ -108,13 +120,8 @@
           "name": "Пресс (упражнение на выбор)",
           "restSeconds": 60,
           "note": "Взвешенные полноамплитудные сгибания корпуса или подъёмы ног в висе, последний подход близко к отказу. Когда 15 идут легко — добавлять сопротивление, а не повторы.",
-          "variants": [
-            {
-              "loadBlocks": [
-                { "reps": 15, "sets": 3, "rir": 1 }
-              ]
-            }
-          ]
+          "postNotes": "Не выполнено — пропустил. Со слов атлета, пресс убрать из плана насовсем.",
+          "variants": []
         }
       ]
     },
@@ -122,17 +129,17 @@
       "sessionId": "M-0005-S02",
       "globalNumber": 18,
       "recommendedIntervalAfterPreviousHours": 48,
-      "estimatedDurationMinutes": 89,
+      "estimatedDurationMinutes": 80,
       "focus": "Низ · румынская тяга и присед",
       "workout": [
         {
           "name": "Румынская тяга в Смите",
           "restSeconds": 210,
-          "note": "Приоритет дня, делать первым и свежим. Контролируемое опускание, спина нейтральна. Если 1-й подход тяжелее запаса 1 — остальные на 85.",
+          "note": "Приоритет дня, делать первым и свежим. Контролируемое опускание, спина нейтральна. Потолок RIR 2, в отказ не идти.",
           "variants": [
             {
               "loadBlocks": [
-                { "weight": 90, "unit": "kg", "reps": 8, "sets": 4, "rir": 2 }
+                { "weight": 90, "unit": "kg", "reps": 8, "sets": 3, "rir": 2 }
               ]
             }
           ]
@@ -140,11 +147,11 @@
         {
           "name": "Глубокий присед со штангой",
           "restSeconds": 240,
-          "note": "Пятки на подставке. Если 1-й подход тяжелее запаса 1 — остальные на 75.",
+          "note": "Пятки на подставке. Если 1-й подход идёт с запасом 4+ — остальные на 80.",
           "variants": [
             {
               "loadBlocks": [
-                { "weight": 80, "unit": "kg", "reps": 6, "sets": 4, "rir": 2 }
+                { "weight": 75, "unit": "kg", "reps": 6, "sets": 4, "rir": 2 }
               ]
             }
           ]
@@ -180,7 +187,7 @@
           "variants": [
             {
               "loadBlocks": [
-                { "weight": 60, "unit": "kg", "reps": 10, "sets": 4, "rir": 2 }
+                { "weight": 60, "unit": "kg", "reps": 10, "sets": 3, "rir": 2 }
               ]
             }
           ]
@@ -192,7 +199,7 @@
           "variants": [
             {
               "loadBlocks": [
-                { "weight": 70, "unit": "kg", "reps": 14, "sets": 4, "rir": 1 }
+                { "weight": 70, "unit": "kg", "reps": 14, "sets": 3, "rir": 1 }
               ]
             }
           ]
@@ -215,17 +222,17 @@
       "sessionId": "M-0005-S03",
       "globalNumber": 19,
       "recommendedIntervalAfterPreviousHours": 48,
-      "estimatedDurationMinutes": 92,
+      "estimatedDurationMinutes": 82,
       "focus": "Верх груди · наклонный и паузный жим + второй проход ног",
       "workout": [
         {
           "name": "Жим на наклонной со свободной штангой",
           "restSeconds": 180,
-          "note": "Приоритет дня, делать первым. Потолок RIR 2, в отказ НЕ идти.",
+          "note": "Приоритет дня, делать первым. Потолок RIR 2, в отказ НЕ идти: подход останавливать, пока в запасе есть 2 повтора.",
           "variants": [
             {
               "loadBlocks": [
-                { "weight": 55, "unit": "kg", "reps": 10, "sets": 4, "rir": 2 }
+                { "weight": 55, "unit": "kg", "reps": 8, "sets": 3, "rir": 2 }
               ]
             }
           ]
@@ -249,7 +256,7 @@
           "variants": [
             {
               "loadBlocks": [
-                { "weight": 72.5, "unit": "kg", "reps": 7, "sets": 3, "rir": 2 }
+                { "weight": 72.5, "unit": "kg", "reps": 6, "sets": 3, "rir": 2 }
               ]
             }
           ]
@@ -261,7 +268,7 @@
           "variants": [
             {
               "loadBlocks": [
-                { "weight": 60, "unit": "kg", "reps": 11, "sets": 4, "rir": 2 }
+                { "weight": 60, "unit": "kg", "reps": 11, "sets": 3, "rir": 2 }
               ]
             }
           ]
@@ -273,7 +280,7 @@
           "variants": [
             {
               "loadBlocks": [
-                { "weight": 60, "unit": "kg", "reps": 11, "sets": 3, "rir": 2 }
+                { "weight": 60, "unit": "kg", "reps": 10, "sets": 3, "rir": 2 }
               ]
             }
           ]
@@ -297,7 +304,7 @@
           "variants": [
             {
               "loadBlocks": [
-                { "weight": 25, "unit": "kg", "reps": 10, "sets": 3, "rir": 1 }
+                { "weight": 20, "unit": "kg", "reps": 10, "sets": 3, "rir": 1 }
               ]
             }
           ]

@@ -3,19 +3,20 @@
   "planId": "0005",
   "athlete": "women",
   "createdAt": "2026-08-08T15:40:30+04:00",
-  "updatedAt": "2026-08-08T17:30:00+04:00",
+  "updatedAt": "2026-08-11T12:00:00+04:00",
   "schedule": { "kind": "fixed_weekdays", "weekdays": ["tue", "thu", "sat"], "sessionsPlanned": 3, "sessionsPerWeek": 3, "estimatedSessionMinutes": "65–72" },
   "microcycleStats": {
-    "tonnageKg": 13517,
+    "tonnageKg": 13477,
     "avgIntensityPct": 72,
     "hardSets": 60,
     "hardSetsByMuscle": { "Ягодицы": 20, "Бицепс бедра": 9, "Спина": 8, "Плечи": 7, "Задняя цепь": 6, "Квадрицепс": 3, "Грудь": 3, "Бицепс": 2, "Трицепс": 2 },
-    "tonnageByMuscleKg": { "Ягодицы": 5747, "Бицепс бедра": 3195, "Спина": 1800, "Плечи": 900, "Квадрицепс": 840, "Грудь": 405, "Бицепс": 320, "Трицепс": 220, "Задняя цепь": 90 }
+    "tonnageByMuscleKg": { "Ягодицы": 5747, "Бицепс бедра": 3195, "Спина": 1760, "Плечи": 900, "Квадрицепс": 840, "Грудь": 405, "Бицепс": 320, "Трицепс": 220, "Задняя цепь": 90 }
   },
   "sessions": [
     {
       "sessionId": "W-0005-S01",
       "globalNumber": 16,
+      "performedAt": "2026-08-11",
       "recommendedIntervalAfterPreviousHours": 72,
       "estimatedDurationMinutes": 72,
       "focus": "Тяжёлый ягодичный мост и присед",
@@ -69,8 +70,9 @@
           "name": "Вертикальная тяга верхнего блока, широкий хват",
           "restSeconds": 120,
           "note": "Только средний/широкий хват.",
+          "postNotes": "По плану 20 кг × 10 × 4. Сделано 20 кг × 10 × 2 и 20 кг × 9 × 2.",
           "variants": [
-            { "loadBlocks": [ { "weight": 20, "unit": "kg", "reps": 10, "sets": 4, "rir": 2 } ] }
+            { "loadBlocks": [ { "weight": 20, "unit": "kg", "reps": 10, "sets": 2, "rir": 2 }, { "weight": 20, "unit": "kg", "reps": 9, "sets": 2, "rir": 2 } ] }
           ]
         },
         {
