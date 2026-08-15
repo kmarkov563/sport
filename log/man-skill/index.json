@@ -3,12 +3,18 @@
   "athlete": "man",
   "track": "handstand",
   "startedAt": "2026-08-08",
-  "updatedAt": "2026-08-08T20:10:00+04:00",
-  "activeWeekId": "01",
+  "updatedAt": "2026-08-15T12:00:00+04:00",
+  "activeWeekId": "02",
   "weeks": [
     {
       "weekId": "01",
       "file": "week-01.json",
+      "status": "completed",
+      "title": "Растяжка и подготовка к стойке"
+    },
+    {
+      "weekId": "02",
+      "file": "week-02.json",
       "status": "active",
       "title": "Растяжка и подготовка к стойке"
     }
