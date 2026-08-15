@@ -3,14 +3,14 @@
   "planId": "0005",
   "athlete": "man",
   "createdAt": "2026-08-04T22:47:14+04:00",
-  "updatedAt": "2026-08-15T00:00:00+04:00",
+  "updatedAt": "2026-08-15T21:00:00+04:00",
   "schedule": { "kind": "fixed_weekdays", "weekdays": ["tue", "thu", "sat"], "sessionsPlanned": 3, "sessionsPerWeek": 3, "estimatedSessionMinutes": "89–95" },
   "microcycleStats": {
-    "tonnageKg": 44913,
+    "tonnageKg": 39028,
     "avgIntensityPct": 73,
-    "hardSets": 76,
-    "hardSetsByMuscle": { "Грудь": 14, "Квадрицепс": 13, "Спина": 12, "Бицепс бедра": 11, "Плечи": 10, "Икры": 7, "Бицепс": 3, "Трицепс": 3, "Пресс": 3 },
-    "tonnageByMuscleKg": { "Квадрицепс": 10710, "Спина": 7880, "Бицепс бедра": 7260, "Грудь": 6958, "Икры": 6860, "Плечи": 3910, "Бицепс": 840, "Трицепс": 450, "Пресс": 45 }
+    "hardSets": 65,
+    "hardSetsByMuscle": { "Грудь": 13, "Квадрицепс": 13, "Спина": 11, "Бицепс бедра": 9, "Плечи": 8, "Икры": 6, "Трицепс": 3, "Бицепс": 2 },
+    "tonnageByMuscleKg": { "Квадрицепс": 10590, "Спина": 7220, "Икры": 5880, "Бицепс бедра": 5760, "Грудь": 5498, "Плечи": 3100, "Бицепс": 560, "Трицепс": 420 }
   },
   "sessions": [
     {
@@ -223,6 +223,7 @@
     {
       "sessionId": "M-0005-S03",
       "globalNumber": 19,
+      "performedAt": "2026-08-15",
       "recommendedIntervalAfterPreviousHours": 48,
       "estimatedDurationMinutes": 82,
       "focus": "Верх груди · наклонный и паузный жим + второй проход ног",

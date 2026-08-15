@@ -172,6 +172,7 @@
     {
       "sessionId": "W-0005-S03",
       "globalNumber": 18,
+      "performedAt": "2026-08-15",
       "recommendedIntervalAfterPreviousHours": 48,
       "estimatedDurationMinutes": 67,
       "focus": "Объёмный ягодичный мост и односторонняя работа",
