@@ -1,6 +1,6 @@
 {
   "athlete": "women",
-  "lastSession": "W-0005-S01",
+  "lastSession": "W-0005-S02",
   "sessions": [
     { "id": "W-0001-S01", "globalNumber": 1, "date": "2026-07-08" },
     { "id": "W-0001-S02", "globalNumber": 2, "date": "2026-07-10" },
@@ -17,7 +17,8 @@
     { "id": "W-0004-S01", "globalNumber": 13, "date": "2026-08-04" },
     { "id": "W-0004-S02", "globalNumber": 14, "date": "2026-08-06" },
     { "id": "W-0004-S03", "globalNumber": 15, "date": "2026-08-08" },
-    { "id": "W-0005-S01", "globalNumber": 16, "date": "2026-08-11" }
+    { "id": "W-0005-S01", "globalNumber": 16, "date": "2026-08-11" },
+    { "id": "W-0005-S02", "globalNumber": 17, "date": "2026-08-13" }
   ],
   "exercises": [
     {
@@ -146,7 +147,8 @@
         { "sessionId": "W-0002-S04", "max": 20, "onepr": 27 },
         { "sessionId": "W-0003-S02", "max": 20, "onepr": 29 },
         { "sessionId": "W-0003-S04", "max": 20, "onepr": 29 },
-        { "sessionId": "W-0004-S02", "max": 20, "onepr": null }
+        { "sessionId": "W-0004-S02", "max": 20, "onepr": null },
+        { "sessionId": "W-0005-S02", "max": 25, "onepr": 35 }
       ]
     },
     {
@@ -159,7 +161,8 @@
         { "sessionId": "W-0001-S02", "max": 4, "onepr": 5 },
         { "sessionId": "W-0002-S02", "max": 3, "onepr": 4 },
         { "sessionId": "W-0003-S02", "max": 3, "onepr": null },
-        { "sessionId": "W-0004-S02", "max": 3, "onepr": null }
+        { "sessionId": "W-0004-S02", "max": 3, "onepr": null },
+        { "sessionId": "W-0005-S02", "max": 3, "onepr": null }
       ]
     },
     {
@@ -172,7 +175,8 @@
         { "sessionId": "W-0001-S02", "max": 10, "onepr": 14 },
         { "sessionId": "W-0002-S02", "max": 10, "onepr": 13 },
         { "sessionId": "W-0003-S02", "max": 7.5, "onepr": 11 },
-        { "sessionId": "W-0004-S02", "max": 10, "onepr": 13 }
+        { "sessionId": "W-0004-S02", "max": 10, "onepr": 13 },
+        { "sessionId": "W-0005-S02", "max": 10, "onepr": 13 }
       ]
     },
     {
@@ -225,7 +229,8 @@
         { "sessionId": "W-0002-S04", "max": 40, "onepr": 53 },
         { "sessionId": "W-0003-S02", "max": 40, "onepr": 56 },
         { "sessionId": "W-0003-S04", "max": 40, "onepr": 57 },
-        { "sessionId": "W-0004-S02", "max": 40, "onepr": 59 }
+        { "sessionId": "W-0004-S02", "max": 40, "onepr": 59 },
+        { "sessionId": "W-0005-S02", "max": 45, "onepr": 62 }
       ]
     },
     {
@@ -237,7 +242,8 @@
       "data": [
         { "sessionId": "W-0001-S04", "max": 6, "onepr": 8 },
         { "sessionId": "W-0002-S04", "max": 6, "onepr": 8 },
-        { "sessionId": "W-0003-S04", "max": 6, "onepr": null }
+        { "sessionId": "W-0003-S04", "max": 6, "onepr": null },
+        { "sessionId": "W-0005-S02", "max": 6, "onepr": null }
       ]
     },
     {
@@ -270,7 +276,8 @@
       "color": "#D29B2D",
       "data": [
         { "sessionId": "W-0003-S02", "max": 7.5, "onepr": 11 },
-        { "sessionId": "W-0004-S02", "max": 7.5, "onepr": 11 }
+        { "sessionId": "W-0004-S02", "max": 7.5, "onepr": 11 },
+        { "sessionId": "W-0005-S02", "max": 7.5, "onepr": null }
       ]
     }
   ]

@@ -3,14 +3,14 @@
   "planId": "0005",
   "athlete": "women",
   "createdAt": "2026-08-08T15:40:30+04:00",
-  "updatedAt": "2026-08-11T12:00:00+04:00",
+  "updatedAt": "2026-08-15T12:00:00+04:00",
   "schedule": { "kind": "fixed_weekdays", "weekdays": ["tue", "thu", "sat"], "sessionsPlanned": 3, "sessionsPerWeek": 3, "estimatedSessionMinutes": "65–72" },
   "microcycleStats": {
-    "tonnageKg": 13477,
+    "tonnageKg": 13397,
     "avgIntensityPct": 72,
     "hardSets": 60,
     "hardSetsByMuscle": { "Ягодицы": 20, "Бицепс бедра": 9, "Спина": 8, "Плечи": 7, "Задняя цепь": 6, "Квадрицепс": 3, "Грудь": 3, "Бицепс": 2, "Трицепс": 2 },
-    "tonnageByMuscleKg": { "Ягодицы": 5747, "Бицепс бедра": 3195, "Спина": 1760, "Плечи": 900, "Квадрицепс": 840, "Грудь": 405, "Бицепс": 320, "Трицепс": 220, "Задняя цепь": 90 }
+    "tonnageByMuscleKg": { "Ягодицы": 5747, "Бицепс бедра": 3195, "Спина": 1760, "Плечи": 900, "Квадрицепс": 840, "Грудь": 405, "Бицепс": 320, "Трицепс": 140, "Задняя цепь": 90 }
   },
   "sessions": [
     {
@@ -94,9 +94,11 @@
     {
       "sessionId": "W-0005-S02",
       "globalNumber": 17,
+      "performedAt": "2026-08-13",
       "recommendedIntervalAfterPreviousHours": 48,
       "estimatedDurationMinutes": 65,
       "focus": "Румынская тяга и задняя цепь",
+      "postNotes": "Тренировка далась тяжело, сильная усталость.",
       "workout": [
         {
           "name": "Гиперэкстензия (90°)",
@@ -132,14 +134,11 @@
           "name": "Отведение ноги назад (кроссовер или тренажёр на выбор)",
           "restSeconds": 90,
           "note": "Повторы на каждую ногу. Колеи независимы; кроссовер по факту ещё не выполнялся — вес прикидочный. Если 15 идут с запасом 3+ — добавь ещё блин и запиши.",
+          "postNotes": "Выбран тренажёр. Кроссовер не выполнялся.",
           "variants": [
             {
               "label": "Тренажёр",
               "loadBlocks": [ { "weight": 5, "unit": "kg", "reps": 15, "sets": 3, "rir": 2, "note": "сверх базового веса тренажёра" } ]
-            },
-            {
-              "label": "Кроссовер",
-              "loadBlocks": [ { "weight": 5, "unit": "kg_per_side", "reps": 15, "sets": 3, "rir": 2 } ]
             }
           ]
         },
@@ -163,8 +162,9 @@
           "name": "Разгибание рук на верхнем блоке",
           "restSeconds": 90,
           "note": "Локти прижаты к корпусу.",
+          "postNotes": "По плану 10 кг × 11 × 2. Сделано 10 кг × 8 и 10 кг × 6 — больше не смогла.",
           "variants": [
-            { "loadBlocks": [ { "weight": 10, "unit": "kg", "reps": 11, "sets": 2, "rir": 1 } ] }
+            { "loadBlocks": [ { "weight": 10, "unit": "kg", "reps": 8, "sets": 1, "rir": 0 }, { "weight": 10, "unit": "kg", "reps": 6, "sets": 1, "rir": 0 } ] }
           ]
         }
       ]
