@@ -3,7 +3,7 @@
   "planId": "0006",
   "athlete": "man",
   "createdAt": "2026-08-15T21:00:00+04:00",
-  "updatedAt": "2026-08-18T21:00:00+04:00",
+  "updatedAt": "2026-08-23T18:05:58+04:00",
   "schedule": { "kind": "fixed_weekdays", "weekdays": ["tue", "thu", "sat"], "sessionsPlanned": 3, "sessionsPerWeek": 3, "estimatedSessionMinutes": "50–60" },
   "microcycleStats": {
     "tonnageKg": 19662,
@@ -109,6 +109,7 @@
     {
       "sessionId": "M-0006-S02",
       "globalNumber": 21,
+      "performedAt": "2026-08-20",
       "recommendedIntervalAfterPreviousHours": 48,
       "estimatedDurationMinutes": 55,
       "focus": "Разгрузка · низ",
@@ -202,6 +203,7 @@
     {
       "sessionId": "M-0006-S03",
       "globalNumber": 22,
+      "performedAt": "2026-08-22",
       "recommendedIntervalAfterPreviousHours": 48,
       "estimatedDurationMinutes": 55,
       "focus": "Разгрузка · верх груди и второй проход ног",

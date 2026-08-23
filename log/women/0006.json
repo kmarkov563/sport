@@ -3,7 +3,7 @@
   "planId": "0006",
   "athlete": "women",
   "createdAt": "2026-08-15T13:00:00+04:00",
-  "updatedAt": "2026-08-18T16:54:26+04:00",
+  "updatedAt": "2026-08-23T18:05:58+04:00",
   "schedule": { "kind": "fixed_weekdays", "weekdays": ["tue", "thu", "sat"], "sessionsPlanned": 3, "sessionsPerWeek": 3, "estimatedSessionMinutes": "45–50" },
   "microcycleStats": {
     "tonnageKg": 4807,
@@ -103,6 +103,7 @@
     {
       "sessionId": "W-0006-S02",
       "globalNumber": 20,
+      "performedAt": "2026-08-20",
       "recommendedIntervalAfterPreviousHours": 48,
       "estimatedDurationMinutes": 45,
       "focus": "Разгрузка · румынская тяга и задняя цепь",
@@ -142,14 +143,11 @@
           "name": "Отведение ноги назад (кроссовер или тренажёр на выбор)",
           "restSeconds": 90,
           "note": "Повторы на каждую ногу. Колеи независимы; кроссовер по факту ещё не выполнялся — вес прикидочный, после подхода сообщить запас.",
+          "postNotes": "Выбран тренажёр. Кроссовер не выполнялся.",
           "variants": [
             {
               "label": "Тренажёр",
               "loadBlocks": [ { "weight": 5, "unit": "kg", "reps": 11, "sets": 1, "rir": 5, "note": "сверх базового веса тренажёра" } ]
-            },
-            {
-              "label": "Кроссовер",
-              "loadBlocks": [ { "weight": 5, "unit": "kg", "reps": 11, "sets": 1, "rir": 5 } ]
             }
           ]
         },
@@ -182,6 +180,7 @@
     {
       "sessionId": "W-0006-S03",
       "globalNumber": 21,
+      "performedAt": "2026-08-22",
       "recommendedIntervalAfterPreviousHours": 48,
       "estimatedDurationMinutes": 47,
       "focus": "Разгрузка · объёмный мост и односторонняя работа",
