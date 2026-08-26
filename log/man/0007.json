@@ -3,12 +3,20 @@
   "planId": "0007",
   "athlete": "man",
   "createdAt": "2026-08-23T21:02:05+04:00",
-  "updatedAt": "2026-08-23T21:02:05+04:00",
+  "updatedAt": "2026-08-26T12:00:00+04:00",
   "schedule": { "kind": "fixed_weekdays", "weekdays": ["tue", "thu", "sat"], "sessionsPlanned": 3, "sessionsPerWeek": 3, "estimatedSessionMinutes": "82–88" },
+  "microcycleStats": {
+    "tonnageKg": 41178,
+    "avgIntensityPct": 73,
+    "hardSets": 64,
+    "hardSetsByMuscle": { "Квадрицепс": 13, "Грудь": 12, "Спина": 9, "Плечи": 9, "Бицепс бедра": 9, "Икры": 6, "Трицепс": 3, "Бицепс": 3 },
+    "tonnageByMuscleKg": { "Квадрицепс": 11505, "Спина": 6450, "Бицепс бедра": 6390, "Икры": 6300, "Грудь": 5642, "Плечи": 3600, "Бицепс": 840, "Трицепс": 450 }
+  },
   "sessions": [
     {
       "sessionId": "M-0007-S01",
       "globalNumber": 23,
+      "performedAt": "2026-08-25",
       "recommendedIntervalAfterPreviousHours": 72,
       "estimatedDurationMinutes": 88,
       "focus": "Верх · тяжёлый жим лёжа",
@@ -17,24 +25,37 @@
           "name": "Жим штанги лёжа",
           "restSeconds": 240,
           "note": "Приоритет недели, делать первым и свежим. Потолок RIR 1, в отказ не идти. Если 1-й подход тяжелее запаса 1 — остальные на 85.",
+          "postNotes": "По плану 87.5×5×4 с запасом 2 — 3-й подход сделал с запасом 1, 4-й в отказ.",
           "variants": [
-            { "loadBlocks": [ { "weight": 87.5, "unit": "kg", "reps": 5, "sets": 4, "rir": 2 } ] }
+            { "loadBlocks": [
+              { "weight": 87.5, "unit": "kg", "reps": 5, "sets": 2, "rir": 2 },
+              { "weight": 87.5, "unit": "kg", "reps": 5, "sets": 1, "rir": 1 },
+              { "weight": 87.5, "unit": "kg", "reps": 5, "sets": 1, "rir": 0 }
+            ] }
           ]
         },
         {
           "name": "Горизонтальная тяга в тренажёре",
           "restSeconds": 180,
           "note": "Строго вторым по счёту. Чисто, полная амплитуда, без читинга.",
+          "postNotes": "По плану 65×11×3 — сделал 70×11×3. Во 2-м и 3-м подходах последний повтор в отказ.",
           "variants": [
-            { "loadBlocks": [ { "weight": 65, "unit": "kg", "reps": 11, "sets": 3, "rir": 2 } ] }
+            { "loadBlocks": [
+              { "weight": 70, "unit": "kg", "reps": 11, "sets": 1, "rir": 2 },
+              { "weight": 70, "unit": "kg", "reps": 11, "sets": 2, "rir": 0 }
+            ] }
           ]
         },
         {
           "name": "Жим на наклонной со свободной штангой",
           "restSeconds": 180,
           "note": "Потолок RIR 2, в отказ не идти. Если 1-й подход тяжелее запаса 1 — остальные на 52.5.",
+          "postNotes": "По плану 55×10×3 — сделал 55×10 и 55×8, 3-й подход делать не стал. Запас во 2-м подходе не сообщён.",
           "variants": [
-            { "loadBlocks": [ { "weight": 55, "unit": "kg", "reps": 10, "sets": 3, "rir": 2 } ] }
+            { "loadBlocks": [
+              { "weight": 55, "unit": "kg", "reps": 10, "sets": 1, "rir": 2 },
+              { "weight": 55, "unit": "kg", "reps": 8, "sets": 1 }
+            ] }
           ]
         },
         {
@@ -48,8 +69,13 @@
         {
           "name": "Махи в стороны в тренажёре",
           "restSeconds": 90,
+          "postNotes": "По плану 20×11×3 — 2-й подход в отказ, в 3-м 8 повторов. Запас в 3-м подходе не сообщён.",
           "variants": [
-            { "loadBlocks": [ { "weight": 20, "unit": "kg", "reps": 11, "sets": 3, "rir": 1 } ] }
+            { "loadBlocks": [
+              { "weight": 20, "unit": "kg", "reps": 11, "sets": 1, "rir": 1 },
+              { "weight": 20, "unit": "kg", "reps": 11, "sets": 1, "rir": 0 },
+              { "weight": 20, "unit": "kg", "reps": 8, "sets": 1 }
+            ] }
           ]
         },
         {
@@ -167,7 +193,7 @@
           "restSeconds": 150,
           "note": "Чисто, полная амплитуда, без читинга.",
           "variants": [
-            { "loadBlocks": [ { "weight": 60, "unit": "kg", "reps": 12, "sets": 3, "rir": 2 } ] }
+            { "loadBlocks": [ { "weight": 65, "unit": "kg", "reps": 12, "sets": 3, "rir": 2 } ] }
           ]
         },
         {

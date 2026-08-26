@@ -3,12 +3,20 @@
   "planId": "0007",
   "athlete": "women",
   "createdAt": "2026-08-23T21:02:05+04:00",
-  "updatedAt": "2026-08-23T21:02:05+04:00",
+  "updatedAt": "2026-08-26T17:16:11+04:00",
   "schedule": { "kind": "fixed_weekdays", "weekdays": ["tue", "thu", "sat"], "sessionsPlanned": 3, "sessionsPerWeek": 3, "estimatedSessionMinutes": "66–70" },
+  "microcycleStats": {
+    "tonnageKg": 13500,
+    "avgIntensityPct": 72,
+    "hardSets": 59,
+    "hardSetsByMuscle": { "Ягодицы": 20, "Бицепс бедра": 9, "Спина": 7, "Плечи": 7, "Задняя цепь": 6, "Квадрицепс": 3, "Грудь": 3, "Бицепс": 2, "Трицепс": 2 },
+    "tonnageByMuscleKg": { "Ягодицы": 5853, "Бицепс бедра": 3360, "Спина": 1650, "Плечи": 952, "Квадрицепс": 720, "Грудь": 450, "Трицепс": 225, "Бицепс": 200, "Задняя цепь": 90 }
+  },
   "sessions": [
     {
       "sessionId": "W-0007-S01",
       "globalNumber": 22,
+      "performedAt": "2026-08-25",
       "recommendedIntervalAfterPreviousHours": 72,
       "estimatedDurationMinutes": 70,
       "focus": "Тяжёлый ягодичный мост и присед",
@@ -61,8 +69,12 @@
           "name": "Вертикальная тяга верхнего блока, широкий хват",
           "restSeconds": 120,
           "note": "Только средний/широкий хват.",
+          "postNotes": "По плану 20 кг × 10 × 3. Два подхода на 20 кг: вес тяжёлый, по ощущениям техника ломалась. Третий подход снижен до 15 кг.",
           "variants": [
-            { "loadBlocks": [ { "weight": 20, "unit": "kg", "reps": 10, "sets": 3, "rir": 2 } ] }
+            { "loadBlocks": [
+              { "weight": 20, "unit": "kg", "reps": 10, "sets": 2, "rir": 0 },
+              { "weight": 15, "unit": "kg", "reps": 10, "sets": 1, "rir": 2 }
+            ] }
           ]
         },
         {
@@ -76,8 +88,9 @@
           "name": "Сгибание рук со штангой",
           "restSeconds": 90,
           "note": "Вес поднят на шаг штанги, повторы прикидочные — после подходов сообщить вес × повторы × запас. Если 1-й подход тяжелее запаса 1 — второй на 10 кг.",
+          "postNotes": "По плану 15 кг × 8 × 2 — на 15 кг подъём не получился. Оба подхода сделаны на 10 кг × 10, запас 1.",
           "variants": [
-            { "loadBlocks": [ { "weight": 15, "unit": "kg", "reps": 8, "sets": 2, "rir": 2 } ] }
+            { "loadBlocks": [ { "weight": 10, "unit": "kg", "reps": 10, "sets": 2, "rir": 1 } ] }
           ]
         }
       ]
