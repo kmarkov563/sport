@@ -3,7 +3,7 @@
   "planId": "0007",
   "athlete": "women",
   "createdAt": "2026-08-23T21:02:05+04:00",
-  "updatedAt": "2026-08-26T17:16:11+04:00",
+  "updatedAt": "2026-08-28T19:28:16+04:00",
   "schedule": { "kind": "fixed_weekdays", "weekdays": ["tue", "thu", "sat"], "sessionsPlanned": 3, "sessionsPerWeek": 3, "estimatedSessionMinutes": "66–70" },
   "microcycleStats": {
     "tonnageKg": 13500,
@@ -98,6 +98,7 @@
     {
       "sessionId": "W-0007-S02",
       "globalNumber": 23,
+      "performedAt": "2026-08-27",
       "recommendedIntervalAfterPreviousHours": 48,
       "estimatedDurationMinutes": 66,
       "focus": "Румынская тяга и задняя цепь",
@@ -136,14 +137,11 @@
           "name": "Отведение ноги назад (кроссовер или тренажёр на выбор)",
           "restSeconds": 90,
           "note": "Повторы на каждую ногу. Колеи независимы; кроссовер по факту ещё не выполнялся — вес прикидочный, после подхода сообщить запас.",
+          "postNotes": "Выбран тренажёр.",
           "variants": [
             {
               "label": "Тренажёр",
               "loadBlocks": [ { "weight": 5, "unit": "kg", "reps": 16, "sets": 3, "rir": 2, "note": "сверх базового веса тренажёра" } ]
-            },
-            {
-              "label": "Кроссовер",
-              "loadBlocks": [ { "weight": 5, "unit": "kg", "reps": 15, "sets": 3, "rir": 2 } ]
             }
           ]
         },

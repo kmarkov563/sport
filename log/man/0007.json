@@ -3,7 +3,7 @@
   "planId": "0007",
   "athlete": "man",
   "createdAt": "2026-08-23T21:02:05+04:00",
-  "updatedAt": "2026-08-26T12:00:00+04:00",
+  "updatedAt": "2026-08-28T19:47:39+04:00",
   "schedule": { "kind": "fixed_weekdays", "weekdays": ["tue", "thu", "sat"], "sessionsPlanned": 3, "sessionsPerWeek": 3, "estimatedSessionMinutes": "82–88" },
   "microcycleStats": {
     "tonnageKg": 41178,
@@ -98,6 +98,7 @@
     {
       "sessionId": "M-0007-S02",
       "globalNumber": 24,
+      "performedAt": "2026-08-27",
       "recommendedIntervalAfterPreviousHours": 48,
       "estimatedDurationMinutes": 84,
       "focus": "Низ · румынская тяга и присед",
@@ -121,23 +122,24 @@
         {
           "name": "Жим платформы ногами",
           "restSeconds": 180,
+          "postNotes": "По плану запас 2 — 2-й и 3-й подходы сделал в отказ.",
           "variants": [
-            { "loadBlocks": [ { "weight": 140, "unit": "kg", "reps": 10, "sets": 3, "rir": 2 } ] }
+            { "loadBlocks": [
+              { "weight": 140, "unit": "kg", "reps": 10, "sets": 1, "rir": 2 },
+              { "weight": 140, "unit": "kg", "reps": 10, "sets": 2, "rir": 0 }
+            ] }
           ]
         },
         {
           "name": "Разгибание ног в тренажёре",
           "restSeconds": 120,
           "note": "Нагрузка в плитках.",
+          "postNotes": "По плану запас 2 — все подходы делал почти в отказ, последний в отказ.",
           "variants": [
-            { "loadBlocks": [ { "weight": 17, "unit": "plates", "reps": 13, "sets": 3, "rir": 2 } ] }
-          ]
-        },
-        {
-          "name": "Сгибание ног в тренажёре",
-          "restSeconds": 120,
-          "variants": [
-            { "loadBlocks": [ { "weight": 60, "unit": "kg", "reps": 11, "sets": 3, "rir": 2 } ] }
+            { "loadBlocks": [
+              { "weight": 17, "unit": "plates", "reps": 13, "sets": 2, "rir": 1 },
+              { "weight": 17, "unit": "plates", "reps": 13, "sets": 1, "rir": 0 }
+            ] }
           ]
         },
         {
@@ -153,6 +155,17 @@
           "restSeconds": 90,
           "variants": [
             { "loadBlocks": [ { "weight": 60, "unit": "kg", "reps": 13, "sets": 3, "rir": 1 } ] }
+          ]
+        },
+        {
+          "name": "Сгибание ног в тренажёре",
+          "restSeconds": 120,
+          "postNotes": "Сделал последним упражнением тренировки. По плану запас 2 — последний подход в отказ.",
+          "variants": [
+            { "loadBlocks": [
+              { "weight": 60, "unit": "kg", "reps": 11, "sets": 2, "rir": 2 },
+              { "weight": 60, "unit": "kg", "reps": 11, "sets": 1, "rir": 0 }
+            ] }
           ]
         }
       ]
