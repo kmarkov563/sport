@@ -1,325 +1,1022 @@
 {
   "athlete": "women",
-  "lastSession": "W-0007-S02",
+  "lastSession": "W-0007-S03",
   "sessions": [
-    { "id": "W-0001-S01", "globalNumber": 1, "date": "2026-07-08" },
-    { "id": "W-0001-S02", "globalNumber": 2, "date": "2026-07-10" },
-    { "id": "W-0001-S03", "globalNumber": 3, "date": "2026-07-12" },
-    { "id": "W-0001-S04", "globalNumber": 4, "date": "2026-07-14" },
-    { "id": "W-0002-S01", "globalNumber": 5, "date": "2026-07-17" },
-    { "id": "W-0002-S02", "globalNumber": 6, "date": "2026-07-19" },
-    { "id": "W-0002-S03", "globalNumber": 7, "date": "2026-07-21" },
-    { "id": "W-0002-S04", "globalNumber": 8, "date": "2026-07-23" },
-    { "id": "W-0003-S01", "globalNumber": 9, "date": "2026-07-25" },
-    { "id": "W-0003-S02", "globalNumber": 10, "date": "2026-07-29" },
-    { "id": "W-0003-S03", "globalNumber": 11, "date": "2026-07-30" },
-    { "id": "W-0003-S04", "globalNumber": 12, "date": "2026-08-01" },
-    { "id": "W-0004-S01", "globalNumber": 13, "date": "2026-08-04" },
-    { "id": "W-0004-S02", "globalNumber": 14, "date": "2026-08-06" },
-    { "id": "W-0004-S03", "globalNumber": 15, "date": "2026-08-08" },
-    { "id": "W-0005-S01", "globalNumber": 16, "date": "2026-08-11" },
-    { "id": "W-0005-S02", "globalNumber": 17, "date": "2026-08-13" },
-    { "id": "W-0005-S03", "globalNumber": 18, "date": "2026-08-15" },
-    { "id": "W-0006-S01", "globalNumber": 19, "date": "2026-08-18" },
-    { "id": "W-0006-S02", "globalNumber": 20, "date": "2026-08-20" },
-    { "id": "W-0006-S03", "globalNumber": 21, "date": "2026-08-22" },
-    { "id": "W-0007-S01", "globalNumber": 22, "date": "2026-08-25" },
-    { "id": "W-0007-S02", "globalNumber": 23, "date": "2026-08-27" }
+    {
+      "id": "W-0001-S01",
+      "globalNumber": 1,
+      "date": "2026-07-08"
+    },
+    {
+      "id": "W-0001-S02",
+      "globalNumber": 2,
+      "date": "2026-07-10"
+    },
+    {
+      "id": "W-0001-S03",
+      "globalNumber": 3,
+      "date": "2026-07-12"
+    },
+    {
+      "id": "W-0001-S04",
+      "globalNumber": 4,
+      "date": "2026-07-14"
+    },
+    {
+      "id": "W-0002-S01",
+      "globalNumber": 5,
+      "date": "2026-07-17"
+    },
+    {
+      "id": "W-0002-S02",
+      "globalNumber": 6,
+      "date": "2026-07-19"
+    },
+    {
+      "id": "W-0002-S03",
+      "globalNumber": 7,
+      "date": "2026-07-21"
+    },
+    {
+      "id": "W-0002-S04",
+      "globalNumber": 8,
+      "date": "2026-07-23"
+    },
+    {
+      "id": "W-0003-S01",
+      "globalNumber": 9,
+      "date": "2026-07-25"
+    },
+    {
+      "id": "W-0003-S02",
+      "globalNumber": 10,
+      "date": "2026-07-29"
+    },
+    {
+      "id": "W-0003-S03",
+      "globalNumber": 11,
+      "date": "2026-07-30"
+    },
+    {
+      "id": "W-0003-S04",
+      "globalNumber": 12,
+      "date": "2026-08-01"
+    },
+    {
+      "id": "W-0004-S01",
+      "globalNumber": 13,
+      "date": "2026-08-04"
+    },
+    {
+      "id": "W-0004-S02",
+      "globalNumber": 14,
+      "date": "2026-08-06"
+    },
+    {
+      "id": "W-0004-S03",
+      "globalNumber": 15,
+      "date": "2026-08-08"
+    },
+    {
+      "id": "W-0005-S01",
+      "globalNumber": 16,
+      "date": "2026-08-11"
+    },
+    {
+      "id": "W-0005-S02",
+      "globalNumber": 17,
+      "date": "2026-08-13"
+    },
+    {
+      "id": "W-0005-S03",
+      "globalNumber": 18,
+      "date": "2026-08-15"
+    },
+    {
+      "id": "W-0006-S01",
+      "globalNumber": 19,
+      "date": "2026-08-18"
+    },
+    {
+      "id": "W-0006-S02",
+      "globalNumber": 20,
+      "date": "2026-08-20"
+    },
+    {
+      "id": "W-0006-S03",
+      "globalNumber": 21,
+      "date": "2026-08-22"
+    },
+    {
+      "id": "W-0007-S01",
+      "globalNumber": 22,
+      "date": "2026-08-25"
+    },
+    {
+      "id": "W-0007-S02",
+      "globalNumber": 23,
+      "date": "2026-08-27"
+    },
+    {
+      "id": "W-0007-S03",
+      "globalNumber": 24,
+      "date": "2026-08-30"
+    }
   ],
   "exercises": [
     {
       "id": "glute_bridge",
       "name": "Ягодичный мост",
-      "aliases": [ "Ягодичный мост со штангой" ],
+      "aliases": [
+        "Ягодичный мост со штангой"
+      ],
       "unit": "kg",
       "color": "#D22D2D",
       "data": [
-        { "sessionId": "W-0001-S01", "max": 50, "onepr": 62 },
-        { "sessionId": "W-0001-S03", "max": 45, "onepr": 63 },
-        { "sessionId": "W-0002-S01", "max": 50, "onepr": 63 },
-        { "sessionId": "W-0002-S03", "max": 50, "onepr": null },
-        { "sessionId": "W-0003-S01", "max": 50, "onepr": 70 },
-        { "sessionId": "W-0003-S03", "max": 50, "onepr": null },
-        { "sessionId": "W-0004-S01", "max": 50, "onepr": 73 },
-        { "sessionId": "W-0004-S03", "max": 50, "onepr": null },
-        { "sessionId": "W-0005-S01", "max": 60, "onepr": 80 },
-        { "sessionId": "W-0005-S03", "max": 60, "onepr": 86 },
-        { "sessionId": "W-0006-S01", "max": 60, "onepr": 82 },
-        { "sessionId": "W-0006-S03", "max": 60, "onepr": 86 },
-        { "sessionId": "W-0007-S01", "max": 70, "onepr": 89 }
+        {
+          "sessionId": "W-0001-S01",
+          "max": 50,
+          "onepr": 62
+        },
+        {
+          "sessionId": "W-0001-S03",
+          "max": 45,
+          "onepr": 63
+        },
+        {
+          "sessionId": "W-0002-S01",
+          "max": 50,
+          "onepr": 63
+        },
+        {
+          "sessionId": "W-0002-S03",
+          "max": 50,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0003-S01",
+          "max": 50,
+          "onepr": 70
+        },
+        {
+          "sessionId": "W-0003-S03",
+          "max": 50,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0004-S01",
+          "max": 50,
+          "onepr": 73
+        },
+        {
+          "sessionId": "W-0004-S03",
+          "max": 50,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0005-S01",
+          "max": 60,
+          "onepr": 80
+        },
+        {
+          "sessionId": "W-0005-S03",
+          "max": 60,
+          "onepr": 86
+        },
+        {
+          "sessionId": "W-0006-S01",
+          "max": 60,
+          "onepr": 82
+        },
+        {
+          "sessionId": "W-0006-S03",
+          "max": 60,
+          "onepr": 86
+        },
+        {
+          "sessionId": "W-0007-S01",
+          "max": 70,
+          "onepr": 89
+        },
+        {
+          "sessionId": "W-0007-S03",
+          "max": 60,
+          "onepr": 88
+        }
       ]
     },
     {
       "id": "squat_women",
       "name": "Присед (пятки на подставке)",
-      "aliases": [ "Глубокий присед, пятки на подставке" ],
+      "aliases": [
+        "Глубокий присед, пятки на подставке"
+      ],
       "unit": "kg",
       "color": "#2DD25D",
       "data": [
-        { "sessionId": "W-0001-S01", "max": 25, "onepr": 29 },
-        { "sessionId": "W-0001-S04", "max": 20, "onepr": 25 },
-        { "sessionId": "W-0002-S01", "max": 30, "onepr": 38 },
-        { "sessionId": "W-0002-S04", "max": 30, "onepr": 38 },
-        { "sessionId": "W-0003-S01", "max": 30, "onepr": 41 },
-        { "sessionId": "W-0003-S04", "max": 30, "onepr": 41 },
-        { "sessionId": "W-0004-S01", "max": 35, "onepr": 44 },
-        { "sessionId": "W-0005-S01", "max": 35, "onepr": 47 },
-        { "sessionId": "W-0006-S01", "max": 35, "onepr": 47 },
-        { "sessionId": "W-0007-S01", "max": 40, "onepr": 51 }
+        {
+          "sessionId": "W-0001-S01",
+          "max": 25,
+          "onepr": 29
+        },
+        {
+          "sessionId": "W-0001-S04",
+          "max": 20,
+          "onepr": 25
+        },
+        {
+          "sessionId": "W-0002-S01",
+          "max": 30,
+          "onepr": 38
+        },
+        {
+          "sessionId": "W-0002-S04",
+          "max": 30,
+          "onepr": 38
+        },
+        {
+          "sessionId": "W-0003-S01",
+          "max": 30,
+          "onepr": 41
+        },
+        {
+          "sessionId": "W-0003-S04",
+          "max": 30,
+          "onepr": 41
+        },
+        {
+          "sessionId": "W-0004-S01",
+          "max": 35,
+          "onepr": 44
+        },
+        {
+          "sessionId": "W-0005-S01",
+          "max": 35,
+          "onepr": 47
+        },
+        {
+          "sessionId": "W-0006-S01",
+          "max": 35,
+          "onepr": 47
+        },
+        {
+          "sessionId": "W-0007-S01",
+          "max": 40,
+          "onepr": 51
+        }
       ]
     },
     {
       "id": "leg_curl_w",
       "name": "Сгибание ног",
-      "aliases": [ "Сгибание ног в тренажёре" ],
+      "aliases": [
+        "Сгибание ног в тренажёре"
+      ],
       "unit": "kg",
       "color": "#8D2DD2",
       "data": [
-        { "sessionId": "W-0001-S01", "max": 25, "onepr": 35 },
-        { "sessionId": "W-0001-S04", "max": 25, "onepr": 35 },
-        { "sessionId": "W-0002-S01", "max": 25, "onepr": null },
-        { "sessionId": "W-0002-S04", "max": 25, "onepr": null },
-        { "sessionId": "W-0003-S01", "max": 25, "onepr": null },
-        { "sessionId": "W-0003-S04", "max": 25, "onepr": null },
-        { "sessionId": "W-0004-S01", "max": 25, "onepr": null },
-        { "sessionId": "W-0005-S01", "max": 30, "onepr": 42 },
-        { "sessionId": "W-0005-S03", "max": 30, "onepr": 44 },
-        { "sessionId": "W-0006-S01", "max": 30, "onepr": 44 },
-        { "sessionId": "W-0006-S03", "max": 30, "onepr": 44 },
-        { "sessionId": "W-0007-S01", "max": 30, "onepr": 43 }
+        {
+          "sessionId": "W-0001-S01",
+          "max": 25,
+          "onepr": 35
+        },
+        {
+          "sessionId": "W-0001-S04",
+          "max": 25,
+          "onepr": 35
+        },
+        {
+          "sessionId": "W-0002-S01",
+          "max": 25,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0002-S04",
+          "max": 25,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0003-S01",
+          "max": 25,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0003-S04",
+          "max": 25,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0004-S01",
+          "max": 25,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0005-S01",
+          "max": 30,
+          "onepr": 42
+        },
+        {
+          "sessionId": "W-0005-S03",
+          "max": 30,
+          "onepr": 44
+        },
+        {
+          "sessionId": "W-0006-S01",
+          "max": 30,
+          "onepr": 44
+        },
+        {
+          "sessionId": "W-0006-S03",
+          "max": 30,
+          "onepr": 44
+        },
+        {
+          "sessionId": "W-0007-S01",
+          "max": 30,
+          "onepr": 43
+        },
+        {
+          "sessionId": "W-0007-S03",
+          "max": 30,
+          "onepr": 40
+        }
       ]
     },
     {
       "id": "lat_pulldown_w",
       "name": "Вертикальная тяга блока",
-      "aliases": [ "Вертикальная тяга верхнего блока", "Вертикальная тяга верхнего блока, нейтральный хват", "Вертикальная тяга верхнего блока, широкий хват" ],
+      "aliases": [
+        "Вертикальная тяга верхнего блока",
+        "Вертикальная тяга верхнего блока, нейтральный хват",
+        "Вертикальная тяга верхнего блока, широкий хват"
+      ],
       "unit": "kg",
       "color": "#D2BE2D",
       "data": [
-        { "sessionId": "W-0001-S01", "max": 15, "onepr": 20 },
-        { "sessionId": "W-0001-S03", "max": 15, "onepr": 20 },
-        { "sessionId": "W-0002-S01", "max": 15, "onepr": 21 },
-        { "sessionId": "W-0002-S03", "max": 15, "onepr": 21 },
-        { "sessionId": "W-0003-S01", "max": 15, "onepr": null },
-        { "sessionId": "W-0003-S03", "max": 15, "onepr": 22 },
-        { "sessionId": "W-0004-S01", "max": 15, "onepr": 19 },
-        { "sessionId": "W-0004-S03", "max": 20, "onepr": 27 },
-        { "sessionId": "W-0005-S01", "max": 20, "onepr": 28 },
-        { "sessionId": "W-0006-S01", "max": 20, "onepr": 28 },
-        { "sessionId": "W-0007-S01", "max": 20, "onepr": 27 }
+        {
+          "sessionId": "W-0001-S01",
+          "max": 15,
+          "onepr": 20
+        },
+        {
+          "sessionId": "W-0001-S03",
+          "max": 15,
+          "onepr": 20
+        },
+        {
+          "sessionId": "W-0002-S01",
+          "max": 15,
+          "onepr": 21
+        },
+        {
+          "sessionId": "W-0002-S03",
+          "max": 15,
+          "onepr": 21
+        },
+        {
+          "sessionId": "W-0003-S01",
+          "max": 15,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0003-S03",
+          "max": 15,
+          "onepr": 22
+        },
+        {
+          "sessionId": "W-0004-S01",
+          "max": 15,
+          "onepr": 19
+        },
+        {
+          "sessionId": "W-0004-S03",
+          "max": 20,
+          "onepr": 27
+        },
+        {
+          "sessionId": "W-0005-S01",
+          "max": 20,
+          "onepr": 28
+        },
+        {
+          "sessionId": "W-0006-S01",
+          "max": 20,
+          "onepr": 28
+        },
+        {
+          "sessionId": "W-0007-S01",
+          "max": 20,
+          "onepr": 27
+        }
       ]
     },
     {
       "id": "lateral_raise_db_w",
       "name": "Махи гантелями",
-      "aliases": [ "Махи гантелями в стороны" ],
+      "aliases": [
+        "Махи гантелями в стороны"
+      ],
       "unit": "kg_per_hand",
       "color": "#2DB7D2",
       "data": [
-        { "sessionId": "W-0001-S01", "max": 3, "onepr": null },
-        { "sessionId": "W-0001-S03", "max": 3, "onepr": null },
-        { "sessionId": "W-0002-S01", "max": 3, "onepr": null },
-        { "sessionId": "W-0002-S03", "max": 3, "onepr": null },
-        { "sessionId": "W-0003-S01", "max": 3, "onepr": null },
-        { "sessionId": "W-0003-S03", "max": 3, "onepr": null },
-        { "sessionId": "W-0004-S01", "max": 3, "onepr": null },
-        { "sessionId": "W-0004-S03", "max": 4, "onepr": 6 },
-        { "sessionId": "W-0005-S01", "max": 4, "onepr": null },
-        { "sessionId": "W-0006-S01", "max": 4, "onepr": 6 },
-        { "sessionId": "W-0007-S01", "max": 4, "onepr": null }
+        {
+          "sessionId": "W-0001-S01",
+          "max": 3,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0001-S03",
+          "max": 3,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0002-S01",
+          "max": 3,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0002-S03",
+          "max": 3,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0003-S01",
+          "max": 3,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0003-S03",
+          "max": 3,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0004-S01",
+          "max": 3,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0004-S03",
+          "max": 4,
+          "onepr": 6
+        },
+        {
+          "sessionId": "W-0005-S01",
+          "max": 4,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0006-S01",
+          "max": 4,
+          "onepr": 6
+        },
+        {
+          "sessionId": "W-0007-S01",
+          "max": 4,
+          "onepr": null
+        }
       ]
     },
     {
       "id": "barbell_curl_w",
       "name": "Сгибание со штангой (бицепс)",
-      "aliases": [ "Сгибание рук со штангой" ],
+      "aliases": [
+        "Сгибание рук со штангой"
+      ],
       "unit": "kg",
       "color": "#D22D86",
       "data": [
-        { "sessionId": "W-0001-S01", "max": 10, "onepr": 14 },
-        { "sessionId": "W-0002-S01", "max": 10, "onepr": 13 },
-        { "sessionId": "W-0003-S01", "max": 10, "onepr": null },
-        { "sessionId": "W-0004-S01", "max": 10, "onepr": null },
-        { "sessionId": "W-0005-S01", "max": 10, "onepr": null },
-        { "sessionId": "W-0006-S01", "max": 10, "onepr": 15 },
-        { "sessionId": "W-0007-S01", "max": 10, "onepr": 14 }
+        {
+          "sessionId": "W-0001-S01",
+          "max": 10,
+          "onepr": 14
+        },
+        {
+          "sessionId": "W-0002-S01",
+          "max": 10,
+          "onepr": 13
+        },
+        {
+          "sessionId": "W-0003-S01",
+          "max": 10,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0004-S01",
+          "max": 10,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0005-S01",
+          "max": 10,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0006-S01",
+          "max": 10,
+          "onepr": 15
+        },
+        {
+          "sessionId": "W-0007-S01",
+          "max": 10,
+          "onepr": 14
+        }
       ]
     },
     {
       "id": "rdl_smith_w",
       "name": "Румынская тяга (Смит)",
-      "aliases": [ "Румынская тяга — выполнена в Смите (замена снаряда)" ],
+      "aliases": [
+        "Румынская тяга — выполнена в Смите (замена снаряда)"
+      ],
       "unit": "kg",
       "color": "#56D22D",
       "data": [
-        { "sessionId": "W-0001-S02", "max": 20, "onepr": 25 },
-        { "sessionId": "W-0002-S02", "max": 40, "onepr": 51 }
+        {
+          "sessionId": "W-0001-S02",
+          "max": 20,
+          "onepr": 25
+        },
+        {
+          "sessionId": "W-0002-S02",
+          "max": 40,
+          "onepr": 51
+        }
       ]
     },
     {
       "id": "seated_row_w",
       "name": "Горизонтальная тяга (тренажёр)",
-      "aliases": [ "Горизонтальная тяга в тренажёре" ],
+      "aliases": [
+        "Горизонтальная тяга в тренажёре"
+      ],
       "unit": "kg",
       "color": "#342DD2",
       "data": [
-        { "sessionId": "W-0001-S02", "max": 20, "onepr": 27 },
-        { "sessionId": "W-0001-S04", "max": 20, "onepr": 27 },
-        { "sessionId": "W-0002-S02", "max": 20, "onepr": 27 },
-        { "sessionId": "W-0002-S04", "max": 20, "onepr": 27 },
-        { "sessionId": "W-0003-S02", "max": 20, "onepr": 29 },
-        { "sessionId": "W-0003-S04", "max": 20, "onepr": 29 },
-        { "sessionId": "W-0004-S02", "max": 20, "onepr": null },
-        { "sessionId": "W-0005-S02", "max": 25, "onepr": 35 },
-        { "sessionId": "W-0006-S02", "max": 25, "onepr": 35 },
-        { "sessionId": "W-0007-S02", "max": 25, "onepr": 36 }
+        {
+          "sessionId": "W-0001-S02",
+          "max": 20,
+          "onepr": 27
+        },
+        {
+          "sessionId": "W-0001-S04",
+          "max": 20,
+          "onepr": 27
+        },
+        {
+          "sessionId": "W-0002-S02",
+          "max": 20,
+          "onepr": 27
+        },
+        {
+          "sessionId": "W-0002-S04",
+          "max": 20,
+          "onepr": 27
+        },
+        {
+          "sessionId": "W-0003-S02",
+          "max": 20,
+          "onepr": 29
+        },
+        {
+          "sessionId": "W-0003-S04",
+          "max": 20,
+          "onepr": 29
+        },
+        {
+          "sessionId": "W-0004-S02",
+          "max": 20,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0005-S02",
+          "max": 25,
+          "onepr": 35
+        },
+        {
+          "sessionId": "W-0006-S02",
+          "max": 25,
+          "onepr": 35
+        },
+        {
+          "sessionId": "W-0007-S02",
+          "max": 25,
+          "onepr": 36
+        }
       ]
     },
     {
       "id": "db_shoulder_press",
       "name": "Жим гантелей сидя (плечи)",
-      "aliases": [ "Жим гантелей сидя вверх", "Жим гантелей сидя вверх, нейтральный хват" ],
+      "aliases": [
+        "Жим гантелей сидя вверх",
+        "Жим гантелей сидя вверх, нейтральный хват"
+      ],
       "unit": "kg_per_hand",
       "color": "#D2642D",
       "data": [
-        { "sessionId": "W-0001-S02", "max": 4, "onepr": 5 },
-        { "sessionId": "W-0002-S02", "max": 3, "onepr": 4 },
-        { "sessionId": "W-0003-S02", "max": 3, "onepr": null },
-        { "sessionId": "W-0004-S02", "max": 3, "onepr": null },
-        { "sessionId": "W-0005-S02", "max": 3, "onepr": null },
-        { "sessionId": "W-0006-S02", "max": 3, "onepr": 5 },
-        { "sessionId": "W-0007-S02", "max": 4, "onepr": 6 }
+        {
+          "sessionId": "W-0001-S02",
+          "max": 4,
+          "onepr": 5
+        },
+        {
+          "sessionId": "W-0002-S02",
+          "max": 3,
+          "onepr": 4
+        },
+        {
+          "sessionId": "W-0003-S02",
+          "max": 3,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0004-S02",
+          "max": 3,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0005-S02",
+          "max": 3,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0006-S02",
+          "max": 3,
+          "onepr": 5
+        },
+        {
+          "sessionId": "W-0007-S02",
+          "max": 4,
+          "onepr": 6
+        }
       ]
     },
     {
       "id": "triceps_pushdown_w",
       "name": "Разгибание на блоке (трицепс)",
-      "aliases": [ "Разгибание рук на верхнем блоке" ],
+      "aliases": [
+        "Разгибание рук на верхнем блоке"
+      ],
       "unit": "kg",
       "color": "#2DD294",
       "data": [
-        { "sessionId": "W-0001-S02", "max": 10, "onepr": 14 },
-        { "sessionId": "W-0002-S02", "max": 10, "onepr": 13 },
-        { "sessionId": "W-0003-S02", "max": 7.5, "onepr": 11 },
-        { "sessionId": "W-0004-S02", "max": 10, "onepr": 13 },
-        { "sessionId": "W-0005-S02", "max": 10, "onepr": 13 },
-        { "sessionId": "W-0006-S02", "max": 7.5, "onepr": 11 },
-        { "sessionId": "W-0007-S02", "max": 7.5, "onepr": null }
+        {
+          "sessionId": "W-0001-S02",
+          "max": 10,
+          "onepr": 14
+        },
+        {
+          "sessionId": "W-0002-S02",
+          "max": 10,
+          "onepr": 13
+        },
+        {
+          "sessionId": "W-0003-S02",
+          "max": 7.5,
+          "onepr": 11
+        },
+        {
+          "sessionId": "W-0004-S02",
+          "max": 10,
+          "onepr": 13
+        },
+        {
+          "sessionId": "W-0005-S02",
+          "max": 10,
+          "onepr": 13
+        },
+        {
+          "sessionId": "W-0006-S02",
+          "max": 7.5,
+          "onepr": 11
+        },
+        {
+          "sessionId": "W-0007-S02",
+          "max": 7.5,
+          "onepr": null
+        }
       ]
     },
     {
       "id": "reverse_lunge",
       "name": "Выпады назад",
-      "aliases": [ "Выпады назад" ],
+      "aliases": [
+        "Выпады назад"
+      ],
       "unit": "kg_per_hand",
       "color": "#C52DD2",
       "data": [
-        { "sessionId": "W-0001-S03", "max": 4, "onepr": 5 },
-        { "sessionId": "W-0002-S03", "max": 4, "onepr": 5 },
-        { "sessionId": "W-0003-S03", "max": 4, "onepr": 6 },
-        { "sessionId": "W-0004-S03", "max": 4, "onepr": 6 },
-        { "sessionId": "W-0005-S03", "max": 5, "onepr": 7 },
-        { "sessionId": "W-0006-S03", "max": 5, "onepr": 7 }
+        {
+          "sessionId": "W-0001-S03",
+          "max": 4,
+          "onepr": 5
+        },
+        {
+          "sessionId": "W-0002-S03",
+          "max": 4,
+          "onepr": 5
+        },
+        {
+          "sessionId": "W-0003-S03",
+          "max": 4,
+          "onepr": 6
+        },
+        {
+          "sessionId": "W-0004-S03",
+          "max": 4,
+          "onepr": 6
+        },
+        {
+          "sessionId": "W-0005-S03",
+          "max": 5,
+          "onepr": 7
+        },
+        {
+          "sessionId": "W-0006-S03",
+          "max": 5,
+          "onepr": 7
+        },
+        {
+          "sessionId": "W-0007-S03",
+          "max": 5,
+          "onepr": 7
+        }
       ]
     },
     {
       "id": "db_bench_w",
       "name": "Жим гантелей лёжа (грудь)",
-      "aliases": [ "Жим гантелей лёжа" ],
+      "aliases": [
+        "Жим гантелей лёжа"
+      ],
       "unit": "kg_per_hand",
       "color": "#B0D22D",
       "data": [
-        { "sessionId": "W-0001-S03", "max": 5, "onepr": 7 },
-        { "sessionId": "W-0002-S03", "max": 5, "onepr": 7 },
-        { "sessionId": "W-0003-S03", "max": 5, "onepr": 7 },
-        { "sessionId": "W-0004-S03", "max": 5, "onepr": null },
-        { "sessionId": "W-0005-S03", "max": 7.5, "onepr": 10 },
-        { "sessionId": "W-0006-S03", "max": 7.5, "onepr": 10 }
+        {
+          "sessionId": "W-0001-S03",
+          "max": 5,
+          "onepr": 7
+        },
+        {
+          "sessionId": "W-0002-S03",
+          "max": 5,
+          "onepr": 7
+        },
+        {
+          "sessionId": "W-0003-S03",
+          "max": 5,
+          "onepr": 7
+        },
+        {
+          "sessionId": "W-0004-S03",
+          "max": 5,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0005-S03",
+          "max": 7.5,
+          "onepr": 10
+        },
+        {
+          "sessionId": "W-0006-S03",
+          "max": 7.5,
+          "onepr": 10
+        },
+        {
+          "sessionId": "W-0007-S03",
+          "max": 7.5,
+          "onepr": 10
+        }
       ]
     },
     {
       "id": "hip_abduction_side",
       "name": "Отведение бедра (тренажёр)",
-      "aliases": [ "Отведение бедра в тренажёре" ],
+      "aliases": [
+        "Отведение бедра в тренажёре"
+      ],
       "unit": "kg",
       "color": "#2DD2CC",
       "data": [
-        { "sessionId": "W-0001-S03", "max": 1, "onepr": null },
-        { "sessionId": "W-0002-S03", "max": 1, "onepr": null },
-        { "sessionId": "W-0003-S03", "max": 1, "onepr": null },
-        { "sessionId": "W-0004-S03", "max": 6, "onepr": null },
-        { "sessionId": "W-0005-S03", "max": 6, "onepr": null },
-        { "sessionId": "W-0006-S03", "max": 6, "onepr": 9 }
+        {
+          "sessionId": "W-0001-S03",
+          "max": 1,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0002-S03",
+          "max": 1,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0003-S03",
+          "max": 1,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0004-S03",
+          "max": 6,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0005-S03",
+          "max": 6,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0006-S03",
+          "max": 6,
+          "onepr": 9
+        },
+        {
+          "sessionId": "W-0007-S03",
+          "max": 6,
+          "onepr": 8
+        }
       ]
     },
     {
       "id": "rdl_barbell_w",
       "name": "Румынская тяга (штанга)",
-      "aliases": [ "Румынская тяга", "Румынская тяга со штангой", "Румынская тяга — выбрана свободная штанга", "Румынская тяга (свободная штанга или Смит на выбор) — Штанга" ],
+      "aliases": [
+        "Румынская тяга",
+        "Румынская тяга со штангой",
+        "Румынская тяга — выбрана свободная штанга",
+        "Румынская тяга (свободная штанга или Смит на выбор) — Штанга"
+      ],
       "unit": "kg",
       "color": "#2D7FD2",
       "data": [
-        { "sessionId": "W-0001-S04", "max": 40, "onepr": 53 },
-        { "sessionId": "W-0002-S04", "max": 40, "onepr": 53 },
-        { "sessionId": "W-0003-S02", "max": 40, "onepr": 56 },
-        { "sessionId": "W-0003-S04", "max": 40, "onepr": 57 },
-        { "sessionId": "W-0004-S02", "max": 40, "onepr": 59 },
-        { "sessionId": "W-0005-S02", "max": 45, "onepr": 62 },
-        { "sessionId": "W-0006-S02", "max": 45, "onepr": 62 },
-        { "sessionId": "W-0007-S02", "max": 50, "onepr": 67 }
+        {
+          "sessionId": "W-0001-S04",
+          "max": 40,
+          "onepr": 53
+        },
+        {
+          "sessionId": "W-0002-S04",
+          "max": 40,
+          "onepr": 53
+        },
+        {
+          "sessionId": "W-0003-S02",
+          "max": 40,
+          "onepr": 56
+        },
+        {
+          "sessionId": "W-0003-S04",
+          "max": 40,
+          "onepr": 57
+        },
+        {
+          "sessionId": "W-0004-S02",
+          "max": 40,
+          "onepr": 59
+        },
+        {
+          "sessionId": "W-0005-S02",
+          "max": 45,
+          "onepr": 62
+        },
+        {
+          "sessionId": "W-0006-S02",
+          "max": 45,
+          "onepr": 62
+        },
+        {
+          "sessionId": "W-0007-S02",
+          "max": 50,
+          "onepr": 67
+        }
       ]
     },
     {
       "id": "hip_abduction_back",
       "name": "Отведение ноги назад (тренажёр)",
-      "aliases": [ "Отведение ноги назад — выбран тренажёр", "Отведение ноги назад (кроссовер или тренажёр на выбор) — Тренажёр" ],
+      "aliases": [
+        "Отведение ноги назад — выбран тренажёр",
+        "Отведение ноги назад (кроссовер или тренажёр на выбор) — Тренажёр"
+      ],
       "unit": "kg",
       "color": "#D22D4F",
       "data": [
-        { "sessionId": "W-0001-S04", "max": 6, "onepr": 8 },
-        { "sessionId": "W-0002-S04", "max": 6, "onepr": 8 },
-        { "sessionId": "W-0003-S04", "max": 6, "onepr": null },
-        { "sessionId": "W-0005-S02", "max": 6, "onepr": null },
-        { "sessionId": "W-0006-S02", "max": 6, "onepr": 9 },
-        { "sessionId": "W-0007-S02", "max": 6, "onepr": null }
+        {
+          "sessionId": "W-0001-S04",
+          "max": 6,
+          "onepr": 8
+        },
+        {
+          "sessionId": "W-0002-S04",
+          "max": 6,
+          "onepr": 8
+        },
+        {
+          "sessionId": "W-0003-S04",
+          "max": 6,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0005-S02",
+          "max": 6,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0006-S02",
+          "max": 6,
+          "onepr": 9
+        },
+        {
+          "sessionId": "W-0007-S02",
+          "max": 6,
+          "onepr": null
+        }
       ]
     },
     {
       "id": "rear_delt_fly",
       "name": "Разведения на заднюю дельту",
-      "aliases": [ "Разведения на заднюю дельту" ],
+      "aliases": [
+        "Разведения на заднюю дельту"
+      ],
       "unit": "kg",
       "color": "#2DD23A",
       "data": [
-        { "sessionId": "W-0001-S04", "max": 10, "onepr": null },
-        { "sessionId": "W-0002-S04", "max": 10, "onepr": null },
-        { "sessionId": "W-0003-S04", "max": 10, "onepr": null },
-        { "sessionId": "W-0005-S03", "max": 10, "onepr": null },
-        { "sessionId": "W-0006-S03", "max": 10, "onepr": 16 }
+        {
+          "sessionId": "W-0001-S04",
+          "max": 10,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0002-S04",
+          "max": 10,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0003-S04",
+          "max": 10,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0005-S03",
+          "max": 10,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0006-S03",
+          "max": 10,
+          "onepr": 16
+        }
       ]
     },
     {
       "id": "bulgarian_split_squat_w",
       "name": "Болгарские выпады",
-      "aliases": [ "Болгарские выпады с наклоном корпуса" ],
+      "aliases": [
+        "Болгарские выпады с наклоном корпуса"
+      ],
       "unit": "kg_per_hand",
       "color": "#6B2DD2",
       "data": [
-        { "sessionId": "W-0002-S02", "max": 4, "onepr": 5 }
+        {
+          "sessionId": "W-0002-S02",
+          "max": 4,
+          "onepr": 5
+        }
       ]
     },
     {
       "id": "bulgarian_split_squat_1db_w",
       "name": "Болгарские выпады (одна гантель)",
-      "aliases": [ "Болгарские выпады с наклоном корпуса, одна гантель" ],
+      "aliases": [
+        "Болгарские выпады с наклоном корпуса, одна гантель"
+      ],
       "unit": "kg",
       "color": "#D29B2D",
       "data": [
-        { "sessionId": "W-0003-S02", "max": 7.5, "onepr": 11 },
-        { "sessionId": "W-0004-S02", "max": 7.5, "onepr": 11 },
-        { "sessionId": "W-0005-S02", "max": 7.5, "onepr": null },
-        { "sessionId": "W-0006-S02", "max": 7.5, "onepr": 11 },
-        { "sessionId": "W-0007-S02", "max": 7.5, "onepr": null }
+        {
+          "sessionId": "W-0003-S02",
+          "max": 7.5,
+          "onepr": 11
+        },
+        {
+          "sessionId": "W-0004-S02",
+          "max": 7.5,
+          "onepr": 11
+        },
+        {
+          "sessionId": "W-0005-S02",
+          "max": 7.5,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0006-S02",
+          "max": 7.5,
+          "onepr": 11
+        },
+        {
+          "sessionId": "W-0007-S02",
+          "max": 7.5,
+          "onepr": null
+        }
       ]
     }
   ]

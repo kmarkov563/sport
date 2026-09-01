@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "athlete": "women",
-  "activePlanId": "0007",
-  "currentSessionId": "W-0007-S03",
-  "nextGlobalNumber": 25,
-  "updatedAt": "2026-08-28T19:28:16+04:00",
+  "activePlanId": "0008",
+  "currentSessionId": "W-0008-S01",
+  "nextGlobalNumber": 28,
+  "updatedAt": "2026-09-01T00:00:00+04:00",
   "plans": [
     { "planId": "0001", "file": "0001.json", "status": "completed", "sessionIds": [ "W-0001-S01", "W-0001-S02", "W-0001-S03", "W-0001-S04" ] },
     { "planId": "0002", "file": "0002.json", "status": "completed", "sessionIds": [ "W-0002-S01", "W-0002-S02", "W-0002-S03", "W-0002-S04" ] },
@@ -12,6 +12,7 @@
     { "planId": "0004", "file": "0004.json", "status": "completed", "sessionIds": [ "W-0004-S01", "W-0004-S02", "W-0004-S03" ] },
     { "planId": "0005", "file": "0005.json", "status": "completed", "sessionIds": [ "W-0005-S01", "W-0005-S02", "W-0005-S03" ] },
     { "planId": "0006", "file": "0006.json", "status": "completed", "sessionIds": [ "W-0006-S01", "W-0006-S02", "W-0006-S03" ] },
-    { "planId": "0007", "file": "0007.json", "status": "active", "sessionIds": [ "W-0007-S01", "W-0007-S02", "W-0007-S03" ] }
+    { "planId": "0007", "file": "0007.json", "status": "completed", "sessionIds": [ "W-0007-S01", "W-0007-S02", "W-0007-S03" ] },
+    { "planId": "0008", "file": "0008.json", "status": "active", "sessionIds": [ "W-0008-S01", "W-0008-S02", "W-0008-S03" ] }
   ]
 }

@@ -3,14 +3,14 @@
   "planId": "0007",
   "athlete": "women",
   "createdAt": "2026-08-23T21:02:05+04:00",
-  "updatedAt": "2026-08-28T19:28:16+04:00",
+  "updatedAt": "2026-09-01T00:00:00+04:00",
   "schedule": { "kind": "fixed_weekdays", "weekdays": ["tue", "thu", "sat"], "sessionsPlanned": 3, "sessionsPerWeek": 3, "estimatedSessionMinutes": "66–70" },
   "microcycleStats": {
-    "tonnageKg": 13500,
-    "avgIntensityPct": 72,
-    "hardSets": 59,
-    "hardSetsByMuscle": { "Ягодицы": 20, "Бицепс бедра": 9, "Спина": 7, "Плечи": 7, "Задняя цепь": 6, "Квадрицепс": 3, "Грудь": 3, "Бицепс": 2, "Трицепс": 2 },
-    "tonnageByMuscleKg": { "Ягодицы": 5853, "Бицепс бедра": 3360, "Спина": 1650, "Плечи": 952, "Квадрицепс": 720, "Грудь": 450, "Трицепс": 225, "Бицепс": 200, "Задняя цепь": 90 }
+    "tonnageKg": 12530,
+    "avgIntensityPct": 73,
+    "hardSets": 55,
+    "hardSetsByMuscle": { "Ягодицы": 20, "Бицепс бедра": 9, "Спина": 7, "Задняя цепь": 6, "Плечи": 5, "Квадрицепс": 3, "Бицепс": 2, "Трицепс": 2, "Грудь": 1 },
+    "tonnageByMuscleKg": { "Ягодицы": 5763, "Бицепс бедра": 3210, "Спина": 1650, "Квадрицепс": 720, "Плечи": 552, "Трицепс": 225, "Бицепс": 200, "Грудь": 120, "Задняя цепь": 90 }
   },
   "sessions": [
     {
@@ -174,9 +174,11 @@
     {
       "sessionId": "W-0007-S03",
       "globalNumber": 24,
+      "performedAt": "2026-08-30",
       "recommendedIntervalAfterPreviousHours": 48,
       "estimatedDurationMinutes": 68,
       "focus": "Объёмный ягодичный мост и односторонняя работа",
+      "postNotes": "К концу тренировки сил не осталось: жим гантелей лёжа прекращён после первого подхода, разведения на заднюю дельту не выполнены.",
       "workout": [
         {
           "name": "Гиперэкстензия (90°)",
@@ -213,30 +215,39 @@
           "name": "Отведение бедра в тренажёре",
           "restSeconds": 90,
           "note": "Если все 3 подхода идут с запасом 2+ — добавь ещё блин и запиши вес.",
+          "postNotes": "По плану 5 кг × 20 × 3. Подходы сделаны на 20, 15 и 10 повторов.",
           "variants": [
-            { "loadBlocks": [ { "weight": 5, "unit": "kg", "reps": 20, "sets": 3, "rir": 1, "note": "сверх базового веса тренажёра" } ] }
+            { "loadBlocks": [
+              { "weight": 5, "unit": "kg", "reps": 20, "sets": 1, "rir": 1, "note": "сверх базового веса тренажёра" },
+              { "weight": 5, "unit": "kg", "reps": 15, "sets": 1, "rir": 1, "note": "сверх базового веса тренажёра" },
+              { "weight": 5, "unit": "kg", "reps": 10, "sets": 1, "rir": 1, "note": "сверх базового веса тренажёра" }
+            ] }
           ]
         },
         {
           "name": "Сгибание ног в тренажёре",
           "restSeconds": 120,
+          "postNotes": "По плану 30 кг × 13 × 3. Третий подход — 8 повторов.",
           "variants": [
-            { "loadBlocks": [ { "weight": 30, "unit": "kg", "reps": 13, "sets": 3, "rir": 2 } ] }
+            { "loadBlocks": [
+              { "weight": 30, "unit": "kg", "reps": 13, "sets": 2, "rir": 2 },
+              { "weight": 30, "unit": "kg", "reps": 8, "sets": 1, "rir": 2 }
+            ] }
           ]
         },
         {
           "name": "Жим гантелей лёжа",
           "restSeconds": 120,
+          "postNotes": "По плану 7,5 кг на руку × 10 × 3. Сделан один подход на 8 повторов, дальше упражнение прекращено.",
           "variants": [
-            { "loadBlocks": [ { "weight": 7.5, "unit": "kg_per_hand", "reps": 10, "sets": 3, "rir": 2 } ] }
+            { "loadBlocks": [ { "weight": 7.5, "unit": "kg_per_hand", "reps": 8, "sets": 1, "rir": 2 } ] }
           ]
         },
         {
           "name": "Разведения на заднюю дельту",
           "restSeconds": 90,
-          "variants": [
-            { "loadBlocks": [ { "weight": 10, "unit": "kg", "reps": 20, "sets": 2, "rir": 1 } ] }
-          ]
+          "postNotes": "Не выполнено.",
+          "variants": []
         }
       ]
     }

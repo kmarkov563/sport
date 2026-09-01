@@ -3,14 +3,14 @@
   "planId": "0007",
   "athlete": "man",
   "createdAt": "2026-08-23T21:02:05+04:00",
-  "updatedAt": "2026-08-28T19:47:39+04:00",
+  "updatedAt": "2026-09-01T15:12:00+04:00",
   "schedule": { "kind": "fixed_weekdays", "weekdays": ["tue", "thu", "sat"], "sessionsPlanned": 3, "sessionsPerWeek": 3, "estimatedSessionMinutes": "82–88" },
   "microcycleStats": {
-    "tonnageKg": 41178,
+    "tonnageKg": 33280,
     "avgIntensityPct": 73,
-    "hardSets": 64,
-    "hardSetsByMuscle": { "Квадрицепс": 13, "Грудь": 12, "Спина": 9, "Плечи": 9, "Бицепс бедра": 9, "Икры": 6, "Трицепс": 3, "Бицепс": 3 },
-    "tonnageByMuscleKg": { "Квадрицепс": 11505, "Спина": 6450, "Бицепс бедра": 6390, "Икры": 6300, "Грудь": 5642, "Плечи": 3600, "Бицепс": 840, "Трицепс": 450 }
+    "hardSets": 53,
+    "hardSetsByMuscle": { "Грудь": 12, "Квадрицепс": 11, "Спина": 8, "Плечи": 7, "Бицепс бедра": 6, "Трицепс": 3, "Бицепс": 3, "Икры": 3 },
+    "tonnageByMuscleKg": { "Квадрицепс": 10245, "Грудь": 5715, "Спина": 5310, "Бицепс бедра": 4410, "Плечи": 3160, "Икры": 3150, "Бицепс": 840, "Трицепс": 450 }
   },
   "sessions": [
     {
@@ -173,62 +173,70 @@
     {
       "sessionId": "M-0007-S03",
       "globalNumber": 25,
+      "performedAt": "2026-08-30",
       "recommendedIntervalAfterPreviousHours": 48,
       "estimatedDurationMinutes": 84,
       "focus": "Верх груди · наклонный и паузный жим + второй проход ног",
+      "postNotes": "Перед тренировкой спал 4–5 часов, сил не было. Ест мало. Крепатура в ногах, задняя поверхность бедра в ауте.",
       "workout": [
         {
           "name": "Жим на наклонной со свободной штангой",
           "restSeconds": 180,
           "note": "Приоритет дня, делать первым и свежим. Если 1-й подход тяжелее запаса 1 — остальные на 55.",
+          "postNotes": "По плану 57.5×8×3 — сделал 1-й подход 55, 2-й и 3-й по 60. Повторы и запас не сообщены.",
           "variants": [
-            { "loadBlocks": [ { "weight": 57.5, "unit": "kg", "reps": 8, "sets": 3, "rir": 2 } ] }
+            { "loadBlocks": [
+              { "weight": 55, "unit": "kg", "reps": 8, "sets": 1 },
+              { "weight": 60, "unit": "kg", "reps": 8, "sets": 2 }
+            ] }
           ]
         },
         {
           "name": "Глубокий присед со штангой",
           "restSeconds": 180,
           "note": "Второй, лёгкий проход ног — потолок RIR 2, в отказ не идти.",
+          "postNotes": "По плану 70×9×3 — сделал 1 подход: крепатура, делать очень сложно.",
           "variants": [
-            { "loadBlocks": [ { "weight": 70, "unit": "kg", "reps": 9, "sets": 3, "rir": 2 } ] }
+            { "loadBlocks": [ { "weight": 70, "unit": "kg", "reps": 9, "sets": 1, "rir": 2 } ] }
           ]
         },
         {
           "name": "Жим штанги лёжа с паузой 1 секунда",
           "restSeconds": 180,
           "note": "Паузу держать в напряжении, штанга только касается груди, руки не расслаблять.",
+          "postNotes": "По плану 72.5×7×3 — сделал 75. Повторы и запас не сообщены.",
           "variants": [
-            { "loadBlocks": [ { "weight": 72.5, "unit": "kg", "reps": 7, "sets": 3, "rir": 2 } ] }
+            { "loadBlocks": [ { "weight": 75, "unit": "kg", "reps": 7, "sets": 3 } ] }
           ]
         },
         {
-          "name": "Горизонтальная тяга в тренажёре",
+          "name": "Вертикальная тяга верхнего блока",
           "restSeconds": 150,
           "note": "Чисто, полная амплитуда, без читинга.",
+          "postNotes": "Замена: по плану горизонтальная тяга в тренажёре 65×12×3 — сделал вертикальную тягу 60×10×2. Запас не сообщён.",
           "variants": [
-            { "loadBlocks": [ { "weight": 65, "unit": "kg", "reps": 12, "sets": 3, "rir": 2 } ] }
+            { "loadBlocks": [ { "weight": 60, "unit": "kg", "reps": 10, "sets": 2 } ] }
           ]
         },
         {
           "name": "Сгибание ног в тренажёре",
           "restSeconds": 120,
-          "variants": [
-            { "loadBlocks": [ { "weight": 60, "unit": "kg", "reps": 11, "sets": 3, "rir": 2 } ] }
-          ]
+          "postNotes": "Не делал: задняя поверхность бедра в ауте.",
+          "variants": []
         },
         {
           "name": "Икры в Смите стоя",
           "restSeconds": 120,
           "note": "Полная амплитуда, пауза в нижней точке.",
-          "variants": [
-            { "loadBlocks": [ { "weight": 70, "unit": "kg", "reps": 15, "sets": 3, "rir": 1 } ] }
-          ]
+          "postNotes": "Не делал.",
+          "variants": []
         },
         {
           "name": "Махи в стороны в тренажёре",
           "restSeconds": 90,
+          "postNotes": "По плану 20×11×3 — сделал 1 подход.",
           "variants": [
-            { "loadBlocks": [ { "weight": 20, "unit": "kg", "reps": 11, "sets": 3, "rir": 1 } ] }
+            { "loadBlocks": [ { "weight": 20, "unit": "kg", "reps": 11, "sets": 1, "rir": 1 } ] }
           ]
         }
       ]
