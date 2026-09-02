@@ -1,6 +1,6 @@
 {
   "athlete": "women",
-  "lastSession": "W-0007-S03",
+  "lastSession": "W-0008-S01",
   "sessions": [
     {
       "id": "W-0001-S01",
@@ -121,6 +121,11 @@
       "id": "W-0007-S03",
       "globalNumber": 24,
       "date": "2026-08-30"
+    },
+    {
+      "id": "W-0008-S01",
+      "globalNumber": 25,
+      "date": "2026-09-01"
     }
   ],
   "exercises": [
@@ -202,6 +207,11 @@
           "sessionId": "W-0007-S03",
           "max": 60,
           "onepr": 88
+        },
+        {
+          "sessionId": "W-0008-S01",
+          "max": 90,
+          "onepr": 114
         }
       ]
     },
@@ -263,6 +273,11 @@
           "sessionId": "W-0007-S01",
           "max": 40,
           "onepr": 51
+        },
+        {
+          "sessionId": "W-0008-S01",
+          "max": 40,
+          "onepr": 49
         }
       ]
     },
@@ -339,6 +354,11 @@
           "sessionId": "W-0007-S03",
           "max": 30,
           "onepr": 40
+        },
+        {
+          "sessionId": "W-0008-S01",
+          "max": 30,
+          "onepr": 44
         }
       ]
     },
@@ -407,6 +427,11 @@
           "sessionId": "W-0007-S01",
           "max": 20,
           "onepr": 27
+        },
+        {
+          "sessionId": "W-0008-S01",
+          "max": 20,
+          "onepr": 27
         }
       ]
     },
@@ -473,6 +498,11 @@
           "sessionId": "W-0007-S01",
           "max": 4,
           "onepr": null
+        },
+        {
+          "sessionId": "W-0008-S01",
+          "max": 5,
+          "onepr": 7
         }
       ]
     },
@@ -519,6 +549,11 @@
           "sessionId": "W-0007-S01",
           "max": 10,
           "onepr": 14
+        },
+        {
+          "sessionId": "W-0008-S01",
+          "max": 10,
+          "onepr": null
         }
       ]
     },

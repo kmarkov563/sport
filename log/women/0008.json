@@ -3,19 +3,20 @@
   "planId": "0008",
   "athlete": "women",
   "createdAt": "2026-09-01T00:00:00+04:00",
-  "updatedAt": "2026-09-01T00:00:00+04:00",
+  "updatedAt": "2026-09-02T00:00:00+04:00",
   "schedule": { "kind": "fixed_weekdays", "weekdays": ["tue", "thu", "sat"], "sessionsPlanned": 3, "sessionsPerWeek": 3, "estimatedSessionMinutes": "64–68" },
   "microcycleStats": {
-    "tonnageKg": 14106,
-    "avgIntensityPct": 72,
-    "hardSets": 58,
-    "hardSetsByMuscle": { "Ягодицы": 19, "Бицепс бедра": 9, "Спина": 7, "Плечи": 7, "Задняя цепь": 6, "Квадрицепс": 3, "Грудь": 3, "Бицепс": 2, "Трицепс": 2 },
-    "tonnageByMuscleKg": { "Ягодицы": 6352, "Бицепс бедра": 3420, "Спина": 1680, "Плечи": 884, "Квадрицепс": 840, "Грудь": 360, "Бицепс": 280, "Трицепс": 200, "Задняя цепь": 90 }
+    "tonnageKg": 14906,
+    "avgIntensityPct": 71,
+    "hardSets": 59,
+    "hardSetsByMuscle": { "Ягодицы": 20, "Бицепс бедра": 9, "Спина": 7, "Плечи": 7, "Задняя цепь": 6, "Квадрицепс": 3, "Грудь": 3, "Бицепс": 2, "Трицепс": 2 },
+    "tonnageByMuscleKg": { "Ягодицы": 7472, "Бицепс бедра": 3420, "Спина": 1680, "Плечи": 844, "Квадрицепс": 560, "Грудь": 360, "Бицепс": 280, "Трицепс": 200, "Задняя цепь": 90 }
   },
   "sessions": [
     {
       "sessionId": "W-0008-S01",
       "globalNumber": 25,
+      "performedAt": "2026-09-01",
       "recommendedIntervalAfterPreviousHours": 48,
       "estimatedDurationMinutes": 68,
       "focus": "Тяжёлый ягодичный мост и присед",
@@ -32,13 +33,16 @@
           "name": "Ягодичный мост со штангой",
           "restSeconds": 150,
           "note": "Приоритет недели, делать свежей. Блины только добавлять. Если 1-й рабочий подход тяжелее запаса 1 — остальные на 6 повторов.",
+          "postNotes": "По плану 70 кг × 7 × 4. Сделано 2 подхода на 70 кг, дальше вес поднят до 90 кг: подход на 4 повтора и 2 подхода по 7. Со слов атлета — вес подняла после замечания мужа, что работает не в полную силу.",
           "variants": [
             {
               "loadBlocks": [
                 { "weight": 20, "unit": "kg", "reps": 10, "sets": 1, "type": "warmup" },
                 { "weight": 40, "unit": "kg", "reps": 6, "sets": 1, "type": "warmup" },
                 { "weight": 60, "unit": "kg", "reps": 3, "sets": 1, "type": "warmup" },
-                { "weight": 70, "unit": "kg", "reps": 7, "sets": 4, "rir": 2 }
+                { "weight": 70, "unit": "kg", "reps": 7, "sets": 2, "rir": 2 },
+                { "weight": 90, "unit": "kg", "reps": 4, "sets": 1, "rir": 1 },
+                { "weight": 90, "unit": "kg", "reps": 7, "sets": 2, "rir": 1 }
               ]
             }
           ]
@@ -47,12 +51,14 @@
           "name": "Глубокий присед, пятки на подставке",
           "restSeconds": 150,
           "note": "Глубина, давление всей стопой. Рабочие подходы не больше 8 повторений.",
+          "postNotes": "По плану 40 кг × 7 × 3. Подходы на 4, 5 и 5 повторов. Со слов атлета — мало сил, усталость.",
           "variants": [
             {
               "loadBlocks": [
                 { "weight": 20, "unit": "kg", "reps": 8, "sets": 1, "type": "warmup" },
                 { "weight": 30, "unit": "kg", "reps": 5, "sets": 1, "type": "warmup" },
-                { "weight": 40, "unit": "kg", "reps": 7, "sets": 3, "rir": 2 }
+                { "weight": 40, "unit": "kg", "reps": 4, "sets": 1, "rir": 2 },
+                { "weight": 40, "unit": "kg", "reps": 5, "sets": 2, "rir": 2 }
               ]
             }
           ]
@@ -76,8 +82,14 @@
           "name": "Махи гантелями в стороны",
           "restSeconds": 90,
           "note": "Первый заход на 5 кг. Если 1-й подход тяжелее запаса 1 — остальные на 4 кг × 15.",
+          "postNotes": "По плану 5 кг на руку × 12 × 3. Подходы на 12, 10 и 10 повторов.",
           "variants": [
-            { "loadBlocks": [ { "weight": 5, "unit": "kg_per_hand", "reps": 12, "sets": 3, "rir": 2 } ] }
+            {
+              "loadBlocks": [
+                { "weight": 5, "unit": "kg_per_hand", "reps": 12, "sets": 1, "rir": 2 },
+                { "weight": 5, "unit": "kg_per_hand", "reps": 10, "sets": 2, "rir": 2 }
+              ]
+            }
           ]
         },
         {
@@ -182,14 +194,15 @@
         {
           "name": "Ягодичный мост со штангой",
           "restSeconds": 150,
-          "note": "Блины только добавлять.",
+          "note": "Блины только добавлять. Если 1-й рабочий подход тяжелее запаса 2 — остальные на 65 кг × 12.",
           "variants": [
             {
               "loadBlocks": [
                 { "weight": 20, "unit": "kg", "reps": 12, "sets": 1, "type": "warmup" },
                 { "weight": 40, "unit": "kg", "reps": 8, "sets": 1, "type": "warmup" },
                 { "weight": 50, "unit": "kg", "reps": 5, "sets": 1, "type": "warmup" },
-                { "weight": 60, "unit": "kg", "reps": 13, "sets": 4, "rir": 2 }
+                { "weight": 65, "unit": "kg", "reps": 3, "sets": 1, "type": "warmup" },
+                { "weight": 75, "unit": "kg", "reps": 12, "sets": 4, "rir": 2 }
               ]
             }
           ]
