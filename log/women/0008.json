@@ -3,14 +3,14 @@
   "planId": "0008",
   "athlete": "women",
   "createdAt": "2026-09-01T00:00:00+04:00",
-  "updatedAt": "2026-09-02T00:00:00+04:00",
+  "updatedAt": "2026-09-08T00:00:00+04:00",
   "schedule": { "kind": "fixed_weekdays", "weekdays": ["tue", "thu", "sat"], "sessionsPlanned": 3, "sessionsPerWeek": 3, "estimatedSessionMinutes": "64–68" },
   "microcycleStats": {
-    "tonnageKg": 14906,
-    "avgIntensityPct": 71,
+    "tonnageKg": 14866,
+    "avgIntensityPct": 72,
     "hardSets": 59,
     "hardSetsByMuscle": { "Ягодицы": 20, "Бицепс бедра": 9, "Спина": 7, "Плечи": 7, "Задняя цепь": 6, "Квадрицепс": 3, "Грудь": 3, "Бицепс": 2, "Трицепс": 2 },
-    "tonnageByMuscleKg": { "Ягодицы": 7472, "Бицепс бедра": 3420, "Спина": 1680, "Плечи": 844, "Квадрицепс": 560, "Грудь": 360, "Бицепс": 280, "Трицепс": 200, "Задняя цепь": 90 }
+    "tonnageByMuscleKg": { "Ягодицы": 7472, "Бицепс бедра": 3420, "Спина": 1680, "Плечи": 844, "Квадрицепс": 560, "Грудь": 360, "Бицепс": 280, "Трицепс": 160, "Задняя цепь": 90 }
   },
   "sessions": [
     {
@@ -104,6 +104,7 @@
     {
       "sessionId": "W-0008-S02",
       "globalNumber": 26,
+      "performedAt": "2026-09-03",
       "recommendedIntervalAfterPreviousHours": 48,
       "estimatedDurationMinutes": 66,
       "focus": "Румынская тяга и задняя цепь",
@@ -169,8 +170,9 @@
           "name": "Разгибание рук на верхнем блоке",
           "restSeconds": 90,
           "note": "Локти прижаты к корпусу. Если 1-й подход тяжелее запаса 1 — второй на 7.5 кг × 15.",
+          "postNotes": "По плану 10 кг × 10 × 2. Оба подхода по 8 повторов.",
           "variants": [
-            { "loadBlocks": [ { "weight": 10, "unit": "kg", "reps": 10, "sets": 2, "rir": 1 } ] }
+            { "loadBlocks": [ { "weight": 10, "unit": "kg", "reps": 8, "sets": 2, "rir": 1 } ] }
           ]
         }
       ]

@@ -3,14 +3,14 @@
   "planId": "0008",
   "athlete": "man",
   "createdAt": "2026-09-01T15:20:00+04:00",
-  "updatedAt": "2026-09-02T10:00:00+04:00",
+  "updatedAt": "2026-09-08T12:00:00+04:00",
   "schedule": { "kind": "fixed_weekdays", "weekdays": ["tue", "thu", "sat"], "sessionsPlanned": 3, "sessionsPerWeek": 3, "estimatedSessionMinutes": "72–88" },
   "microcycleStats": {
-    "tonnageKg": 38500,
-    "avgIntensityPct": 73,
-    "hardSets": 60,
-    "hardSetsByMuscle": { "Грудь": 13, "Квадрицепс": 12, "Спина": 9, "Плечи": 9, "Бицепс бедра": 6, "Икры": 5, "Трицепс": 3, "Бицепс": 3 },
-    "tonnageByMuscleKg": { "Квадрицепс": 10920, "Спина": 6420, "Грудь": 6235, "Икры": 5250, "Бицепс бедра": 4680, "Плечи": 3520, "Бицепс": 990, "Трицепс": 485 }
+    "tonnageKg": 36020,
+    "avgIntensityPct": 72,
+    "hardSets": 58,
+    "hardSetsByMuscle": { "Грудь": 13, "Квадрицепс": 11, "Спина": 9, "Плечи": 9, "Бицепс бедра": 6, "Икры": 4, "Трицепс": 3, "Бицепс": 3 },
+    "tonnageByMuscleKg": { "Квадрицепс": 9770, "Спина": 6420, "Грудь": 6235, "Бицепс бедра": 4680, "Икры": 3920, "Плечи": 3520, "Бицепс": 990, "Трицепс": 485 }
   },
   "sessions": [
     {
@@ -101,6 +101,7 @@
     {
       "sessionId": "M-0008-S02",
       "globalNumber": 27,
+      "performedAt": "2026-09-03",
       "recommendedIntervalAfterPreviousHours": 48,
       "estimatedDurationMinutes": 84,
       "focus": "Низ · румынская тяга и присед",
@@ -118,8 +119,12 @@
           "name": "Глубокий присед со штангой",
           "restSeconds": 180,
           "note": "Полная глубина, пятки на подставке. Вес сам не поднимать.",
+          "postNotes": "По плану 4×8 на 75 кг — первый подход сделал на 80 кг, остальные три на 75 кг.",
           "variants": [
-            { "loadBlocks": [ { "weight": 75, "unit": "kg", "reps": 8, "sets": 4, "rir": 2 } ] }
+            { "loadBlocks": [
+              { "weight": 80, "unit": "kg", "reps": 8, "sets": 1, "rir": 2 },
+              { "weight": 75, "unit": "kg", "reps": 8, "sets": 3, "rir": 2 }
+            ] }
           ]
         },
         {
@@ -134,16 +139,21 @@
           "name": "Разгибание ног в тренажёре",
           "restSeconds": 120,
           "note": "Нагрузка в плитках. Потолок RIR 2, подход останавливать с запасом.",
+          "postNotes": "По плану 3×12 с запасом 2 — сделал 2 подхода по 11 повторений в отказ.",
           "variants": [
-            { "loadBlocks": [ { "weight": 17, "unit": "plates", "reps": 12, "sets": 3, "rir": 2 } ] }
+            { "loadBlocks": [ { "weight": 17, "unit": "plates", "reps": 11, "sets": 2, "rir": 0 } ] }
           ]
         },
         {
           "name": "Икры в Смите стоя",
           "restSeconds": 120,
           "note": "Полная амплитуда, пауза в нижней точке.",
+          "postNotes": "По плану 3×15 — сделал 2 подхода: 15 и 11 повторений.",
           "variants": [
-            { "loadBlocks": [ { "weight": 70, "unit": "kg", "reps": 15, "sets": 3, "rir": 1 } ] }
+            { "loadBlocks": [
+              { "weight": 70, "unit": "kg", "reps": 15, "sets": 1, "rir": 1 },
+              { "weight": 70, "unit": "kg", "reps": 11, "sets": 1, "rir": 1 }
+            ] }
           ]
         },
         {

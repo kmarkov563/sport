@@ -1,6 +1,6 @@
 {
   "athlete": "man",
-  "lastSession": "M-0008-S01",
+  "lastSession": "M-0008-S02",
   "sessions": [
     {
       "id": "M-0001-S01",
@@ -131,6 +131,11 @@
       "id": "M-0008-S01",
       "globalNumber": 26,
       "date": "2026-09-01"
+    },
+    {
+      "id": "M-0008-S02",
+      "globalNumber": 27,
+      "date": "2026-09-03"
     }
   ],
   "exercises": [
@@ -650,6 +655,11 @@
           "sessionId": "M-0007-S02",
           "max": 90,
           "onepr": 123
+        },
+        {
+          "sessionId": "M-0008-S02",
+          "max": 90,
+          "onepr": 126
         }
       ]
     },
@@ -694,6 +704,11 @@
         },
         {
           "sessionId": "M-0007-S02",
+          "max": 140,
+          "onepr": 196
+        },
+        {
+          "sessionId": "M-0008-S02",
           "max": 140,
           "onepr": 196
         }
@@ -765,6 +780,11 @@
           "sessionId": "M-0007-S02",
           "max": 70,
           "onepr": null
+        },
+        {
+          "sessionId": "M-0008-S02",
+          "max": 70,
+          "onepr": 98
         }
       ]
     },
@@ -839,6 +859,11 @@
         },
         {
           "sessionId": "M-0007-S02",
+          "max": 60,
+          "onepr": 86
+        },
+        {
+          "sessionId": "M-0008-S02",
           "max": 60,
           "onepr": 86
         }
@@ -1044,6 +1069,11 @@
           "sessionId": "M-0007-S03",
           "max": 70,
           "onepr": 96
+        },
+        {
+          "sessionId": "M-0008-S02",
+          "max": 80,
+          "onepr": 107
         }
       ]
     },
@@ -1195,6 +1225,11 @@
           "sessionId": "M-0007-S02",
           "max": 85,
           "onepr": null
+        },
+        {
+          "sessionId": "M-0008-S02",
+          "max": 85,
+          "onepr": 116
         }
       ]
     },
@@ -1229,6 +1264,11 @@
         },
         {
           "sessionId": "M-0007-S02",
+          "max": 60,
+          "onepr": null
+        },
+        {
+          "sessionId": "M-0008-S02",
           "max": 60,
           "onepr": null
         }
