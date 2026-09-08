@@ -4,13 +4,13 @@
   "athlete": "man",
   "createdAt": "2026-09-01T15:20:00+04:00",
   "updatedAt": "2026-09-08T12:00:00+04:00",
-  "schedule": { "kind": "fixed_weekdays", "weekdays": ["tue", "thu", "sat"], "sessionsPlanned": 3, "sessionsPerWeek": 3, "estimatedSessionMinutes": "72–88" },
+  "schedule": { "kind": "fixed_weekdays", "weekdays": ["tue", "thu", "sat"], "sessionsPlanned": 2, "sessionsPerWeek": 3, "estimatedSessionMinutes": "84–88" },
   "microcycleStats": {
-    "tonnageKg": 36020,
+    "tonnageKg": 26885,
     "avgIntensityPct": 72,
-    "hardSets": 58,
-    "hardSetsByMuscle": { "Грудь": 13, "Квадрицепс": 11, "Спина": 9, "Плечи": 9, "Бицепс бедра": 6, "Икры": 4, "Трицепс": 3, "Бицепс": 3 },
-    "tonnageByMuscleKg": { "Квадрицепс": 9770, "Спина": 6420, "Грудь": 6235, "Бицепс бедра": 4680, "Икры": 3920, "Плечи": 3520, "Бицепс": 990, "Трицепс": 485 }
+    "hardSets": 42,
+    "hardSetsByMuscle": { "Квадрицепс": 9, "Грудь": 7, "Спина": 6, "Плечи": 6, "Бицепс бедра": 6, "Трицепс": 3, "Бицепс": 3, "Икры": 2 },
+    "tonnageByMuscleKg": { "Квадрицепс": 8510, "Бицепс бедра": 4680, "Спина": 4080, "Грудь": 3400, "Плечи": 2920, "Икры": 1820, "Бицепс": 990, "Трицепс": 485 }
   },
   "sessions": [
     {
@@ -170,63 +170,6 @@
           "note": "Единственная прямая работа на заднюю поверхность за неделю кроме румынской — потолок RIR 2, в отказ не идти. Если задняя поверхность тянет или болит — снизить до 50 кг.",
           "variants": [
             { "loadBlocks": [ { "weight": 60, "unit": "kg", "reps": 11, "sets": 3, "rir": 2 } ] }
-          ]
-        }
-      ]
-    },
-    {
-      "sessionId": "M-0008-S03",
-      "globalNumber": 28,
-      "recommendedIntervalAfterPreviousHours": 48,
-      "estimatedDurationMinutes": 72,
-      "focus": "Верх груди · наклонный и паузный жим + второй проход ног",
-      "note": "Тренировка короче остальных — сделать её целиком. Потолок RIR 1 на всех упражнениях, подходы и вес сверх назначенных не добавлять. Если в ночь перед тренировкой спал меньше 6 часов — сделать только первые три упражнения и закончить, остальные не начинать.",
-      "workout": [
-        {
-          "name": "Жим на наклонной со свободной штангой",
-          "restSeconds": 180,
-          "note": "Приоритет дня, делать первым и свежим. Если 1-й подход тяжелее запаса 1 — остальные на 57.5.",
-          "variants": [
-            { "loadBlocks": [ { "weight": 60, "unit": "kg", "reps": 7, "sets": 3, "rir": 2 } ] }
-          ]
-        },
-        {
-          "name": "Глубокий присед со штангой",
-          "restSeconds": 150,
-          "note": "Второй, лёгкий проход ног — потолок RIR 2, в отказ не идти.",
-          "variants": [
-            { "loadBlocks": [ { "weight": 70, "unit": "kg", "reps": 9, "sets": 2, "rir": 2 } ] }
-          ]
-        },
-        {
-          "name": "Жим штанги лёжа с паузой 1 секунда",
-          "restSeconds": 180,
-          "note": "Паузу держать в напряжении, штанга только касается груди, руки не расслаблять.",
-          "variants": [
-            { "loadBlocks": [ { "weight": 75, "unit": "kg", "reps": 7, "sets": 3, "rir": 2 } ] }
-          ]
-        },
-        {
-          "name": "Горизонтальная тяга в тренажёре",
-          "restSeconds": 150,
-          "note": "Чисто, полная амплитуда, без читинга.",
-          "variants": [
-            { "loadBlocks": [ { "weight": 65, "unit": "kg", "reps": 12, "sets": 3, "rir": 2 } ] }
-          ]
-        },
-        {
-          "name": "Икры в Смите стоя",
-          "restSeconds": 120,
-          "note": "Полная амплитуда, пауза в нижней точке.",
-          "variants": [
-            { "loadBlocks": [ { "weight": 70, "unit": "kg", "reps": 15, "sets": 2, "rir": 1 } ] }
-          ]
-        },
-        {
-          "name": "Махи в стороны в тренажёре",
-          "restSeconds": 90,
-          "variants": [
-            { "loadBlocks": [ { "weight": 20, "unit": "kg", "reps": 10, "sets": 3, "rir": 1 } ] }
           ]
         }
       ]
