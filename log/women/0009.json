@@ -3,12 +3,20 @@
   "planId": "0009",
   "athlete": "women",
   "createdAt": "2026-09-08T00:00:00+04:00",
-  "updatedAt": "2026-09-08T00:00:00+04:00",
+  "updatedAt": "2026-09-08T13:00:00+04:00",
   "schedule": { "kind": "fixed_weekdays", "weekdays": ["tue", "thu", "sat"], "sessionsPlanned": 3, "sessionsPerWeek": 3, "estimatedSessionMinutes": "66–70" },
+  "microcycleStats": {
+    "tonnageKg": 14443,
+    "avgIntensityPct": 73,
+    "hardSets": 58,
+    "hardSetsByMuscle": { "Ягодицы": 19, "Бицепс бедра": 9, "Спина": 7, "Плечи": 7, "Задняя цепь": 6, "Квадрицепс": 3, "Грудь": 3, "Бицепс": 2, "Трицепс": 2 },
+    "tonnageByMuscleKg": { "Ягодицы": 6903, "Бицепс бедра": 3540, "Спина": 1620, "Плечи": 830, "Квадрицепс": 600, "Грудь": 360, "Бицепс": 320, "Трицепс": 180, "Задняя цепь": 90 }
+  },
   "sessions": [
     {
       "sessionId": "W-0009-S01",
       "globalNumber": 27,
+      "performedAt": "2026-09-08",
       "recommendedIntervalAfterPreviousHours": 144,
       "estimatedDurationMinutes": 70,
       "focus": "Тяжёлый ягодичный мост и присед",

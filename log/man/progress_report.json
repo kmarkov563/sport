@@ -1,6 +1,6 @@
 {
   "athlete": "man",
-  "lastSession": "M-0008-S02",
+  "lastSession": "M-0009-S01",
   "sessions": [
     {
       "id": "M-0001-S01",
@@ -136,6 +136,11 @@
       "id": "M-0008-S02",
       "globalNumber": 27,
       "date": "2026-09-03"
+    },
+    {
+      "id": "M-0009-S01",
+      "globalNumber": 28,
+      "date": "2026-09-08"
     }
   ],
   "exercises": [
@@ -198,6 +203,11 @@
           "sessionId": "M-0008-S01",
           "max": 90,
           "onepr": 111
+        },
+        {
+          "sessionId": "M-0009-S01",
+          "max": 90,
+          "onepr": 108
         }
       ]
     },
@@ -279,6 +289,11 @@
           "sessionId": "M-0008-S01",
           "max": 70,
           "onepr": 98
+        },
+        {
+          "sessionId": "M-0009-S01",
+          "max": 70,
+          "onepr": 100
         }
       ]
     },
@@ -383,6 +398,11 @@
           "sessionId": "M-0008-S01",
           "max": 60,
           "onepr": 86
+        },
+        {
+          "sessionId": "M-0009-S01",
+          "max": 65,
+          "onepr": 91
         }
       ]
     },
@@ -468,6 +488,11 @@
           "sessionId": "M-0008-S01",
           "max": 20,
           "onepr": 27
+        },
+        {
+          "sessionId": "M-0009-S01",
+          "max": 20,
+          "onepr": 27
         }
       ]
     },
@@ -519,6 +544,11 @@
           "sessionId": "M-0008-S01",
           "max": 20,
           "onepr": 26
+        },
+        {
+          "sessionId": "M-0009-S01",
+          "max": 20,
+          "onepr": 27
         }
       ]
     },
@@ -570,6 +600,11 @@
           "sessionId": "M-0008-S01",
           "max": 30,
           "onepr": 43
+        },
+        {
+          "sessionId": "M-0009-S01",
+          "max": 35,
+          "onepr": 47
         }
       ]
     },
@@ -1181,6 +1216,11 @@
         },
         {
           "sessionId": "M-0008-S01",
+          "max": 55,
+          "onepr": 77
+        },
+        {
+          "sessionId": "M-0009-S01",
           "max": 55,
           "onepr": 77
         }
