@@ -3,14 +3,14 @@
   "planId": "0009",
   "athlete": "women",
   "createdAt": "2026-09-08T00:00:00+04:00",
-  "updatedAt": "2026-09-08T13:00:00+04:00",
+  "updatedAt": "2026-09-13T12:00:00+04:00",
   "schedule": { "kind": "fixed_weekdays", "weekdays": ["tue", "thu", "sat"], "sessionsPlanned": 3, "sessionsPerWeek": 3, "estimatedSessionMinutes": "66–70" },
   "microcycleStats": {
-    "tonnageKg": 14443,
+    "tonnageKg": 14363,
     "avgIntensityPct": 73,
     "hardSets": 58,
     "hardSetsByMuscle": { "Ягодицы": 19, "Бицепс бедра": 9, "Спина": 7, "Плечи": 7, "Задняя цепь": 6, "Квадрицепс": 3, "Грудь": 3, "Бицепс": 2, "Трицепс": 2 },
-    "tonnageByMuscleKg": { "Ягодицы": 6903, "Бицепс бедра": 3540, "Спина": 1620, "Плечи": 830, "Квадрицепс": 600, "Грудь": 360, "Бицепс": 320, "Трицепс": 180, "Задняя цепь": 90 }
+    "tonnageByMuscleKg": { "Ягодицы": 6903, "Бицепс бедра": 3540, "Спина": 1540, "Плечи": 830, "Квадрицепс": 600, "Грудь": 360, "Бицепс": 320, "Трицепс": 180, "Задняя цепь": 90 }
   },
   "sessions": [
     {
@@ -94,6 +94,7 @@
     {
       "sessionId": "W-0009-S02",
       "globalNumber": 28,
+      "performedAt": "2026-09-11",
       "recommendedIntervalAfterPreviousHours": 48,
       "estimatedDurationMinutes": 68,
       "focus": "Румынская тяга и задняя цепь",
@@ -143,8 +144,9 @@
           "name": "Горизонтальная тяга в тренажёре",
           "restSeconds": 120,
           "note": "Только средний/широкий хват. Вес поднят на шаг. Если 1-й подход тяжелее запаса 1 — остальные на 25 кг × 12.",
+          "postNotes": "По плану 30 кг × 9 — вес не пошёл, все подходы сделала с 25 кг × 10.",
           "variants": [
-            { "loadBlocks": [ { "weight": 30, "unit": "kg", "reps": 9, "sets": 4, "rir": 2 } ] }
+            { "loadBlocks": [ { "weight": 25, "unit": "kg", "reps": 10, "sets": 4, "rir": 2 } ] }
           ]
         },
         {
