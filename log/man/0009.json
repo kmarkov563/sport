@@ -3,7 +3,7 @@
   "planId": "0009",
   "athlete": "man",
   "createdAt": "2026-09-08T12:00:00+04:00",
-  "updatedAt": "2026-09-13T12:00:00+04:00",
+  "updatedAt": "2026-09-14T12:00:00+04:00",
   "schedule": {
     "kind": "fixed_weekdays",
     "weekdays": [
@@ -16,7 +16,7 @@
     "estimatedSessionMinutes": "80–88"
   },
   "microcycleStats": {
-    "tonnageKg": 31075,
+    "tonnageKg": 30610,
     "avgIntensityPct": 73,
     "hardSets": 56,
     "hardSetsByMuscle": {
@@ -30,13 +30,13 @@
       "Икры": 3
     },
     "tonnageByMuscleKg": {
-      "Спина": 9215,
-      "Грудь": 6420,
+      "Спина": 8810,
+      "Грудь": 6345,
       "Бицепс бедра": 4230,
       "Плечи": 3520,
       "Икры": 2700,
       "Квадрицепс": 2560,
-      "Бицепс": 1950,
+      "Бицепс": 1965,
       "Трицепс": 480
     }
   },
@@ -324,6 +324,7 @@
     {
       "sessionId": "M-0009-S03",
       "globalNumber": 30,
+      "performedAt": "2026-09-13",
       "recommendedIntervalAfterPreviousHours": 48,
       "estimatedDurationMinutes": 85,
       "focus": "Верх груди · наклонный и паузный жим + спина",
@@ -358,12 +359,20 @@
                   "weight": 75,
                   "unit": "kg",
                   "reps": 8,
-                  "sets": 3,
+                  "sets": 2,
                   "rir": 2
+                },
+                {
+                  "weight": 75,
+                  "unit": "kg",
+                  "reps": 7,
+                  "sets": 1,
+                  "rir": 1
                 }
               ]
             }
-          ]
+          ],
+          "postNotes": "В 3-м подходе 7 повторений вместо 8, запас 1."
         },
         {
           "name": "Горизонтальная тяга в тренажёре",
@@ -391,15 +400,23 @@
             {
               "loadBlocks": [
                 {
-                  "weight": 60,
+                  "weight": 65,
                   "unit": "kg",
-                  "reps": 12,
-                  "sets": 3,
+                  "reps": 10,
+                  "sets": 2,
                   "rir": 2
+                },
+                {
+                  "weight": 65,
+                  "unit": "kg",
+                  "reps": 7,
+                  "sets": 1,
+                  "rir": 0
                 }
               ]
             }
-          ]
+          ],
+          "postNotes": "По плану 60 кг × 12 × 3. На тренажёре нет шага 60 кг — сделал на 65: 10, 10 и 7, последний подход в отказ."
         },
         {
           "name": "Икры в Смите стоя",
@@ -445,15 +462,16 @@
             {
               "loadBlocks": [
                 {
-                  "weight": 32.5,
+                  "weight": 30,
                   "unit": "kg",
-                  "reps": 10,
+                  "reps": 11,
                   "sets": 3,
                   "rir": 2
                 }
               ]
             }
-          ]
+          ],
+          "postNotes": "По плану 32,5 кг × 10 × 3 — 32,5 не набрать блинами, сделал 30 кг × 11 × 3."
         }
       ]
     }

@@ -3,14 +3,14 @@
   "planId": "0009",
   "athlete": "women",
   "createdAt": "2026-09-08T00:00:00+04:00",
-  "updatedAt": "2026-09-13T12:00:00+04:00",
-  "schedule": { "kind": "fixed_weekdays", "weekdays": ["tue", "thu", "sat"], "sessionsPlanned": 3, "sessionsPerWeek": 3, "estimatedSessionMinutes": "66–70" },
+  "updatedAt": "2026-09-14T13:00:00+04:00",
+  "schedule": { "kind": "fixed_weekdays", "weekdays": ["tue", "thu", "sat"], "sessionsPlanned": 2, "sessionsPerWeek": 3, "estimatedSessionMinutes": "66–70" },
   "microcycleStats": {
-    "tonnageKg": 14363,
+    "tonnageKg": 9218,
     "avgIntensityPct": 73,
-    "hardSets": 58,
-    "hardSetsByMuscle": { "Ягодицы": 19, "Бицепс бедра": 9, "Спина": 7, "Плечи": 7, "Задняя цепь": 6, "Квадрицепс": 3, "Грудь": 3, "Бицепс": 2, "Трицепс": 2 },
-    "tonnageByMuscleKg": { "Ягодицы": 6903, "Бицепс бедра": 3540, "Спина": 1540, "Плечи": 830, "Квадрицепс": 600, "Грудь": 360, "Бицепс": 320, "Трицепс": 180, "Задняя цепь": 90 }
+    "hardSets": 39,
+    "hardSetsByMuscle": { "Ягодицы": 10, "Спина": 7, "Бицепс бедра": 6, "Плечи": 5, "Задняя цепь": 4, "Квадрицепс": 3, "Бицепс": 2, "Трицепс": 2 },
+    "tonnageByMuscleKg": { "Ягодицы": 3288, "Бицепс бедра": 2700, "Спина": 1540, "Квадрицепс": 600, "Плечи": 530, "Бицепс": 320, "Трицепс": 180, "Задняя цепь": 60 }
   },
   "sessions": [
     {
@@ -163,79 +163,6 @@
           "note": "Локти прижаты к корпусу.",
           "variants": [
             { "loadBlocks": [ { "weight": 10, "unit": "kg", "reps": 9, "sets": 2, "rir": 1 } ] }
-          ]
-        }
-      ]
-    },
-    {
-      "sessionId": "W-0009-S03",
-      "globalNumber": 29,
-      "recommendedIntervalAfterPreviousHours": 48,
-      "estimatedDurationMinutes": 66,
-      "focus": "Объёмный ягодичный мост и односторонняя работа",
-      "note": "Если сил на последнее упражнение не остаётся — сокращать разведения, остальное делать целиком.",
-      "workout": [
-        {
-          "name": "Гиперэкстензия (90°)",
-          "restSeconds": 60,
-          "note": "Активация, не до отказа.",
-          "variants": [
-            { "loadBlocks": [ { "reps": 15, "sets": 2 } ] }
-          ]
-        },
-        {
-          "name": "Ягодичный мост со штангой",
-          "restSeconds": 150,
-          "note": "Блины только добавлять. Если 1-й рабочий подход тяжелее запаса 2 — остальные на 65 кг × 12.",
-          "variants": [
-            {
-              "loadBlocks": [
-                { "weight": 20, "unit": "kg", "reps": 12, "sets": 1, "type": "warmup" },
-                { "weight": 40, "unit": "kg", "reps": 8, "sets": 1, "type": "warmup" },
-                { "weight": 60, "unit": "kg", "reps": 5, "sets": 1, "type": "warmup" },
-                { "weight": 70, "unit": "kg", "reps": 3, "sets": 1, "type": "warmup" },
-                { "weight": 75, "unit": "kg", "reps": 10, "sets": 4, "rir": 2 }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Выпады назад",
-          "restSeconds": 120,
-          "note": "Повторы на каждую ногу.",
-          "variants": [
-            { "loadBlocks": [ { "weight": 5, "unit": "kg_per_hand", "reps": 12, "sets": 3, "rir": 2 } ] }
-          ]
-        },
-        {
-          "name": "Отведение бедра в тренажёре",
-          "restSeconds": 90,
-          "note": "Подходов два — оба делать в полную силу.",
-          "variants": [
-            { "loadBlocks": [ { "weight": 7.5, "unit": "kg", "reps": 15, "sets": 2, "rir": 1, "note": "сверх базового веса тренажёра" } ] }
-          ]
-        },
-        {
-          "name": "Жим гантелей лёжа",
-          "restSeconds": 120,
-          "note": "Если 1-й подход тяжелее запаса 1 — остальные на 5 кг × 15.",
-          "variants": [
-            { "loadBlocks": [ { "weight": 7.5, "unit": "kg_per_hand", "reps": 8, "sets": 3, "rir": 2 } ] }
-          ]
-        },
-        {
-          "name": "Сгибание ног в тренажёре",
-          "restSeconds": 120,
-          "note": "Если 1-й подход тяжелее запаса 1 — остальные на 30 кг × 11.",
-          "variants": [
-            { "loadBlocks": [ { "weight": 35, "unit": "kg", "reps": 8, "sets": 3, "rir": 2 } ] }
-          ]
-        },
-        {
-          "name": "Разведения на заднюю дельту",
-          "restSeconds": 90,
-          "variants": [
-            { "loadBlocks": [ { "weight": 10, "unit": "kg", "reps": 15, "sets": 2, "rir": 1 } ] }
           ]
         }
       ]
