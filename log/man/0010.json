@@ -3,7 +3,7 @@
   "planId": "0010",
   "athlete": "man",
   "createdAt": "2026-09-14T12:00:00+04:00",
-  "updatedAt": "2026-09-14T12:00:00+04:00",
+  "updatedAt": "2026-09-15T21:00:00+04:00",
   "schedule": {
     "kind": "fixed_weekdays",
     "weekdays": [
@@ -15,10 +15,36 @@
     "sessionsPerWeek": 3,
     "estimatedSessionMinutes": "75–88"
   },
+  "microcycleStats": {
+    "tonnageKg": 35220,
+    "avgIntensityPct": 72,
+    "hardSets": 59,
+    "hardSetsByMuscle": {
+      "Грудь": 13,
+      "Спина": 12,
+      "Плечи": 9,
+      "Квадрицепс": 7,
+      "Бицепс": 6,
+      "Бицепс бедра": 6,
+      "Трицепс": 3,
+      "Икры": 3
+    },
+    "tonnageByMuscleKg": {
+      "Спина": 8910,
+      "Грудь": 6870,
+      "Квадрицепс": 5940,
+      "Бицепс бедра": 4710,
+      "Плечи": 3630,
+      "Икры": 2640,
+      "Бицепс": 1920,
+      "Трицепс": 600
+    }
+  },
   "sessions": [
     {
       "sessionId": "M-0010-S01",
       "globalNumber": 31,
+      "performedAt": "2026-09-15",
       "recommendedIntervalAfterPreviousHours": 72,
       "estimatedDurationMinutes": 88,
       "focus": "Верх · тяжёлый жим лёжа",
@@ -69,7 +95,7 @@
             {
               "loadBlocks": [
                 {
-                  "weight": 57.5,
+                  "weight": 55,
                   "unit": "kg",
                   "reps": 10,
                   "sets": 3,
@@ -189,12 +215,12 @@
             {
               "loadBlocks": [
                 {
-                  "weight": 82.5,
+                  "weight": 80,
                   "unit": "kg",
-                  "reps": 8,
+                  "reps": 9,
                   "sets": 4,
                   "rir": 2,
-                  "note": "если 2-й подход тяжелее запаса 1 — остальные на 80"
+                  "note": "если 2-й подход тяжелее запаса 1 — остальные по 8 повторов"
                 }
               ]
             }
@@ -277,7 +303,7 @@
                   "reps": 9,
                   "sets": 3,
                   "rir": 2,
-                  "note": "если 1-й подход тяжелее запаса 1 — остальные на 57.5"
+                  "note": "если 1-й подход тяжелее запаса 1 — остальные на 55"
                 }
               ]
             }

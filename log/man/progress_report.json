@@ -1,6 +1,6 @@
 {
   "athlete": "man",
-  "lastSession": "M-0009-S03",
+  "lastSession": "M-0010-S01",
   "sessions": [
     {
       "id": "M-0001-S01",
@@ -151,6 +151,11 @@
       "id": "M-0009-S03",
       "globalNumber": 30,
       "date": "2026-09-13"
+    },
+    {
+      "id": "M-0010-S01",
+      "globalNumber": 31,
+      "date": "2026-09-15"
     }
   ],
   "exercises": [
@@ -218,6 +223,11 @@
           "sessionId": "M-0009-S01",
           "max": 90,
           "onepr": 108
+        },
+        {
+          "sessionId": "M-0010-S01",
+          "max": 90,
+          "onepr": 111
         }
       ]
     },
@@ -309,6 +319,11 @@
           "sessionId": "M-0009-S03",
           "max": 65,
           "onepr": 95
+        },
+        {
+          "sessionId": "M-0010-S01",
+          "max": 70,
+          "onepr": 103
         }
       ]
     },
@@ -423,6 +438,11 @@
           "sessionId": "M-0009-S03",
           "max": 65,
           "onepr": 91
+        },
+        {
+          "sessionId": "M-0010-S01",
+          "max": 65,
+          "onepr": 95
         }
       ]
     },
@@ -518,6 +538,11 @@
           "sessionId": "M-0009-S03",
           "max": 20,
           "onepr": 27
+        },
+        {
+          "sessionId": "M-0010-S01",
+          "max": 20,
+          "onepr": 28
         }
       ]
     },
@@ -574,6 +599,11 @@
           "sessionId": "M-0009-S01",
           "max": 20,
           "onepr": 27
+        },
+        {
+          "sessionId": "M-0010-S01",
+          "max": 20,
+          "onepr": 28
         }
       ]
     },
@@ -635,6 +665,11 @@
           "sessionId": "M-0009-S03",
           "max": 30,
           "onepr": 43
+        },
+        {
+          "sessionId": "M-0010-S01",
+          "max": 35,
+          "onepr": 47
         }
       ]
     },
@@ -1283,6 +1318,11 @@
           "sessionId": "M-0009-S03",
           "max": 60,
           "onepr": 80
+        },
+        {
+          "sessionId": "M-0010-S01",
+          "max": 55,
+          "onepr": 77
         }
       ]
     },

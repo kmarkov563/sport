@@ -3,19 +3,20 @@
   "planId": "0010",
   "athlete": "women",
   "createdAt": "2026-09-14T13:00:00+04:00",
-  "updatedAt": "2026-09-14T13:00:00+04:00",
+  "updatedAt": "2026-09-15T20:00:00+04:00",
   "schedule": { "kind": "fixed_weekdays", "weekdays": ["tue", "thu", "sat"], "sessionsPlanned": 3, "sessionsPerWeek": 3, "estimatedSessionMinutes": "58–70" },
   "microcycleStats": {
-    "tonnageKg": 15061,
+    "tonnageKg": 14941,
     "avgIntensityPct": 72,
     "hardSets": 57,
     "hardSetsByMuscle": { "Ягодицы": 20, "Бицепс бедра": 9, "Спина": 7, "Задняя цепь": 6, "Плечи": 5, "Квадрицепс": 3, "Грудь": 3, "Бицепс": 2, "Трицепс": 2 },
-    "tonnageByMuscleKg": { "Ягодицы": 7446, "Бицепс бедра": 3585, "Спина": 1800, "Квадрицепс": 720, "Плечи": 600, "Грудь": 360, "Бицепс": 240, "Трицепс": 220, "Задняя цепь": 90 }
+    "tonnageByMuscleKg": { "Ягодицы": 7446, "Бицепс бедра": 3585, "Спина": 1800, "Квадрицепс": 680, "Плечи": 600, "Грудь": 360, "Трицепс": 220, "Бицепс": 160, "Задняя цепь": 90 }
   },
   "sessions": [
     {
       "sessionId": "W-0010-S01",
       "globalNumber": 29,
+      "performedAt": "2026-09-15",
       "recommendedIntervalAfterPreviousHours": 96,
       "estimatedDurationMinutes": 70,
       "focus": "Тяжёлый ягодичный мост и присед",
@@ -48,12 +49,14 @@
           "name": "Глубокий присед, пятки на подставке",
           "restSeconds": 150,
           "note": "Глубина, давление всей стопой. Рабочие подходы не больше 8 повторений. Если 1-й подход тяжелее запаса 1 — остальные на 5 повторов.",
+          "postNotes": "По плану 40 кг × 6 в трёх подходах — сделала 5, 6, 6.",
           "variants": [
             {
               "loadBlocks": [
                 { "weight": 20, "unit": "kg", "reps": 8, "sets": 1, "type": "warmup" },
                 { "weight": 30, "unit": "kg", "reps": 5, "sets": 1, "type": "warmup" },
-                { "weight": 40, "unit": "kg", "reps": 6, "sets": 3, "rir": 2 }
+                { "weight": 40, "unit": "kg", "reps": 5, "sets": 1, "rir": 2 },
+                { "weight": 40, "unit": "kg", "reps": 6, "sets": 2, "rir": 2 }
               ]
             }
           ]
@@ -85,8 +88,9 @@
           "name": "Сгибание рук со штангой",
           "restSeconds": 90,
           "note": "Первый заход на 15 кг. Если 1-й подход тяжелее запаса 1 — второй на 10 кг × 16.",
+          "postNotes": "По плану 15 кг — оба подхода сделала с 10 кг, 15 кг не пробовала: устала.",
           "variants": [
-            { "loadBlocks": [ { "weight": 15, "unit": "kg", "reps": 8, "sets": 2, "rir": 1 } ] }
+            { "loadBlocks": [ { "weight": 10, "unit": "kg", "reps": 8, "sets": 2, "rir": 1 } ] }
           ]
         }
       ]
