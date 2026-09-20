@@ -1,0 +1,231 @@
+{
+  "schemaVersion": 1,
+  "planId": "0011",
+  "athlete": "women",
+  "createdAt": "2026-09-20T12:00:00+04:00",
+  "updatedAt": "2026-09-20T12:00:00+04:00",
+  "schedule": { "kind": "fixed_weekdays", "weekdays": ["tue", "thu", "sat"], "sessionsPlanned": 3, "sessionsPerWeek": 3, "estimatedSessionMinutes": "60–72" },
+  "microcycleStats": {
+    "tonnageKg": 15292,
+    "avgIntensityPct": 72,
+    "hardSets": 58,
+    "hardSetsByMuscle": { "Ягодицы": 20, "Бицепс бедра": 9, "Спина": 7, "Задняя цепь": 6, "Плечи": 5, "Квадрицепс": 3, "Грудь": 3, "Бицепс": 3, "Трицепс": 2 },
+    "tonnageByMuscleKg": { "Ягодицы": 7292, "Бицепс бедра": 3780, "Спина": 1740, "Квадрицепс": 720, "Плечи": 660, "Грудь": 450, "Бицепс": 360, "Трицепс": 200, "Задняя цепь": 90 }
+  },
+  "sessions": [
+    {
+      "sessionId": "W-0011-S01",
+      "globalNumber": 32,
+      "recommendedIntervalAfterPreviousHours": 72,
+      "estimatedDurationMinutes": 70,
+      "focus": "Тяжёлый ягодичный мост и присед",
+      "workout": [
+        {
+          "name": "Гиперэкстензия (90°)",
+          "restSeconds": 60,
+          "note": "Активация, не до отказа.",
+          "variants": [
+            { "loadBlocks": [ { "reps": 15, "sets": 2 } ] }
+          ]
+        },
+        {
+          "name": "Ягодичный мост со штангой",
+          "restSeconds": 180,
+          "note": "Приоритет недели, делать свежей. Блины только добавлять. Если 1-й рабочий подход идёт с запасом 3+ — остальные на 100 кг × 6.",
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 20, "unit": "kg", "reps": 10, "sets": 1, "type": "warmup" },
+                { "weight": 40, "unit": "kg", "reps": 6, "sets": 1, "type": "warmup" },
+                { "weight": 60, "unit": "kg", "reps": 4, "sets": 1, "type": "warmup" },
+                { "weight": 80, "unit": "kg", "reps": 3, "sets": 1, "type": "warmup" },
+                { "weight": 95, "unit": "kg", "reps": 7, "sets": 4, "rir": 2 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Глубокий присед, пятки на подставке",
+          "restSeconds": 150,
+          "note": "Глубина, давление всей стопой. Если 1-й подход идёт с запасом 3+ — остальные на 45 кг × 5.",
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 20, "unit": "kg", "reps": 8, "sets": 1, "type": "warmup" },
+                { "weight": 30, "unit": "kg", "reps": 5, "sets": 1, "type": "warmup" },
+                { "weight": 40, "unit": "kg", "reps": 6, "sets": 3, "rir": 2 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Сгибание ног в тренажёре",
+          "restSeconds": 120,
+          "note": "Если 1-й подход тяжелее запаса 1 — остальные на 35 кг × 11.",
+          "variants": [
+            { "loadBlocks": [ { "weight": 40, "unit": "kg", "reps": 9, "sets": 3, "rir": 2 } ] }
+          ]
+        },
+        {
+          "name": "Вертикальная тяга верхнего блока, широкий хват",
+          "restSeconds": 120,
+          "note": "Только средний/широкий хват. Как только спина начинает помогать рывком — подход закончен. Если 1-й подход идёт с запасом 3+ — остальные на 25 кг × 8.",
+          "variants": [
+            { "loadBlocks": [ { "weight": 20, "unit": "kg", "reps": 11, "sets": 3, "rir": 2 } ] }
+          ]
+        },
+        {
+          "name": "Махи гантелями в стороны",
+          "restSeconds": 90,
+          "variants": [
+            { "loadBlocks": [ { "weight": 5, "unit": "kg_per_hand", "reps": 14, "sets": 3, "rir": 2 } ] }
+          ]
+        },
+        {
+          "name": "Сгибание рук со штангой",
+          "restSeconds": 90,
+          "note": "Вес тот же, добавлен третий подход. Заброса корпусом нет.",
+          "variants": [
+            { "loadBlocks": [ { "weight": 10, "unit": "kg", "reps": 12, "sets": 3, "rir": 1 } ] }
+          ]
+        }
+      ]
+    },
+    {
+      "sessionId": "W-0011-S02",
+      "globalNumber": 33,
+      "recommendedIntervalAfterPreviousHours": 48,
+      "estimatedDurationMinutes": 70,
+      "focus": "Румынская тяга и задняя цепь",
+      "workout": [
+        {
+          "name": "Гиперэкстензия (90°)",
+          "restSeconds": 60,
+          "note": "Активация, не до отказа.",
+          "variants": [
+            { "loadBlocks": [ { "reps": 15, "sets": 2 } ] }
+          ]
+        },
+        {
+          "name": "Румынская тяга со штангой",
+          "restSeconds": 150,
+          "note": "Контролируемое опускание, спина нейтральна. Если 1-й рабочий подход тяжелее запаса 1 — остальные на 55 кг × 10.",
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 20, "unit": "kg", "reps": 10, "sets": 1, "type": "warmup" },
+                { "weight": 40, "unit": "kg", "reps": 5, "sets": 1, "type": "warmup" },
+                { "weight": 60, "unit": "kg", "reps": 8, "sets": 3, "rir": 2 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Болгарские выпады с наклоном корпуса, одна гантель",
+          "restSeconds": 120,
+          "note": "Одна гантель в руке, ПРОТИВОПОЛОЖНОЙ рабочей ноге (на вторую ногу переложить). Наклон корпуса вперёд ~30°. Повторы на каждую ногу. Если гантели 12.5 кг в зале нет — 10 кг × 16.",
+          "variants": [
+            { "loadBlocks": [ { "weight": 12.5, "unit": "kg", "reps": 12, "sets": 3, "rir": 2 } ] }
+          ]
+        },
+        {
+          "name": "Отведение ноги назад — тренажёр",
+          "restSeconds": 90,
+          "note": "Повторы на каждую ногу.",
+          "variants": [
+            { "loadBlocks": [ { "weight": 10, "unit": "kg", "reps": 15, "sets": 3, "rir": 2, "note": "сверх базового веса тренажёра" } ] }
+          ]
+        },
+        {
+          "name": "Горизонтальная тяга в тренажёре",
+          "restSeconds": 120,
+          "note": "Только средний/широкий хват, тянуть без рывка корпусом. Если 1-й подход тяжелее запаса 1 — остальные на 25 кг × 12.",
+          "variants": [
+            { "loadBlocks": [ { "weight": 30, "unit": "kg", "reps": 9, "sets": 4, "rir": 2 } ] }
+          ]
+        },
+        {
+          "name": "Жим гантелей сидя вверх, нейтральный хват",
+          "restSeconds": 120,
+          "note": "Ладони друг к другу, локти чуть вперёд, спинка чуть назад. При защемлении лопатки прекратить и сообщить.",
+          "variants": [
+            { "loadBlocks": [ { "weight": 5, "unit": "kg_per_hand", "reps": 12, "sets": 2, "rir": 2 } ] }
+          ]
+        },
+        {
+          "name": "Разгибание рук на верхнем блоке",
+          "restSeconds": 90,
+          "note": "Локти прижаты к корпусу.",
+          "variants": [
+            { "loadBlocks": [ { "weight": 10, "unit": "kg", "reps": 10, "sets": 2, "rir": 1 } ] }
+          ]
+        }
+      ]
+    },
+    {
+      "sessionId": "W-0011-S03",
+      "globalNumber": 34,
+      "recommendedIntervalAfterPreviousHours": 48,
+      "estimatedDurationMinutes": 62,
+      "focus": "Объёмный ягодичный мост и односторонняя работа",
+      "note": "Шесть упражнений — делать целиком, ничего не сокращать и не менять местами.",
+      "workout": [
+        {
+          "name": "Гиперэкстензия (90°)",
+          "restSeconds": 60,
+          "note": "Активация, не до отказа.",
+          "variants": [
+            { "loadBlocks": [ { "reps": 15, "sets": 2 } ] }
+          ]
+        },
+        {
+          "name": "Ягодичный мост со штангой",
+          "restSeconds": 150,
+          "note": "Блины только добавлять. Если 1-й рабочий подход тяжелее запаса 2 — остальные на 75 кг × 10.",
+          "variants": [
+            {
+              "loadBlocks": [
+                { "weight": 20, "unit": "kg", "reps": 12, "sets": 1, "type": "warmup" },
+                { "weight": 40, "unit": "kg", "reps": 8, "sets": 1, "type": "warmup" },
+                { "weight": 60, "unit": "kg", "reps": 5, "sets": 1, "type": "warmup" },
+                { "weight": 70, "unit": "kg", "reps": 3, "sets": 1, "type": "warmup" },
+                { "weight": 80, "unit": "kg", "reps": 9, "sets": 4, "rir": 2 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Выпады назад",
+          "restSeconds": 120,
+          "note": "Повторы на каждую ногу.",
+          "variants": [
+            { "loadBlocks": [ { "weight": 7.5, "unit": "kg_per_hand", "reps": 10, "sets": 3, "rir": 2 } ] }
+          ]
+        },
+        {
+          "name": "Жим гантелей лёжа",
+          "restSeconds": 120,
+          "note": "Стоит в середине намеренно: пауза для ягодиц между мостом с выпадами и отведением бедра со сгибанием ног. Если 1-й подход тяжелее запаса 1 — остальные на 7.5 кг × 8.",
+          "variants": [
+            { "loadBlocks": [ { "weight": 7.5, "unit": "kg_per_hand", "reps": 10, "sets": 3, "rir": 2 } ] }
+          ]
+        },
+        {
+          "name": "Отведение бедра в тренажёре",
+          "restSeconds": 90,
+          "note": "Первый заход на 7.5 кг. Если 1-й подход тяжелее запаса 1 — остальные на 5 кг × 18.",
+          "variants": [
+            { "loadBlocks": [ { "weight": 7.5, "unit": "kg", "reps": 14, "sets": 3, "rir": 1, "note": "сверх базового веса тренажёра" } ] }
+          ]
+        },
+        {
+          "name": "Сгибание ног в тренажёре",
+          "restSeconds": 120,
+          "variants": [
+            { "loadBlocks": [ { "weight": 35, "unit": "kg", "reps": 12, "sets": 3, "rir": 2 } ] }
+          ]
+        }
+      ]
+    }
+  ]
+}
