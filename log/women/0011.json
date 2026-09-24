@@ -3,19 +3,20 @@
   "planId": "0011",
   "athlete": "women",
   "createdAt": "2026-09-20T12:00:00+04:00",
-  "updatedAt": "2026-09-20T12:00:00+04:00",
+  "updatedAt": "2026-09-24T12:00:00+04:00",
   "schedule": { "kind": "fixed_weekdays", "weekdays": ["tue", "thu", "sat"], "sessionsPlanned": 3, "sessionsPerWeek": 3, "estimatedSessionMinutes": "60–72" },
   "microcycleStats": {
-    "tonnageKg": 15292,
+    "tonnageKg": 14833,
     "avgIntensityPct": 72,
     "hardSets": 58,
     "hardSetsByMuscle": { "Ягодицы": 20, "Бицепс бедра": 9, "Спина": 7, "Задняя цепь": 6, "Плечи": 5, "Квадрицепс": 3, "Грудь": 3, "Бицепс": 3, "Трицепс": 2 },
-    "tonnageByMuscleKg": { "Ягодицы": 7292, "Бицепс бедра": 3780, "Спина": 1740, "Квадрицепс": 720, "Плечи": 660, "Грудь": 450, "Бицепс": 360, "Трицепс": 200, "Задняя цепь": 90 }
+    "tonnageByMuscleKg": { "Ягодицы": 7178, "Бицепс бедра": 3480, "Спина": 1740, "Квадрицепс": 675, "Плечи": 660, "Грудь": 450, "Бицепс": 360, "Трицепс": 200, "Задняя цепь": 90 }
   },
   "sessions": [
     {
       "sessionId": "W-0011-S01",
       "globalNumber": 32,
+      "performedAt": "2026-09-22",
       "recommendedIntervalAfterPreviousHours": 72,
       "estimatedDurationMinutes": 70,
       "focus": "Тяжёлый ягодичный мост и присед",
@@ -32,6 +33,7 @@
           "name": "Ягодичный мост со штангой",
           "restSeconds": 180,
           "note": "Приоритет недели, делать свежей. Блины только добавлять. Если 1-й рабочий подход идёт с запасом 3+ — остальные на 100 кг × 6.",
+          "postNotes": "По плану 95 кг × 7 × 4 — первый рабочий 95 кг, остальные три подхода 100 кг × 6 (по развилке из подсказки).",
           "variants": [
             {
               "loadBlocks": [
@@ -39,7 +41,8 @@
                 { "weight": 40, "unit": "kg", "reps": 6, "sets": 1, "type": "warmup" },
                 { "weight": 60, "unit": "kg", "reps": 4, "sets": 1, "type": "warmup" },
                 { "weight": 80, "unit": "kg", "reps": 3, "sets": 1, "type": "warmup" },
-                { "weight": 95, "unit": "kg", "reps": 7, "sets": 4, "rir": 2 }
+                { "weight": 95, "unit": "kg", "reps": 7, "sets": 1, "rir": 3 },
+                { "weight": 100, "unit": "kg", "reps": 6, "sets": 3, "rir": 2 }
               ]
             }
           ]
@@ -48,12 +51,13 @@
           "name": "Глубокий присед, пятки на подставке",
           "restSeconds": 150,
           "note": "Глубина, давление всей стопой. Если 1-й подход идёт с запасом 3+ — остальные на 45 кг × 5.",
+          "postNotes": "По плану 40 кг × 6 × 3 — все рабочие подходы сразу с 45 кг.",
           "variants": [
             {
               "loadBlocks": [
                 { "weight": 20, "unit": "kg", "reps": 8, "sets": 1, "type": "warmup" },
                 { "weight": 30, "unit": "kg", "reps": 5, "sets": 1, "type": "warmup" },
-                { "weight": 40, "unit": "kg", "reps": 6, "sets": 3, "rir": 2 }
+                { "weight": 45, "unit": "kg", "reps": 5, "sets": 3, "rir": 2 }
               ]
             }
           ]
@@ -94,6 +98,7 @@
     {
       "sessionId": "W-0011-S02",
       "globalNumber": 33,
+      "performedAt": "2026-09-24",
       "recommendedIntervalAfterPreviousHours": 48,
       "estimatedDurationMinutes": 70,
       "focus": "Румынская тяга и задняя цепь",
@@ -110,12 +115,15 @@
           "name": "Румынская тяга со штангой",
           "restSeconds": 150,
           "note": "Контролируемое опускание, спина нейтральна. Если 1-й рабочий подход тяжелее запаса 1 — остальные на 55 кг × 10.",
+          "postNotes": "По плану 60 кг × 8 × 3 — сделала 60 кг × 5, затем × 6, третий подход с поясом и подкорректированной техникой × 8, запас 2. Запас в первых двух не указан.",
           "variants": [
             {
               "loadBlocks": [
                 { "weight": 20, "unit": "kg", "reps": 10, "sets": 1, "type": "warmup" },
                 { "weight": 40, "unit": "kg", "reps": 5, "sets": 1, "type": "warmup" },
-                { "weight": 60, "unit": "kg", "reps": 8, "sets": 3, "rir": 2 }
+                { "weight": 60, "unit": "kg", "reps": 5, "sets": 1 },
+                { "weight": 60, "unit": "kg", "reps": 6, "sets": 1 },
+                { "weight": 60, "unit": "kg", "reps": 8, "sets": 1, "rir": 2, "note": "с поясом" }
               ]
             }
           ]
@@ -132,8 +140,9 @@
           "name": "Отведение ноги назад — тренажёр",
           "restSeconds": 90,
           "note": "Повторы на каждую ногу.",
+          "postNotes": "По плану 10 кг × 15 × 3 — сделала 15 кг × 12 × 3, запас 2.",
           "variants": [
-            { "loadBlocks": [ { "weight": 10, "unit": "kg", "reps": 15, "sets": 3, "rir": 2, "note": "сверх базового веса тренажёра" } ] }
+            { "loadBlocks": [ { "weight": 15, "unit": "kg", "reps": 12, "sets": 3, "rir": 2, "note": "сверх базового веса тренажёра" } ] }
           ]
         },
         {

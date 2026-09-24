@@ -1,6 +1,6 @@
 {
   "athlete": "women",
-  "lastSession": "W-0010-S03",
+  "lastSession": "W-0011-S02",
   "sessions": [
     {
       "id": "W-0001-S01",
@@ -156,6 +156,16 @@
       "id": "W-0010-S03",
       "globalNumber": 31,
       "date": "2026-09-19"
+    },
+    {
+      "id": "W-0011-S01",
+      "globalNumber": 32,
+      "date": "2026-09-22"
+    },
+    {
+      "id": "W-0011-S02",
+      "globalNumber": 33,
+      "date": "2026-09-24"
     }
   ],
   "exercises": [
@@ -257,6 +267,11 @@
           "sessionId": "W-0010-S03",
           "max": 75,
           "onepr": 105
+        },
+        {
+          "sessionId": "W-0011-S01",
+          "max": 100,
+          "onepr": 127
         }
       ]
     },
@@ -333,6 +348,11 @@
           "sessionId": "W-0010-S01",
           "max": 40,
           "onepr": 51
+        },
+        {
+          "sessionId": "W-0011-S01",
+          "max": 45,
+          "onepr": 56
         }
       ]
     },
@@ -424,6 +444,11 @@
           "sessionId": "W-0010-S01",
           "max": 35,
           "onepr": 50
+        },
+        {
+          "sessionId": "W-0011-S01",
+          "max": 40,
+          "onepr": 55
         }
       ]
     },
@@ -507,6 +532,11 @@
           "sessionId": "W-0010-S01",
           "max": 20,
           "onepr": 28
+        },
+        {
+          "sessionId": "W-0011-S01",
+          "max": 20,
+          "onepr": 29
         }
       ]
     },
@@ -588,6 +618,11 @@
           "sessionId": "W-0010-S01",
           "max": 5,
           "onepr": 7
+        },
+        {
+          "sessionId": "W-0011-S01",
+          "max": 5,
+          "onepr": null
         }
       ]
     },
@@ -649,6 +684,11 @@
           "sessionId": "W-0010-S01",
           "max": 10,
           "onepr": 13
+        },
+        {
+          "sessionId": "W-0011-S01",
+          "max": 10,
+          "onepr": 14
         }
       ]
     },
@@ -746,6 +786,11 @@
           "sessionId": "W-0010-S02",
           "max": 25,
           "onepr": 37
+        },
+        {
+          "sessionId": "W-0011-S02",
+          "max": 30,
+          "onepr": 41
         }
       ]
     },
@@ -808,6 +853,11 @@
           "sessionId": "W-0010-S03",
           "max": 5,
           "onepr": 6
+        },
+        {
+          "sessionId": "W-0011-S02",
+          "max": 5,
+          "onepr": 7
         }
       ]
     },
@@ -864,6 +914,11 @@
           "sessionId": "W-0009-S02",
           "max": 10,
           "onepr": 13
+        },
+        {
+          "sessionId": "W-0011-S02",
+          "max": 10,
+          "onepr": 14
         }
       ]
     },
@@ -1081,6 +1136,11 @@
           "sessionId": "W-0010-S02",
           "max": 55,
           "onepr": 75
+        },
+        {
+          "sessionId": "W-0011-S02",
+          "max": 60,
+          "onepr": 80
         }
       ]
     },
@@ -1139,6 +1199,11 @@
           "sessionId": "W-0010-S02",
           "max": 11,
           "onepr": null
+        },
+        {
+          "sessionId": "W-0011-S02",
+          "max": 16,
+          "onepr": 23
         }
       ]
     },
@@ -1242,6 +1307,11 @@
           "sessionId": "W-0010-S02",
           "max": 10,
           "onepr": null
+        },
+        {
+          "sessionId": "W-0011-S02",
+          "max": 12.5,
+          "onepr": 18
         }
       ]
     }
