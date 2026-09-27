@@ -1,6 +1,6 @@
 {
   "athlete": "women",
-  "lastSession": "W-0011-S02",
+  "lastSession": "W-0011-S03",
   "sessions": [
     {
       "id": "W-0001-S01",
@@ -166,6 +166,11 @@
       "id": "W-0011-S02",
       "globalNumber": 33,
       "date": "2026-09-24"
+    },
+    {
+      "id": "W-0011-S03",
+      "globalNumber": 34,
+      "date": "2026-09-26"
     }
   ],
   "exercises": [
@@ -272,6 +277,11 @@
           "sessionId": "W-0011-S01",
           "max": 100,
           "onepr": 127
+        },
+        {
+          "sessionId": "W-0011-S03",
+          "max": 80,
+          "onepr": 109
         }
       ]
     },
@@ -449,6 +459,11 @@
           "sessionId": "W-0011-S01",
           "max": 40,
           "onepr": 55
+        },
+        {
+          "sessionId": "W-0011-S03",
+          "max": 35,
+          "onepr": 51
         }
       ]
     },
@@ -970,6 +985,11 @@
           "sessionId": "W-0010-S03",
           "max": 5,
           "onepr": 7
+        },
+        {
+          "sessionId": "W-0011-S03",
+          "max": 7.5,
+          "onepr": 10
         }
       ]
     },
@@ -1021,52 +1041,11 @@
           "sessionId": "W-0010-S03",
           "max": 7.5,
           "onepr": 10
-        }
-      ]
-    },
-    {
-      "id": "hip_abduction_side",
-      "name": "Отведение бедра (тренажёр)",
-      "aliases": [
-        "Отведение бедра в тренажёре"
-      ],
-      "unit": "kg",
-      "color": "#2DD2CC",
-      "data": [
-        {
-          "sessionId": "W-0001-S03",
-          "max": 1,
-          "onepr": null
         },
         {
-          "sessionId": "W-0002-S03",
-          "max": 1,
-          "onepr": null
-        },
-        {
-          "sessionId": "W-0003-S03",
-          "max": 1,
-          "onepr": null
-        },
-        {
-          "sessionId": "W-0004-S03",
-          "max": 6,
-          "onepr": null
-        },
-        {
-          "sessionId": "W-0005-S03",
-          "max": 6,
-          "onepr": null
-        },
-        {
-          "sessionId": "W-0006-S03",
-          "max": 6,
-          "onepr": 9
-        },
-        {
-          "sessionId": "W-0007-S03",
-          "max": 6,
-          "onepr": 8
+          "sessionId": "W-0011-S03",
+          "max": 7.5,
+          "onepr": 10
         }
       ]
     },
@@ -1156,9 +1135,19 @@
       "color": "#D22D4F",
       "data": [
         {
+          "sessionId": "W-0001-S03",
+          "max": 1,
+          "onepr": null
+        },
+        {
           "sessionId": "W-0001-S04",
           "max": 6,
           "onepr": 8
+        },
+        {
+          "sessionId": "W-0002-S03",
+          "max": 1,
+          "onepr": null
         },
         {
           "sessionId": "W-0002-S04",
@@ -1166,7 +1155,17 @@
           "onepr": 8
         },
         {
+          "sessionId": "W-0003-S03",
+          "max": 1,
+          "onepr": null
+        },
+        {
           "sessionId": "W-0003-S04",
+          "max": 6,
+          "onepr": null
+        },
+        {
+          "sessionId": "W-0004-S03",
           "max": 6,
           "onepr": null
         },
@@ -1176,7 +1175,17 @@
           "onepr": null
         },
         {
+          "sessionId": "W-0005-S03",
+          "max": 6,
+          "onepr": null
+        },
+        {
           "sessionId": "W-0006-S02",
+          "max": 6,
+          "onepr": 9
+        },
+        {
+          "sessionId": "W-0006-S03",
           "max": 6,
           "onepr": 9
         },
@@ -1184,6 +1193,11 @@
           "sessionId": "W-0007-S02",
           "max": 6,
           "onepr": null
+        },
+        {
+          "sessionId": "W-0007-S03",
+          "max": 6,
+          "onepr": 8
         },
         {
           "sessionId": "W-0008-S02",
@@ -1312,6 +1326,38 @@
           "sessionId": "W-0011-S02",
           "max": 12.5,
           "onepr": 18
+        }
+      ]
+    },
+    {
+      "id": "bench_press_w",
+      "name": "Жим штанги лёжа (грудь)",
+      "aliases": [
+        "Жим штанги лёжа"
+      ],
+      "unit": "kg",
+      "color": "#2DD2CB",
+      "data": [
+        {
+          "sessionId": "W-0011-S03",
+          "max": 25,
+          "onepr": 28
+        }
+      ]
+    },
+    {
+      "id": "hip_abduction_cable",
+      "name": "Отведение бедра (кроссовер)",
+      "aliases": [
+        "Отведение бедра в кроссовере"
+      ],
+      "unit": "kg",
+      "color": "#D22DA9",
+      "data": [
+        {
+          "sessionId": "W-0011-S03",
+          "max": 5,
+          "onepr": 7
         }
       ]
     }

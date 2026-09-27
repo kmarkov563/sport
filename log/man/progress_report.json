@@ -1,6 +1,6 @@
 {
   "athlete": "man",
-  "lastSession": "M-0011-S02",
+  "lastSession": "M-0011-S03",
   "sessions": [
     {
       "id": "M-0001-S01",
@@ -176,6 +176,11 @@
       "id": "M-0011-S02",
       "globalNumber": 35,
       "date": "2026-09-24"
+    },
+    {
+      "id": "M-0011-S03",
+      "globalNumber": 36,
+      "date": "2026-09-26"
     }
   ],
   "exercises": [
@@ -359,6 +364,11 @@
           "sessionId": "M-0011-S01",
           "max": 75,
           "onepr": 105
+        },
+        {
+          "sessionId": "M-0011-S03",
+          "max": 70,
+          "onepr": 100
         }
       ]
     },
@@ -466,28 +476,33 @@
         },
         {
           "sessionId": "M-0009-S01",
-          "max": 65,
-          "onepr": 91
+          "max": 60,
+          "onepr": 84
         },
         {
           "sessionId": "M-0009-S03",
-          "max": 65,
-          "onepr": 91
+          "max": 60,
+          "onepr": 84
         },
         {
           "sessionId": "M-0010-S01",
-          "max": 65,
-          "onepr": 95
+          "max": 60,
+          "onepr": 88
         },
         {
           "sessionId": "M-0010-S03",
+          "max": 60,
+          "onepr": 84
+        },
+        {
+          "sessionId": "M-0011-S01",
           "max": 65,
           "onepr": 91
         },
         {
-          "sessionId": "M-0011-S01",
-          "max": 75,
-          "onepr": 105
+          "sessionId": "M-0011-S03",
+          "max": 65,
+          "onepr": 91
         }
       ]
     },
@@ -740,6 +755,11 @@
           "sessionId": "M-0011-S01",
           "max": 35,
           "onepr": 47
+        },
+        {
+          "sessionId": "M-0011-S03",
+          "max": 30,
+          "onepr": 40
         }
       ]
     },
@@ -980,6 +1000,11 @@
           "sessionId": "M-0010-S03",
           "max": 80,
           "onepr": 112
+        },
+        {
+          "sessionId": "M-0011-S03",
+          "max": 80,
+          "onepr": 115
         }
       ]
     },
@@ -1132,6 +1157,11 @@
           "sessionId": "M-0010-S03",
           "max": 75,
           "onepr": 100
+        },
+        {
+          "sessionId": "M-0011-S03",
+          "max": 75,
+          "onepr": 98
         }
       ]
     },
@@ -1159,6 +1189,11 @@
           "sessionId": "M-0004-S03",
           "max": 10,
           "onepr": 14
+        },
+        {
+          "sessionId": "M-0011-S03",
+          "max": 12.5,
+          "onepr": 18
         }
       ]
     },
@@ -1443,6 +1478,11 @@
           "sessionId": "M-0011-S01",
           "max": 55,
           "onepr": 79
+        },
+        {
+          "sessionId": "M-0011-S03",
+          "max": 60,
+          "onepr": 84
         }
       ]
     },

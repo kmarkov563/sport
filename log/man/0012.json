@@ -1,0 +1,416 @@
+{
+  "schemaVersion": 1,
+  "planId": "0012",
+  "athlete": "man",
+  "createdAt": "2026-09-27T12:00:00+04:00",
+  "updatedAt": "2026-09-27T12:00:00+04:00",
+  "schedule": {
+    "kind": "fixed_weekdays",
+    "weekdays": [
+      "tue",
+      "thu",
+      "sat"
+    ],
+    "sessionsPlanned": 3,
+    "sessionsPerWeek": 3,
+    "estimatedSessionMinutes": "45–55"
+  },
+  "sessions": [
+    {
+      "sessionId": "M-0012-S01",
+      "globalNumber": 37,
+      "recommendedIntervalAfterPreviousHours": 72,
+      "estimatedDurationMinutes": 55,
+      "focus": "Разгрузка · верх",
+      "note": "Разгрузочная неделя. Веса рабочие, повторов и подходов меньше — каждый подход заканчивается далеко от отказа, запас 4. Подходы и вес не добавлять: правило самокоррекции на этой неделе не действует, даже если идёт легко.",
+      "workout": [
+        {
+          "name": "Жим штанги лёжа",
+          "restSeconds": 180,
+          "note": "Делать первым.",
+          "variants": [
+            {
+              "loadBlocks": [
+                {
+                  "weight": 90,
+                  "unit": "kg",
+                  "reps": 3,
+                  "sets": 2,
+                  "rir": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Горизонтальная тяга в тренажёре",
+          "restSeconds": 120,
+          "note": "Чисто, полная амплитуда, без читинга.",
+          "variants": [
+            {
+              "loadBlocks": [
+                {
+                  "weight": 75,
+                  "unit": "kg",
+                  "reps": 6,
+                  "sets": 2,
+                  "rir": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Жим на наклонной со свободной штангой",
+          "restSeconds": 150,
+          "variants": [
+            {
+              "loadBlocks": [
+                {
+                  "weight": 55,
+                  "unit": "kg",
+                  "reps": 7,
+                  "sets": 2,
+                  "rir": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Вертикальная тяга верхнего блока",
+          "restSeconds": 120,
+          "note": "Полное растяжение вверху. 60 кг — реальные: бирка «65» на тренажёре на деле 60 кг.",
+          "variants": [
+            {
+              "loadBlocks": [
+                {
+                  "weight": 60,
+                  "unit": "kg",
+                  "reps": 8,
+                  "sets": 2,
+                  "rir": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Махи в стороны (тренажёр или гантели)",
+          "restSeconds": 90,
+          "note": "Основной — тренажёр; если он сломан — гантели.",
+          "variants": [
+            {
+              "label": "Тренажёр",
+              "loadBlocks": [
+                {
+                  "weight": 20,
+                  "unit": "kg",
+                  "reps": 7,
+                  "sets": 2,
+                  "rir": 4
+                }
+              ]
+            },
+            {
+              "label": "Гантели",
+              "loadBlocks": [
+                {
+                  "weight": 10,
+                  "unit": "kg_per_hand",
+                  "reps": 8,
+                  "sets": 2,
+                  "rir": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Разгибание рук на верхнем блоке",
+          "restSeconds": 90,
+          "note": "Подконтрольно, акцент на трицепс, локти прижаты.",
+          "variants": [
+            {
+              "loadBlocks": [
+                {
+                  "weight": 20,
+                  "unit": "kg",
+                  "reps": 7,
+                  "sets": 2,
+                  "rir": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Сгибание рук со штангой",
+          "restSeconds": 90,
+          "note": "Без заброса корпусом.",
+          "variants": [
+            {
+              "loadBlocks": [
+                {
+                  "weight": 30,
+                  "unit": "kg",
+                  "reps": 8,
+                  "sets": 2,
+                  "rir": 4
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sessionId": "M-0012-S02",
+      "globalNumber": 38,
+      "recommendedIntervalAfterPreviousHours": 48,
+      "estimatedDurationMinutes": 45,
+      "focus": "Разгрузка · низ",
+      "note": "Разгрузочная неделя. Веса рабочие, повторов и подходов меньше — каждый подход заканчивается далеко от отказа, запас 4. Подходы и вес не добавлять: правило самокоррекции на этой неделе не действует, даже если идёт легко.",
+      "workout": [
+        {
+          "name": "Румынская тяга со свободной штангой",
+          "restSeconds": 150,
+          "note": "Контролируемое опускание, спина нейтральна.",
+          "variants": [
+            {
+              "loadBlocks": [
+                {
+                  "weight": 95,
+                  "unit": "kg",
+                  "reps": 6,
+                  "sets": 2,
+                  "rir": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Глубокий присед со штангой",
+          "restSeconds": 150,
+          "note": "Полная глубина, пятки на подставке.",
+          "variants": [
+            {
+              "loadBlocks": [
+                {
+                  "weight": 85,
+                  "unit": "kg",
+                  "reps": 4,
+                  "sets": 2,
+                  "rir": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Разгибание ног в тренажёре",
+          "restSeconds": 90,
+          "note": "Нагрузка в плитках.",
+          "variants": [
+            {
+              "loadBlocks": [
+                {
+                  "weight": 17,
+                  "unit": "plates",
+                  "reps": 9,
+                  "sets": 2,
+                  "rir": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Сгибание ног в тренажёре",
+          "restSeconds": 90,
+          "variants": [
+            {
+              "loadBlocks": [
+                {
+                  "weight": 60,
+                  "unit": "kg",
+                  "reps": 8,
+                  "sets": 2,
+                  "rir": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Задняя дельта: обратная разводка в тренажёре",
+          "restSeconds": 90,
+          "note": "Вести локтями, без инерции корпусом.",
+          "variants": [
+            {
+              "loadBlocks": [
+                {
+                  "weight": 70,
+                  "unit": "kg",
+                  "reps": 8,
+                  "sets": 2,
+                  "rir": 4
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sessionId": "M-0012-S03",
+      "globalNumber": 39,
+      "recommendedIntervalAfterPreviousHours": 48,
+      "estimatedDurationMinutes": 55,
+      "focus": "Разгрузка · верх груди и спина",
+      "note": "Разгрузочная неделя. Веса рабочие, повторов и подходов меньше — каждый подход заканчивается далеко от отказа, запас 4. Подходы и вес не добавлять: правило самокоррекции на этой неделе не действует, даже если идёт легко.",
+      "workout": [
+        {
+          "name": "Жим на наклонной со свободной штангой",
+          "restSeconds": 150,
+          "note": "Делать первым.",
+          "variants": [
+            {
+              "loadBlocks": [
+                {
+                  "weight": 60,
+                  "unit": "kg",
+                  "reps": 6,
+                  "sets": 2,
+                  "rir": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Жим штанги лёжа с паузой 1 секунда",
+          "restSeconds": 150,
+          "note": "Паузу держать в напряжении, штанга только касается груди. Делать вторым.",
+          "variants": [
+            {
+              "loadBlocks": [
+                {
+                  "weight": 75,
+                  "unit": "kg",
+                  "reps": 4,
+                  "sets": 2,
+                  "rir": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Горизонтальная тяга в тренажёре",
+          "restSeconds": 120,
+          "note": "Чисто, полная амплитуда, без читинга.",
+          "variants": [
+            {
+              "loadBlocks": [
+                {
+                  "weight": 70,
+                  "unit": "kg",
+                  "reps": 7,
+                  "sets": 2,
+                  "rir": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Вертикальная тяга верхнего блока",
+          "restSeconds": 120,
+          "note": "Полное растяжение вверху. 60 кг — реальные: бирка «65» на тренажёре на деле 60 кг.",
+          "variants": [
+            {
+              "loadBlocks": [
+                {
+                  "weight": 60,
+                  "unit": "kg",
+                  "reps": 8,
+                  "sets": 2,
+                  "rir": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Икры в Смите стоя",
+          "restSeconds": 90,
+          "note": "Полная амплитуда, пауза в нижней точке.",
+          "variants": [
+            {
+              "loadBlocks": [
+                {
+                  "weight": 80,
+                  "unit": "kg",
+                  "reps": 8,
+                  "sets": 2,
+                  "rir": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Махи в стороны (тренажёр или гантели)",
+          "restSeconds": 90,
+          "note": "Основной — тренажёр; если он сломан — гантели.",
+          "variants": [
+            {
+              "label": "Тренажёр",
+              "loadBlocks": [
+                {
+                  "weight": 20,
+                  "unit": "kg",
+                  "reps": 7,
+                  "sets": 2,
+                  "rir": 4
+                }
+              ]
+            },
+            {
+              "label": "Гантели",
+              "loadBlocks": [
+                {
+                  "weight": 10,
+                  "unit": "kg_per_hand",
+                  "reps": 8,
+                  "sets": 2,
+                  "rir": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Сгибание рук со штангой",
+          "restSeconds": 90,
+          "note": "Без заброса корпусом.",
+          "variants": [
+            {
+              "loadBlocks": [
+                {
+                  "weight": 30,
+                  "unit": "kg",
+                  "reps": 8,
+                  "sets": 2,
+                  "rir": 4
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
