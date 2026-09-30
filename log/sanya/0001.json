@@ -1,0 +1,352 @@
+{
+  "schemaVersion": 1,
+  "planId": "0001",
+  "athlete": "sanya",
+  "createdAt": "2026-09-30T12:00:00+04:00",
+  "updatedAt": "2026-09-30T12:00:00+04:00",
+  "schedule": {
+    "kind": "fixed_weekdays",
+    "weekdays": [
+      "tue",
+      "thu",
+      "sat"
+    ],
+    "sessionsPlanned": 3,
+    "sessionsPerWeek": 3,
+    "estimatedSessionMinutes": "50–60"
+  },
+  "sessions": [
+    {
+      "sessionId": "S-0001-S01",
+      "globalNumber": 1,
+      "recommendedIntervalAfterPreviousHours": 72,
+      "estimatedDurationMinutes": 50,
+      "focus": "Грудь + бицепс",
+      "note": "Первая неделя после перерыва: в базовых запас 3, в изоляции запас 2, в отказ не идти. Веса оценочные — после тренировки сообщить вес × повторы × запас по подходам. Боль в пояснице или отдача в ногу — упражнение прекратить и сообщить.",
+      "workout": [
+        {
+          "name": "Жим штанги лёжа",
+          "restSeconds": 180,
+          "note": "Ноги на полу, таз на скамье, поясницу сильно не выгибать.",
+          "variants": [
+            {
+              "loadBlocks": [
+                {
+                  "weight": 65,
+                  "unit": "kg",
+                  "reps": 8,
+                  "sets": 3,
+                  "rir": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Жим на наклонной (штанга или гантели)",
+          "restSeconds": 150,
+          "variants": [
+            {
+              "label": "Штанга",
+              "loadBlocks": [
+                {
+                  "weight": 40,
+                  "unit": "kg",
+                  "reps": 10,
+                  "sets": 3,
+                  "rir": 3
+                }
+              ]
+            },
+            {
+              "label": "Гантели",
+              "loadBlocks": [
+                {
+                  "weight": 16,
+                  "unit": "kg_per_hand",
+                  "reps": 10,
+                  "sets": 3,
+                  "rir": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Разводка в тренажёре («бабочка»)",
+          "restSeconds": 90,
+          "variants": [
+            {
+              "loadBlocks": [
+                {
+                  "weight": 15,
+                  "unit": "kg",
+                  "reps": 12,
+                  "sets": 2,
+                  "rir": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Сгибание рук с гантелями сидя со спинкой",
+          "restSeconds": 90,
+          "note": "Спиной в спинку, без раскачки корпусом.",
+          "variants": [
+            {
+              "loadBlocks": [
+                {
+                  "weight": 10,
+                  "unit": "kg_per_hand",
+                  "reps": 10,
+                  "sets": 3,
+                  "rir": 2
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sessionId": "S-0001-S02",
+      "globalNumber": 2,
+      "recommendedIntervalAfterPreviousHours": 48,
+      "estimatedDurationMinutes": 50,
+      "focus": "Спина + трицепс",
+      "note": "Первая неделя после перерыва: в базовых запас 3, в изоляции запас 2, в отказ не идти. Веса оценочные — после тренировки сообщить вес × повторы × запас по подходам. Боль в пояснице или отдача в ногу — упражнение прекратить и сообщить.",
+      "workout": [
+        {
+          "name": "Вертикальная тяга верхнего блока",
+          "restSeconds": 150,
+          "note": "Широкий хват, полное растяжение вверху, корпус не раскачивать.",
+          "variants": [
+            {
+              "loadBlocks": [
+                {
+                  "weight": 45,
+                  "unit": "kg",
+                  "reps": 10,
+                  "sets": 3,
+                  "rir": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Горизонтальная тяга в тренажёре с упором грудью",
+          "restSeconds": 150,
+          "note": "Только с упором грудью; без упора не делать.",
+          "variants": [
+            {
+              "loadBlocks": [
+                {
+                  "weight": 50,
+                  "unit": "kg",
+                  "reps": 10,
+                  "sets": 3,
+                  "rir": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Тяга верхнего блока узким параллельным хватом",
+          "restSeconds": 90,
+          "note": "Тянуть к низу груди, локти вдоль корпуса.",
+          "variants": [
+            {
+              "loadBlocks": [
+                {
+                  "weight": 40,
+                  "unit": "kg",
+                  "reps": 12,
+                  "sets": 2,
+                  "rir": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Разгибание рук на верхнем блоке",
+          "restSeconds": 90,
+          "variants": [
+            {
+              "loadBlocks": [
+                {
+                  "weight": 20,
+                  "unit": "kg",
+                  "reps": 12,
+                  "sets": 3,
+                  "rir": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Французский жим EZ-грифа лёжа",
+          "restSeconds": 90,
+          "note": "Локти смотрят вверх, не разводить.",
+          "variants": [
+            {
+              "loadBlocks": [
+                {
+                  "weight": 20,
+                  "unit": "kg",
+                  "reps": 10,
+                  "sets": 2,
+                  "rir": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sessionId": "S-0001-S03",
+      "globalNumber": 3,
+      "recommendedIntervalAfterPreviousHours": 48,
+      "estimatedDurationMinutes": 60,
+      "focus": "Ноги + плечи",
+      "note": "Первая неделя после перерыва: в базовых запас 3, в изоляции запас 2, в отказ не идти. Веса оценочные — после тренировки сообщить вес × повторы × запас по подходам. Боль в пояснице или отдача в ногу — упражнение прекратить и сообщить.",
+      "workout": [
+        {
+          "name": "Жим платформы ногами",
+          "restSeconds": 180,
+          "note": "Опускать только до момента, пока таз не начнёт отрываться от спинки. Поясница прижата всё время.",
+          "variants": [
+            {
+              "loadBlocks": [
+                {
+                  "weight": 80,
+                  "unit": "kg",
+                  "reps": 10,
+                  "sets": 3,
+                  "rir": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Сгибание ног сидя",
+          "restSeconds": 120,
+          "variants": [
+            {
+              "loadBlocks": [
+                {
+                  "weight": 40,
+                  "unit": "kg",
+                  "reps": 12,
+                  "sets": 3,
+                  "rir": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Разгибание ног в тренажёре",
+          "restSeconds": 90,
+          "variants": [
+            {
+              "loadBlocks": [
+                {
+                  "weight": 30,
+                  "unit": "kg",
+                  "reps": 12,
+                  "sets": 2,
+                  "rir": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Жим гантелей сидя со спинкой (или жим в тренажёре)",
+          "restSeconds": 150,
+          "note": "Спинка вертикально, спиной в спинку, поясницу не прогибать.",
+          "variants": [
+            {
+              "label": "Гантели",
+              "loadBlocks": [
+                {
+                  "weight": 14,
+                  "unit": "kg_per_hand",
+                  "reps": 10,
+                  "sets": 3,
+                  "rir": 3
+                }
+              ]
+            },
+            {
+              "label": "Тренажёр",
+              "loadBlocks": [
+                {
+                  "weight": 30,
+                  "unit": "kg",
+                  "reps": 10,
+                  "sets": 3,
+                  "rir": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Махи в стороны (тренажёр или гантели)",
+          "restSeconds": 90,
+          "variants": [
+            {
+              "label": "Тренажёр",
+              "loadBlocks": [
+                {
+                  "weight": 15,
+                  "unit": "kg",
+                  "reps": 12,
+                  "sets": 3,
+                  "rir": 2
+                }
+              ]
+            },
+            {
+              "label": "Гантели",
+              "loadBlocks": [
+                {
+                  "weight": 8,
+                  "unit": "kg_per_hand",
+                  "reps": 12,
+                  "sets": 3,
+                  "rir": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Задняя дельта: обратная разводка в тренажёре",
+          "restSeconds": 90,
+          "variants": [
+            {
+              "loadBlocks": [
+                {
+                  "weight": 40,
+                  "unit": "kg",
+                  "reps": 15,
+                  "sets": 2,
+                  "rir": 2
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

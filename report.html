@@ -73,7 +73,9 @@
     (() => {
       "use strict";
 
-      const athlete = new URLSearchParams(window.location.search).get("athlete") === "women" ? "women" : "man";
+      const athleteLabels = { man: "Мужской", women: "Женский", sanya: "Саня" };
+      const requestedAthlete = new URLSearchParams(window.location.search).get("athlete");
+      const athlete = Object.hasOwn(athleteLabels, requestedAthlete) ? requestedAthlete : "man";
       const visibleStorageKey = `report-visible-${athlete}`;
       const chartWidth = 920, chartHeight = 440;
       const pad = { top: 14, right: 14, bottom: 34, left: 46 };
@@ -253,8 +255,8 @@
       }
 
       async function load() {
-        document.title = athlete === "women" ? "AI-тренер · Прогресс (Ж)" : "AI-тренер · Прогресс (М)";
-        $("title").textContent = athlete === "women" ? "Прогресс · Женский" : "Прогресс · Мужской";
+        document.title = `AI-тренер · Прогресс · ${athleteLabels[athlete]}`;
+        $("title").textContent = `Прогресс · ${athleteLabels[athlete]}`;
         $("back-link").href = `coach.html?athlete=${athlete}`;
         try {
           const response = await fetch(`log/${athlete}/progress_report.json`, { cache: "no-store" });

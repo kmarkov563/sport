@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "athlete": "sanya",
+  "activePlanId": "0001",
+  "currentSessionId": "S-0001-S01",
+  "nextGlobalNumber": 4,
+  "updatedAt": "2026-09-30T12:00:00+04:00",
+  "plans": [
+    {
+      "planId": "0001",
+      "file": "0001.json",
+      "status": "active",
+      "sessionIds": [
+        "S-0001-S01",
+        "S-0001-S02",
+        "S-0001-S03"
+      ]
+    }
+  ]
+}

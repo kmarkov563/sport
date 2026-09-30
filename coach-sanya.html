@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI-тренер · План Сани</title>
+</head>
+<body>
+  <script>
+    const target = new URL("coach.html", window.location.href);
+    new URLSearchParams(window.location.search).forEach((value, key) => target.searchParams.set(key, value));
+    target.searchParams.set("athlete", "sanya");
+    window.location.replace(target);
+  </script>
+  <noscript><a href="coach.html?athlete=sanya">Открыть план Сани</a></noscript>
+</body>
+</html>

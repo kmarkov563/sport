@@ -192,8 +192,9 @@
     (() => {
       "use strict";
 
+      const planTitles = { man: "Мужской план", women: "Женский план", sanya: "План Сани" };
       const requestedAthlete = new URLSearchParams(window.location.search).get("athlete");
-      const athlete = requestedAthlete === "women" ? "women" : "man";
+      const athlete = Object.hasOwn(planTitles, requestedAthlete) ? requestedAthlete : "man";
       const state = { athlete, index: null, plans: [], current: 0, mode: "single", currentSession: 0 };
 
       const offlineBanner = document.getElementById("offline-banner");
@@ -477,9 +478,7 @@
 
       async function load() {
         try {
-          document.title = state.athlete === "women"
-            ? "AI-тренер · Женский план"
-            : "AI-тренер · Мужской план";
+          document.title = `AI-тренер · ${planTitles[state.athlete]}`;
           $("report-link").href = `report.html?athlete=${state.athlete}`;
           $("skill-link").hidden = state.athlete !== "man";
           servedFromCache = false;
