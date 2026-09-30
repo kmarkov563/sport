@@ -3,7 +3,7 @@
   "planId": "0012",
   "athlete": "man",
   "createdAt": "2026-09-27T12:00:00+04:00",
-  "updatedAt": "2026-09-27T12:00:00+04:00",
+  "updatedAt": "2026-09-30T12:00:00+04:00",
   "schedule": {
     "kind": "fixed_weekdays",
     "weekdays": [
@@ -15,10 +15,27 @@
     "sessionsPerWeek": 3,
     "estimatedSessionMinutes": "45–55"
   },
+  "microcycleStats": {
+    "tonnageKg": 14940,
+    "avgIntensityPct": 74,
+    "hardSets": 0,
+    "hardSetsByMuscle": {},
+    "tonnageByMuscleKg": {
+      "Спина": 3800,
+      "Грудь": 2630,
+      "Квадрицепс": 2210,
+      "Бицепс бедра": 2100,
+      "Плечи": 1680,
+      "Икры": 1280,
+      "Бицепс": 960,
+      "Трицепс": 280
+    }
+  },
   "sessions": [
     {
       "sessionId": "M-0012-S01",
       "globalNumber": 37,
+      "performedAt": "2026-09-29",
       "recommendedIntervalAfterPreviousHours": 72,
       "estimatedDurationMinutes": 55,
       "focus": "Разгрузка · верх",
