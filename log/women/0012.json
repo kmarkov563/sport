@@ -3,7 +3,7 @@
   "planId": "0012",
   "athlete": "women",
   "createdAt": "2026-09-27T12:00:00+04:00",
-  "updatedAt": "2026-09-29T12:00:00+04:00",
+  "updatedAt": "2026-10-02T12:00:00+04:00",
   "schedule": { "kind": "fixed_weekdays", "weekdays": ["tue", "thu", "sat"], "sessionsPlanned": 3, "sessionsPerWeek": 3, "estimatedSessionMinutes": "40–72" },
   "microcycleStats": {
     "tonnageKg": 8705,
@@ -103,6 +103,7 @@
     {
       "sessionId": "W-0012-S02",
       "globalNumber": 36,
+      "performedAt": "2026-10-01",
       "recommendedIntervalAfterPreviousHours": 48,
       "estimatedDurationMinutes": 45,
       "focus": "Разгрузка · румынская тяга и задняя цепь",
