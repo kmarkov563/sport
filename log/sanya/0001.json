@@ -51,6 +51,7 @@
           "name": "Жим штанги лёжа",
           "restSeconds": 180,
           "note": "Ноги на полу, таз на скамье, поясницу сильно не выгибать.",
+          "technique": "bench_volume",
           "variants": [
             {
               "loadBlocks": [
@@ -71,6 +72,7 @@
           "variants": [
             {
               "label": "Штанга",
+              "technique": "incline_bench_barbell",
               "loadBlocks": [
                 {
                   "weight": 40,
@@ -83,6 +85,7 @@
             },
             {
               "label": "Гантели",
+              "technique": "incline_bench_db",
               "loadBlocks": [
                 {
                   "weight": 16,
@@ -98,6 +101,7 @@
         {
           "name": "Разводка в тренажёре («бабочка»)",
           "restSeconds": 90,
+          "technique": "pec_deck",
           "variants": [
             {
               "loadBlocks": [
@@ -116,6 +120,7 @@
           "name": "Сгибание рук с гантелями сидя со спинкой",
           "restSeconds": 90,
           "note": "Спиной в спинку, без раскачки корпусом.",
+          "technique": "db_curl_seated",
           "variants": [
             {
               "loadBlocks": [
@@ -144,6 +149,7 @@
           "name": "Вертикальная тяга верхнего блока",
           "restSeconds": 150,
           "note": "Широкий хват, полное растяжение вверху, корпус не раскачивать.",
+          "technique": "lat_pulldown",
           "variants": [
             {
               "loadBlocks": [
@@ -162,6 +168,7 @@
           "name": "Горизонтальная тяга в тренажёре с упором грудью",
           "restSeconds": 150,
           "note": "Только с упором грудью; без упора не делать.",
+          "technique": "seated_row_machine",
           "variants": [
             {
               "loadBlocks": [
@@ -180,6 +187,7 @@
           "name": "Тяга верхнего блока узким параллельным хватом",
           "restSeconds": 90,
           "note": "Тянуть к низу груди, локти вдоль корпуса.",
+          "technique": "close_grip_pulldown",
           "variants": [
             {
               "loadBlocks": [
@@ -197,6 +205,7 @@
         {
           "name": "Разгибание рук на верхнем блоке",
           "restSeconds": 90,
+          "technique": "triceps_pushdown",
           "variants": [
             {
               "loadBlocks": [
@@ -215,6 +224,7 @@
           "name": "Французский жим EZ-грифа лёжа",
           "restSeconds": 90,
           "note": "Локти смотрят вверх, не разводить.",
+          "technique": "ez_skullcrusher",
           "variants": [
             {
               "loadBlocks": [
@@ -243,6 +253,7 @@
           "name": "Жим платформы ногами",
           "restSeconds": 180,
           "note": "Опускать только до момента, пока таз не начнёт отрываться от спинки. Поясница прижата всё время.",
+          "technique": "leg_press",
           "variants": [
             {
               "loadBlocks": [
@@ -260,6 +271,7 @@
         {
           "name": "Сгибание ног сидя",
           "restSeconds": 120,
+          "technique": "leg_curl",
           "variants": [
             {
               "loadBlocks": [
@@ -277,6 +289,7 @@
         {
           "name": "Разгибание ног в тренажёре",
           "restSeconds": 90,
+          "technique": "leg_extension",
           "variants": [
             {
               "loadBlocks": [
@@ -298,6 +311,7 @@
           "variants": [
             {
               "label": "Гантели",
+              "technique": "db_shoulder_press_seated",
               "loadBlocks": [
                 {
                   "weight": 14,
@@ -310,6 +324,7 @@
             },
             {
               "label": "Тренажёр",
+              "technique": "machine_shoulder_press",
               "loadBlocks": [
                 {
                   "weight": 30,
@@ -328,6 +343,7 @@
           "variants": [
             {
               "label": "Тренажёр",
+              "technique": "lateral_raise_machine",
               "loadBlocks": [
                 {
                   "weight": 15,
@@ -340,6 +356,7 @@
             },
             {
               "label": "Гантели",
+              "technique": "lateral_raise_db",
               "loadBlocks": [
                 {
                   "weight": 8,
@@ -355,6 +372,7 @@
         {
           "name": "Задняя дельта: обратная разводка в тренажёре",
           "restSeconds": 90,
+          "technique": "rear_delt_machine",
           "variants": [
             {
               "loadBlocks": [

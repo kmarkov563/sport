@@ -53,6 +53,7 @@
           "name": "Жим штанги лёжа",
           "restSeconds": 210,
           "note": "Делать первым.",
+          "technique": "bench_heavy",
           "variants": [
             {
               "loadBlocks": [
@@ -72,6 +73,7 @@
           "name": "Горизонтальная тяга в тренажёре",
           "restSeconds": 150,
           "note": "Чисто, полная амплитуда, без читинга.",
+          "technique": "seated_row_machine",
           "variants": [
             {
               "loadBlocks": [
@@ -89,6 +91,7 @@
         {
           "name": "Жим на наклонной со свободной штангой",
           "restSeconds": 180,
+          "technique": "incline_bench_barbell",
           "variants": [
             {
               "loadBlocks": [
@@ -107,6 +110,7 @@
           "name": "Вертикальная тяга верхнего блока",
           "restSeconds": 150,
           "note": "Полное растяжение вверху. 65 кг — реальные: бирка «65» на тренажёре на деле 60 кг, брать следующую отметку.",
+          "technique": "lat_pulldown",
           "variants": [
             {
               "loadBlocks": [
@@ -128,6 +132,7 @@
           "variants": [
             {
               "label": "Тренажёр",
+              "technique": "lateral_raise_machine",
               "loadBlocks": [
                 {
                   "weight": 20,
@@ -148,6 +153,7 @@
             },
             {
               "label": "Гантели",
+              "technique": "lateral_raise_db",
               "loadBlocks": [
                 {
                   "weight": 12.5,
@@ -172,6 +178,7 @@
           "name": "Разгибание рук на верхнем блоке",
           "restSeconds": 90,
           "note": "Подконтрольно, акцент на трицепс, локти прижаты.",
+          "technique": "triceps_pushdown",
           "variants": [
             {
               "loadBlocks": [
@@ -198,6 +205,7 @@
           "name": "Сгибание рук со штангой",
           "restSeconds": 90,
           "note": "Без заброса корпусом. Читингом можно только добить 1–2 повтора в конце последнего подхода — в отчёте: сколько чисто + сколько с читингом.",
+          "technique": "barbell_curl",
           "variants": [
             {
               "loadBlocks": [
@@ -234,6 +242,7 @@
           "name": "Сгибание ног в тренажёре",
           "restSeconds": 120,
           "note": "Первым: разогревает заднюю поверхность перед румынской — в отказ не идти.",
+          "technique": "leg_curl",
           "variants": [
             {
               "loadBlocks": [
@@ -252,6 +261,7 @@
           "name": "Румынская тяга со свободной штангой",
           "restSeconds": 180,
           "note": "Контролируемое опускание, спина нейтральна.",
+          "technique": "rdl_barbell",
           "variants": [
             {
               "loadBlocks": [
@@ -270,6 +280,7 @@
           "name": "Глубокий присед со штангой",
           "restSeconds": 180,
           "note": "Полная глубина, пятки на подставке.",
+          "technique": "squat_barbell",
           "variants": [
             {
               "loadBlocks": [
@@ -288,6 +299,7 @@
           "name": "Разгибание ног в тренажёре",
           "restSeconds": 90,
           "note": "Нагрузка в плитках.",
+          "technique": "leg_extension",
           "variants": [
             {
               "loadBlocks": [
@@ -314,6 +326,7 @@
           "name": "Задняя дельта: обратная разводка в тренажёре",
           "restSeconds": 90,
           "note": "Вести локтями, без инерции корпусом.",
+          "technique": "rear_delt_machine",
           "variants": [
             {
               "loadBlocks": [
@@ -350,6 +363,7 @@
           "name": "Жим штанги лёжа",
           "restSeconds": 180,
           "note": "Делать первым. По желанию первый повтор каждого подхода — с паузой 1 с на груди.",
+          "technique": "bench_volume",
           "variants": [
             {
               "loadBlocks": [
@@ -367,6 +381,7 @@
         {
           "name": "Жим на наклонной со свободной штангой",
           "restSeconds": 180,
+          "technique": "incline_bench_barbell",
           "variants": [
             {
               "loadBlocks": [
@@ -385,6 +400,7 @@
           "name": "Горизонтальная тяга в тренажёре",
           "restSeconds": 150,
           "note": "Чисто, полная амплитуда, без читинга.",
+          "technique": "seated_row_machine",
           "variants": [
             {
               "loadBlocks": [
@@ -403,6 +419,7 @@
           "name": "Вертикальная тяга верхнего блока",
           "restSeconds": 150,
           "note": "Полное растяжение вверху. 65 кг — реальные: бирка «65» на тренажёре на деле 60 кг, брать следующую отметку.",
+          "technique": "lat_pulldown",
           "variants": [
             {
               "loadBlocks": [
@@ -421,6 +438,7 @@
           "name": "Икры в Смите стоя",
           "restSeconds": 90,
           "note": "Полная амплитуда, пауза в нижней точке.",
+          "technique": "calf_raise_smith",
           "variants": [
             {
               "loadBlocks": [
@@ -450,6 +468,7 @@
           "variants": [
             {
               "label": "Тренажёр",
+              "technique": "lateral_raise_machine",
               "loadBlocks": [
                 {
                   "weight": 20,
@@ -470,6 +489,7 @@
             },
             {
               "label": "Гантели",
+              "technique": "lateral_raise_db",
               "loadBlocks": [
                 {
                   "weight": 12.5,
@@ -494,6 +514,7 @@
           "name": "Сгибание рук со штангой",
           "restSeconds": 90,
           "note": "Без заброса корпусом. Читингом можно только добить 1–2 повтора в конце последнего подхода — в отчёте: сколько чисто + сколько с читингом.",
+          "technique": "barbell_curl",
           "variants": [
             {
               "loadBlocks": [

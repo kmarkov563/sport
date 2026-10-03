@@ -184,6 +184,7 @@
         {
           "name": "Гиперэкстензия (90°)",
           "restSeconds": 60,
+          "technique": "hyperextension_glute",
           "note": "Активация, не до отказа.",
           "variants": [
             { "loadBlocks": [ { "reps": 15, "sets": 2 } ] }
@@ -192,6 +193,7 @@
         {
           "name": "Ягодичный мост со штангой",
           "restSeconds": 150,
+          "technique": "hip_thrust_barbell",
           "note": "Блины только добавлять.",
           "variants": [
             {
@@ -207,6 +209,7 @@
         {
           "name": "Выпады назад",
           "restSeconds": 120,
+          "technique": "reverse_lunge",
           "note": "Повторы на каждую ногу.",
           "variants": [
             { "loadBlocks": [ { "weight": 7.5, "unit": "kg_per_hand", "reps": 10, "sets": 2, "rir": 4 } ] }
@@ -215,6 +218,7 @@
         {
           "name": "Жим гантелей лёжа",
           "restSeconds": 120,
+          "technique": "db_bench_press",
           "note": "На этой неделе гантели, штанга — на следующей.",
           "variants": [
             { "loadBlocks": [ { "weight": 7.5, "unit": "kg_per_hand", "reps": 9, "sets": 2, "rir": 4 } ] }
@@ -223,6 +227,7 @@
         {
           "name": "Отведение бедра в кроссовере",
           "restSeconds": 90,
+          "technique": "cable_hip_abduction",
           "note": "Повторы на каждую ногу.",
           "variants": [
             { "loadBlocks": [ { "weight": 5, "unit": "kg", "reps": 10, "sets": 2, "rir": 4 } ] }
@@ -231,6 +236,7 @@
         {
           "name": "Сгибание ног в тренажёре",
           "restSeconds": 120,
+          "technique": "leg_curl",
           "variants": [
             { "loadBlocks": [ { "weight": 35, "unit": "kg", "reps": 12, "sets": 2, "rir": 4 } ] }
           ]

@@ -3,7 +3,7 @@
   "planId": "0012",
   "athlete": "man",
   "createdAt": "2026-09-27T12:00:00+04:00",
-  "updatedAt": "2026-10-02T12:00:00+04:00",
+  "updatedAt": "2026-10-03T12:00:00+04:00",
   "schedule": {
     "kind": "fixed_weekdays",
     "weekdays": [
@@ -16,17 +16,19 @@
     "estimatedSessionMinutes": "45–55"
   },
   "microcycleStats": {
-    "tonnageKg": 14940,
-    "avgIntensityPct": 74,
-    "hardSets": 0,
-    "hardSetsByMuscle": {},
+    "tonnageKg": 14740,
+    "avgIntensityPct": 73,
+    "hardSets": 2,
+    "hardSetsByMuscle": {
+      "Икры": 2
+    },
     "tonnageByMuscleKg": {
       "Спина": 3800,
       "Грудь": 2630,
       "Квадрицепс": 2210,
       "Бицепс бедра": 2100,
       "Плечи": 1680,
-      "Икры": 1280,
+      "Икры": 1080,
       "Бицепс": 960,
       "Трицепс": 280
     }
@@ -284,6 +286,7 @@
     {
       "sessionId": "M-0012-S03",
       "globalNumber": 39,
+      "performedAt": "2026-10-03",
       "recommendedIntervalAfterPreviousHours": 48,
       "estimatedDurationMinutes": 55,
       "focus": "Разгрузка · верх груди и спина",
@@ -369,15 +372,22 @@
             {
               "loadBlocks": [
                 {
-                  "weight": 80,
+                  "weight": 40,
                   "unit": "kg",
-                  "reps": 8,
-                  "sets": 2,
-                  "rir": 4
+                  "reps": 12,
+                  "sets": 1
+                },
+                {
+                  "weight": 50,
+                  "unit": "kg",
+                  "reps": 12,
+                  "sets": 1,
+                  "rir": 1
                 }
               ]
             }
-          ]
+          ],
+          "postNotes": "По плану 80 кг × 8 × 2, запас 4 — сделал 40 кг × 12 и 50 кг × 12, подконтрольно, в полную амплитуду, икры жгло. На 50 кг запас 1 без читинга (с читингом ещё 5–10 повторов); запас на 40 кг не назван."
         },
         {
           "name": "Махи в стороны (тренажёр или гантели)",
@@ -408,7 +418,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "postNotes": "Выбран тренажёр."
         },
         {
           "name": "Сгибание рук со штангой",
@@ -428,7 +439,8 @@
             }
           ]
         }
-      ]
+      ],
+      "postNotes": "Тренировка заняла 30 минут (по плану 55)."
     }
   ]
 }

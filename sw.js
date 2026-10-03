@@ -15,6 +15,7 @@ const PRECACHE = [
   "coach-women.html",
   "coach-sanya.html",
   "skill.html",
+  "technique.json",
   "home/home-man.html",
   "home/home-woman.html",
   "home/home-man-plan.json",

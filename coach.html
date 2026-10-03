@@ -89,6 +89,9 @@
     .ex-index{display:inline-grid;place-items:center;min-width:20px;height:20px;margin-right:8px;border-radius:6px;background:var(--surface2);color:var(--muted);font-size:12px;font-weight:800}
     .note{margin-top:7px;font-size:12.5px;color:var(--muted);line-height:1.5}
     .note .star{color:var(--accent);font-weight:900;margin-right:3px}
+    .technique{margin-top:7px;font-size:12.5px;color:var(--muted);line-height:1.5}
+    .technique>summary{display:inline;padding:0;font-weight:700;color:var(--accent)}
+    .technique ul{margin:5px 0 0;padding-left:18px}
     .sets{display:flex;flex-direction:column;gap:6px}
     .set{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
     .variant+.variant{margin-top:11px;padding-top:11px;border-top:1px dashed var(--line)}
@@ -195,7 +198,7 @@
       const planTitles = { man: "Мужской план", women: "Женский план", sanya: "План Сани" };
       const requestedAthlete = new URLSearchParams(window.location.search).get("athlete");
       const athlete = Object.hasOwn(planTitles, requestedAthlete) ? requestedAthlete : "man";
-      const state = { athlete, index: null, plans: [], current: 0, mode: "single", currentSession: 0 };
+      const state = { athlete, index: null, plans: [], technique: {}, current: 0, mode: "single", currentSession: 0 };
 
       const offlineBanner = document.getElementById("offline-banner");
       let servedFromCache = false;
@@ -299,6 +302,13 @@
         return `<div class="set${warmup ? " warmup" : ""}"><span class="load">${escapeHtml(load)}</span>${tag}${rir}${star}</div>`;
       }
 
+      function renderTechnique(key) {
+        const lines = state.technique[key];
+        if (!lines) return "";
+        const items = lines.map(line => `<li>${escapeHtml(line)}</li>`).join("");
+        return `<details class="technique"><summary>Техника</summary><ul>${items}</ul></details>`;
+      }
+
       function renderVariant(variant) {
         const blocks = variant.loadBlocks || [];
         const label = variant.label ? `<div class="variant-label">${escapeHtml(variant.label)}</div>` : "";
@@ -306,7 +316,7 @@
         const blockNotes = blocks.filter(block => block.note)
           .map(block => `<div class="note"><span class="star">*</span>${escapeHtml(block.note)}</div>`).join("");
         const variantNote = variant.note ? `<div class="note">${escapeHtml(variant.note)}</div>` : "";
-        return `<div class="variant">${label}<div class="sets">${sets}</div>${variantNote}${blockNotes}</div>`;
+        return `<div class="variant">${label}<div class="sets">${sets}</div>${variantNote}${blockNotes}${renderTechnique(variant.technique)}</div>`;
       }
 
       function renderExercise(exercise, index, completed) {
@@ -319,6 +329,7 @@
             <div>
               <div class="ex-name"><span class="ex-index">${index + 1}</span>${escapeHtml(exercise.name)}</div>
               ${exerciseNote}
+              ${renderTechnique(exercise.technique)}
             </div>
             <div>
               ${variants}
@@ -486,6 +497,10 @@
           if (!indexResponse.ok) throw new Error(`index.json: HTTP ${indexResponse.status}`);
           if (indexResponse.headers.get("X-Offline")) servedFromCache = true;
           state.index = await indexResponse.json();
+          const techniqueResponse = await fetch("technique.json", { cache: "no-store" });
+          if (!techniqueResponse.ok) throw new Error(`technique.json: HTTP ${techniqueResponse.status}`);
+          if (techniqueResponse.headers.get("X-Offline")) servedFromCache = true;
+          state.technique = await techniqueResponse.json();
           const records = state.index.plans;
           state.plans = await Promise.all(records.map(async record => {
             const response = await fetch(`log/${state.athlete}/${record.file}`, { cache: "no-store" });
