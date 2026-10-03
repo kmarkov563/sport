@@ -3,14 +3,14 @@
   "planId": "0012",
   "athlete": "women",
   "createdAt": "2026-09-27T12:00:00+04:00",
-  "updatedAt": "2026-10-02T12:00:00+04:00",
+  "updatedAt": "2026-10-04T12:00:00+04:00",
   "schedule": { "kind": "fixed_weekdays", "weekdays": ["tue", "thu", "sat"], "sessionsPlanned": 3, "sessionsPerWeek": 3, "estimatedSessionMinutes": "40–72" },
   "microcycleStats": {
-    "tonnageKg": 8705,
-    "avgIntensityPct": 72,
-    "hardSets": 19,
-    "hardSetsByMuscle": { "Задняя цепь": 6, "Ягодицы": 3, "Квадрицепс": 2, "Бицепс бедра": 2, "Спина": 2, "Плечи": 2, "Бицепс": 2 },
-    "tonnageByMuscleKg": { "Ягодицы": 4350, "Бицепс бедра": 2200, "Спина": 800, "Квадрицепс": 405, "Плечи": 340, "Грудь": 270, "Бицепс": 160, "Задняя цепь": 90, "Трицепс": 90 }
+    "tonnageKg": 5885,
+    "avgIntensityPct": 71,
+    "hardSets": 17,
+    "hardSetsByMuscle": { "Задняя цепь": 4, "Ягодицы": 3, "Квадрицепс": 2, "Бицепс бедра": 2, "Спина": 2, "Плечи": 2, "Бицепс": 2 },
+    "tonnageByMuscleKg": { "Ягодицы": 2670, "Бицепс бедра": 1360, "Спина": 800, "Квадрицепс": 405, "Плечи": 340, "Бицепс": 160, "Трицепс": 90, "Задняя цепь": 60 }
   },
   "sessions": [
     {
@@ -179,6 +179,7 @@
       "recommendedIntervalAfterPreviousHours": 48,
       "estimatedDurationMinutes": 40,
       "focus": "Разгрузка · ягодичный мост и односторонняя работа",
+      "postNotes": "Тренировка пропущена.",
       "note": "Разгрузочная неделя. Веса рабочие, повторов и подходов меньше — каждый подход заканчивается далеко от отказа, запас 4. Подходы и вес не добавлять: правило самокоррекции на этой неделе не действует, даже если идёт легко.",
       "workout": [
         {
@@ -186,60 +187,41 @@
           "restSeconds": 60,
           "technique": "hyperextension_glute",
           "note": "Активация, не до отказа.",
-          "variants": [
-            { "loadBlocks": [ { "reps": 15, "sets": 2 } ] }
-          ]
+          "variants": []
         },
         {
           "name": "Ягодичный мост со штангой",
           "restSeconds": 150,
           "technique": "hip_thrust_barbell",
           "note": "Блины только добавлять.",
-          "variants": [
-            {
-              "loadBlocks": [
-                { "weight": 20, "unit": "kg", "reps": 12, "sets": 1, "type": "warmup" },
-                { "weight": 40, "unit": "kg", "reps": 8, "sets": 1, "type": "warmup" },
-                { "weight": 60, "unit": "kg", "reps": 5, "sets": 1, "type": "warmup" },
-                { "weight": 80, "unit": "kg", "reps": 8, "sets": 2, "rir": 4 }
-              ]
-            }
-          ]
+          "variants": []
         },
         {
           "name": "Выпады назад",
           "restSeconds": 120,
           "technique": "reverse_lunge",
           "note": "Повторы на каждую ногу.",
-          "variants": [
-            { "loadBlocks": [ { "weight": 7.5, "unit": "kg_per_hand", "reps": 10, "sets": 2, "rir": 4 } ] }
-          ]
+          "variants": []
         },
         {
           "name": "Жим гантелей лёжа",
           "restSeconds": 120,
           "technique": "db_bench_press",
           "note": "На этой неделе гантели, штанга — на следующей.",
-          "variants": [
-            { "loadBlocks": [ { "weight": 7.5, "unit": "kg_per_hand", "reps": 9, "sets": 2, "rir": 4 } ] }
-          ]
+          "variants": []
         },
         {
           "name": "Отведение бедра в кроссовере",
           "restSeconds": 90,
           "technique": "cable_hip_abduction",
           "note": "Повторы на каждую ногу.",
-          "variants": [
-            { "loadBlocks": [ { "weight": 5, "unit": "kg", "reps": 10, "sets": 2, "rir": 4 } ] }
-          ]
+          "variants": []
         },
         {
           "name": "Сгибание ног в тренажёре",
           "restSeconds": 120,
           "technique": "leg_curl",
-          "variants": [
-            { "loadBlocks": [ { "weight": 35, "unit": "kg", "reps": 12, "sets": 2, "rir": 4 } ] }
-          ]
+          "variants": []
         }
       ]
     }
