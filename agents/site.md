@@ -2,7 +2,7 @@
 
 ## Хостинг — GitHub Pages через Actions
 
-Живой адрес: **https://kmarkov563.github.io/sport/**. Публикует workflow `.github/workflows/pages.yml` (Settings → Pages → Source: GitHub Actions) — весь репозиторий как есть, без сборки. Запускается на пуш в `main` **только при изменении кода**: `*.html`, `*.js`, `assets/**`, `technique.json`, `muscle-map.json`, `home/**`, сам workflow; плюс вручную (Actions → Run workflow). Пуш только в `log/**` сборку не запускает.
+Живой адрес: **https://kmarkov563.github.io/sport/**. Публикует workflow `.github/workflows/pages.yml` (Settings → Pages → Source: GitHub Actions) — весь репозиторий как есть, без сборки. Запускается на пуш в `main` **только при изменении кода**: `*.html`, `*.js`, `assets/**`, `home/**`, сам workflow; плюс вручную (Actions → Run workflow). Данные (`log/**`, `technique.json`, `muscle-map.json`) страницы читают из raw — их пуш сборку не запускает.
 
 Браузер держит HTML с Pages до 10 минут (`cache-control: max-age=600`): сразу после деплоя может открыться старая страница — помогает жёсткое обновление.
 

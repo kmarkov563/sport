@@ -8,8 +8,6 @@ on:
       - "**.html"
       - "**.js"
       - "assets/**"
-      - "technique.json"
-      - "muscle-map.json"
       - "home/**"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
