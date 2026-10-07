@@ -195,6 +195,7 @@
   </main>
 
   <script type="module">
+    import { fetchData } from "./assets/data.js";
     import { microcycleStats } from "./assets/stats.js";
 
     (() => {
@@ -499,21 +500,21 @@
           $("report-link").href = `report.html?athlete=${state.athlete}`;
           $("skill-link").hidden = state.athlete !== "man";
           servedFromCache = false;
-          const indexResponse = await fetch(`log/${state.athlete}/index.json`, { cache: "no-store" });
+          const indexResponse = await fetchData(`log/${state.athlete}/index.json`);
           if (!indexResponse.ok) throw new Error(`index.json: HTTP ${indexResponse.status}`);
           if (indexResponse.headers.get("X-Offline")) servedFromCache = true;
           state.index = await indexResponse.json();
-          const techniqueResponse = await fetch("technique.json", { cache: "no-store" });
+          const techniqueResponse = await fetchData("technique.json");
           if (!techniqueResponse.ok) throw new Error(`technique.json: HTTP ${techniqueResponse.status}`);
           if (techniqueResponse.headers.get("X-Offline")) servedFromCache = true;
           state.technique = await techniqueResponse.json();
-          const muscleMapResponse = await fetch("muscle-map.json", { cache: "no-store" });
+          const muscleMapResponse = await fetchData("muscle-map.json");
           if (!muscleMapResponse.ok) throw new Error(`muscle-map.json: HTTP ${muscleMapResponse.status}`);
           if (muscleMapResponse.headers.get("X-Offline")) servedFromCache = true;
           state.muscleOf = (await muscleMapResponse.json())[state.athlete];
           const records = state.index.plans;
           state.plans = await Promise.all(records.map(async record => {
-            const response = await fetch(`log/${state.athlete}/${record.file}`, { cache: "no-store" });
+            const response = await fetchData(`log/${state.athlete}/${record.file}`);
             if (!response.ok) throw new Error(`${record.file}: HTTP ${response.status}`);
             if (response.headers.get("X-Offline")) servedFromCache = true;
             return response.json();

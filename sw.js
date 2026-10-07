@@ -3,7 +3,8 @@
    При онлайне всегда грузится свежая версия и обновляется кэш.
    Ответ из кэша помечается заголовком X-Offline:1, чтобы страница показала баннер.  */
 
-const CACHE = "sport-bb-v2";
+const CACHE = "sport-bb-v4";
+const REPO_RAW = "https://raw.githubusercontent.com/kmarkov563/sport/";
 
 // Файлы, которые кладём в кэш сразу при установке,
 // чтобы сайт открывался даже при первом офлайн-запуске после визита.
@@ -22,16 +23,7 @@ const PRECACHE = [
   "home/home-man-plan.json",
   "assets/might_guy.webp",
   "assets/stats.js",
-  "log/man/index.json",
-  "log/man/0001.json",
-  "log/man/0002.json",
-  "log/women/index.json",
-  "log/women/0001.json",
-  "log/women/0002.json",
-  "log/sanya/index.json",
-  "log/sanya/0001.json",
-  "log/man-skill/index.json",
-  "log/man-skill/week-01.json",
+  "assets/data.js",
 ];
 
 self.addEventListener("install", event => {
@@ -51,6 +43,14 @@ self.addEventListener("activate", event => {
   })());
 });
 
+// Данные из репозитория приходят по адресу с SHA коммита. В кэш кладём под адресом без SHA:
+// хранится одна, последняя загруженная версия файла, и оффлайн она находится при любом SHA.
+function cacheKey(request) {
+  if (!request.url.startsWith(REPO_RAW)) return request;
+  const [, ...path] = request.url.slice(REPO_RAW.length).split("/");
+  return REPO_RAW + path.join("/");
+}
+
 // Копия ответа с пометкой, что он взят из офлайн-кэша.
 async function markOffline(response) {
   const body = await response.blob();
@@ -67,20 +67,21 @@ self.addEventListener("fetch", event => {
   const request = event.request;
   const url = new URL(request.url);
 
-  // Обрабатываем только собственные GET-запросы.
-  if (request.method !== "GET" || url.origin !== self.location.origin) return;
+  // Обрабатываем только GET-запросы к сайту и к данным репозитория.
+  const isSite = url.origin === self.location.origin;
+  if (request.method !== "GET" || !(isSite || request.url.startsWith(REPO_RAW))) return;
 
   event.respondWith((async () => {
     const cache = await caches.open(CACHE);
     try {
       // Есть сеть — берём свежее и обновляем кэш.
       const fresh = await fetch(request);
-      if (fresh && fresh.ok) cache.put(request, fresh.clone());
+      if (fresh && fresh.ok) cache.put(cacheKey(request), fresh.clone());
       return fresh;
     } catch (error) {
       // Нет сети — отдаём сохранённую копию с пометкой офлайн.
-      const cached = await cache.match(request, { ignoreSearch: false })
-        || await cache.match(request, { ignoreSearch: true });
+      const cached = await cache.match(cacheKey(request), { ignoreSearch: false })
+        || await cache.match(cacheKey(request), { ignoreSearch: true });
       if (cached) return markOffline(cached);
       // Для навигации — фолбэк на сохранённую страницу приложения.
       if (request.mode === "navigate") {

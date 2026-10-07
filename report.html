@@ -71,6 +71,7 @@
   </main>
 
   <script type="module">
+    import { fetchData } from "./assets/data.js";
     import { progressReport } from "./assets/stats.js";
 
     (() => {
@@ -258,7 +259,7 @@
       }
 
       async function fetchJson(path) {
-        const response = await fetch(path, { cache: "no-store" });
+        const response = await fetchData(path);
         if (!response.ok) throw new Error(`${path}: HTTP ${response.status}`);
         return response.json();
       }

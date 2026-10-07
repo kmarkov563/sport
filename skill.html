@@ -84,7 +84,9 @@
     <section id="content" class="loading">Загружаю план…</section>
   </main>
 
-  <script>
+  <script type="module">
+    import { fetchData } from "./assets/data.js";
+
     (() => {
       "use strict";
 
@@ -172,7 +174,7 @@
       });
 
       async function loadJson(path) {
-        const response = await fetch(path, { cache: "no-store" });
+        const response = await fetchData(path);
         if (!response.ok) throw new Error(`${path}: HTTP ${response.status}`);
         if (response.headers.get("X-Offline")) servedFromCache = true;
         return response.json();
