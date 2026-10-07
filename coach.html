@@ -129,6 +129,7 @@
     .mc-sets small{font-weight:600;color:var(--muted)}
     .mc-ton{color:var(--muted);white-space:nowrap;text-align:right}
     .mc-incomplete{font-size:12px;color:var(--muted);margin:-6px 0 12px}
+    .mc-unmapped{font-size:12px;color:var(--rir);margin:12px 0 0}
     .delta{font-size:12px;font-weight:800;white-space:nowrap}
     .mc-value .delta{font-size:14px;margin-left:8px}
     .delta.up{color:var(--accent-ink)}
@@ -193,14 +194,16 @@
     <section id="content" class="loading">Загружаю план…</section>
   </main>
 
-  <script>
+  <script type="module">
+    import { microcycleStats } from "./assets/stats.js";
+
     (() => {
       "use strict";
 
       const planTitles = { man: "Мужской план", women: "Женский план", sanya: "План Сани" };
       const requestedAthlete = new URLSearchParams(window.location.search).get("athlete");
       const athlete = Object.hasOwn(planTitles, requestedAthlete) ? requestedAthlete : "man";
-      const state = { athlete, index: null, plans: [], technique: {}, current: 0, mode: "single", currentSession: 0 };
+      const state = { athlete, index: null, plans: [], technique: {}, muscleOf: {}, current: 0, mode: "single", currentSession: 0 };
 
       const offlineBanner = document.getElementById("offline-banner");
       let servedFromCache = false;
@@ -400,7 +403,6 @@
       }
 
       function renderMicrocycleSummary(stats, prev, cycle) {
-        if (!stats) return "";
         const fmt = value => value.toLocaleString("ru-RU");
         const incomplete = cycle && !cycle.complete
           ? `<p class="mc-incomplete">Цикл ещё идёт: ${cycle.performed} из ${cycle.planned} выполнено, остальное — по плану.</p>`
@@ -445,6 +447,7 @@
               <h3>По мышцам за микроцикл</h3>
               <p class="sub">Полоса — подходы относительно нормы мышцы; у подходов и тоннажа — дельта к прошлому микроциклу.</p>
               <div class="mc-table">${muscleRows}</div>
+              ${stats.unmapped.length ? `<p class="mc-unmapped">Не сопоставлено с мышцей: ${stats.unmapped.map(escapeHtml).join(", ")}</p>` : ""}
             </div>
           </section>`;
       }
@@ -483,10 +486,11 @@
         $("content").className = "";
         const performed = plan.sessions.filter(session => session.performedAt).length;
         const planned = plan.schedule?.sessionsPlanned ?? plan.sessions.length;
-        const prevStats = state.plans[state.current - 1]?.microcycleStats;
+        const previousPlan = state.plans[state.current - 1];
+        const prevStats = previousPlan && microcycleStats(previousPlan, state.muscleOf);
         $("content").innerHTML = `
           <div class="sessions">${visibleSessions.map(renderSession).join("")}</div>
-          ${renderMicrocycleSummary(plan.microcycleStats, prevStats, { performed, planned, complete: performed >= planned })}`;
+          ${renderMicrocycleSummary(microcycleStats(plan, state.muscleOf), prevStats, { performed, planned, complete: performed >= planned })}`;
       }
 
       async function load() {
@@ -503,6 +507,10 @@
           if (!techniqueResponse.ok) throw new Error(`technique.json: HTTP ${techniqueResponse.status}`);
           if (techniqueResponse.headers.get("X-Offline")) servedFromCache = true;
           state.technique = await techniqueResponse.json();
+          const muscleMapResponse = await fetch("muscle-map.json", { cache: "no-store" });
+          if (!muscleMapResponse.ok) throw new Error(`muscle-map.json: HTTP ${muscleMapResponse.status}`);
+          if (muscleMapResponse.headers.get("X-Offline")) servedFromCache = true;
+          state.muscleOf = (await muscleMapResponse.json())[state.athlete];
           const records = state.index.plans;
           state.plans = await Promise.all(records.map(async record => {
             const response = await fetch(`log/${state.athlete}/${record.file}`, { cache: "no-store" });

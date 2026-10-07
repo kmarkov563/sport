@@ -5,13 +5,6 @@
   "createdAt": "2026-09-20T12:00:00+04:00",
   "updatedAt": "2026-09-27T12:00:00+04:00",
   "schedule": { "kind": "fixed_weekdays", "weekdays": ["tue", "thu", "sat"], "sessionsPlanned": 3, "sessionsPerWeek": 3, "estimatedSessionMinutes": "60–72" },
-  "microcycleStats": {
-    "tonnageKg": 14891,
-    "avgIntensityPct": 73,
-    "hardSets": 61,
-    "hardSetsByMuscle": { "Ягодицы": 20, "Бицепс бедра": 9, "Спина": 7, "Грудь": 6, "Задняя цепь": 6, "Плечи": 5, "Бицепс": 3, "Квадрицепс": 3, "Трицепс": 2 },
-    "tonnageByMuscleKg": { "Ягодицы": 6971, "Бицепс бедра": 3480, "Спина": 1740, "Грудь": 715, "Квадрицепс": 675, "Плечи": 660, "Бицепс": 360, "Трицепс": 200, "Задняя цепь": 90 }
-  },
   "sessions": [
     {
       "sessionId": "W-0011-S01",

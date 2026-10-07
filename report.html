@@ -54,6 +54,7 @@
     .legend-stat{font-size:12px;font-weight:720;margin-left:auto;white-space:nowrap}
     .legend-stat .paren{color:var(--muted);font-weight:640}
 
+    .unmapped{font-size:12px;color:var(--muted);margin:14px 0 0}
     .error{padding:18px;border-radius:14px;background:var(--surface2);color:var(--muted)}
     .loading{padding:48px;text-align:center;color:var(--muted)}
     :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
@@ -69,7 +70,9 @@
     <section id="content" class="loading">Загружаю прогресс…</section>
   </main>
 
-  <script>
+  <script type="module">
+    import { progressReport } from "./assets/stats.js";
+
     (() => {
       "use strict";
 
@@ -254,14 +257,23 @@
         }));
       }
 
+      async function fetchJson(path) {
+        const response = await fetch(path, { cache: "no-store" });
+        if (!response.ok) throw new Error(`${path}: HTTP ${response.status}`);
+        return response.json();
+      }
+
       async function load() {
         document.title = `AI-тренер · Прогресс · ${athleteLabels[athlete]}`;
         $("title").textContent = `Прогресс · ${athleteLabels[athlete]}`;
         $("back-link").href = `coach.html?athlete=${athlete}`;
         try {
-          const response = await fetch(`log/${athlete}/progress_report.json`, { cache: "no-store" });
-          if (!response.ok) throw new Error(`progress_report.json: HTTP ${response.status}`);
-          const report = await response.json();
+          const index = await fetchJson(`log/${athlete}/index.json`);
+          const [series, ...plans] = await Promise.all([
+            fetchJson(`log/${athlete}/series.json`),
+            ...index.plans.map(record => fetchJson(`log/${athlete}/${record.file}`)),
+          ]);
+          const report = progressReport(plans, series);
           state.exercises = exercisesWithDates(report);
           state.visible = loadVisible(state.exercises);
           $("content").className = "";
@@ -274,7 +286,8 @@
               <div id="chart"></div>
               <div class="tooltip" id="tooltip" hidden></div>
             </div>
-            <ul class="legend" id="legend"></ul>`;
+            <ul class="legend" id="legend"></ul>
+            ${report.unmapped.length ? `<p class="unmapped">Не сопоставлено с серией: ${report.unmapped.map(escapeHtml).join(", ")}</p>` : ""}`;
           $("legend").addEventListener("click", event => {
             const button = event.target.closest("[data-id]");
             if (button) toggle(button.dataset.id);

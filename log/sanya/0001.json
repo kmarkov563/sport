@@ -15,29 +15,6 @@
     "sessionsPerWeek": 3,
     "estimatedSessionMinutes": "50–60"
   },
-  "microcycleStats": {
-    "tonnageKg": 15790,
-    "avgIntensityPct": 69,
-    "hardSets": 40,
-    "hardSetsByMuscle": {
-      "Грудь": 8,
-      "Спина": 8,
-      "Плечи": 8,
-      "Трицепс": 5,
-      "Квадрицепс": 5,
-      "Бицепс": 3,
-      "Бицепс бедра": 3
-    },
-    "tonnageByMuscleKg": {
-      "Спина": 3810,
-      "Грудь": 3120,
-      "Квадрицепс": 3120,
-      "Плечи": 2580,
-      "Бицепс бедра": 1440,
-      "Трицепс": 1120,
-      "Бицепс": 600
-    }
-  },
   "sessions": [
     {
       "sessionId": "S-0001-S01",

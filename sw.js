@@ -3,7 +3,7 @@
    При онлайне всегда грузится свежая версия и обновляется кэш.
    Ответ из кэша помечается заголовком X-Offline:1, чтобы страница показала баннер.  */
 
-const CACHE = "sport-bb-v1";
+const CACHE = "sport-bb-v2";
 
 // Файлы, которые кладём в кэш сразу при установке,
 // чтобы сайт открывался даже при первом офлайн-запуске после визита.
@@ -16,10 +16,12 @@ const PRECACHE = [
   "coach-sanya.html",
   "skill.html",
   "technique.json",
+  "muscle-map.json",
   "home/home-man.html",
   "home/home-woman.html",
   "home/home-man-plan.json",
   "assets/might_guy.webp",
+  "assets/stats.js",
   "log/man/index.json",
   "log/man/0001.json",
   "log/man/0002.json",

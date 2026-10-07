@@ -5,13 +5,6 @@
   "createdAt": "2026-07-25T23:30:00+04:00",
   "updatedAt": "2026-08-08T14:48:57+04:00",
   "schedule": { "kind": "every_other_day", "sessionsPlanned": 4, "defaultIntervalHours": 48, "estimatedSessionMinutes": "78–95" },
-  "microcycleStats": {
-    "tonnageKg": 48336,
-    "avgIntensityPct": 73,
-    "hardSets": 89,
-    "hardSetsByMuscle": { "Грудь": 17, "Бицепс бедра": 13, "Квадрицепс": 13, "Плечи": 12, "Спина": 12, "Икры": 6, "Трицепс": 6, "Бицепс": 5, "Пресс": 5 },
-    "tonnageByMuscleKg": { "Квадрицепс": 11115, "Бицепс бедра": 9305, "Спина": 7380, "Грудь": 6545, "Икры": 6000, "Плечи": 4640, "Трицепс": 1660, "Бицепс": 1616, "Пресс": 75 }
-  },
   "sessions": [
     {
       "sessionId": "M-0004-S01",
@@ -85,6 +78,7 @@
             },
             {
               "label": "Тренажёр",
+              "performed": true,
               "loadBlocks": [
                 { "weight": 20, "unit": "kg", "reps": 12, "sets": 1, "rir": 1 },
                 { "weight": 20, "unit": "kg", "reps": 11, "sets": 1, "rir": 0 },
@@ -141,6 +135,7 @@
           "variants": [
             {
               "label": "Штанга",
+              "performed": true,
               "loadBlocks": [
                 { "weight": 75, "unit": "kg", "reps": 6, "sets": 4, "rir": 2 }
               ]
@@ -161,6 +156,7 @@
           "variants": [
             {
               "label": "Смит",
+              "performed": true,
               "loadBlocks": [
                 { "weight": 80, "unit": "kg", "reps": 8, "sets": 3, "rir": 2 }
               ]
@@ -208,6 +204,7 @@
           "variants": [
             {
               "label": "Смит стоя",
+              "performed": true,
               "loadBlocks": [
                 { "weight": 60, "unit": "kg", "reps": 20, "sets": 1, "rir": 0 },
                 { "weight": 60, "unit": "kg", "reps": 16, "sets": 1, "rir": 0 },
@@ -323,6 +320,7 @@
             },
             {
               "label": "Гантели",
+              "performed": true,
               "loadBlocks": [
                 { "weight": 10, "unit": "kg_per_hand", "reps": 12, "sets": 1, "rir": 1 },
                 { "weight": 10, "unit": "kg_per_hand", "reps": 10, "sets": 2, "rir": 1 }
@@ -441,6 +439,7 @@
           "variants": [
             {
               "label": "Тренажёр",
+              "performed": true,
               "loadBlocks": [
                 { "weight": 20, "unit": "kg", "reps": 15, "sets": 1, "rir": 0 },
                 { "weight": 20, "unit": "kg", "reps": 10, "sets": 1, "rir": 0 },
