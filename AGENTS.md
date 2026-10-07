@@ -6,4 +6,4 @@
 
 Если другие файлы описывают устаревший или противоречащий workflow, требования `AI_COACH.md` имеют приоритет.
 
-Git: в начале любой сессии, где трогаешь журнал/планы, проверь висящую ветку `workout` и влей её в `main`; по ходу тренировки работай в `workout`. Процесс — [`agents/git-workflow.md`](agents/git-workflow.md).
+Git: всё в `main`; перед правкой журнала — `git pull --rebase origin main`, после каждой правки данных — коммит и пуш. Процесс — [`agents/git-workflow.md`](agents/git-workflow.md).
