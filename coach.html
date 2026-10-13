@@ -118,11 +118,15 @@
     .mc-name svg{flex:none}
     .mc-note{font-size:12px;color:var(--muted);line-height:1.5;margin-top:8px}
     .mc-note b{color:var(--ink);font-weight:760}
-    .mc-chart{overflow-x:auto;background:var(--surface2);border:1px solid var(--line);border-radius:12px}
-    .mc-chart>svg{display:block;margin:auto}
-    .mc-chart .current-band{fill:var(--accent-soft)}
-    .mc-chart .axis-label{fill:var(--muted);font-size:11px}
-    .mc-chart .axis-label.current{fill:var(--ink);font-weight:850}
+    .timeline{overflow-x:auto;background:var(--surface2);border:1px solid var(--line);border-radius:12px}
+    .timeline-body{margin:auto}
+    .timeline-row{display:flex}
+    .timeline-name{position:sticky;left:0;z-index:1;flex:none;display:flex;flex-direction:column;justify-content:center;background:var(--surface2);padding:0 10px;font-size:12px;font-weight:720;line-height:1.25}
+    .timeline-name small{font-size:10.5px;font-weight:600;color:var(--muted)}
+    .load-chart{display:block;flex:none}
+    .load-chart .current-band{fill:var(--accent-soft)}
+    .load-chart .axis-label{fill:var(--muted);font-size:11px}
+    .load-chart .axis-label.current{fill:var(--ink);font-weight:850}
     .mc-chart-note{font-size:12px;color:var(--muted);margin:8px 0 0}
     .metric-tonnage{--metric:var(--accent)}
     .metric-intensity{--metric:var(--rir)}
@@ -136,15 +140,17 @@
     .metric-dot.unfinished{fill:var(--surface2)}
     .mc-muscles{margin-top:18px}
     .mc-muscles h3{font-size:13px;font-weight:820;margin:0 0 4px}
+    .mc-muscles-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:4px}
     .mc-muscles .sub{font-size:12px;color:var(--muted);margin:0 0 12px}
-    .mc-table{display:grid;grid-template-columns:auto 1fr auto auto;gap:9px 12px;align-items:center;font-size:13px}
-    .mc-row{display:contents}
-    .mc-m{font-weight:720}
-    .mc-bar{height:8px;border-radius:999px;background:var(--surface2)}
-    .mc-bar span{display:block;height:100%;border-radius:999px}
-    .mc-sets{font-weight:800;white-space:nowrap}
-    .mc-sets small{font-weight:600;color:var(--muted)}
-    .mc-ton{color:var(--muted);white-space:nowrap;text-align:right}
+    .heat-cell{flex:none;display:grid;place-items:center;height:32px;border:2px solid var(--surface2);border-radius:8px;font-size:11.5px;font-weight:760;color:var(--ink)}
+    .heat-cell.current{border-color:var(--ink);font-weight:900}
+    .heat-cell.column-label{color:var(--muted);font-size:11px}
+    .heat-cell.column-label.current{border-color:transparent;color:var(--ink)}
+    .heat-cell.ok{background:var(--accent-soft);color:var(--accent-ink)}
+    .heat-cell.low{background:var(--rir-soft);color:var(--rir)}
+    .heat-cell.high{background:#fbe3e3;color:#d64545}
+    .heat-cell.none{color:var(--muted)}
+    @media(prefers-color-scheme:dark){.heat-cell.high{background:#3d1f1f;color:#f28b82}}
     .mc-incomplete{font-size:12px;color:var(--muted);margin:-6px 0 12px}
     .mc-unmapped{font-size:12px;color:var(--rir);margin:12px 0 0}
     .delta{font-size:12px;font-weight:800;white-space:nowrap}
@@ -163,12 +169,6 @@
       .exercise{grid-template-columns:1fr;gap:10px}
       summary{grid-template-columns:auto 1fr}
       .badge{grid-column:2;justify-self:start}
-      .mc-table{display:flex;flex-direction:column;gap:14px;align-items:stretch}
-      .mc-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"name name" "bar bar" "sets ton";column-gap:12px;row-gap:6px;align-items:center}
-      .mc-row .mc-m{grid-area:name}
-      .mc-row .mc-bar{grid-area:bar}
-      .mc-row .mc-sets{grid-area:sets;white-space:normal}
-      .mc-row .mc-ton{grid-area:ton;white-space:normal;text-align:right}
     }
   </style>
 </head>
@@ -221,7 +221,7 @@
       const planTitles = { man: "Мужской план", women: "Женский план", sanya: "План Сани" };
       const requestedAthlete = new URLSearchParams(window.location.search).get("athlete");
       const athlete = Object.hasOwn(planTitles, requestedAthlete) ? requestedAthlete : "man";
-      const state = { athlete, index: null, plans: [], technique: {}, muscleOf: {}, current: 0, mode: "single", currentSession: 0 };
+      const state = { athlete, index: null, plans: [], technique: {}, muscleOf: {}, current: 0, mode: "single", currentSession: 0, muscleMetric: "sets" };
 
       const offlineBanner = document.getElementById("offline-banner");
       let servedFromCache = false;
@@ -391,8 +391,8 @@
         "Икры": [8, 16], "Пресс": [6, 20], "Задняя цепь": [4, 12],
       };
       function muscleNorm(muscle) { return MUSCLE_NORMS[muscle] || [10, 20]; }
-      function muscleTone(sets, [min, max]) {
-        return sets >= min && sets <= max ? "var(--accent)" : "var(--rir)";
+      function normTone(sets, [min, max]) {
+        return !sets ? "none" : sets < min ? "low" : sets > max ? "high" : "ok";
       }
 
       function deltaInfo(current, previous) {
@@ -407,17 +407,6 @@
         const { change, tone, sign, pct } = deltaInfo(current, previous);
         const percent = pct === null ? "" : ` (${sign}${pct}%)`;
         return `<span class="delta ${tone}">${change > 0 ? "▲" : "▼"} ${sign}${format(Math.abs(change))}${percent}</span>`;
-      }
-      function setDelta(current, previous) {
-        if (previous === null || previous === undefined) return "";
-        const { change, tone, sign } = deltaInfo(current, previous);
-        return `<span class="delta ${tone}">${change > 0 ? "▲" : "▼"}${change === 0 ? "0" : `${sign}${Math.abs(change)}`}</span>`;
-      }
-      function tonnageDelta(current, previous, format) {
-        if (previous === null || previous === undefined) return "";
-        const { change, tone, sign, pct } = deltaInfo(current, previous);
-        const percent = pct === null ? "" : `, ${sign}${pct}%`;
-        return `<span class="delta ${tone}"> (${sign}${format(Math.abs(change))} кг${percent})</span>`;
       }
 
       const fmt = value => value.toLocaleString("ru-RU");
@@ -438,7 +427,7 @@
           note: "Подходы близко к отказу (RIR ≤ 3). <b>Норма:</b> у каждой мышцы своя — большие тянут больше, мелкие меньше (см. таблицу). Микроцикл ≈ неделя.",
         },
       ];
-      const CHART_STEP = 60, CHART_HEIGHT = 200;
+      const CHART_STEP = 60, CHART_HEIGHT = 200, TIMELINE_NAME_WIDTH = 104;
 
       function cycleProgress(plan) {
         const performed = plan.sessions.filter(session => session.performedAt).length;
@@ -471,17 +460,68 @@
           const level = `<line class="metric-level ${metric.className}" x1="0" y1="${points[selected].y}" x2="${width}" y2="${points[selected].y}"/>`;
           return `${level}<path class="metric-line ${metric.className}" d="${path}"/>${dots}`;
         }).join("");
+        const chart = `<svg class="load-chart" width="${width}" height="${CHART_HEIGHT}" role="img" aria-label="Нагрузка по микроциклам">${band}${labels}${lines}</svg>`;
         return `
-          <div class="mc-chart">
-            <svg width="${width}" height="${CHART_HEIGHT}" role="img" aria-label="Нагрузка по микроциклам">${band}${labels}${lines}</svg>
-          </div>
+          ${renderTimeline(cycles, `<div class="timeline-row">${timelineName("")}${chart}</div>`)}
           <p class="mc-chart-note">Каждая линия в своём масштабе — видна динамика, а не соотношение величин. Полая точка — цикл ещё не выполнен целиком, досчитан по плану.</p>`;
       }
 
-      function scrollChartToSelected(selected) {
-        const chart = document.querySelector(".mc-chart");
-        chart.scrollLeft = (selected + 0.5) * CHART_STEP - chart.clientWidth / 2;
+      function renderTimeline(cycles, rows) {
+        const width = TIMELINE_NAME_WIDTH + cycles.length * CHART_STEP;
+        return `<div class="timeline"><div class="timeline-body" style="width:${width}px">${rows}</div></div>`;
       }
+      function timelineName(content) {
+        return `<div class="timeline-name" style="width:${TIMELINE_NAME_WIDTH}px">${content}</div>`;
+      }
+
+      function renderMuscleHeatmap(cycles, selected, muscleMetric) {
+        const current = cycles[selected].stats.hardSetsByMuscle;
+        const muscles = [...new Set(cycles.flatMap(cycle => Object.keys(cycle.stats.hardSetsByMuscle)))]
+          .sort((a, b) => (current[b] || 0) - (current[a] || 0));
+        const cell = (index, classes, content, style = "") => {
+          const currentClass = index === selected ? " current" : "";
+          return `<div class="heat-cell ${classes}${currentClass}" style="width:${CHART_STEP}px;${style}">${content}</div>`;
+        };
+        const header = `<div class="timeline-row">${timelineName("")}${cycles.map((cycle, index) =>
+          cell(index, "column-label", escapeHtml(cycle.label))).join("")}</div>`;
+        const rows = muscles.map(muscle => {
+          const norm = muscleNorm(muscle);
+          const name = timelineName(`${escapeHtml(muscle)}<small>норма ${norm[0]}–${norm[1]}</small>`);
+          if (muscleMetric === "sets") {
+            return `<div class="timeline-row">${name}${cycles.map((cycle, index) => {
+              const sets = cycle.stats.hardSetsByMuscle[muscle] || 0;
+              return cell(index, normTone(sets, norm), sets || "·");
+            }).join("")}</div>`;
+          }
+          const tonnages = cycles.map(cycle => cycle.stats.tonnageByMuscleKg[muscle] || 0);
+          const maxTonnage = Math.max(...tonnages);
+          return `<div class="timeline-row">${name}${tonnages.map((tonnage, index) => {
+            const shade = `background:color-mix(in srgb,var(--accent) ${Math.round(tonnage / maxTonnage * 45)}%,transparent)`;
+            return tonnage ? cell(index, "", fmt(tonnage), shade) : cell(index, "none", "·");
+          }).join("")}</div>`;
+        }).join("");
+        return renderTimeline(cycles, header + rows);
+      }
+
+      function scrollTimelinesTo(selected) {
+        document.querySelectorAll(".timeline").forEach(timeline => {
+          const visibleWidth = timeline.clientWidth - TIMELINE_NAME_WIDTH;
+          timeline.scrollLeft = (selected + 0.5) * CHART_STEP - visibleWidth / 2;
+        });
+      }
+      function linkTimelineScroll() {
+        const timelines = [...document.querySelectorAll(".timeline")];
+        timelines.forEach(source => source.addEventListener("scroll", () => {
+          timelines.forEach(target => {
+            if (Math.abs(target.scrollLeft - source.scrollLeft) > 1) target.scrollLeft = source.scrollLeft;
+          });
+        }));
+      }
+
+      const MUSCLE_METRIC_NOTES = {
+        sets: "Рабочие подходы мышцы по микроциклам: зелёный — в норме, оранжевый — ниже, красный — выше.",
+        tonnage: "Тоннаж мышцы по микроциклам, кг: чем насыщеннее клетка, тем ближе к максимуму этой мышцы.",
+      };
 
       function renderMicrocycleSummary(cycles, selected) {
         const cycle = cycles[selected];
@@ -496,21 +536,6 @@
             <div class="mc-name">${metricMark(metric)}${metric.name}</div>
             <div class="mc-note">${metric.note}</div>
           </div>`).join("");
-        const muscleRows = Object.keys(stats.hardSetsByMuscle).map(muscle => {
-          const sets = stats.hardSetsByMuscle[muscle];
-          const tonnage = stats.tonnageByMuscleKg[muscle] || 0;
-          const [min, max] = muscleNorm(muscle);
-          const width = Math.min(sets / max, 1) * 100;
-          const prevSets = prev ? (prev.hardSetsByMuscle[muscle] || 0) : null;
-          const prevTon = prev ? (prev.tonnageByMuscleKg[muscle] || 0) : null;
-          return `
-            <div class="mc-row">
-              <div class="mc-m">${escapeHtml(muscle)}</div>
-              <div class="mc-bar"><span style="width:${width.toFixed(0)}%;background:${muscleTone(sets, [min, max])}"></span></div>
-              <div class="mc-sets">${sets} ${setDelta(sets, prevSets)} <small>/ норма ${min}–${max}</small></div>
-              <div class="mc-ton">${fmt(tonnage)} кг${tonnageDelta(tonnage, prevTon, fmt)}</div>
-            </div>`;
-        }).join("");
         return `
           <section class="mc-summary">
             <h2>Итоги микроцикла</h2>
@@ -518,9 +543,15 @@
             ${renderLoadChart(cycles, selected)}
             <div class="mc-legend">${legend}</div>
             <div class="mc-muscles">
-              <h3>По мышцам за микроцикл</h3>
-              <p class="sub">Полоса — подходы относительно нормы мышцы; у подходов и тоннажа — дельта к прошлому микроциклу.</p>
-              <div class="mc-table">${muscleRows}</div>
+              <div class="mc-muscles-head">
+                <h3>По мышцам</h3>
+                <div class="mode-switch" aria-label="Показатель по мышцам">
+                  <button class="tool-button${state.muscleMetric === "sets" ? " active" : ""}" type="button" data-muscle-metric="sets">Подходы</button>
+                  <button class="tool-button${state.muscleMetric === "tonnage" ? " active" : ""}" type="button" data-muscle-metric="tonnage">Тоннаж</button>
+                </div>
+              </div>
+              <p class="sub">${MUSCLE_METRIC_NOTES[state.muscleMetric]}</p>
+              ${renderMuscleHeatmap(cycles, selected, state.muscleMetric)}
               ${stats.unmapped.length ? `<p class="mc-unmapped">Не сопоставлено с мышцей: ${stats.unmapped.map(escapeHtml).join(", ")}</p>` : ""}
             </div>
           </section>`;
@@ -566,7 +597,8 @@
         $("content").innerHTML = `
           <div class="sessions">${visibleSessions.map(renderSession).join("")}</div>
           ${renderMicrocycleSummary(cycles, state.current)}`;
-        scrollChartToSelected(state.current);
+        linkTimelineScroll();
+        scrollTimelinesTo(state.current);
       }
 
       async function load() {
@@ -647,6 +679,14 @@
         syncUrl();
         scrollToCurrentSession();
         closeMenu();
+      });
+      $("content").addEventListener("click", event => {
+        const button = event.target.closest("[data-muscle-metric]");
+        if (!button) return;
+        const scrollLeft = document.querySelector(".timeline").scrollLeft;
+        state.muscleMetric = button.dataset.muscleMetric;
+        renderPlan();
+        document.querySelector(".timeline").scrollLeft = scrollLeft;
       });
       window.addEventListener("popstate", () => {
         applyUrlState();
