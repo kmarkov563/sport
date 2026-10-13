@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "athlete": "man",
   "activePlanId": "0014",
-  "currentSessionId": "M-0014-S01",
+  "currentSessionId": "M-0014-S02",
   "nextGlobalNumber": 46,
-  "updatedAt": "2026-10-10T13:40:00+04:00",
+  "updatedAt": "2026-10-13T16:45:00+04:00",
   "plans": [
     {
       "planId": "0001",
