@@ -111,12 +111,29 @@
 
     .mc-summary{margin-top:22px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
     .mc-summary h2{font-size:16px;font-weight:850;margin:0 0 14px}
-    .mc-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+    .mc-legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-top:14px}
     .mc-metric{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:13px}
     .mc-value{font-size:24px;font-weight:850;letter-spacing:-.02em}
-    .mc-name{font-size:13px;font-weight:760;margin-top:2px}
+    .mc-name{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:760;margin-top:2px}
+    .mc-name svg{flex:none}
     .mc-note{font-size:12px;color:var(--muted);line-height:1.5;margin-top:8px}
     .mc-note b{color:var(--ink);font-weight:760}
+    .mc-chart{overflow-x:auto;background:var(--surface2);border:1px solid var(--line);border-radius:12px}
+    .mc-chart>svg{display:block;margin:auto}
+    .mc-chart .current-band{fill:var(--accent-soft)}
+    .mc-chart .axis-label{fill:var(--muted);font-size:11px}
+    .mc-chart .axis-label.current{fill:var(--ink);font-weight:850}
+    .mc-chart-note{font-size:12px;color:var(--muted);margin:8px 0 0}
+    .metric-tonnage{--metric:var(--accent)}
+    .metric-intensity{--metric:var(--rir)}
+    .metric-sets{--metric:#2f6fd0}
+    @media(prefers-color-scheme:dark){.metric-sets{--metric:#7aa7f0}}
+    .metric-line{fill:none;stroke:var(--metric);stroke-width:2.2;stroke-linecap:round}
+    .metric-line.metric-intensity{stroke-dasharray:7 5}
+    .metric-line.metric-sets{stroke-dasharray:1 5}
+    .metric-level{stroke:var(--metric);stroke-width:1;opacity:.5}
+    .metric-dot{fill:var(--metric);stroke:var(--metric);stroke-width:1.6}
+    .metric-dot.unfinished{fill:var(--surface2)}
     .mc-muscles{margin-top:18px}
     .mc-muscles h3{font-size:13px;font-weight:820;margin:0 0 4px}
     .mc-muscles .sub{font-size:12px;color:var(--muted);margin:0 0 12px}
@@ -403,11 +420,82 @@
         return `<span class="delta ${tone}"> (${sign}${format(Math.abs(change))} кг${percent})</span>`;
       }
 
-      function renderMicrocycleSummary(stats, prev, cycle) {
-        const fmt = value => value.toLocaleString("ru-RU");
-        const incomplete = cycle && !cycle.complete
+      const fmt = value => value.toLocaleString("ru-RU");
+      const LOAD_METRICS = [
+        {
+          key: "tonnageKg", name: "Тоннаж", className: "metric-tonnage",
+          value: stats => `${fmt(stats.tonnageKg)} кг`, deltaFormat: fmt,
+          note: "Сколько всего поднято за микроцикл: вес × повторы по рабочим подходам (гантели ×2, блок/сторона ×2, плитка ×5 кг, вес тела = 1 кг). <b>Норма:</b> должен расти от цикла к циклу — это и есть прогрессирующая нагрузка.",
+        },
+        {
+          key: "avgIntensityPct", name: "Средняя интенсивность", className: "metric-intensity",
+          value: stats => `${stats.avgIntensityPct} %`,
+          note: "Средний рабочий вес относительно расчётного 1ПМ. <b>Норма:</b> 65–75 % — гипертрофия, 80 %+ — сила.",
+        },
+        {
+          key: "hardSets", name: "Рабочих подходов", className: "metric-sets",
+          value: stats => String(stats.hardSets),
+          note: "Подходы близко к отказу (RIR ≤ 3). <b>Норма:</b> у каждой мышцы своя — большие тянут больше, мелкие меньше (см. таблицу). Микроцикл ≈ неделя.",
+        },
+      ];
+      const CHART_STEP = 60, CHART_HEIGHT = 200;
+
+      function cycleProgress(plan) {
+        const performed = plan.sessions.filter(session => session.performedAt).length;
+        const planned = plan.schedule?.sessionsPlanned ?? plan.sessions.length;
+        return { performed, planned, complete: performed >= planned };
+      }
+
+      function metricMark(metric) {
+        return `<svg width="26" height="8" aria-hidden="true"><path class="metric-line ${metric.className}" d="M2,4 L24,4"/></svg>`;
+      }
+
+      function renderLoadChart(cycles, selected) {
+        const pad = { top: 14, bottom: 30 };
+        const innerHeight = CHART_HEIGHT - pad.top - pad.bottom;
+        const xOf = index => CHART_STEP / 2 + index * CHART_STEP;
+        const band = `<rect class="current-band" x="${selected * CHART_STEP}" y="0" width="${CHART_STEP}" height="${CHART_HEIGHT}" rx="8"/>`;
+        const labels = cycles.map((cycle, index) =>
+          `<text class="axis-label${index === selected ? " current" : ""}" x="${xOf(index)}" y="${CHART_HEIGHT - 10}" text-anchor="middle">${escapeHtml(cycle.label)}</text>`).join("");
+        const width = cycles.length * CHART_STEP;
+        const lines = LOAD_METRICS.map(metric => {
+          const values = cycles.map(cycle => cycle.stats[metric.key]);
+          const min = Math.min(...values), max = Math.max(...values);
+          const yOf = value => pad.top + (max === min ? 0.5 : 1 - (value - min) / (max - min)) * innerHeight;
+          const points = values.map((value, index) => ({ x: xOf(index), y: yOf(value).toFixed(1) }));
+          const path = points.map((point, index) => `${index ? "L" : "M"}${point.x},${point.y}`).join(" ");
+          const dots = points.map((point, index) => {
+            const unfinished = cycles[index].complete ? "" : " unfinished";
+            return `<circle class="metric-dot ${metric.className}${unfinished}" cx="${point.x}" cy="${point.y}" r="${index === selected ? 6 : 3.5}"/>`;
+          }).join("");
+          const level = `<line class="metric-level ${metric.className}" x1="0" y1="${points[selected].y}" x2="${width}" y2="${points[selected].y}"/>`;
+          return `${level}<path class="metric-line ${metric.className}" d="${path}"/>${dots}`;
+        }).join("");
+        return `
+          <div class="mc-chart">
+            <svg width="${width}" height="${CHART_HEIGHT}" role="img" aria-label="Нагрузка по микроциклам">${band}${labels}${lines}</svg>
+          </div>
+          <p class="mc-chart-note">Каждая линия в своём масштабе — видна динамика, а не соотношение величин. Полая точка — цикл ещё не выполнен целиком, досчитан по плану.</p>`;
+      }
+
+      function scrollChartToSelected(selected) {
+        const chart = document.querySelector(".mc-chart");
+        chart.scrollLeft = (selected + 0.5) * CHART_STEP - chart.clientWidth / 2;
+      }
+
+      function renderMicrocycleSummary(cycles, selected) {
+        const cycle = cycles[selected];
+        const stats = cycle.stats;
+        const prev = cycles[selected - 1]?.stats;
+        const incomplete = !cycle.complete
           ? `<p class="mc-incomplete">Цикл ещё идёт: ${cycle.performed} из ${cycle.planned} выполнено, остальное — по плану.</p>`
           : "";
+        const legend = LOAD_METRICS.map(metric => `
+          <div class="mc-metric ${metric.className}">
+            <div class="mc-value">${metric.value(stats)} ${metricDelta(stats[metric.key], prev?.[metric.key], metric.deltaFormat)}</div>
+            <div class="mc-name">${metricMark(metric)}${metric.name}</div>
+            <div class="mc-note">${metric.note}</div>
+          </div>`).join("");
         const muscleRows = Object.keys(stats.hardSetsByMuscle).map(muscle => {
           const sets = stats.hardSetsByMuscle[muscle];
           const tonnage = stats.tonnageByMuscleKg[muscle] || 0;
@@ -427,23 +515,8 @@
           <section class="mc-summary">
             <h2>Итоги микроцикла</h2>
             ${incomplete}
-            <div class="mc-metrics">
-              <div class="mc-metric">
-                <div class="mc-value">${fmt(stats.tonnageKg)} кг ${metricDelta(stats.tonnageKg, prev?.tonnageKg, fmt)}</div>
-                <div class="mc-name">Тоннаж</div>
-                <div class="mc-note">Сколько всего поднято за микроцикл: вес × повторы по рабочим подходам (гантели ×2, блок/сторона ×2, плитка ×5 кг, вес тела = 1 кг). <b>Норма:</b> должен расти от цикла к циклу — это и есть прогрессирующая нагрузка.</div>
-              </div>
-              <div class="mc-metric">
-                <div class="mc-value">${stats.avgIntensityPct} % ${metricDelta(stats.avgIntensityPct, prev?.avgIntensityPct)}</div>
-                <div class="mc-name">Средняя интенсивность</div>
-                <div class="mc-note">Средний рабочий вес относительно расчётного 1ПМ. <b>Норма:</b> 65–75 % — гипертрофия, 80 %+ — сила.</div>
-              </div>
-              <div class="mc-metric">
-                <div class="mc-value">${stats.hardSets} ${metricDelta(stats.hardSets, prev?.hardSets)}</div>
-                <div class="mc-name">Рабочих подходов</div>
-                <div class="mc-note">Подходы близко к отказу (RIR ≤ 3). <b>Норма:</b> у каждой мышцы своя — большие тянут больше, мелкие меньше (см. таблицу). Микроцикл ≈ неделя.</div>
-              </div>
-            </div>
+            ${renderLoadChart(cycles, selected)}
+            <div class="mc-legend">${legend}</div>
             <div class="mc-muscles">
               <h3>По мышцам за микроцикл</h3>
               <p class="sub">Полоса — подходы относительно нормы мышцы; у подходов и тоннажа — дельта к прошлому микроциклу.</p>
@@ -485,13 +558,15 @@
           ? [plan.sessions[state.currentSession]]
           : plan.sessions;
         $("content").className = "";
-        const performed = plan.sessions.filter(session => session.performedAt).length;
-        const planned = plan.schedule?.sessionsPlanned ?? plan.sessions.length;
-        const previousPlan = state.plans[state.current - 1];
-        const prevStats = previousPlan && microcycleStats(previousPlan, state.muscleOf);
+        const cycles = state.plans.map(item => ({
+          label: String(Number(item.planId)),
+          stats: microcycleStats(item, state.muscleOf),
+          ...cycleProgress(item),
+        }));
         $("content").innerHTML = `
           <div class="sessions">${visibleSessions.map(renderSession).join("")}</div>
-          ${renderMicrocycleSummary(microcycleStats(plan, state.muscleOf), prevStats, { performed, planned, complete: performed >= planned })}`;
+          ${renderMicrocycleSummary(cycles, state.current)}`;
+        scrollChartToSelected(state.current);
       }
 
       async function load() {
