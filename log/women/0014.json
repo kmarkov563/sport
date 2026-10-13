@@ -93,13 +93,35 @@
                 {
                   "weight": 100,
                   "unit": "kg",
+                  "reps": 5,
+                  "sets": 1,
+                  "rir": 2
+                },
+                {
+                  "weight": 100,
+                  "unit": "kg",
+                  "reps": 6,
+                  "sets": 1,
+                  "rir": 2
+                },
+                {
+                  "weight": 100,
+                  "unit": "kg",
+                  "reps": 6,
+                  "sets": 1,
+                  "rir": 2
+                },
+                {
+                  "weight": 100,
+                  "unit": "kg",
                   "reps": 7,
-                  "sets": 4,
+                  "sets": 1,
                   "rir": 2
                 }
               ]
             }
-          ]
+          ],
+          "postNotes": "По плану 100 × 7 × 4 — сделала 5, 6, 6, 7. Вес и запас не указаны — записано по плану."
         },
         {
           "name": "Глубокий присед, пятки на подставке",
@@ -194,21 +216,11 @@
           "restSeconds": 90,
           "technique": "barbell_curl",
           "note": "Заброса корпусом нет.",
-          "variants": [
-            {
-              "loadBlocks": [
-                {
-                  "weight": 10,
-                  "unit": "kg",
-                  "reps": 12,
-                  "sets": 3,
-                  "rir": 1
-                }
-              ]
-            }
-          ]
+          "variants": [],
+          "postNotes": "Пропуск."
         }
-      ]
+      ],
+      "performedAt": "2026-10-13"
     },
     {
       "sessionId": "W-0014-S02",
