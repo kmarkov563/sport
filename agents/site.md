@@ -16,7 +16,7 @@
 
 ## Статистика
 
-Сводку микроцикла (`coach.html`) и прогресс (`report.html`) считает `assets/stats.js` из файлов планов; AI ведёт только словари — `agents/stats-dictionaries.md`.
+Сводку микроцикла (`coach.html`) и прогресс (`report.html`) считает `assets/stats.js` из файлов планов; AI ведёт только словари — `agents/stats-dictionaries.md`. Тот же `microcycleStats` импортирует `tools/load-trend.mjs` (тренд нагрузки для планирования) — при смене его сигнатуры или полей поправить и скрипт.
 
 ## Оффлайн — `sw.js`
 
