@@ -221,7 +221,7 @@
       const planTitles = { man: "Мужской план", women: "Женский план", sanya: "План Сани" };
       const requestedAthlete = new URLSearchParams(window.location.search).get("athlete");
       const athlete = Object.hasOwn(planTitles, requestedAthlete) ? requestedAthlete : "man";
-      const state = { athlete, index: null, plans: [], technique: {}, muscleOf: {}, current: 0, mode: "single", currentSession: 0, muscleMetric: "sets" };
+      const state = { athlete, index: null, daily: null, plans: [], technique: {}, muscleOf: {}, current: 0, mode: "single", currentSession: 0, muscleMetric: "sets" };
 
       const offlineBanner = document.getElementById("offline-banner");
       let servedFromCache = false;
@@ -264,6 +264,7 @@
         const plan = state.plans[state.current];
         const sessionId = params.get("session");
         let sessionIndex = plan.sessions.findIndex(session => session.sessionId === sessionId);
+        if (sessionId === DAILY_ID && state.daily) sessionIndex = plan.sessions.length;
         if (sessionIndex < 0 && state.index?.currentSessionId) {
           sessionIndex = plan.sessions.findIndex(session => session.sessionId === state.index.currentSessionId);
         }
@@ -277,7 +278,7 @@
         url.searchParams.set("athlete", state.athlete);
         url.searchParams.set("plan", plan.planId);
         url.searchParams.set("view", state.mode);
-        url.searchParams.set("session", plan.sessions[state.currentSession].sessionId);
+        url.searchParams.set("session", plan.sessions[state.currentSession]?.sessionId ?? DAILY_ID);
         window.history[push ? "pushState" : "replaceState"]({}, "", url);
       }
 
@@ -381,6 +382,27 @@
             <div class="session-body">
               ${note}
               ${(session.workout || []).map((exercise, index) => renderExercise(exercise, index, completed)).join("")}
+            </div>
+          </details>`;
+      }
+
+      const DAILY_ID = "daily";
+      function renderDaily() {
+        const daily = state.daily;
+        if (!daily) return "";
+        const note = daily.note ? `<div class="session-note">${escapeHtml(daily.note)}</div>` : "";
+        return `
+          <details class="session" id="session-${DAILY_ID}" open>
+            <summary>
+              <span class="sequence planned">⌂</span>
+              <span>
+                <span class="session-title">${escapeHtml(daily.title)}</span>
+                <span class="session-meta">Каждый день · ~${daily.estimatedDurationMinutes} мин</span>
+              </span>
+            </summary>
+            <div class="session-body">
+              ${note}
+              ${(daily.workout || []).map((exercise, index) => renderExercise(exercise, index, false)).join("")}
             </div>
           </details>`;
       }
@@ -560,10 +582,13 @@
       function renderPlan() {
         const plan = state.plans[state.current];
         if (!plan) return;
-        if (state.currentSession >= plan.sessions.length) state.currentSession = 0;
+        const dailyIndex = state.daily ? plan.sessions.length : -1;
+        const dailySelected = state.currentSession === dailyIndex;
+        if (state.currentSession >= plan.sessions.length && !dailySelected) state.currentSession = 0;
         $("plan-label").textContent = `План ${plan.planId}`;
         const activeSession = plan.sessions[state.currentSession];
-        $("mini-title").textContent = activeSession ? `${activeSession.focus} · ${activeSession.sessionId}` : "";
+        $("mini-title").textContent = activeSession ? `${activeSession.focus} · ${activeSession.sessionId}`
+          : dailySelected ? state.daily.title : "";
         $("previous-plan").disabled = state.current === 0;
         $("next-plan").disabled = state.current === state.plans.length - 1;
         const currentSessionId = state.index?.currentSessionId;
@@ -581,13 +606,18 @@
               aria-label="Тренировка ${session.globalNumber}"
               title="${escapeHtml(session.focus)}">№${session.globalNumber}</button>
           `;
-        }).join("");
+        }).join("") + (state.daily ? `
+            <button class="tool-button${dailySelected ? " selected" : ""}"
+              type="button" data-session-index="${dailyIndex}"
+              aria-label="${escapeHtml(state.daily.title)}"
+              title="${escapeHtml(state.daily.title)}">Дома</button>` : "");
         document.querySelectorAll("[data-mode]").forEach(button => {
           button.classList.toggle("active", button.dataset.mode === state.mode);
         });
         const visibleSessions = state.mode === "single"
-          ? [plan.sessions[state.currentSession]]
+          ? (dailySelected ? [] : [plan.sessions[state.currentSession]])
           : plan.sessions;
+        const dailyHtml = state.mode === "all" || dailySelected ? renderDaily() : "";
         $("content").className = "";
         const cycles = state.plans.map(item => ({
           label: String(Number(item.planId)),
@@ -595,7 +625,7 @@
           ...cycleProgress(item),
         }));
         $("content").innerHTML = `
-          <div class="sessions">${visibleSessions.map(renderSession).join("")}</div>
+          <div class="sessions">${visibleSessions.map(renderSession).join("")}${dailyHtml}</div>
           ${renderMicrocycleSummary(cycles, state.current)}`;
         linkTimelineScroll();
         scrollTimelinesTo(state.current);
@@ -619,6 +649,10 @@
           if (!muscleMapResponse.ok) throw new Error(`muscle-map.json: HTTP ${muscleMapResponse.status}`);
           if (muscleMapResponse.headers.get("X-Offline")) servedFromCache = true;
           state.muscleOf = (await muscleMapResponse.json())[state.athlete];
+          try {
+            const dailyResponse = await fetchData(`log/${state.athlete}/daily.json`);
+            state.daily = dailyResponse.ok ? await dailyResponse.json() : null;
+          } catch { state.daily = null; }
           const records = state.index.plans;
           state.plans = await Promise.all(records.map(async record => {
             const response = await fetchData(`log/${state.athlete}/${record.file}`);
