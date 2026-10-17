@@ -3,7 +3,7 @@
    При онлайне всегда грузится свежая версия и обновляется кэш.
    Ответ из кэша помечается заголовком X-Offline:1, чтобы страница показала баннер.  */
 
-const CACHE = "sport-bb-v4";
+const CACHE = "sport-bb-v5";
 const REPO_RAW = "https://raw.githubusercontent.com/kmarkov563/sport/";
 
 // Файлы, которые кладём в кэш сразу при установке,

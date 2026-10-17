@@ -1,19 +1,25 @@
 // Данные читаются прямо из репозитория по SHA последнего коммита main: новый пуш виден сразу,
 // без пересборки Pages. URL по SHA неизменяем, поэтому кэш raw (~5 мин) не отдаёт старое.
-// Без SHA (API недоступен или лимит 60 запросов/час) — файлы из деплоя Pages, могут быть старыми.
+// Без SHA (API недоступен или лимит 60 запросов/час) — raw с ветки main (кэш raw ~5 мин),
+// и только если raw недоступен — файлы из деплоя Pages (могут быть старыми: данные Pages не пересобирают).
 
 const REPO = "kmarkov563/sport";
 const SHA_FRESH_MS = 30_000;
 const FRESH_SHA_KEY = "data-sha-fresh";
-const LAST_SHA_KEY = "data-sha-last";
 
 let shaRequest = null;
 
 export function fetchData(path) {
   shaRequest ??= latestSha();
-  return shaRequest.then(sha => sha
-    ? fetch(`https://raw.githubusercontent.com/${REPO}/${sha}/${path}`)
-    : fetch(path, { cache: "no-store" }));
+  return shaRequest.then(async sha => {
+    try {
+      const response = await fetch(`https://raw.githubusercontent.com/${REPO}/${sha ?? "main"}/${path}`);
+      if (response.ok) return response;
+    } catch {
+      // raw недоступен — ниже копия с Pages
+    }
+    return fetch(path, { cache: "no-store" });
+  });
 }
 
 async function latestSha() {
@@ -27,10 +33,10 @@ async function latestSha() {
     if (!response.ok) throw new Error(`GitHub API: HTTP ${response.status}`);
     const sha = (await response.text()).trim();
     writeStorage("sessionStorage", FRESH_SHA_KEY, { sha, at: Date.now() });
-    writeStorage("localStorage", LAST_SHA_KEY, sha);
     return sha;
   } catch {
-    return readStorage("localStorage", LAST_SHA_KEY);
+    // Старый SHA из прошлых визитов не берём: он замораживает данные на дни. Без SHA — ветка main.
+    return null;
   }
 }
 
