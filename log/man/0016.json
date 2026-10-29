@@ -3,13 +3,13 @@
   "planId": "0016",
   "athlete": "man",
   "createdAt": "2026-10-25T16:20:00+04:00",
-  "updatedAt": "2026-10-28T18:05:00+04:00",
+  "updatedAt": "2026-10-29T12:50:00+04:00",
   "schedule": {
     "kind": "fixed_weekdays",
     "weekdays": [
-      "tue",
-      "thu",
-      "sat"
+      "wed",
+      "fri",
+      "sun"
     ],
     "sessionsPlanned": 3,
     "sessionsPerWeek": 3,
