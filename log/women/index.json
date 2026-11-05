@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "athlete": "women",
   "activePlanId": "0017",
-  "currentSessionId": "W-0017-S01",
+  "currentSessionId": "W-0017-S02",
   "nextGlobalNumber": 51,
-  "updatedAt": "2026-11-04T15:20:00+04:00",
+  "updatedAt": "2026-11-05T09:00:00+04:00",
   "plans": [
     {
       "planId": "0001",
