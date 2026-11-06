@@ -3,7 +3,7 @@
   "planId": "0017",
   "athlete": "man",
   "createdAt": "2026-11-01T15:40:00+04:00",
-  "updatedAt": "2026-11-06T15:30:00+04:00",
+  "updatedAt": "2026-11-06T15:26:00+04:00",
   "schedule": {
     "kind": "fixed_weekdays",
     "weekdays": [
@@ -405,7 +405,8 @@
           "postNotes": "По плану 7 — сделал 10."
         }
       ],
-      "performedAt": "2026-11-06"
+      "performedAt": "2026-11-06",
+      "postNotes": "Тренировка заняла ~30 мин."
     },
     {
       "sessionId": "M-0017-S03",
