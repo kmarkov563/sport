@@ -3,7 +3,7 @@
   "planId": "0017",
   "athlete": "man",
   "createdAt": "2026-11-01T15:40:00+04:00",
-  "updatedAt": "2026-11-04T15:27:00+04:00",
+  "updatedAt": "2026-11-06T15:30:00+04:00",
   "schedule": {
     "kind": "fixed_weekdays",
     "weekdays": [
@@ -346,12 +346,13 @@
                   "weight": 17,
                   "unit": "kg",
                   "reps": 8,
-                  "sets": 1,
+                  "sets": 0,
                   "rir": 4
                 }
               ]
             }
-          ]
+          ],
+          "postNotes": "Пропуск: тренажёр был занят."
         },
         {
           "name": "Задняя дельта: обратная разводка в тренажёре",
@@ -395,14 +396,16 @@
             {
               "loadBlocks": [
                 {
-                  "reps": 7,
+                  "reps": 10,
                   "sets": 1
                 }
               ]
             }
-          ]
+          ],
+          "postNotes": "По плану 7 — сделал 10."
         }
-      ]
+      ],
+      "performedAt": "2026-11-06"
     },
     {
       "sessionId": "M-0017-S03",
