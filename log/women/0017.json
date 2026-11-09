@@ -3,7 +3,7 @@
   "planId": "0017",
   "athlete": "women",
   "createdAt": "2026-11-02T12:00:00+04:00",
-  "updatedAt": "2026-11-06T15:30:00+04:00",
+  "updatedAt": "2026-11-08T18:00:00+04:00",
   "schedule": {
     "kind": "fixed_weekdays",
     "weekdays": [
@@ -545,7 +545,8 @@
             }
           ]
         }
-      ]
+      ],
+      "performedAt": "2026-11-08"
     }
   ]
 }
