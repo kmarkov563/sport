@@ -3,7 +3,7 @@
   "planId": "0019",
   "athlete": "women",
   "createdAt": "2026-11-16T09:00:00+04:00",
-  "updatedAt": "2026-11-21T09:00:00+04:00",
+  "updatedAt": "2026-11-22T09:00:00+04:00",
   "schedule": {
     "kind": "fixed_weekdays",
     "weekdays": [
@@ -438,7 +438,7 @@
           "name": "Выпады назад",
           "restSeconds": 120,
           "technique": "reverse_lunge",
-          "note": "Повторы на каждую ногу.",
+          "note": "Повторы на каждую ногу. Между ногами без отдыха — отдых после обеих ног.",
           "variants": [
             {
               "loadBlocks": [
@@ -483,7 +483,7 @@
           "name": "Отведение бедра в кроссовере",
           "restSeconds": 90,
           "technique": "cable_hip_abduction",
-          "note": "Повторы на каждую ногу.",
+          "note": "Повторы на каждую ногу. Между ногами без отдыха — отдых после обеих ног.",
           "variants": [
             {
               "loadBlocks": [
